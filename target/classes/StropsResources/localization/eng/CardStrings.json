@@ -1,0 +1,100 @@
+{
+  "Strops:ArcaneTalents": {
+    "NAME": "Gift of Arcane",
+    "DESCRIPTION": "Deal !D! damage. NL strops:Turnthirst ( !M! ):The damage is increased by !Strops:KN1! . NL Exhaust. NL Add a copy of *Gift *of *Frost on top of your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL strops:Turnthirst ( !M! ):The damage is increased by !Strops:KN1! . NL Exhaust. NL Add a copy of *Gift *of *Frost+ on top of your draw pile."
+  },
+  "Strops:FrostTalents": {
+    "NAME": "Gift of Frost",
+    "DESCRIPTION": "Gain !B! Block. NL strops:Turnthirst ( !M! ):The Block is increased by !Strops:KN1! . NL Exhaust. NL Add a copy of *Gift *of *Fire on top of your draw pile.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL strops:Turnthirst ( !M! ):The Block is increased by !Strops:KN1! . NL Exhaust. NL Add a copy of *Gift *of *Fire+ on top of your draw pile."
+  },
+  "Strops:FireTalents": {
+    "NAME": "Gift of Fire",
+    "DESCRIPTION": "At the end of each turn, deal !M! damage, randomly split among all enemies. NL strops:Turnthirst ( !Strops:KN1! ):The value is increased by !Strops:KN2! ."
+  },
+  "Strops:LightningStorm": {
+    "NAME": "Lightning Storm",
+    "DESCRIPTION": "Channel !M! Lightning for each Lightning Channeled last turn.",
+    "UPGRADE_DESCRIPTION": "Channel !M! Lightning for each Lightning Channeled last turn. NL Channel !Strops:KN1! more Lightning.",
+    "EXTENDED_DESCRIPTION": [
+      " NL ( !Strops:KN2! Lightning to Channel in total.)"
+    ]
+  },
+  "Strops:ChooseAttemptedVersion": {
+    "NAME": "Dress Yourself",
+    "DESCRIPTION": "The Merchant will have all its relics slightly discounted."
+  },
+  "Strops:ChooseAchievedVersion": {
+    "NAME": "Dress the Merchant",
+    "DESCRIPTION": "The Merchant will only sell *Rare relics, but they're super cheaper!"
+  },
+  "Strops:DoAddEnvenom": {
+    "NAME": "To Hurt, Being Forceful (Deprecated)",
+    "DESCRIPTION": "Add a copy of *Envenom+ to your deck."
+  },
+  "Strops:DoNothing": {
+    "NAME": "To Ignore, Being Gentle (Deprecated)",
+    "DESCRIPTION": "Do nothing."
+  },
+  "Strops:Zero": {
+    "NAME": "Back to the Origin",
+    "DESCRIPTION": "Changes into *Soul *Cannon."
+  },
+  "Strops:OneTiny": {
+    "NAME": "Go for an Ox One",
+    "DESCRIPTION": "Changes into *Soul *Cannon *Type-II *Tiny."
+  },
+  "Strops:OneHuge": {
+    "NAME": "Rush for an Ox One",
+    "DESCRIPTION": "Changes into *Soul *Cannon *Type-II *Huge."
+  },
+  "Strops:TwoTiny": {
+    "NAME": "Go for a Snake One",
+    "DESCRIPTION": "Changes into *Soul *Cannon *Type-VI *Tiny."
+  },
+  "Strops:TwoHuge": {
+    "NAME": "Rush for a Snake One",
+    "DESCRIPTION": "Changes into *Soul *Cannon *Type-VI *Huge."
+  },
+  "Strops:ThreeTiny": {
+    "NAME": "Go for a Rooster One",
+    "DESCRIPTION": "Changes into *Soul *Cannon *Type-X *Tiny."
+  },
+  "Strops:ThreeHuge": {
+    "NAME": "Rush for a Rooster One",
+    "DESCRIPTION": "Changes into *Soul *Cannon *Type-X *Huge."
+  },
+  "Strops:HealToFull": {
+    "NAME": "The Morning Glow",
+    "DESCRIPTION": "Heal all of your HP at the start of each Act as well as immediately."
+  },
+  "Strops:GetBlizzard": {
+    "NAME": "The Long Night",
+    "DESCRIPTION": "lose !M! Max HP and !Strops:KN1! HP successively, and obtain a *Blizzard potion."
+  },
+  "Strops:EatMango": {
+    "NAME": "Mango",
+    "DESCRIPTION": "Gain !M! Max HP."
+  },
+  "Strops:EatSuperMango": {
+    "NAME": "Super Mango",
+    "DESCRIPTION": "Gain !M! Max HP, but lose !Strops:KN2! Strength at the start of the next !Strops:KN1! combats."
+  },
+  "Strops:PartScrapper": {
+    "NAME": "Part Scrapper",
+    "DESCRIPTION": "Lose !M! Block to gain [E] [E].",
+    "UPGRADE_DESCRIPTION": "Lose !M! Block to gain [E] [E] [E].",
+    "EXTENDED_DESCRIPTION": [
+      "My block fails to reach #r%d !"
+    ]
+  },
+  "Strops:ToEscape": {
+    "NAME": "Far Away",
+    "DESCRIPTION": "Change all the *? rooms in the second Act into *Campfire ones."
+  },
+  "Strops:ToFight": {
+    "NAME": "Just Behind",
+    "DESCRIPTION": "Obtain a *Phantasmal *Shooting *Star potion."
+  }
+}

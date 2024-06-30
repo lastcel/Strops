@@ -1,0 +1,27 @@
+{
+  "Strops:RitualOfRitualPower": {
+    "NAME": "仪式的仪式",
+    "DESCRIPTIONS": [
+      "在你的每个回合结束时，获得 #b%d 层 #y仪式 。（在仪式之后生效）"
+    ]
+  },
+  "Strops:FireTalentsPower": {
+    "NAME": "火焰天赋",
+    "DESCRIPTIONS": [
+      "在你的每个回合结束时，造成 #b%d 点伤害，随机分配到所有敌人身上。"
+    ]
+  },
+  "Strops:FrozenPower": {
+    "NAME": "冻结",
+    "DESCRIPTIONS": [
+      "在受到生命值损失前不作任何行动。"
+    ]
+  },
+  "Strops:CombatwiseDoubleDamagePower": {
+    "NAME": "本场战斗伤害倍增",
+    "DESCRIPTIONS": [
+      "#y攻击 造成的伤害变为 #b%.1f 倍。",
+      "#y攻击 造成的伤害变为 #b%.0f 倍。"
+    ]
+  }
+}

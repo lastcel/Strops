@@ -1,0 +1,27 @@
+{
+  "Strops:RitualOfRitualPower": {
+    "NAME": "Ritual of Ritual",
+    "DESCRIPTIONS": [
+      "Gain #b%d #yRitual at the end of each turn (after #yRitual is triggered)."
+    ]
+  },
+  "Strops:FireTalentsPower": {
+    "NAME": "Fire Talents",
+    "DESCRIPTIONS": [
+      "At the end of each turn, deal #b%d damage, randomly split among all enemies."
+    ]
+  },
+  "Strops:FrozenPower": {
+    "NAME": "Frozen",
+    "DESCRIPTIONS": [
+      "Does nothing until the creature receives HP loss."
+    ]
+  },
+  "Strops:CombatwiseDoubleDamagePower": {
+    "NAME": "Multiplied Damage This Combat",
+    "DESCRIPTIONS": [
+      "#yAttacks deal #b%.1fx damage.",
+      "#yAttacks deal #b%.0fx damage."
+    ]
+  }
+}

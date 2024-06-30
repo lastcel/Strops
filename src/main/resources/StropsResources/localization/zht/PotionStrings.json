@@ -1,0 +1,15 @@
+{
+  "Strops:Blizzard": {
+    "NAME": "暴風雪",
+    "DESCRIPTIONS": [
+      "封印所有敵人的行動直到其失去生命"
+    ]
+  },
+  "Strops:PhantasmalShootingStar": {
+    "NAME": "幻影流星",
+    "DESCRIPTIONS": [
+      "在本場戰鬥中，你造成 #b%.1f 倍 #y攻擊 傷害 NL #r這瓶藥水會在每一幕開始時消失",
+      "在本場戰鬥中，你造成 #b%.0f 倍 #y攻擊 傷害 NL #r這瓶藥水會在每一幕開始時消失"
+    ]
+  }
+}

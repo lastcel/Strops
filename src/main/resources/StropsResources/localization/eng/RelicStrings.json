@@ -1,0 +1,705 @@
+{
+  "Strops:ButchersBlade": {
+    "NAME": "Butcher's Blade",
+    "FLAVOR": "Holding it makes you find the weights of lives up to you to handle.",
+    "DESCRIPTIONS": [
+      "Each turn, if the first card you play is an #yAttack, it goes back to your hand."
+    ]
+  },
+  "Strops:InsanityStone": {
+    "NAME": "Insanity Stone",
+    "FLAVOR": "BOOM, BABY. ~GIGIGI~ BOOM!",
+    "DESCRIPTIONS": [
+      "At the start of each combat, add #b%d copies of #yMadness to your hand."
+    ]
+  },
+  "Strops:HermitsTiara": {
+    "NAME": "Hermit's Tiara",
+    "FLAVOR": "Think of my help, forgive my limitations.",
+    "DESCRIPTIONS": [
+      "If you have #b%d or fewer relics, gain #b%d #yStrength at the start of combat."
+    ]
+  },
+  "Strops:Bolster": {
+    "NAME": "Bolster",
+    "FLAVOR": "Prepare to face the mighty Bolster!",
+    "DESCRIPTIONS": [
+      "If you have #b%d or more relics, gain #b%d #yStrength at the start of combat.",
+      "",
+      "",
+      "",
+      "",
+      "0"
+    ]
+  },
+  "Strops:Polearm": {
+    "NAME": "Polearm",
+    "FLAVOR": "What will happen if my polearm poses a conflict with your thorns? ",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b%d #yThousand #yCuts. Enemies start with #b%d #yThorns."
+    ]
+  },
+  "Strops:Fractal": {
+    "NAME": "Fractal",
+    "FLAVOR": "Too many Body Slams may pollute your card set? Don't worry, once you collect 3 of them in your hand, they will merge into a Body Slam++ automatically.",
+    "DESCRIPTIONS": [
+      "At the start of the first turn of each combat, add a copy of #yBody #ySlam+ to your hand, draw pile and discard pile. At the start of the second turn of each combat, add a copy of #yBody #ySlam+ to your hand."
+    ]
+  },
+  "Strops:IcyTouch": {
+    "NAME": "Icy Touch",
+    "FLAVOR": "For icy that also means frozen, so it also gets triggered after you get 5 of your minions dead.",
+    "DESCRIPTIONS": [
+      "Every time you play #b%d #yAttacks in a single turn, #yChannel #b%d #yFrost."
+    ]
+  },
+  "Strops:Transcendence": {
+    "NAME": "Transcendence",
+    "FLAVOR": "A bright self, a clear world.",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose a card in your deck. After you play it, if it's one of the first #b%d cards played that turn, #ystrops:Exclude the rest of cards in your hand.",
+      "Choose a card to combine with",
+      "After you play ",
+      " , if it's one of the first #b%d cards played that turn, #ystrops:Exclude the rest of cards in your hand."
+    ]
+  },
+  "Strops:SanityMaintenanceApparatus": {
+    "NAME": "Sanity Maintenance Apparatus",
+    "FLAVOR": "I thought it should be used only in case of SAN crisis and never expected a low-HP use... Wait?",
+    "DESCRIPTIONS": [
+      "During combats against common enemies, your HP has a lower limit of #b%d.",
+      "Note",
+      "This relic won't spawn on Act 4."
+    ]
+  },
+  "Strops:HungrySun": {
+    "NAME": "Hungry Sun",
+    "FLAVOR": "Hi Hungry, I’m Dad.",
+    "DESCRIPTIONS": [
+      "The first #b%d HP loss in each non-combat room heals you instead.",
+      "Note",
+      "This relic won't spawn on Act 4."
+    ]
+  },
+  "Strops:SunflowerInASummer": {
+    "NAME": "Sunflower in A Summer",
+    "FLAVOR": "That sky, that summer.",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose one: Change all the #y? rooms in the second Act into #yCampfire ones; or obtain a special potion.",
+      "Note",
+      "1. This relic will only spawn on Act 1. NL 2.You can set B1 to 1 in mod config to also turn regular enemy rooms into elite ones.",
+      "",
+      "",
+      "Upon pickup, choose one: change all the #y? rooms in the second Act into #yCampfire ones, all the regular #yEnemy rooms there into #yElite ones; or obtain a special potion."
+    ]
+  },
+  "Strops:Atri": {
+    "NAME": "Atri",
+    "FLAVOR": "I am watching over...",
+    "DESCRIPTIONS": [
+      "Each turn, any Energy gained past #b%d changes into draw of that much. Cards drawn this way cost #b%d less until played."
+    ]
+  },
+  "Strops:DepartmentStore": {
+    "NAME": "Department Store",
+    "FLAVOR": "In front of the department store, I started an experience that marked a major departure from routine.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. End your turn on your Energy decreasing to ZERO."
+    ]
+  },
+  "Strops:TheCrow": {
+    "NAME": "The Crow",
+    "FLAVOR": "For the period of dusk, I‘ll be here with you.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b%d #yRitual. If you have #yCultist #yHeadpiece, also gain #b%d #ystrops:Ritual_of_Ritual."
+    ]
+  },
+  "Strops:GrassNowAndFlowersThen": {
+    "NAME": "Grass Now And Flowers Then",
+    "FLAVOR": "To enlighten, to shield, and to empower.",
+    "DESCRIPTIONS": [
+      "Upon pickup, add a copy of #yGift #yof #yArcane to your deck."
+    ]
+  },
+  "Strops:SiphonGem": {
+    "NAME": "Siphon Gem",
+    "FLAVOR": "Certainly, we can present you with the whole ticket. The remaining matters are no more than how to get to that door, and how to follow the performance behind it.",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL [#2aecd7]One [#2aecd7]usable [#2aecd7]time [#2aecd7]per [#2aecd7]Run NL Obtain a random key that's still missing.",
+      "Note",
+      "This relic won't spawn on Act 4."
+    ]
+  },
+  "Strops:Upgrade": {
+    "NAME": "Upgrade",
+    "FLAVOR": "The great waves advance and rise, one by one!",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL [#ec902a]3 [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Consume all your #yGold. For every #b%d #yGold consumed by this effect, obtain one of the following relics, chosen randomly: 1 - a #yVirja; 2 - an #yOddly #ySmooth #yStone; 3 - a #yGolden #yIdol; 4 - a #yStarberry.",
+      "Note",
+      "When used, any #yGold remaining last that fails to reach #b%d will be wasted.",
+      "Note",
+      "This relic won't spawn in a shop or on Act 4."
+    ]
+  },
+  "Strops:Key": {
+    "NAME": "Key",
+    "FLAVOR": "Free your mind from its bonds.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. If an event has more than one option available, lock the first option available.",
+      "Note",
+      "This relic will interact in a special way with the event \"Mind Bloom\".",
+      "",
+      "",
+      "[Locked] Due to: Key."
+    ]
+  },
+  "Strops:FilmStarryCurtain": {
+    "NAME": "Film Starry Curtain",
+    "FLAVOR": "It’s amazing grace, created by some of the residents together in a town.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. At the start of each turn after draw, add #yDazed to your hand until it is full."
+    ]
+  },
+  "Strops:SoulStitch": {
+    "NAME": "Soul Stitch",
+    "FLAVOR": "Once worn, the devil’s whispers echo around your ears.",
+    "DESCRIPTIONS": [
+      "Upon pickup, lose #r%d Max HP. When you would die, set your Max HP to (the number of #yAttacks in your deck minus #b%d [REMOVE_SPACE]) times #b%d , and heal fully instead (works once).",
+      "Note",
+      "This relic will be triggered before #yLizard #yTail and #yFairy #yin #ya #yBottle."
+    ]
+  },
+  "Strops:ZhelpArcaneTalents": {
+    "NAME": "Tool Relic: Gift of Arcane",
+    "FLAVOR": "This relic will NOT spawn in game at all.",
+    "DESCRIPTIONS": [
+      "Your #yGifts #yof #yArcane cost #b%d , have a damage number of #b%d and #b%d before and after #yUpgrade respectively, and their #ystrops:Turnthirst threshold and bonus equal #b%d and #b%d respectively."
+    ]
+  },
+  "Strops:ZhelpFrostTalents": {
+    "NAME": "Tool Relic: Gift of Frost",
+    "FLAVOR": "This relic will NOT spawn in game at all.",
+    "DESCRIPTIONS": [
+      "Your #yGifts #yof #yFrost cost #b%d , have a #yBlock number of #b%d and #b%d before and after #yUpgrade respectively, and their #ystrops:Turnthirst threshold and bonus equal #b%d and #b%d respectively."
+    ]
+  },
+  "Strops:ZhelpFireTalents": {
+    "NAME": "Tool Relic: Gift of Fire",
+    "FLAVOR": "This relic will NOT spawn in game at all.",
+    "DESCRIPTIONS": [
+      "Your #yGifts #yof #yFire cost #b%d , have a magic number of #b%d and #b%d before and after #yUpgrade respectively, and their #ystrops:Turnthirst threshold and bonus equal #b%d and #b%d respectively."
+    ]
+  },
+  "Strops:DarkEnergyLantern": {
+    "NAME": "Dark Energy Lantern",
+    "FLAVOR": "To me has given black energy the night, so I use it to create light.",
+    "DESCRIPTIONS": [
+      "Every #b%d time you #yEvoke a #yDark #yChanneled this turn or last turn, draw #b%d cards."
+    ]
+  },
+  "Strops:Ribbon": {
+    "NAME": "Ribbon",
+    "FLAVOR": "Yes, it's a taste of fairy tales and sweets!",
+    "DESCRIPTIONS": [
+      "Every #b%d times you gain a buff, remove randomly one of your debuffs."
+    ]
+  },
+  "Strops:GlassRod": {
+    "NAME": "Glass Rod",
+    "FLAVOR": "Every glass rod is waiting for its crucible, the same way that every crucible is waiting for its glass rod.",
+    "DESCRIPTIONS": [
+      "For every #b%d cards you #yUpgrade in your deck, you may remove a card from your deck.",
+      "Note",
+      "This relic won't spawn on Floor 44 or higher."
+    ]
+  },
+  "Strops:DelayedGratification": {
+    "NAME": "Delayed Gratification",
+    "FLAVOR": "Next time, I bet!",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. Whenever you would gain Energy during your turn, it's delayed until the start of your next turn. At the start of each combat, gain #b%d [E] ."
+    ]
+  },
+  "Strops:WeatherControlDevice": {
+    "NAME": "Weather Control Device",
+    "FLAVOR": "Warning: Weather Control Device Detected",
+    "DESCRIPTIONS": [
+      "Upon pickup, add a copy of #yLightning #yStorm to your deck."
+    ]
+  },
+  "Strops:ZhelpLightningStorm": {
+    "NAME": "Tool Relic: Lightning Storm",
+    "FLAVOR": "This relic will NOT spawn in game at all.",
+    "DESCRIPTIONS": [
+      "Your #yLightning #yStorms cost #b%d, have a multiplying ratio of #b%d, and #yChannel #b%d guaranteed #yLightning after #yUpgraded."
+    ]
+  },
+  "Strops:Lemonade": {
+    "NAME": "Lemonade",
+    "FLAVOR": "Why not drink it and enjoy a cool summer?",
+    "DESCRIPTIONS": [
+      "The first time your total Energy reaches or exceeds #b%d each turn, draw #b%d card. The next combat and every #b%d combats after will drop a bonus reward of #b%d #yEnergy #yPotion.",
+      "Note",
+      "This relic won't spawn on Floor 44 or higher."
+    ]
+  },
+  "Strops:BambooDragonflyOfHanyuHorner": {
+    "NAME": "Bamboo Dragonfly of Hanyu Horner",
+    "FLAVOR": "To be filled in? I think the poem has already been here getting composed.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. You cannot draw more than #b%d cards per turn."
+    ]
+  },
+  "Strops:ProfiteeringMerchant": {
+    "NAME": "Profiteering Merchant",
+    "FLAVOR": "The mask seems to get corrupt soon after it came into the Spire.",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose one: The Merchant will have all its relics discounted by #b%d%% ; or the Merchant will only sell #yRare relics, but with they discounted by #b%d%%.",
+      "Note",
+      "This relic won't spawn in a shop or on Act 4."
+    ]
+  },
+  "Strops:ProfiteeringMerchantAttempted": {
+    "NAME": "Profiteering Merchant (Attempted)",
+    "FLAVOR": "You chose to dress yourself in it.",
+    "DESCRIPTIONS": [
+      "Replaces #yProfiteering #yMerchant. The Merchant will have all its relics discounted by #b%d%%."
+    ]
+  },
+  "Strops:ProfiteeringMerchantAchieved": {
+    "NAME": "Profiteering Merchant (Achieved)",
+    "FLAVOR": "You chose to dress the Merchant in it.",
+    "DESCRIPTIONS": [
+      "Replaces #yProfiteering #yMerchant. The Merchant will only sell #yRare relics, but with they discounted by #b%d%%."
+    ]
+  },
+  "Strops:ToxicLump": {
+    "NAME": "Toxic Lump",
+    "FLAVOR": "Don’t say it’s toxic. Just say it’s kind of mysterious, will you?",
+    "DESCRIPTIONS": [
+      "For every #b%d HP lost while you're in #yWrath , gain #b%d Max HP. NL During each combat, this no longer works once you have healed 50 HP or more.",
+      "Note",
+      "This relic won't spawn on Act 4."
+    ]
+  },
+  "Strops:PlagueStopwatch": {
+    "NAME": "Plague Stopwatch",
+    "FLAVOR": "Since sanguine is such an unpleasant word, we‘re now considering replacing it with plague.",
+    "DESCRIPTIONS": [
+      "For every #b%d cards you play, trigger #yPoison on ALL enemies."
+    ]
+  },
+  "Strops:SoulCannon": {
+    "NAME": "Soul Cannon",
+    "FLAVOR": "There was once a time when souls' value could be measured by cobs.",
+    "DESCRIPTIONS": [
+      "#rstrops:Warmup #r: [#ec902a]%d[] #rTurns NL [#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL You can choose a type for this relic freely!"
+    ]
+  },
+  "Strops:SoulCannonOneTiny": {
+    "NAME": "Soul Cannon Type-II Tiny",
+    "FLAVOR": "There was once a time when souls' value could be measured by cobs.",
+    "DESCRIPTIONS": [
+      "#rstrops:Warmup #r: [#ec902a]%d[] #rTurns NL [#2aecd7]Right[] [#2aecd7]click[] [#2aecd7]out[] [#2aecd7]of[] [#2aecd7]combat[] [#2aecd7]to[] [#2aecd7]activate[] NL Switch the type! NL [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL Lose #b%d #yGold to deal damage. On Act 1/2/3/4, the damage is %s%d / %s%d / %s%d / %s%d respectively.",
+      "Use Condition",
+      "One usable time per Turn NL Sufficient #yGold",
+      "#rstrops:Warmup #r: [#ec902a]%d[] #rturns NL [#2aecd7]Right[] [#2aecd7]click[] [#2aecd7]out[] [#2aecd7]of[] [#2aecd7]combat[] [#2aecd7]to[] [#2aecd7]activate[] NL Switch the type! NL [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL Lose #b%d #yGold to #rstrops:Warmup.",
+      "I've already used that this turn.",
+      "My #yGold is not enough.",
+      "Warmup done!"
+    ]
+  },
+  "Strops:SoulCannonOneHuge": {
+    "NAME": "Soul Cannon Type-II Huge",
+    "FLAVOR": "There was once a time when souls' value could be measured by cobs.",
+    "DESCRIPTIONS": [
+      "#rstrops:Warmup #r: [#ec902a]%d[] #rTurns NL [#2aecd7]Right[] [#2aecd7]click[] [#2aecd7]out[] [#2aecd7]of[] [#2aecd7]combat[] [#2aecd7]to[] [#2aecd7]activate[] NL Switch the type! NL [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL Lose #b%d #yGold to deal damage. On Act 1/2/3/4, the damage is %s%d / %s%d / %s%d / %s%d respectively.",
+      "Use Condition",
+      "One usable time per Turn NL Sufficient #yGold",
+      "#rstrops:Warmup #r: [#ec902a]%d[] #rturns NL [#2aecd7]Right[] [#2aecd7]click[] [#2aecd7]out[] [#2aecd7]of[] [#2aecd7]combat[] [#2aecd7]to[] [#2aecd7]activate[] NL Switch the type! NL [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL Lose #b%d #yGold to #rstrops:Warmup.",
+      "I've already used that this turn.",
+      "My #yGold is not enough.",
+      "Warmup done!"
+    ]
+  },
+  "Strops:SoulCannonTwoTiny": {
+    "NAME": "Soul Cannon Type-VI Tiny",
+    "FLAVOR": "There was once a time when souls' value could be measured by cobs.",
+    "DESCRIPTIONS": [
+      "#rstrops:Warmup #r: [#ec902a]%d[] #rTurns NL [#2aecd7]Right[] [#2aecd7]click[] [#2aecd7]out[] [#2aecd7]of[] [#2aecd7]combat[] [#2aecd7]to[] [#2aecd7]activate[] NL Switch the type! NL [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL Lose #b%d #yHp to deal damage. On Act 1/2/3/4, the damage is %s%d / %s%d / %s%d / %s%d respectively.",
+      "Use Condition",
+      "One usable time per Turn NL Sufficient #yHp NL Not in #rIntangible",
+      "#rstrops:Warmup #r: [#ec902a]%d[] #rturns NL [#2aecd7]Right[] [#2aecd7]click[] [#2aecd7]out[] [#2aecd7]of[] [#2aecd7]combat[] [#2aecd7]to[] [#2aecd7]activate[] NL Switch the type! NL [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL Lose #b%d #yHp to #rstrops:Warmup.",
+      "I've already used that this turn.",
+      "My #yHp is not enough.",
+      "Warmup done!",
+      "I'm in #rIntangible !"
+    ]
+  },
+  "Strops:SoulCannonTwoHuge": {
+    "NAME": "Soul Cannon Type-VI Huge",
+    "FLAVOR": "There was once a time when souls' value could be measured by cobs.",
+    "DESCRIPTIONS": [
+      "#rstrops:Warmup #r: [#ec902a]%d[] #rTurns NL [#2aecd7]Right[] [#2aecd7]click[] [#2aecd7]out[] [#2aecd7]of[] [#2aecd7]combat[] [#2aecd7]to[] [#2aecd7]activate[] NL Switch the type! NL [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL Lose #b%d #yHp to deal damage. On Act 1/2/3/4, the damage is %s%d / %s%d / %s%d / %s%d respectively.",
+      "Use Condition",
+      "One usable time per Turn NL Sufficient #yHp NL Not in #rIntangible",
+      "#rstrops:Warmup #r: [#ec902a]%d[] #rturns NL [#2aecd7]Right[] [#2aecd7]click[] [#2aecd7]out[] [#2aecd7]of[] [#2aecd7]combat[] [#2aecd7]to[] [#2aecd7]activate[] NL Switch the type! NL [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL Lose #b%d #yHp to #rstrops:Warmup.",
+      "I've already used that this turn.",
+      "My #yHp is not enough.",
+      "Warmup done!",
+      "I'm in #rIntangible !"
+    ]
+  },
+  "Strops:SoulCannonThreeTiny": {
+    "NAME": "Soul Cannon Type-X Tiny",
+    "FLAVOR": "There was once a time when souls' value could be measured by cobs.",
+    "DESCRIPTIONS": [
+      "#rstrops:Warmup #r: [#ec902a]%d[] #rTurns NL [#2aecd7]Right[] [#2aecd7]click[] [#2aecd7]out[] [#2aecd7]of[] [#2aecd7]combat[] [#2aecd7]to[] [#2aecd7]activate[] NL Switch the type! NL [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL Lose #b%d #yMax #yHp to deal damage. On Act 1/2/3, the damage is %s%d / %s%d / %s%d respectively.",
+      "Use Condition",
+      "One usable time per Turn NL Sufficient #yMax #yHp NL Not on Act #r4",
+      "#rstrops:Warmup #r: [#ec902a]%d[] #rturns NL [#2aecd7]Right[] [#2aecd7]click[] [#2aecd7]out[] [#2aecd7]of[] [#2aecd7]combat[] [#2aecd7]to[] [#2aecd7]activate[] NL Switch the type! NL [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL Lose #b%d #yMax #yHp to #rstrops:Warmup.",
+      "I've already used that this turn.",
+      "My #yMax #yHp is not enough.",
+      "Warmup done!",
+      "I'm on Act #r4 !"
+    ]
+  },
+  "Strops:SoulCannonThreeHuge": {
+    "NAME": "Soul Cannon Type-X Huge",
+    "FLAVOR": "There was once a time when souls' value could be measured by cobs.",
+    "DESCRIPTIONS": [
+      "#rstrops:Warmup #r: [#ec902a]%d[] #rTurns NL [#2aecd7]Right[] [#2aecd7]click[] [#2aecd7]out[] [#2aecd7]of[] [#2aecd7]combat[] [#2aecd7]to[] [#2aecd7]activate[] NL Switch the type! NL [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL Lose #b%d #yMax #yHp to deal damage. On Act 1/2/3, the damage is %s%d / %s%d / %s%d respectively.",
+      "Use Condition",
+      "One usable time per Turn NL Sufficient #yMax #yHp NL Not on Act #r4",
+      "#rstrops:Warmup #r: [#ec902a]%d[] #rturns NL [#2aecd7]Right[] [#2aecd7]click[] [#2aecd7]out[] [#2aecd7]of[] [#2aecd7]combat[] [#2aecd7]to[] [#2aecd7]activate[] NL Switch the type! NL [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL Lose #b%d #yMax #yHp to #rstrops:Warmup.",
+      "I've already used that this turn.",
+      "My #yMax #yHp is not enough.",
+      "Warmup done!",
+      "I'm on Act #r4 !"
+    ]
+  },
+  "Strops:Bindings": {
+    "NAME": "Bindings",
+    "FLAVOR": "Of what?",
+    "DESCRIPTIONS": [
+      "Each turn, the first #b%d #yAttack you play that has a target gets its damage increased by #b%d , and sets the #yBlock of its target to 1 after effected."
+    ]
+  },
+  "Strops:WhiteDClips": {
+    "NAME": "White D-Clips",
+    "FLAVOR": "Nep! Anyway the cutest is me no doubt \n(/>v<)/!?",
+    "DESCRIPTIONS": [
+      "Deal #b%.1fx #yAttack damage to enemies with #yBlock.",
+      "Note",
+      "This relic won't spawn at Spear & Shield.",
+      "",
+      "",
+      "Deal #b%.0fx #yAttack damage to enemies with #yBlock."
+    ]
+  },
+  "Strops:RestrainedHeart": {
+    "NAME": "Restrained Heart",
+    "FLAVOR": "Is it an urge of destruction, or an unconscious dream.",
+    "DESCRIPTIONS": [
+      "Whenever you need to discard during your turn, you can choose to discard one fewer card.",
+      "Note",
+      "This only works for unconditional discard. [#2aecd7]Right [#2aecd7]click to switch between ready and unready. NL #ySelective #ydiscard: You're allowed to finish after selecting one fewer card. NL #yAll #ydiscard: You'll be asked which card to keep (optional). NL #yRandom #ydiscard: If this is ready, one fewer card will be discarded automatically.",
+      "",
+      "",
+      "prevent being discarded"
+    ]
+  },
+  "Strops:SteamEpic": {
+    "NAME": "Steam Epic",
+    "FLAVOR": "I prefer to call it Steam Rare.",
+    "DESCRIPTIONS": [
+      "All non- #yStatus non- #rCurse cards that have #yExhaust are #yRetained at the end of turn, and won't get #yExhausted due to #yEthereal."
+    ]
+  },
+  "Strops:FTLEngines": {
+    "NAME": "FTL Engines",
+    "FLAVOR": "Let’s take the initiative to escape! Even though we can’t win the game, we must lead in terms of reactions!",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. During non-Boss combats, escape at the end of Turn #b%d receiving no rewards.",
+      "Note",
+      "This relic will effect after all other onEndTurn effects."
+    ]
+  },
+  "Strops:Decanter": {
+    "NAME": "Decanter",
+    "FLAVOR": "How did you find it?",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL [#ec902a]3 [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Select one of your Energy-giving relic, negating its next one time of penalty effect.",
+      "Note",
+      "1. This relic takes an each-specified logic, so it works only for Energy-giving relics in base game and this mod. NL 2. When the penalty comes during a combat, each use of this relic will prevent that throughout the whole combat. NL 3. The relic's usable times are consumed after it finally finishes an instance of negating. NL 4. Please make sure the selection is done before the penalty you care may come.",
+      "",
+      "",
+      "Current target: #y%s"
+    ]
+  },
+  "Strops:ZhelpDecanter": {
+    "NAME": "Tool Relic: Null",
+    "FLAVOR": "This relic will NOT spawn in game at all.",
+    "DESCRIPTIONS": [
+      "Cancel the current choice of #yDecanter."
+    ]
+  },
+  "Strops:ClockWithNoHands": {
+    "NAME": "Clock with No Hands",
+    "FLAVOR": "In \"this\" tower, \"time\" flows at a speed 1.4 times as much as the outside.",
+    "DESCRIPTIONS": [
+      "As of the second Act, each Elite combat is replaced by a random one from the previous Act, where the enemies’ Max HP is increased by #b%d%%.",
+      "Note",
+      "1. This relic won't spawn at Spear & Shield. NL 2. This relic will take modded monsters into consideration, but not true for modded Acts."
+    ]
+  },
+  "Strops:RainingRuins": {
+    "NAME": "Raining Ruins",
+    "FLAVOR": "This is the last, and also a tour. This is nostalgia, and also a pursuit. This is wandering, and also a pilgrimage. This is tragedy, and also a quest.",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL #bstrops:Cooldown [#2aecd7]: [#ec902a]%d [#2aecd7]Combats NL Draw a random card that can draw.",
+      "Note",
+      "This relic actually works in a way of trying to put the card from draw pile into hand. If there's no qualified cards in draw pile, that triggers piles reshuffling and doesn't start Cooldown."
+    ]
+  },
+  "Strops:PhoenixGift": {
+    "NAME": "Phoenix Gift",
+    "FLAVOR": "Now we wonder where Parting Gift is being.",
+    "DESCRIPTIONS": [
+      "If you end your turn without #yBlock, any unblocked attack damage you receive will equally reduce this relic's counter (initially #b%d [REMOVE_SPACE]). When the counter falls to zero, add a #yRare relic to the current combat's reward, and this no longer works.",
+      "Note",
+      "1. This relic will only spawn on Act 1 and 2. NL 2. This relic will check the player's Block before all other onEndTurn effects.",
+      "",
+      "",
+      "Phoenix Hate"
+    ]
+  },
+  "Strops:Extractor": {
+    "NAME": "Extractor",
+    "FLAVOR": "\"Extractor\" is too long, let's shorten it to \"eater\".",
+    "DESCRIPTIONS": [
+      "Whenever you fully block an attack from a non-minion enemy, gain #b%d #yGold. (Works at most #b%d times for each enemy)",
+      "Note",
+      "This relic won't spawn on Act 4."
+    ]
+  },
+  "Strops:Echo": {
+    "NAME": "Echo",
+    "FLAVOR": "It's echoing a red image.",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]to [#2aecd7]activate NL [#ec902a]%d [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Obtain the last used potion.",
+      "",
+      "",
+      "",
+      "",
+      "i.e. #y%s"
+    ]
+  },
+  "Strops:ChuggingMask": {
+    "NAME": "Chugging Mask",
+    "FLAVOR": "I swung in the center of the dance floor.",
+    "DESCRIPTIONS": [
+      "Whenever you gain or lose Max HP out of combat, heal HP equally.",
+      "Note",
+      "This relic won't spawn on Act 4."
+    ]
+  },
+  "Strops:ExitPhase": {
+    "NAME": "Exit Phase",
+    "FLAVOR": "Listen, I’m not saying \"I had to flee ‘cuz I had helped myself to some gold\".",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL #bstrops:Cooldown [#2aecd7]: [#ec902a]%d [#2aecd7]Combats NL Escape from a non-boss combat. Whenever you escape from a combat, gain #b%d #yGold.",
+      "Note",
+      "This relic won't spawn at Spear & Shield."
+    ]
+  },
+  "Strops:Maniacal": {
+    "NAME": "Maniacal",
+    "FLAVOR": "Congrats for your happy tomorrow, and I myself will go meet my netherworld.",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]or [#2aecd7]at [#2aecd7]the [#2aecd7]first [#2aecd7]turn [#2aecd7]in [#2aecd7]combat [#2aecd7]to [#2aecd7]enable/disable NL Overkill damage increases your #yBlock at a #b%d%% ratio. If enabled, at the end of each turn, lose #b%d%% of your #yBlock and deal damage #b%d%% of the amount lost to ALL enemies.",
+      "Note",
+      "1. This relic won't spawn at Spear & Shield. NL 2.This relic will effect after all other onEndTurn effects (except that of #yFTL #yEngines [REMOVE_SPACE])."
+    ]
+  },
+  "Strops:RainbowColoredCircle": {
+    "NAME": "Rainbow-Colored Circle",
+    "FLAVOR": "It's a result rather than the cause of evasion.",
+    "DESCRIPTIONS": [
+      "#ystrops:Evade the #b%dth attack you receive each turn.",
+      "Note",
+      "This relic won't spawn at Spear & Shield."
+    ]
+  },
+  "Strops:BigBangBell": {
+    "NAME": "Big Bang Bell",
+    "FLAVOR": "Mauuuuuryaaaaaaahh!",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose a #yPower in your deck. Whenever you draw the card, deal #b%d damage to all the enemies that intend to attack. You can also set off the card actively and deal #b%d damage to ALL enemies!",
+      "Note",
+      "1. To set off means dragging the card to the specified area on screen and making it hover there for a while until it is #yExcluded. NL 2. You can adjust the required hovering time T(s) in mod config.",
+      "",
+      "",
+      "Choose a card to combine with",
+      "Whenever you draw ",
+      " , deal #b%d damage to all the enemies that intends to attack. You can also set off the card actively and deal #b%d damage to ALL enemies!"
+    ]
+  },
+  "Strops:IceGenerator": {
+    "NAME": "Ice Generator",
+    "FLAVOR": "Watching it makes you uncontrollably recall the charming figure of northern winter.",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose one: Heal all of your HP at the start of each Act as well as immediately; or lose #r%d Max HP and #r%d HP successively, and obtain a special potion.",
+      "Note",
+      "This relic won't spawn at Neow or on Act 4."
+    ]
+  },
+  "Strops:GrabbyHands": {
+    "NAME": "Grabby Hands",
+    "FLAVOR": "This is what keeps happening in your group, not in my group!",
+    "DESCRIPTIONS": [
+      "Add an additional, unskippable card reward to each combat. After #b%d combats' latency, out of combat, cards obtained this way can be removed arbitrarily from your deck.",
+      "Note",
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]this [#2aecd7]relic to remove grabbed cards.",
+      "",
+      "",
+      "Add a card to your deck (Grabby Hands)",
+      "Choose cards to remove"
+    ]
+  },
+  "Strops:SeaOfMoon": {
+    "NAME": "Sea of Moon",
+    "FLAVOR": "These emotions last for ever.",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose #b%d cards in your deck to infuse #yRetain into. Whenever you #yRetain a card, deal #b%d damage to ALL enemies and gain #b%d #yBlock.",
+      "",
+      "",
+      "",
+      "",
+      "Retain. NL ",
+      "Select %d cards to infuse #yRetain into"
+    ]
+  },
+  "Strops:Zan": {
+    "NAME": "Zan",
+    "FLAVOR": "A light piece.",
+    "DESCRIPTIONS": [
+      "Out of combat, whenever you try to obtain a potion in case of a full potion slot, #ystrops:Invoke your potion array and heal according to the potion removed: NL #yCommon - #b%d HP; NL #yUncommon - #b%d HP; NL #yRare - #b%d HP. NL The relic can store at most #b%d HP overhealed this way, which can be retrieved any time out of combat.",
+      "Note",
+      "1. This relic won't spawn on Act 4. NL 2. Retrieve: [#2aecd7]Right [#2aecd7]click [#2aecd7]this [#2aecd7]relic to heal as much HP as stored and then clear the storage. NL #r3. This works at most #r3 times in each room."
+    ]
+  },
+  "Strops:StrongestPotion": {
+    "NAME": "Strongest Potion",
+    "FLAVOR": "A mango-flavored potion and a supermango-flavored one, which would you like?",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose one: gain #b%d Max HP; or gain #b%d Max HP, but at the start of the next #b%d combats lose #b%d #yStrength."
+    ]
+  },
+  "Strops:GlowFeather": {
+    "NAME": "Glow Feather",
+    "FLAVOR": "Lightness and heaviness twisted together, and light and shadow mixed up.",
+    "DESCRIPTIONS": [
+      "#rUpon #rpickup, #rclear #ryour #yGold. #rYou #rcan #rno #rlonger #rgain #yGold. NL Spend HP #b%d%% of the price instead when shopping. NL #b%d #grandom #gitems #gin #geach #gshop #gbecome #gfree, #gbut #greturn #gto #gtheir #goriginal #gprices #gonce #gyou #gmake #ga #gpurchase.",
+      "Note",
+      "This relic won't spawn on Act 4."
+    ]
+  },
+  "Strops:Evasive": {
+    "NAME": "Evasive",
+    "FLAVOR": "No checks on RNG, really reassuring.",
+    "DESCRIPTIONS": [
+      "#ystrops:Evade the #b%dth and #b%dth attacks you receive each combat.",
+      "Note",
+      "1. This relic generally won't spawn at Spear & Shield. NL 2. You can set a 3rd match value (N3) in mod config.",
+      "",
+      "",
+      "#ystrops:Evade the #b%dth, #b%dth and #b%dth attacks you receive each combat."
+    ]
+  },
+  "Strops:BigBow": {
+    "NAME": "Big Bow",
+    "FLAVOR": "Big enough for me to fly with? Whether I’m in a shrine, a student union’s office, or a club room, I’m supposed to have the potential, right?",
+    "DESCRIPTIONS": [
+      "Upon pickup, add #b%d copy of #yJust #yLucky to your deck. Whenever you #yScry, draw #b%d card subsequently."
+    ]
+  },
+  "Strops:Calculator": {
+    "NAME": "Calculator",
+    "FLAVOR": "\nYou’ve got the item wrong, which annoyed the Lady Luck. Now, with this thing only, I guess you’ll have to manage to survive upcoming zombie waves all by yourself, on a rainy evening.",
+    "DESCRIPTIONS": [
+      "Draw five fewer cards at the start of each turn. [#2aecd7]Each [#2aecd7]time [#2aecd7]you [#2aecd7]right [#2aecd7]click [#2aecd7]this [#2aecd7]during [#2aecd7]your [#2aecd7]turn, draw a card and add its Cost to this relic's counter (by at least 1). On the counter exceeding #b%d, discard your hand and this no longer works this turn."
+    ]
+  },
+  "Strops:StackedPlate": {
+    "NAME": "Stacked Plate",
+    "FLAVOR": "You can't figure out how it works except for noticing diminishing returns from defense. How come that happens?",
+    "DESCRIPTIONS": [
+      "Start each combat with #b%d #yPlated #yArmor. Whenever you receive unblocked attack damage, gain #b%d #yPlated #yArmor. At the end of combat, heal equal to the stack of your #yPlated #yArmor."
+    ]
+  },
+  "Strops:HearthsMores": {
+    "NAME": "Hearth’smores",
+    "FLAVOR": "Gather ‘round the fire for a toasty treat!",
+    "DESCRIPTIONS": [
+      "Put a card in your hand into your draw pile, and draw a card. As of the #b%dnd use per turn, each use costs [E] .",
+      "Note",
+      "Drag the card onto the draw pile to activate."
+    ]
+  },
+  "Strops:SquirrelsRelief": {
+    "NAME": "Squirrels' Relief",
+    "FLAVOR": "“The relief is not bad, but I still want to watch how these little animals get moving with my own eyes.”——Ranwid",
+    "DESCRIPTIONS": [
+      "All operations on your #yStrength are done equally to your #yDexterity instead. Upon pickup, obtain #b%d #yOddly #ySmooth #yStone."
+    ]
+  },
+  "Strops:AutumnColors": {
+    "NAME": "Autumn Colors",
+    "FLAVOR": "If summer comes, can autumn be far behind?",
+    "DESCRIPTIONS": [
+      "Gains 1 charge for each #yCampfire you pass during Act 2. Spends 1 charge to add a relic to each combat's reward during Act 3.",
+      "Note",
+      "This relic will only spawn on Act 1."
+    ]
+  },
+  "Strops:GenerosityCharm": {
+    "NAME": "Generosity Charm",
+    "FLAVOR": "It only has a low price, but it's said to be able to effectively raise the happiness of its owner.",
+    "DESCRIPTIONS": [
+      "Common, uncommon and rare relic rewards now provide one choice out of #b%d, and Boss relic rewards now provide one choice out of #b%d.",
+      "Note",
+      "1. This relic won't spawn at Spear & Shield. NL 2. Any non-Boss relic that has not been chosen will return to the randomizing pool."
+    ]
+  },
+  "Strops:Leviboard": {
+    "NAME": "Leviboard",
+    "FLAVOR": "A vehicle from the future, swift and handy.",
+    "DESCRIPTIONS": [
+      "If your HP is at or below #b%d, or your #yGold is at or above #b%d, you may ignore paths when choosing the next room to travel to.",
+      "Note",
+      "This relic won't spawn on Floor 41 or higher."
+    ]
+  },
+  "Strops:CuttingMachine": {
+    "NAME": "Cutting Machine",
+    "FLAVOR": "Decomposes the block silently; Releases the energy wordlessly.",
+    "DESCRIPTIONS": [
+      "Upon pickup, add a copy of #yPart #yScrapper to your deck."
+    ]
+  },
+  "Strops:ZhelpPartScrapper": {
+    "NAME": "Tool Relic: Part Scrapper",
+    "FLAVOR": "This relic will NOT spawn in game at all.",
+    "DESCRIPTIONS": [
+      "Your #yPart #yScrappers cost #b%d, and have a #yBlock consumption of #b%d."
+    ]
+  },
+  "Strops:MessyPuppy": {
+    "NAME": "Messy Puppy",
+    "FLAVOR": "Imagine treating it as a ghost.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. At the end of enemies' turn, each dead enemy revives as a minion with a HP of #b%d. This triggers at most #b%d times per combat."
+    ]
+  }
+}

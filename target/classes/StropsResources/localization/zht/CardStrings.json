@@ -1,0 +1,100 @@
+{
+  "Strops:ArcaneTalents": {
+    "NAME": "奧術天賦",
+    "DESCRIPTION": "造成 D 點傷害 NL strops:回合渴求 （ M ）：傷害增加 !Strops:KN1! 點 NL 消耗 NL 增加一張 *冰霜天賦 到你的抽牌堆頂",
+    "UPGRADE_DESCRIPTION": "造成 D 點傷害 NL strops:回合渴求 （ M ）：傷害增加 !Strops:KN1! 點 NL 消耗 NL 增加一張 *冰霜天賦+ 到你的抽牌堆頂"
+  },
+  "Strops:FrostTalents": {
+    "NAME": "冰霜天賦",
+    "DESCRIPTION": "獲得 B 點 格擋 NL strops:回合渴求 （ M ）： 格擋 增加 !Strops:KN1! 點 NL 消耗 NL 增加一張 *火焰天賦 到你的抽牌堆頂",
+    "UPGRADE_DESCRIPTION": "獲得 B 點 格擋 NL strops:回合渴求 （ M ）： 格擋 增加 !Strops:KN1! 點 NL 消耗 NL 增加一張 *火焰天賦+ 到你的抽牌堆頂"
+  },
+  "Strops:FireTalents": {
+    "NAME": "火焰天賦",
+    "DESCRIPTION": "在你的每個回合結束時，造成 M 點傷害，隨機分配到所有敵人身上 NL strops:回合渴求 （ !Strops:KN1! ）：數值增加 !Strops:KN2! 點"
+  },
+  "Strops:LightningStorm": {
+    "NAME": "閃電風暴",
+    "DESCRIPTION": "生成 閃電 充能球， NL 數量等於上一回合 生成 閃電 充能球數量的 M 倍",
+    "UPGRADE_DESCRIPTION": "生成 閃電 充能球， NL 數量等於上一回合 生成 閃電 充能球數量的 M 倍 NL 再 生成 !Strops:KN1! 個 閃電 充能球",
+    "EXTENDED_DESCRIPTION": [
+      " NL （共 !Strops:KN2! 個。）"
+    ]
+  },
+  "Strops:ChooseAttemptedVersion": {
+    "NAME": "自己戴上",
+    "DESCRIPTION": "商人的所有遺物稍微打折。"
+  },
+  "Strops:ChooseAchievedVersion": {
+    "NAME": "給商人戴上",
+    "DESCRIPTION": "商人僅提供 *稀有 遺物，但大幅優惠！"
+  },
+  "Strops:DoAddEnvenom": {
+    "NAME": "惡毒即力量（已棄用）",
+    "DESCRIPTION": "將一張 *塗毒+ 加入你的牌組。"
+  },
+  "Strops:DoNothing": {
+    "NAME": "無視即溫柔（已棄用）",
+    "DESCRIPTION": "什麼也不做。"
+  },
+  "Strops:Zero": {
+    "NAME": "回到原點",
+    "DESCRIPTION": "變形為 *靈魂加農炮 。"
+  },
+  "Strops:OneTiny": {
+    "NAME": "小試牛刀",
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅰ型（小） 。"
+  },
+  "Strops:OneHuge": {
+    "NAME": "大試牛刀",
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅰ型（大） 。"
+  },
+  "Strops:TwoTiny": {
+    "NAME": "小試蛇刀",
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅱ型（小） 。"
+  },
+  "Strops:TwoHuge": {
+    "NAME": "大試蛇刀",
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅱ型（大） 。"
+  },
+  "Strops:ThreeTiny": {
+    "NAME": "小試雞刀",
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅲ型（小） 。"
+  },
+  "Strops:ThreeHuge": {
+    "NAME": "大試雞刀",
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅲ型（大） 。"
+  },
+  "Strops:HealToFull": {
+    "NAME": "朝霞",
+    "DESCRIPTION": "回復所有生命 NL 在每一幕開始時，再次回復所有生命"
+  },
+  "Strops:GetBlizzard": {
+    "NAME": "長夜",
+    "DESCRIPTION": "相繼失去 M 點最大生命和 !Strops:KN1! 點生命，獲得一瓶 *暴風雪"
+  },
+  "Strops:EatMango": {
+    "NAME": "芒果",
+    "DESCRIPTION": "獲得 M 點最大生命值"
+  },
+  "Strops:EatSuperMango": {
+    "NAME": "超級芒果",
+    "DESCRIPTION": "獲得 M 點最大生命值，但在接下來 !Strops:KN1! 場戰鬥開始時失去 !Strops:KN2! 點 力量"
+  },
+  "Strops:PartScrapper": {
+    "NAME": "零件破拆",
+    "DESCRIPTION": "失去 M 點 格擋 以獲得 [E] [E]",
+    "UPGRADE_DESCRIPTION": "失去 M 點 格擋 以獲得 [E] [E] [E]",
+    "EXTENDED_DESCRIPTION": [
+      "我的格擋不夠 #r%d 點！"
+    ]
+  },
+  "Strops:ToEscape": {
+    "NAME": "遠方",
+    "DESCRIPTION": "將第二幕的所有 *? 房間變為 *篝火"
+  },
+  "Strops:ToFight": {
+    "NAME": "身後",
+    "DESCRIPTION": "獲得一瓶 *幻影流星"
+  }
+}

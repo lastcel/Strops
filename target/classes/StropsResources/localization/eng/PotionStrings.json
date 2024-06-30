@@ -1,0 +1,15 @@
+{
+  "Strops:Blizzard": {
+    "NAME": "Blizzard",
+    "DESCRIPTIONS": [
+      "Seal ALL enemies' actions until they lose HP."
+    ]
+  },
+  "Strops:PhantasmalShootingStar": {
+    "NAME": "Phantasmal Shooting Star",
+    "DESCRIPTIONS": [
+      "For this combat, #yAttacks deal #b%.1fx damage. NL #rThis #rpotion #rwill #rdisappear #rat #rthe #rstart #rof #reach #rAct.",
+      "For this combat, #yAttacks deal #b%.0fx damage. NL #rThis #rpotion #rwill #rdisappear #rat #rthe #rstart #rof #reach #rAct."
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "NAMES": [
+      "turnthirst(x)",
+      "turnthirst"
+    ],
+    "DESCRIPTION": "Each combat, cards with Turnthirst gain bonus effects as of Turn X."
+  },
+  {
+    "NAMES": [
+      "cooldown:x",
+      "cooldown"
+    ],
+    "DESCRIPTION": "After used, this relic can't be used again until X passes."
+  },
+  {
+    "NAMES": [
+      "warmup:x",
+      "warmup"
+    ],
+    "DESCRIPTION": "If this relic has not been used for X in a row, pay to get nothing next time it gets used (which doesn't take up usable times for that turn)."
+  },
+  {
+    "NAMES": [
+      "evade"
+    ],
+    "DESCRIPTION": "Evaded attacks get their damage decreased to 0."
+  },
+  {
+    "NAMES": [
+      "exclude"
+    ],
+    "DESCRIPTION": "Remove cards from the current combat, which don't enter the #yExhaust pile."
+  },
+  {
+    "NAMES": [
+      "ritual_of_ritual"
+    ],
+    "DESCRIPTION": "Gain #yRitual at the end of each turn (after #yRitual is triggered)."
+  },
+  {
+    "NAMES": [
+      "invoke"
+    ],
+    "DESCRIPTION": "Remove the leftmost potion, move all the rest of potions 1 slot leftward, and finally set the upcoming potion into the rightmost slot."
+  }
+]

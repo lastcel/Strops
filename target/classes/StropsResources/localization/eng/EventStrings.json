@@ -1,0 +1,21 @@
+{
+  "Strops:MindBloom": {
+    "NAME": "Mind Bloom+",
+    "DESCRIPTIONS": [
+      "While walking and traversing through the chaos of the Spire, your thoughts suddenly begin to feel very... #p~real...~ NL NL Imaginings of #rmonsters and #yriches begin to manifest themselves into reality. NL The sensation is quickly fleeting. What do you do?",
+      "Can it really be this easy?",
+      "Everything makes sense now. NL The lack of memories, the ascent, the #yAncient #yOne. NL NL This is the way it always was. NL This is the way it always will be. NL All will be forgotten again soon...",
+      "Again...",
+      "Travelers know only going on.",
+      "Yes, from now on, you are Awake, you are Healthy, you are Rich, and you are —— War."
+    ],
+    "OPTIONS": [
+      "[I am War] #rFight #ra #rBoss #rfrom #rAct #r1. #gObtain #ga #gRare #gRelic.",
+      "[I am Rich] #gGain #g999 #gGold. #rCursed #r- #r2 #rNormality.",
+      "[I am Healthy] #gHeal #gto #gfull #gHP. #rCursed #r- #rDoubt.",
+      "[I am Awake] #gUpgrade #gall #gCards. #rYou #rcan #rno #rlonger #rheal.",
+      "[Leave]",
+      "[Where I go] Leave."
+    ]
+  }
+}
