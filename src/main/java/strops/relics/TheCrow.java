@@ -18,7 +18,7 @@ public class TheCrow extends StropsAbstractRelic {
     private static final RelicTier RELIC_TIER = RelicTier.BOSS;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static final int NUM1=2,NUM2=2;
+    public static final int NUM1=2,NUM2=3;
 
     public static final IntSliderSetting BONUS1=new IntSliderSetting("TheCrow_Bonus1", "N1", NUM1, 6);
     public static final IntSliderSetting BONUS2=new IntSliderSetting("TheCrow_Bonus2", "N2", NUM2, 5);
