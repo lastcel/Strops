@@ -3,7 +3,6 @@ package strops.relics;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.powers.RitualPower;
 import strops.helpers.ModHelper;
 import strops.powers.RitualOfRitualPower;
