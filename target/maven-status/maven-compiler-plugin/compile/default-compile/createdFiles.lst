@@ -40,6 +40,7 @@ strops\patch\PatchExitPhase.class
 strops\patch\PatchGlowFeather$PatchTool16.class
 strops\powers\CombatwiseDoubleDamagePower.class
 strops\actions\GeneralDrawPileToHandAction.class
+strops\patch\PatchVanillaBottles$PatchTool1.class
 strops\actions\AtriAction.class
 strops\patch\PatchDarkEnergyLantern$PatchTool3.class
 strops\patch\PatchGrassNowAndFlowersThen$PatchTool2.class
@@ -69,6 +70,7 @@ strops\relics\PainsReward.class
 strops\patch\PatchGenerosityCharm$CombatRewardScreenPatch.class
 strops\patch\PatchProfiteeringMerchant$PatchTool1.class
 strops\patch\PatchGlowFeather$PatchTool14.class
+strops\patch\PatchVanillaBottles$PatchTool3.class
 strops\patch\PatchDecanter$PatchTool9.class
 strops\utilities\Pagination.class
 strops\actions\FilmStarryCurtainAction.class
@@ -237,6 +239,7 @@ strops\patch\PatchDecanter$PatchTool17.class
 strops\patch\PatchSteamEpic$PatchTool2.class
 strops\patch\PatchGlowFeather$PatchTool1.class
 strops\patch\PatchSunflowerInASummer$PatchTool4.class
+strops\patch\PatchVanillaBottles$PatchTool2.class
 strops\interfaces\IKeyNumber2.class
 strops\relics\HearthsMores.class
 strops\patch\PatchGlowFeather$PatchTool28.class
@@ -334,6 +337,7 @@ strops\relics\Polearm.class
 strops\patch\PatchDecanter$PatchTool23.class
 strops\relics\CuttingMachine.class
 strops\patch\PatchRestrainedHeart$PatchTool26.class
+strops\patch\PatchVanillaBottles$PatchTool4.class
 strops\patch\PatchGlowFeather$PatchTool1$1.class
 strops\patch\PatchKey$PatchTool1.class
 strops\utilities\StaticHelpers.class
@@ -396,6 +400,7 @@ strops\relics\ExitPhase.class
 strops\relics\Maniacal.class
 strops\patch\PatchEcho$PatchTool3.class
 strops\patch\PatchGrabbyHands$PatchTool6.class
+strops\patch\PatchVanillaBottles.class
 strops\cards\Strike.class
 strops\patch\PatchIceGenerator$PatchTool2$1.class
 strops\patch\PatchGrabbyHands$PatchTool4.class

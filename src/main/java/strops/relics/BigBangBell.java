@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.function.Predicate;
 
 public class BigBangBell extends StropsAbstractRelic implements
-        CustomBottleRelic, CustomSavable<Integer> {
+        CustomBottleRelic, CustomSavable<ArrayList<Integer>> {
     public static final String ID = ModHelper.makePath(BigBangBell.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(BigBangBell.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(BigBangBell.class.getSimpleName());
@@ -89,6 +89,7 @@ public class BigBangBell extends StropsAbstractRelic implements
         return PatchBigBangBell.PatchTool1.inBigBangBell::get;
     }
 
+    /*
     @Override
     public Integer onSave() {
         if (card != null) {
@@ -97,6 +98,21 @@ public class BigBangBell extends StropsAbstractRelic implements
             return -1;
         }
     }
+
+     */
+
+    @Override
+    public ArrayList<Integer> onSave() {
+        ArrayList<Integer> cardsIndex=new ArrayList<>();
+        for(AbstractCard c:AbstractDungeon.player.masterDeck.group){
+            if(PatchBigBangBell.PatchTool1.inBigBangBell.get(c)){
+                cardsIndex.add(AbstractDungeon.player.masterDeck.group.indexOf(c));
+            }
+        }
+        return cardsIndex;
+    }
+
+    /*
     @Override
     public void onLoad(Integer cardIndex) {
         if (cardIndex == null) {
@@ -107,6 +123,21 @@ public class BigBangBell extends StropsAbstractRelic implements
             if (card != null) {
                 PatchBigBangBell.PatchTool1.inBigBangBell.set(card, true);
                 setDescriptionAfterLoading();
+            }
+        }
+    }
+
+     */
+
+    @Override
+    public void onLoad(ArrayList<Integer> cardsIndex) {
+        for(int i:cardsIndex){
+            if(i>=0&&i<AbstractDungeon.player.masterDeck.group.size()){
+                card=AbstractDungeon.player.masterDeck.group.get(i);
+                if(card!=null){
+                    PatchBigBangBell.PatchTool1.inBigBangBell.set(card,true);
+                    setDescriptionAfterLoading();
+                }
             }
         }
     }
@@ -138,6 +169,7 @@ public class BigBangBell extends StropsAbstractRelic implements
         }
     }
 
+    /*
     @Override
     public void onUnequip() { // 1. On unequip
         if (card != null) {
@@ -145,6 +177,15 @@ public class BigBangBell extends StropsAbstractRelic implements
             if (cardInDeck != null) {
                 PatchBigBangBell.PatchTool1.inBigBangBell.set(cardInDeck, false);
             }
+        }
+    }
+
+     */
+
+    @Override
+    public void onUnequip() { // 1. On unequip
+        for(AbstractCard c:AbstractDungeon.player.masterDeck.group){
+            PatchBigBangBell.PatchTool1.inBigBangBell.set(c,false);
         }
     }
 

@@ -65,20 +65,4 @@ public class TheCrow extends StropsAbstractRelic {
         str_out.add(getMHaG(MH,G));
         return str_out;
     }
-
-    @Override
-    public void updateDesc() {
-        ArrayList<String> s=getUpdatedDescription2();
-
-        this.description = s.get(0);
-        this.tips = new ArrayList();
-        this.tips.add(new PowerTip(this.name, this.description));
-
-        for(int i=1;i<s.size();i+=2)
-        {
-            this.tips.add(new PowerTip(s.get(i),s.get(i+1)));
-        }
-
-        initializeTips();
-    }
 }

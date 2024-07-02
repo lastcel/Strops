@@ -76,7 +76,7 @@ public class PatchGrabbyHands {
                     //GrabbyHands.cards.add(c);
                 }
 
-                if (cardReward2.cards.size() > 0){
+                if (!cardReward2.cards.isEmpty()){
                     __inst.rewards.add(cardReward2);
                 }
             }
@@ -116,7 +116,7 @@ public class PatchGrabbyHands {
     public static class PatchTool3 {
         @SpirePostfixPatch
         public static void Postfix(CombatRewardScreen __inst) {
-            if(__inst.rewards.size()==0){
+            if(__inst.rewards.isEmpty()){
                 AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
             } else {
                 for(RewardItem r:__inst.rewards){

@@ -3,6 +3,7 @@ package strops.relics;
 import basemod.abstracts.CustomBottleRelic;
 import basemod.abstracts.CustomSavable;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnAfterUseCardRelic;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 import java.util.function.Predicate;
 
 public class Transcendence extends StropsAbstractRelic implements OnAfterUseCardRelic,
-        CustomBottleRelic, CustomSavable<Integer> {
+        CustomBottleRelic, CustomSavable<ArrayList<Integer>> {
     public static final String ID = ModHelper.makePath(Transcendence.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Transcendence.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.SHOP;
@@ -62,23 +63,24 @@ public class Transcendence extends StropsAbstractRelic implements OnAfterUseCard
     }
 
     @Override
-    public Integer onSave() {
-        if (card != null) {
-            return AbstractDungeon.player.masterDeck.group.indexOf(card);
-        } else {
-            return -1;
+    public ArrayList<Integer> onSave() {
+        ArrayList<Integer> cardsIndex=new ArrayList<>();
+        for(AbstractCard c:AbstractDungeon.player.masterDeck.group){
+            if(PatchTranscendence.PatchTool1.inTranscendence.get(c)){
+                cardsIndex.add(AbstractDungeon.player.masterDeck.group.indexOf(c));
+            }
         }
+        return cardsIndex;
     }
     @Override
-    public void onLoad(Integer cardIndex) {
-        if (cardIndex == null) {
-            return;
-        }
-        if (cardIndex >= 0 && cardIndex < AbstractDungeon.player.masterDeck.group.size()) {
-            card = AbstractDungeon.player.masterDeck.group.get(cardIndex);
-            if (card != null) {
-                PatchTranscendence.PatchTool1.inTranscendence.set(card, true);
-                setDescriptionAfterLoading();
+    public void onLoad(ArrayList<Integer> cardsIndex) {
+        for(int i:cardsIndex){
+            if(i>=0&&i<AbstractDungeon.player.masterDeck.group.size()){
+                card=AbstractDungeon.player.masterDeck.group.get(i);
+                if(card!=null){
+                    PatchTranscendence.PatchTool1.inTranscendence.set(card,true);
+                    setDescriptionAfterLoading();
+                }
             }
         }
     }
@@ -103,11 +105,8 @@ public class Transcendence extends StropsAbstractRelic implements OnAfterUseCard
 
     @Override
     public void onUnequip() { // 1. On unequip
-        if (card != null) {
-            AbstractCard cardInDeck = AbstractDungeon.player.masterDeck.getSpecificCard(card);
-            if (cardInDeck != null) {
-                PatchTranscendence.PatchTool1.inTranscendence.set(cardInDeck, false);
-            }
+        for(AbstractCard c:AbstractDungeon.player.masterDeck.group){
+            PatchTranscendence.PatchTool1.inTranscendence.set(c,false);
         }
     }
 
@@ -136,6 +135,11 @@ public class Transcendence extends StropsAbstractRelic implements OnAfterUseCard
     }
 
     @Override
+    public void onVictory(){
+        counter=-1;
+    }
+
+    @Override
     public void onAfterUseCard(AbstractCard cardIn, UseCardAction action){
         if((counter<=THRESHOLD.value-1)&&(PatchTranscendence.PatchTool1.inTranscendence.get(cardIn))){
             if (AbstractDungeon.player.getRelic(ID) != this){
@@ -143,6 +147,7 @@ public class Transcendence extends StropsAbstractRelic implements OnAfterUseCard
             }
             flash();
             int handsize = AbstractDungeon.player.hand.size();
+            addToTop(new DrawCardAction(AbstractDungeon.player,handsize));
             for (int i = 0; i < handsize; i++) {
                 addToTop(new ExcludeAction(1, true, true, false, Settings.ACTION_DUR_XFAST));
             }
@@ -164,21 +169,5 @@ public class Transcendence extends StropsAbstractRelic implements OnAfterUseCard
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;
-    }
-
-    @Override
-    public void updateDesc() {
-        ArrayList<String> s=getUpdatedDescription2();
-
-        this.description = s.get(0);
-        this.tips = new ArrayList();
-        this.tips.add(new PowerTip(this.name, this.description));
-
-        for(int i=1;i<s.size();i+=2)
-        {
-            this.tips.add(new PowerTip(s.get(i),s.get(i+1)));
-        }
-
-        initializeTips();
     }
 }
