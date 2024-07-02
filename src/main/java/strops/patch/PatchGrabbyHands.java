@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import com.megacrit.cardcrawl.screens.CombatRewardScreen;
 import com.megacrit.cardcrawl.ui.buttons.SingingBowlButton;
+import strops.modcore.Strops;
 import strops.relics.GrabbyHands;
 
 import java.lang.reflect.Field;
@@ -147,7 +148,7 @@ public class PatchGrabbyHands {
                     SingingBowlButton bowl = (SingingBowlButton) f.get(AbstractDungeon.cardRewardScreen);
                     bowl.hide();
                 } catch (IllegalAccessException|NoSuchFieldException e) {
-                    e.printStackTrace();
+                    Strops.logger.info("An exception happened while Grabby Hand's disabling Singing Bowl button!");
                 }
             }
         }
