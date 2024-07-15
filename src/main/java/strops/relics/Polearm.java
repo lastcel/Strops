@@ -21,8 +21,8 @@ public class Polearm extends StropsAbstractRelic {
 
     public static int NUM1=6,NUM2=2;
 
-    public static final IntSliderSetting BONUS = new IntSliderSetting("Polearm_BONUS", "N1", NUM1, 8);
-    public static final IntSliderSetting PENALTY = new IntSliderSetting("Polearm_PENALTY", "N2", NUM2, 4);
+    public static final IntSliderSetting BONUS = new IntSliderSetting("Polearm_Bonus", "N1", NUM1, 10);
+    public static final IntSliderSetting PENALTY = new IntSliderSetting("Polearm_Penalty", "N2", NUM2, 4);
     public static final IntSliderSetting MH=new IntSliderSetting("Polearm_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Polearm_G","G",0,-100,100);
     public ArrayList<RelicSetting> BuildRelicSettings() {

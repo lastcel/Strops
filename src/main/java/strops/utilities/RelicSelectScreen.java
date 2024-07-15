@@ -12,8 +12,11 @@ import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.mainMenu.ScrollBar;
 import com.megacrit.cardcrawl.screens.mainMenu.ScrollBarListener;
+import strops.patch.PatchDecanter;
+
 import java.util.ArrayList;
 
 public class RelicSelectScreen implements ScrollBarListener {
@@ -79,7 +82,8 @@ public class RelicSelectScreen implements ScrollBarListener {
 
     public void open(ArrayList<AbstractRelic> relics) {
         AbstractDungeon.isScreenUp = true;
-        AbstractDungeon.overlayMenu.showBlackScreen(0.5F);
+        AbstractDungeon.screen = PatchDecanter.PatchTool30.DECANTER_SELECT;
+        AbstractDungeon.overlayMenu.showBlackScreen();
         AbstractDungeon.overlayMenu.proceedButton.hide();
         this.show = true;
         this.controllerRelicHb = null;
@@ -91,7 +95,8 @@ public class RelicSelectScreen implements ScrollBarListener {
     }
 
     public void close() {
-        AbstractDungeon.screen = AbstractDungeon.CurrentScreen.GRID;
+        //AbstractDungeon.screen = AbstractDungeon.CurrentScreen.GRID;
+        myGenericScreenOverlayReset();
         AbstractDungeon.closeCurrentScreen();
         this.show = false;
     }
@@ -249,6 +254,22 @@ public class RelicSelectScreen implements ScrollBarListener {
     private void updateBarPosition() {
         float percent = MathHelper.percentFromValueBetween(this.scrollLowerBound, this.scrollUpperBound, this.scrollY);
         this.scrollBar.parentScrolledToPercent(percent);
+    }
+
+    private static void myGenericScreenOverlayReset() {
+        if (AbstractDungeon.previousScreen == null) {
+            if (AbstractDungeon.player.isDead) {
+                AbstractDungeon.previousScreen = AbstractDungeon.CurrentScreen.DEATH;
+            } else {
+                AbstractDungeon.isScreenUp = false;
+                AbstractDungeon.overlayMenu.hideBlackScreen();
+            }
+        }
+
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !AbstractDungeon.player.isDead) {
+            AbstractDungeon.overlayMenu.showCombatPanels();
+        }
+
     }
 }
 

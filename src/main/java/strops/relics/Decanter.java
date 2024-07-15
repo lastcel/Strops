@@ -28,6 +28,7 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
 
     public String relicToDisenchant="";
     protected AbstractRoom.RoomPhase roomPhase;
+    //private boolean savedFirstRoomChosen;
     protected boolean relicSelected = true;
     protected RelicSelectScreen relicSelectScreen = new RelicSelectScreen();
     protected boolean fakeHover = false;
@@ -97,13 +98,15 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
             return;
         }
 
-        AbstractDungeon.closeCurrentScreen();
+        //savedFirstRoomChosen=AbstractDungeon.firstRoomChosen;
+        //AbstractDungeon.closeCurrentScreen();
         if (AbstractDungeon.isScreenUp) {
             AbstractDungeon.dynamicBanner.hide();
             AbstractDungeon.overlayMenu.cancelButton.hide();
             AbstractDungeon.previousScreen = AbstractDungeon.screen;
         }
         this.roomPhase = (AbstractDungeon.getCurrRoom()).phase;
+        //Strops.logger.info("保存，roomPhase="+this.roomPhase);
         (AbstractDungeon.getCurrRoom()).phase = AbstractRoom.RoomPhase.INCOMPLETE;
         openRelicSelect(toDisenchant);
     }
@@ -126,6 +129,8 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
                     setDescriptionAfterLoading(true);
                 }
                 (AbstractDungeon.getCurrRoom()).phase = this.roomPhase;
+                //Strops.logger.info("读取，currPhase="+(AbstractDungeon.getCurrRoom()).phase);
+                //AbstractDungeon.firstRoomChosen=savedFirstRoomChosen;
             } else {
                 this.relicSelectScreen.update();
                 if (!this.hb.hovered){

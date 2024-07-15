@@ -27,8 +27,8 @@ public class SeaOfMoon extends StropsAbstractRelic{
     private boolean cardSelected = true;
 
     public static final int NUM1=2;
-    public static final int NUM2=3;
-    public static final int NUM3=3;
+    public static final int NUM2=2;
+    public static final int NUM3=2;
 
     public static final IntSliderSetting RECEPTOR=new IntSliderSetting("SeaOfMoon_Receptor", "N1", NUM1, 1,5);
     public static final IntSliderSetting DAMAGE=new IntSliderSetting("SeaOfMoon_Damage", "N2", NUM2, 5);

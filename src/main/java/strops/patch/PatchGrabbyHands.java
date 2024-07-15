@@ -3,6 +3,7 @@ package strops.patch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
@@ -179,6 +180,22 @@ public class PatchGrabbyHands {
         public static void Insert(AbstractCard __inst, AbstractCard card) {
             PatchTool6.isGrabbed.set(card, PatchTool6.isGrabbed.get(__inst));
             PatchTool7.ages.set(card, PatchTool7.ages.get(__inst));
+        }
+    }
+
+    @SpirePatch(
+            clz= CombatRewardScreen.class,
+            method="update"
+    )
+    public static class PatchTool9 {
+        @SpirePostfixPatch
+        public static void Postfix(CombatRewardScreen __inst) {
+            for(RewardItem r:__inst.rewards){
+                if(r.type==RewardItem.RewardType.CARD&&PatchTool5.isGrabby.get(r)){
+                    AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
+                    break;
+                }
+            }
         }
     }
 

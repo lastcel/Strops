@@ -517,6 +517,32 @@ public class PatchDecanter {
         }
     }
 
+    @SpirePatch(
+            clz=AbstractDungeon.class,
+            method=SpirePatch.CLASS
+    )
+    public static class PatchTool30 {
+        @SpireEnum
+        public static AbstractDungeon.CurrentScreen DECANTER_SELECT;
+    }
+
+
+    /*
+    @SpirePatch(
+            clz= TheBeyond.class,
+            method="update",
+            paramtypez = {AbstractPlayer.class, ArrayList.class}
+    )
+    public static class PatchTool30 {
+        @SpirePostfixPatch
+        public static void Postfix(TheBeyond __inst, AbstractPlayer p, ArrayList<String> theList) {
+            AbstractDungeon.currMapNode = new MapRoomNode(0, -1);
+            AbstractDungeon.currMapNode.room = new EmptyRoom();
+        }
+    }
+
+     */
+
 
     /*
     @SpirePatch(

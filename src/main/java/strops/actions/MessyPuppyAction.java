@@ -14,7 +14,13 @@ public class MessyPuppyAction extends AbstractGameAction {
 
     @Override
     public void update(){
+        if (AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+            this.isDone=true;
+            return;
+        }
+
         for(AbstractMonster m: AbstractDungeon.getCurrRoom().monsters.monsters){
+            //Strops.logger.info("。。。检测到怪物："+m.name+"，isDying="+m.isDying+"，halfDead="+m.halfDead);
             if(messyPuppy.counter>=MessyPuppy.CAPACITY.value){
                 break;
             }
@@ -38,6 +44,7 @@ public class MessyPuppyAction extends AbstractGameAction {
                     messyPuppy.grayscale=true;
                 }
 
+                //Strops.logger.info("？？？准备复活：{}", m.name);
                 addToBot(new SpawnMonsterAction(m.getClass(),messyPuppy.counter));
                 messyPuppy.records.add(m);
             }

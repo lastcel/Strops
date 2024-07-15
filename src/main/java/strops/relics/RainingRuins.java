@@ -45,26 +45,28 @@ public class RainingRuins extends StropsAbstractRelic implements ClickableRelic 
     public static final String ID = ModHelper.makePath(RainingRuins.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(RainingRuins.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(RainingRuins.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
+    //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
     public static boolean bruh = false;
 
-    public static final int NUM1=2;
+    public static final int NUM1=2,TIER=1;
 
-    public static final IntSliderSetting COOLDOWN=new IntSliderSetting("RainyRuins_COOLDOWN", "N1", NUM1, 1,3);
+    public static final IntSliderSetting COOLDOWN=new IntSliderSetting("RainyRuins_Cooldown", "N1", NUM1, 1,3);
     public static final IntSliderSetting MH=new IntSliderSetting("RainyRuins_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("RainyRuins_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("RainyRuins_R","R", TIER,1,3);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(COOLDOWN);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public RainingRuins() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
     }

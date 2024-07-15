@@ -1,5 +1,6 @@
 package strops.relics;
 
+import com.evacipated.cardcrawl.mod.stslib.relics.OnAfterUseCardRelic;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,7 +13,7 @@ import strops.utilities.RelicSetting;
 
 import java.util.ArrayList;
 
-public class Bindings extends StropsAbstractRelic{
+public class Bindings extends StropsAbstractRelic implements OnAfterUseCardRelic {
     public static final String ID = ModHelper.makePath(Bindings.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Bindings.class.getSimpleName());
     //private static final String IMG_PATH_O = ModHelper.makeOPath(Bindings.class.getSimpleName());
@@ -23,7 +24,7 @@ public class Bindings extends StropsAbstractRelic{
     public static final int NUM2=3;
     public static final int NUM3=1;
 
-    public static final IntSliderSetting THRESHOLD=new IntSliderSetting("Bindings_THRESHOLD", "N1", NUM1, 1,3);
+    public static final IntSliderSetting THRESHOLD=new IntSliderSetting("Bindings_Threshold", "N1", NUM1, 1,3);
     public static final IntSliderSetting BONUS=new IntSliderSetting("Bindings_Bonus", "N2", NUM2, 1,9);
     public static final IntSliderSetting DRAWBACK=new IntSliderSetting("Bindings_Drawback", "N3", NUM3, 1,9);
     public static final IntSliderSetting MH=new IntSliderSetting("Bindings_MH","MH",0,-20,20);
@@ -56,7 +57,7 @@ public class Bindings extends StropsAbstractRelic{
     }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
+    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         if(card.type!=AbstractCard.CardType.ATTACK||
                 !(card.target==AbstractCard.CardTarget.ENEMY||
                         card.target==AbstractCard.CardTarget.SELF_AND_ENEMY)){

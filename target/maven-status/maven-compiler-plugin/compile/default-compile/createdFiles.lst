@@ -69,6 +69,7 @@ strops\relics\GrabbyHands.class
 strops\relics\PainsReward.class
 strops\patch\PatchGenerosityCharm$CombatRewardScreenPatch.class
 strops\patch\PatchProfiteeringMerchant$PatchTool1.class
+strops\patch\PatchDecanter$PatchTool30.class
 strops\patch\PatchGlowFeather$PatchTool14.class
 strops\patch\PatchVanillaBottles$PatchTool3.class
 strops\patch\PatchDecanter$PatchTool9.class
@@ -320,6 +321,7 @@ strops\patch\PatchGlassRod$PatchTool6.class
 strops\relics\Versatile.class
 strops\patch\PatchProfiteeringMerchant.class
 strops\patch\PatchAtri$PatchTool3.class
+strops\patch\PatchGrabbyHands$PatchTool9.class
 strops\patch\PatchMessyPuppy.class
 strops\relics\RainingRuins$1.class
 strops\patch\PatchDepartmentStore$PatchTool1.class

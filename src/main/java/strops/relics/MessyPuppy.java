@@ -90,6 +90,7 @@ public class MessyPuppy extends StropsAbstractRelic{
 
     @Override
     public void onTrigger(){
+        //Strops.logger.info("###插入MessyPuppy动作");
         addToBot(new MessyPuppyAction(this));
     }
 
@@ -111,6 +112,7 @@ public class MessyPuppy extends StropsAbstractRelic{
         isSmallerMonster=true;
         AbstractMonster m = createMonster(monsterClass);
         isSmallerMonster=false;
+        //Strops.logger.info(">>>复活成功："+m.name);
         m.currentHealth=PENALTY.value;
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(m,m,new MinionPower(m)));
         MonsterGroup mg = AbstractDungeon.getMonsters();

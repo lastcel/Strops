@@ -1,5 +1,6 @@
 package strops.relics;
 
+import com.evacipated.cardcrawl.mod.stslib.relics.OnAfterUseCardRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.unique.PoisonLoseHpAction;
@@ -16,7 +17,7 @@ import strops.utilities.RelicSetting;
 
 import java.util.ArrayList;
 
-public class PlagueStopwatch extends StropsAbstractRelic{
+public class PlagueStopwatch extends StropsAbstractRelic implements OnAfterUseCardRelic {
     public static final String ID = ModHelper.makePath(PlagueStopwatch.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(PlagueStopwatch.class.getSimpleName());
     //private static final String IMG_PATH_O = ModHelper.makeOPath(PlagueStopwatch.class.getSimpleName());
@@ -68,7 +69,7 @@ public class PlagueStopwatch extends StropsAbstractRelic{
     }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
+    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         counter++;
         if (counter % THRESHOLD.value == 0) {
             flash();

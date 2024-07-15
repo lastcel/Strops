@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.BackAttackPower;
 import strops.actions.EscapeAction;
 import strops.helpers.ModHelper;
 import strops.utilities.IntSliderSetting;
@@ -21,13 +22,13 @@ public class ExitPhase extends StropsAbstractRelic implements ClickableRelic {
     private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
-    public static final int NUM1=3;
+    public static final int NUM1=2;
     public static final int NUM2=50;
 
-    public static final IntSliderSetting COOLDOWN=new IntSliderSetting("ExitPhase_Cooldown", "N1", NUM1, 1,5);
-    public static final IntSliderSetting BONUS=new IntSliderSetting("ExitPhase_Bonus", "N2", NUM2, 100);
-    public static final IntSliderSetting MH=new IntSliderSetting("ExitPhase_MH","MH",0,-20,20);
-    public static final IntSliderSetting G=new IntSliderSetting("ExitPhase_G","G",0,-100,100);
+    public static final IntSliderSetting COOLDOWN=new IntSliderSetting("ExitPhase_Cooldown_v0.12.4", "N1", NUM1, 1,5);
+    public static final IntSliderSetting BONUS=new IntSliderSetting("ExitPhase_Bonus_v0.12.4", "N2", NUM2, 100);
+    public static final IntSliderSetting MH=new IntSliderSetting("ExitPhase_MH_v0.12.4","MH",0,-20,20);
+    public static final IntSliderSetting G=new IntSliderSetting("ExitPhase_G_v0.12.4","G",0,-100,100);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(COOLDOWN);
@@ -59,6 +60,12 @@ public class ExitPhase extends StropsAbstractRelic implements ClickableRelic {
             beginLongPulse();
             flash();
         }
+
+        for (AbstractMonster m : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
+            if (m.type == AbstractMonster.EnemyType.BOSS||m.hasPower(BackAttackPower.POWER_ID)){
+                stopPulse();
+            }
+        }
     }
 
     @Override
@@ -88,7 +95,7 @@ public class ExitPhase extends StropsAbstractRelic implements ClickableRelic {
         }
 
         for (AbstractMonster m : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
-            if (m.type == AbstractMonster.EnemyType.BOSS){
+            if (m.type == AbstractMonster.EnemyType.BOSS||m.hasPower(BackAttackPower.POWER_ID)){
                 return;
             }
         }
@@ -100,7 +107,7 @@ public class ExitPhase extends StropsAbstractRelic implements ClickableRelic {
 
     @Override
     public boolean canSpawn(){
-        return Settings.isEndless||AbstractDungeon.floorNum<=54;
+        return Settings.isEndless||AbstractDungeon.floorNum<=48;
     }
 
     @Override

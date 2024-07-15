@@ -69,7 +69,7 @@
     "DESCRIPTIONS": [
       "During combats against common enemies, your HP has a lower limit of #b%d.",
       "Note",
-      "This relic won't spawn on Act 4."
+      "This relic won't spawn on Floor 49 or higher."
     ]
   },
   "Strops:HungrySun": {
@@ -78,7 +78,7 @@
     "DESCRIPTIONS": [
       "The first #b%d HP loss in each non-combat room heals you instead.",
       "Note",
-      "This relic won't spawn on Act 4."
+      "This relic won't spawn on Floor 49 or higher."
     ]
   },
   "Strops:SunflowerInASummer": {
@@ -166,7 +166,10 @@
     "DESCRIPTIONS": [
       "Upon pickup, lose #r%d Max HP. When you would die, set your Max HP to (the number of #yAttacks in your deck minus #b%d [REMOVE_SPACE]) times #b%d , and heal fully instead (works once).",
       "Note",
-      "This relic will be triggered before #yLizard #yTail and #yFairy #yin #ya #yBottle."
+      "This relic will be triggered before #yLizard #yTail and #yFairy #yin #ya #yBottle.",
+      "",
+      "",
+      "Upon pickup, lose #r%d Max HP. When you would die, set your Max HP to (the number of #yAttacks in your deck plus #b%d [REMOVE_SPACE]) times #b%d , and heal fully instead (works once)."
     ]
   },
   "Strops:ZhelpArcaneTalents": {
@@ -499,9 +502,7 @@
     "NAME": "Chugging Mask",
     "FLAVOR": "I swung in the center of the dance floor.",
     "DESCRIPTIONS": [
-      "Whenever you gain or lose Max HP out of combat, heal HP equally.",
-      "Note",
-      "This relic won't spawn on Act 4."
+      "Whenever you gain or lose Max HP out of combat, heal HP equally. Upon pickup, gain #b%d Max HP."
     ]
   },
   "Strops:ExitPhase": {
@@ -510,7 +511,7 @@
     "DESCRIPTIONS": [
       "[#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL #bstrops:Cooldown [#2aecd7]: [#ec902a]%d [#2aecd7]Combats NL Escape from a non-boss combat. Whenever you escape from a combat, gain #b%d #yGold.",
       "Note",
-      "This relic won't spawn at Spear & Shield."
+      "This relic won't spawn on Floor 49 or higher."
     ]
   },
   "Strops:Maniacal": {

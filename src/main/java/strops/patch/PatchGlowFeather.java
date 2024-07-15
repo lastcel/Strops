@@ -15,6 +15,7 @@ import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
+import strops.modcore.Strops;
 import strops.relics.GlowFeather;
 
 import java.lang.reflect.Field;
@@ -189,6 +190,7 @@ public class PatchGlowFeather {
                     if(f.get(___shopScreen) instanceof ArrayList<?>){
                         ArrayList<?> copiedRelics=(ArrayList<?>)f.get(___shopScreen);
                         allItems.addAll(copiedRelics);
+                        allItems.remove(__inst);
                     }
                 } catch (IllegalAccessException|NoSuchFieldException e) {
                     e.printStackTrace();
@@ -213,6 +215,13 @@ public class PatchGlowFeather {
                 for(int i=0;i<GlowFeather.SCOPE.value&&i<allItems.size();i++){
                     freeItems.add(allItems.get(i));
                 }
+
+                /*
+                for(Object o:freeItems){
+                    Strops.logger.info("免费物品：{}", o.getClass().getSimpleName());
+                }
+
+                 */
             }
         }
     }

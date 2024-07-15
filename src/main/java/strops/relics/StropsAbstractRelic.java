@@ -342,6 +342,10 @@ public abstract class StropsAbstractRelic extends CustomRelic {
     }
 
     public static int tier2Num(RelicTier tier){
+        if(tier==null){
+            return -1;
+        }
+
         switch (tier){
             case COMMON:return 1;
             case UNCOMMON:return 2;

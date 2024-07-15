@@ -25,9 +25,9 @@ public class SoulStitch extends StropsAbstractRelic {
 
     public static final int NUM1=18,NUM2=2,NUM3=10;
 
-    public static final IntSliderSetting PENALTY=new IntSliderSetting("SoulStitch_PENALTY", "N1", NUM1, 30);
-    public static final IntSliderSetting SUBTRAHEND=new IntSliderSetting("SoulStitch_SUBTRAHEND", "N2", NUM2, -3,5);
-    public static final IntSliderSetting MULTIPLIER=new IntSliderSetting("SoulStitch_MULTIPLIER", "N3", NUM3, 1,15);
+    public static final IntSliderSetting PENALTY=new IntSliderSetting("SoulStitch_Penalty", "N1", NUM1, 30);
+    public static final IntSliderSetting SUBTRAHEND=new IntSliderSetting("SoulStitch_Subtrahend", "N2", NUM2, -3,5);
+    public static final IntSliderSetting MULTIPLIER=new IntSliderSetting("SoulStitch_Multiplier", "N3", NUM3, 1,15);
     public static final IntSliderSetting MH=new IntSliderSetting("SoulStitch_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("SoulStitch_G","G",0,-100,100);
     public ArrayList<RelicSetting> BuildRelicSettings() {
@@ -75,12 +75,19 @@ public class SoulStitch extends StropsAbstractRelic {
     }
 
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0],PENALTY.value,SUBTRAHEND.value,MULTIPLIER.value);
+        if(SUBTRAHEND.value>=0){
+            return String.format(this.DESCRIPTIONS[0],PENALTY.value,SUBTRAHEND.value,MULTIPLIER.value);
+        }
+        return String.format(this.DESCRIPTIONS[5],PENALTY.value,-SUBTRAHEND.value,MULTIPLIER.value);
     }
 
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0],PENALTY.value,SUBTRAHEND.value,MULTIPLIER.value));
+        if(SUBTRAHEND.value>=0){
+            str_out.add(String.format(this.DESCRIPTIONS[0],PENALTY.value,SUBTRAHEND.value,MULTIPLIER.value));
+        } else {
+            str_out.add(String.format(this.DESCRIPTIONS[5],PENALTY.value,-SUBTRAHEND.value,MULTIPLIER.value));
+        }
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         str_out.add(this.DESCRIPTIONS[1]);
