@@ -48,6 +48,7 @@ public class SeaOfMoon extends StropsAbstractRelic{
     public SeaOfMoon() {
         super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
         showMHaG(MH,G);
+        canSpawnInBattle=false;
     }
 
     @Override
@@ -69,6 +70,9 @@ public class SeaOfMoon extends StropsAbstractRelic{
             cardSelected = true;
             for(AbstractCard c:group.group){
                 c.selfRetain=true;
+                c.initializeDescription();
+
+                /*
                 boolean hasRetainAlready=false;
                 //logger.info("拾起，卡牌生描述："+c.rawDescription.toLowerCase());
                 for(String s:GameDictionary.RETAIN.NAMES){
@@ -82,6 +86,8 @@ public class SeaOfMoon extends StropsAbstractRelic{
                     c.rawDescription=DESCRIPTIONS[5]+c.rawDescription;
                     c.initializeDescription();
                 }
+
+                 */
             }
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
             AbstractDungeon.gridSelectScreen.selectedCards.clear();

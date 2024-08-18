@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Lemonade extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(Lemonade.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Lemonade.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(Lemonade.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(Lemonade.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
@@ -39,7 +39,7 @@ public class Lemonade extends StropsAbstractRelic{
     }
 
     public Lemonade() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
     }

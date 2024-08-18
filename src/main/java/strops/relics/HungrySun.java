@@ -19,7 +19,7 @@ public class HungrySun extends StropsAbstractRelic {
     private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static final int NUM1=7;
+    public static final int NUM1=6;
 
     public static final IntSliderSetting THRESHOLD = new IntSliderSetting("HungrySun_Threshold", "N1", NUM1, 1,12);
     public static final IntSliderSetting MH=new IntSliderSetting("HungrySun_MH","MH",0,-20,20);
@@ -39,6 +39,19 @@ public class HungrySun extends StropsAbstractRelic {
     }
 
     @Override
+    public void onEnterRoom(AbstractRoom room) {
+        if(!(room instanceof MonsterRoom)){
+            counter=THRESHOLD.value;
+            beginLongPulse();
+        }
+        else {
+            counter=-1;
+            pulse=false;
+        }
+    }
+
+    /*
+    @Override
     public void justEnteredRoom(AbstractRoom room) {
         if(!(room instanceof MonsterRoom)){
             counter=THRESHOLD.value;
@@ -50,11 +63,16 @@ public class HungrySun extends StropsAbstractRelic {
         }
     }
 
+     */
+
     @Override
     public int onLoseHpLast(int damageAmount) {
+        /*
         if(AbstractDungeon.getCurrRoom() instanceof MonsterRoom){
             return damageAmount;
         }
+
+         */
         if(counter<=0){
             return damageAmount;
         }
@@ -75,6 +93,7 @@ public class HungrySun extends StropsAbstractRelic {
     @Override
     public void onEquip(){
         onEquipMods(MH,G);
+
         if(!(AbstractDungeon.getCurrRoom() instanceof MonsterRoom)){
             counter=THRESHOLD.value;
             beginLongPulse();

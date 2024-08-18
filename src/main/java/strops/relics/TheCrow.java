@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.RitualPower;
+import com.megacrit.cardcrawl.relics.CultistMask;
 import strops.helpers.ModHelper;
 import strops.powers.RitualOfRitualPower;
 import strops.utilities.IntSliderSetting;
@@ -16,7 +17,7 @@ public class TheCrow extends StropsAbstractRelic {
     private static final String IMG_PATH = ModHelper.makeIPath(TheCrow.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(TheCrow.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.BOSS;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
     public static final int NUM1=2,NUM2=2;
 
@@ -47,7 +48,7 @@ public class TheCrow extends StropsAbstractRelic {
         flash();
         addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                 new RitualPower(AbstractDungeon.player, BONUS1.value, true),BONUS1.value));
-        if(AbstractDungeon.player.hasRelic("CultistMask")){
+        if(AbstractDungeon.player.hasRelic(CultistMask.ID)){
             addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                     new RitualOfRitualPower(AbstractDungeon.player, BONUS2.value),BONUS2.value));
         }

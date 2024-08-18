@@ -3,7 +3,6 @@ package strops.patch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
@@ -70,16 +69,18 @@ public class PatchGrabbyHands {
         public static void Insert(CombatRewardScreen __inst) {
             if(AbstractDungeon.player.hasRelic(GrabbyHands.ID)){
                 AbstractDungeon.player.getRelic(GrabbyHands.ID).flash();
-                RewardItem cardReward2 = new RewardItem();
-                PatchTool5.isGrabby.set(cardReward2,true);
-                cardReward2.text=(new GrabbyHands()).DESCRIPTIONS[5];
-                for(AbstractCard c:cardReward2.cards){
-                    PatchTool6.isGrabbed.set(c,true);
-                    //GrabbyHands.cards.add(c);
-                }
+                for(int i=0;i<GrabbyHands.SIZE.value;i++) {
+                    RewardItem cardReward2 = new RewardItem();
+                    PatchTool5.isGrabby.set(cardReward2, true);
+                    cardReward2.text = (new GrabbyHands()).DESCRIPTIONS[5];
+                    for (AbstractCard c : cardReward2.cards) {
+                        PatchTool6.isGrabbed.set(c, true);
+                        //GrabbyHands.cards.add(c);
+                    }
 
-                if (!cardReward2.cards.isEmpty()){
-                    __inst.rewards.add(cardReward2);
+                    if (!cardReward2.cards.isEmpty()) {
+                        __inst.rewards.add(cardReward2);
+                    }
                 }
             }
         }
@@ -193,6 +194,29 @@ public class PatchGrabbyHands {
             for(RewardItem r:__inst.rewards){
                 if(r.type==RewardItem.RewardType.CARD&&PatchTool5.isGrabby.get(r)){
                     AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
+                    break;
+                }
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz= CardRewardScreen.class,
+            method="reopen"
+    )
+    public static class PatchTool10 {
+        @SpirePostfixPatch
+        public static void Postfix(CardRewardScreen __inst) {
+            for(AbstractCard c:__inst.rewardGroup){
+                if(PatchTool6.isGrabbed.get(c)){
+                    try {
+                        Field f = CardRewardScreen.class.getDeclaredField("bowlButton");
+                        f.setAccessible(true);
+                        SingingBowlButton bowl = (SingingBowlButton) f.get(AbstractDungeon.cardRewardScreen);
+                        bowl.hide();
+                    } catch (IllegalAccessException|NoSuchFieldException e) {
+                        Strops.logger.info("An exception happened while Grabby Hand's redisabling Singing Bowl button!");
+                    }
                     break;
                 }
             }

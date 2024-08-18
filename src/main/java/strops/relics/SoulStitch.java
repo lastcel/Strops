@@ -23,16 +23,15 @@ public class SoulStitch extends StropsAbstractRelic {
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
     }
 
-    public static final int NUM1=18,NUM2=2,NUM3=10;
+    public static final int MAXHP=-18,NUM1=2,NUM2=10;
 
-    public static final IntSliderSetting PENALTY=new IntSliderSetting("SoulStitch_Penalty", "N1", NUM1, 30);
-    public static final IntSliderSetting SUBTRAHEND=new IntSliderSetting("SoulStitch_Subtrahend", "N2", NUM2, -3,5);
-    public static final IntSliderSetting MULTIPLIER=new IntSliderSetting("SoulStitch_Multiplier", "N3", NUM3, 1,15);
-    public static final IntSliderSetting MH=new IntSliderSetting("SoulStitch_MH","MH",0,-20,20);
-    public static final IntSliderSetting G=new IntSliderSetting("SoulStitch_G","G",0,-100,100);
+    //public static final IntSliderSetting PENALTY=new IntSliderSetting("SoulStitch_Penalty", "N1", NUM1, 30);
+    public static final IntSliderSetting SUBTRAHEND=new IntSliderSetting("SoulStitch_Subtrahend_v0.13.4", "N1", NUM1, -3,5);
+    public static final IntSliderSetting MULTIPLIER=new IntSliderSetting("SoulStitch_Multiplier_v0.13.4", "N2", NUM2, 1,15);
+    public static final IntSliderSetting MH=new IntSliderSetting("SoulStitch_MH_v0.13.4","MH", MAXHP,-40,20);
+    public static final IntSliderSetting G=new IntSliderSetting("SoulStitch_G_v0.13.4","G",0,-100,100);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
-        settings.add(PENALTY);
         settings.add(SUBTRAHEND);
         settings.add(MULTIPLIER);
         settings.add(MH);
@@ -51,7 +50,7 @@ public class SoulStitch extends StropsAbstractRelic {
     @Override
     public void onEquip(){
         onEquipMods(MH,G);
-        AbstractDungeon.player.decreaseMaxHealth(PENALTY.value);
+        //AbstractDungeon.player.decreaseMaxHealth(PENALTY.value);
     }
 
     @Override
@@ -68,25 +67,23 @@ public class SoulStitch extends StropsAbstractRelic {
         AbstractDungeon.player.maxHealth= Math.max(MULTIPLIER.value*(getNum- SUBTRAHEND.value),1);
 
         int healAmt = AbstractDungeon.player.maxHealth;
-        if (healAmt < 1)
-            healAmt = 1;
         AbstractDungeon.player.heal(healAmt, true);
         setCounter(-2);
     }
 
     public String getUpdatedDescription() {
         if(SUBTRAHEND.value>=0){
-            return String.format(this.DESCRIPTIONS[0],PENALTY.value,SUBTRAHEND.value,MULTIPLIER.value);
+            return String.format(this.DESCRIPTIONS[0],SUBTRAHEND.value,MULTIPLIER.value);
         }
-        return String.format(this.DESCRIPTIONS[5],PENALTY.value,-SUBTRAHEND.value,MULTIPLIER.value);
+        return String.format(this.DESCRIPTIONS[5],-SUBTRAHEND.value,MULTIPLIER.value);
     }
 
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         if(SUBTRAHEND.value>=0){
-            str_out.add(String.format(this.DESCRIPTIONS[0],PENALTY.value,SUBTRAHEND.value,MULTIPLIER.value));
+            str_out.add(String.format(this.DESCRIPTIONS[0],SUBTRAHEND.value,MULTIPLIER.value));
         } else {
-            str_out.add(String.format(this.DESCRIPTIONS[5],PENALTY.value,-SUBTRAHEND.value,MULTIPLIER.value));
+            str_out.add(String.format(this.DESCRIPTIONS[5],-SUBTRAHEND.value,MULTIPLIER.value));
         }
         str_out.add("");
         str_out.add(getMHaG(MH,G));

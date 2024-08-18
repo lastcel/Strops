@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
+import strops.relics.AmorphousMass;
 import strops.relics.PhoenixGift;
 
 public class PatchPhoenixGift {
@@ -25,6 +26,12 @@ public class PatchPhoenixGift {
                     if(r.relicId.equals(PhoenixGift.ID)){
                         ((PhoenixGift) r).isEnabled=true;
                     }
+                }
+            }
+
+            for(AbstractRelic r:AbstractDungeon.player.relics){
+                if(r.relicId.equals(AmorphousMass.ID)){
+                    r.onTrigger();
                 }
             }
         }

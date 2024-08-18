@@ -21,8 +21,8 @@ public class PatchBigBow {
             for(AbstractRelic r:AbstractDungeon.player.relics){
                 if(r.relicId.equals(BigBow.ID)){
                     r.flash();
-                    AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, r));
-                    AbstractDungeon.actionManager.addToBottom(new DrawCardAction(BigBow.DRAW.value));
+                    AbstractDungeon.actionManager.addToTop(new DrawCardAction(BigBow.DRAW.value));
+                    AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, r));
                 }
             }
         }
@@ -40,8 +40,8 @@ public class PatchBigBow {
                 for(AbstractRelic r:AbstractDungeon.player.relics){
                     if(r.relicId.equals(BigBow.ID)){
                         r.flash();
-                        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, r));
-                        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(BigBow.DRAW.value));
+                        AbstractDungeon.actionManager.addToTop(new DrawCardAction(BigBow.DRAW.value));
+                        AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, r));
                     }
                 }
             }

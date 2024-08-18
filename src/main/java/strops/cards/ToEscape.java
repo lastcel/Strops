@@ -33,7 +33,7 @@ public class ToEscape extends CustomCard {
         PatchSunflowerInASummer.PatchTool2.everMetSunflower.set(true);
         AbstractDungeon.player.getRelic(SunflowerInASummer.ID).beginLongPulse();
 
-        if(AbstractDungeon.getCurrRoom().phase== AbstractRoom.RoomPhase.INCOMPLETE){
+        if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.INCOMPLETE){
             AbstractDungeon.getCurrRoom().phase=AbstractRoom.RoomPhase.COMPLETE;
         }
     }

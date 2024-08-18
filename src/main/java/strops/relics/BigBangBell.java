@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -29,12 +30,13 @@ import strops.helpers.ModHelper;
 import strops.patch.PatchBigBangBell;
 import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSetting;
+import strops.utilities.StaticHelpers;
 
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
 public class BigBangBell extends StropsAbstractRelic implements
-        CustomBottleRelic, CustomSavable<ArrayList<Integer>> {
+        CustomBottleRelic, CustomSavable<ArrayList<Integer>>, ClickableRelic {
     public static final String ID = ModHelper.makePath(BigBangBell.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(BigBangBell.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(BigBangBell.class.getSimpleName());
@@ -82,6 +84,7 @@ public class BigBangBell extends StropsAbstractRelic implements
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;
+        canSpawnInBattle=false;
     }
 
     @Override
@@ -190,6 +193,13 @@ public class BigBangBell extends StropsAbstractRelic implements
     }
 
     @Override
+    public void onRightClick() {
+        if(StaticHelpers.canClickRelic(this)){
+            grayscale=!grayscale;
+        }
+    }
+
+    @Override
     public void atBattleStartPreDraw(){
         hasDrawnBellFirstTurn=false;
     }
@@ -223,8 +233,16 @@ public class BigBangBell extends StropsAbstractRelic implements
     }
 
     @Override
-    public void renderInTopPanel(SpriteBatch sb){
-        super.renderInTopPanel(sb);
+    public void onVictory(){
+        grayscale=false;
+    }
+
+    @Override
+    public void renderAndCheck(SpriteBatch sb){
+        if(grayscale){
+            return;
+        }
+        
         if(AbstractDungeon.player.isDraggingCard
                 &&PatchBigBangBell.PatchTool1.inBigBangBell.get(AbstractDungeon.player.hoveredCard)) {
             renderHitArea(sb);
@@ -254,6 +272,14 @@ public class BigBangBell extends StropsAbstractRelic implements
             hitTimer = 0.0f;
         }
     }
+
+    /*
+    @Override
+    public void renderInTopPanel(SpriteBatch sb){
+        super.renderInTopPanel(sb);
+    }
+
+     */
 
     public static void renderHitArea(SpriteBatch sb){
         Color col=Color.valueOf("#aa8447");
@@ -314,7 +340,7 @@ public class BigBangBell extends StropsAbstractRelic implements
         return String.format(this.DESCRIPTIONS[0], PASSIVE.value, EMBOMB.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], PASSIVE.value, EMBOMB.value));

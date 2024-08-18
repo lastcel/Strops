@@ -16,29 +16,30 @@ public class BigBow extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(BigBow.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(BigBow.class.getSimpleName());
     //private static final String IMG_PATH_O = ModHelper.makeOPath(FTLEngines.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
+    //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
     public static boolean isEnabled=false;
 
-    public static final int NUM1=1;
-    public static final int NUM2=1;
+    public static final int NUM1=1,NUM2=1,TIER=2;
 
     public static final IntSliderSetting LUCKY=new IntSliderSetting("BigBow_Lucky", "N1", NUM1, 3);
     public static final IntSliderSetting DRAW=new IntSliderSetting("BigBow_Draw", "N2", NUM2, 1,3);
     public static final IntSliderSetting MH=new IntSliderSetting("BigBow_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("BigBow_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("BigBow_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(LUCKY);
         settings.add(DRAW);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public BigBow() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.cardToPreview=new JustLucky();
     }

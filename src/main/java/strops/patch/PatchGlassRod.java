@@ -4,10 +4,15 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.helpers.GameDictionary;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.saveAndContinue.SaveAndContinue;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
-import strops.relics.SeaOfMoon;
+import com.megacrit.cardcrawl.ui.buttons.CancelButton;
+import javassist.CannotCompileException;
+import javassist.expr.ExprEditor;
+import javassist.expr.MethodCall;
+import strops.cards.SoulCraftedCard;
+import strops.relics.GlassRod;
 import strops.utilities.ExtendedCardSave;
 import strops.utilities.ExtendedSaveFile;
 
@@ -15,10 +20,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static basemod.BaseMod.gson;
-import static com.megacrit.cardcrawl.helpers.CardLibrary.getCard;
 
 public class PatchGlassRod {
 
+    /*
     @SpirePatch(
             clz= AbstractCard.class,
             method=SpirePatch.CLASS
@@ -27,12 +32,16 @@ public class PatchGlassRod {
         public static SpireField<Boolean> everPreUpgrade= new SpireField<>(() -> false);
     }
 
+     */
+
     @SpirePatch(
             clz= AbstractCard.class,
             method=SpirePatch.CLASS
     )
     public static class PatchTool2{
-        public static SpireField<Boolean> everCounted= new SpireField<>(() -> false);
+        //public static SpireField<Boolean> everCounted= new SpireField<>(() -> false);
+        public static SpireField<Integer> lastSearing= new SpireField<>(() -> -1);
+        public static SpireField<Integer> currentSearing= new SpireField<>(() -> -1);
     }
 
     @SpirePatch(
@@ -55,7 +64,7 @@ public class PatchGlassRod {
             ArrayList<ExtendedCardSave> arr=new ArrayList<>();
             for (AbstractCard c : p.masterDeck.group){
                 arr.add(new ExtendedCardSave(c.cardID, c.timesUpgraded, c.misc,
-                        PatchTool1.everPreUpgrade.get(c), PatchTool2.everCounted.get(c), c.selfRetain));
+                        /*PatchTool1.everPreUpgrade.get(c), PatchTool2.everCounted.get(c),*/ c.selfRetain));
             }
             PatchTool3.extendedCards.set(__instance,arr);
         }
@@ -82,8 +91,8 @@ public class PatchGlassRod {
             p.masterDeck.clear();
             for (ExtendedCardSave s : PatchTool3.extendedCards.get(saveFile)) {
                 //logger.info(s.id + ", " + s.upgrades);
-                p.masterDeck.addToTop(getCopy(s.id, s.upgrades, s.misc,
-                        s.savedEverPreUpgrade, s.savedEverCounted, s.isSelfRetain));
+                p.masterDeck.addToTop(myGetCopy(s.id, s.upgrades, s.misc,
+                        /*s.savedEverPreUpgrade, s.savedEverCounted,*/ s.isSelfRetain));
             }
         }
     }
@@ -102,9 +111,46 @@ public class PatchGlassRod {
         }
     }
 
-    public static AbstractCard getCopy(String key, int upgradeTime, int misc,
-                                       boolean isEverPreUpgrade, boolean isEverCounted,
+    @SpirePatch(clz = CancelButton.class, method = "update")
+    public static class PatchTool8 {
+        @SpireInstrumentPatch
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                public void edit(MethodCall m) throws CannotCompileException {
+                    if (m.getMethodName().equals("reopen"))
+                        m.replace("if (strops.relics.GlassRod.canReopenIfCancel) {$_ = $proceed($$);}");
+                }
+            };
+        }
+    }
+
+    @SpirePatch(
+            clz= CardCrawlGame.class,
+            method="update"
+    )
+    public static class PatchTool9 {
+        @SpireInsertPatch(rloc = 107)
+        public static void Insert(CardCrawlGame __inst) {
+            GlassRod.canReopenIfCancel=true;
+        }
+    }
+
+    public static AbstractCard myGetCopy(String key, int upgradeTime, int misc,
+                                       /*boolean isEverPreUpgrade, boolean isEverCounted,*/
                                        boolean isSelfRetain) {
+        if(key.startsWith(SoulCraftedCard.ID)){
+            key=SoulCraftedCard.ID;
+        }
+        AbstractCard retVal = CardLibrary.getCopy(key, upgradeTime, misc);
+        retVal.selfRetain = isSelfRetain;
+        if (retVal.selfRetain) {
+            retVal.initializeDescription();
+        }
+
+        return retVal;
+    }
+
+        /*
         AbstractCard source = getCard(key);
         AbstractCard retVal;
         if (source == null) {
@@ -116,10 +162,14 @@ public class PatchGlassRod {
             retVal.upgrade();
         }
         retVal.misc = misc;
-        PatchTool1.everPreUpgrade.set(retVal,isEverPreUpgrade);
-        PatchTool2.everCounted.set(retVal,isEverCounted);
+        //PatchTool1.everPreUpgrade.set(retVal,isEverPreUpgrade);
+        //PatchTool2.everCounted.set(retVal,isEverCounted);
         retVal.selfRetain=isSelfRetain;
         if(retVal.selfRetain){
+            retVal.initializeDescription();
+
+         */
+            /*
             boolean hasRetainAlready=false;
             for(String s: GameDictionary.RETAIN.NAMES){
                 if(retVal.rawDescription.toLowerCase().startsWith(s)||retVal.rawDescription.toLowerCase().startsWith(" "+s)){
@@ -131,6 +181,9 @@ public class PatchGlassRod {
                 retVal.rawDescription=(new SeaOfMoon()).DESCRIPTIONS[5]+retVal.rawDescription;
                 retVal.initializeDescription();
             }
+
+             */
+        /*
         }
         if (misc != 0) {
             if (retVal.cardID.equals("Genetic Algorithm")) {
@@ -146,4 +199,6 @@ public class PatchGlassRod {
         }
         return retVal;
     }
+
+         */
 }

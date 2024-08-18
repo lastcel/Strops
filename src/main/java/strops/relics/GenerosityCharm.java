@@ -15,29 +15,31 @@ import java.util.ArrayList;
 public class GenerosityCharm extends StropsAbstractRelic implements CustomSavable<Integer> {
     public static final String ID = ModHelper.makePath(GenerosityCharm.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(GenerosityCharm.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(SquirrelsRelief.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.COMMON;
+    private static final String IMG_PATH_O = ModHelper.makeOPath(GenerosityCharm.class.getSimpleName());
+    //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
     public static Random generosityCharmRng;
 
-    public static final int NUM1=3,NUM2=4;
+    public static final int NUM1=3,NUM2=4,TIER=1;
 
     public static final IntSliderSetting CHOICES=new IntSliderSetting("GenerosityCharm_Choices", "N1", NUM1, 2,5);
     public static final IntSliderSetting BOSS_CHOICES=new IntSliderSetting("GenerosityCharm_Boss_Choices", "N1", NUM2, 3,5);
     public static final IntSliderSetting MH=new IntSliderSetting("GenerosityCharm_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("GenerosityCharm_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("GenerosityCharm_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(CHOICES);
         settings.add(BOSS_CHOICES);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public GenerosityCharm() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

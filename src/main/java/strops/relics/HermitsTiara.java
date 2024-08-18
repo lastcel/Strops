@@ -15,7 +15,7 @@ public class HermitsTiara extends StropsAbstractRelic {
 
     public static final String ID = ModHelper.makePath(HermitsTiara.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(HermitsTiara.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.RARE;
+    //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
     public static final int NUM1=9,NUM2=3,TIER=3;
@@ -24,7 +24,7 @@ public class HermitsTiara extends StropsAbstractRelic {
     public static final IntSliderSetting BONUS = new IntSliderSetting("HermitsTiara_Bonus", "N2", NUM2, 1,5);
     public static final IntSliderSetting MH=new IntSliderSetting("HermitsTiara_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("HermitsTiara_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("HermitsTiara_R","R", TIER,1,3);
+    public static final IntSliderSetting R=new IntSliderSetting("HermitsTiara_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
@@ -36,9 +36,8 @@ public class HermitsTiara extends StropsAbstractRelic {
     }
 
     public HermitsTiara() {
-        super(ID, ImageMaster.loadImage(IMG_PATH),  RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
-        tier=num2Tier(R.value);
     }
 
     //public boolean isequipped=false;
@@ -47,6 +46,13 @@ public class HermitsTiara extends StropsAbstractRelic {
     public void onEquip(){
         onEquipMods(MH,G);
         //isequipped=true;
+
+        /*
+        if(AbstractDungeon.player.relics.size()<=THRESHOLD.value){
+            flash();
+        }
+
+         */
     }
 
     @Override
@@ -77,5 +83,14 @@ public class HermitsTiara extends StropsAbstractRelic {
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;
+    }
+
+    @Override
+    public void setCounter(int setCounter){
+        counter=setCounter;
+
+        if(counter<=THRESHOLD.value){
+            flash();
+        }
     }
 }

@@ -10,7 +10,7 @@
     "NAME": "Insanity Stone",
     "FLAVOR": "BOOM, BABY. ~GIGIGI~ BOOM!",
     "DESCRIPTIONS": [
-      "At the start of each combat, add #b%d copies of #yMadness to your hand."
+      "At the start of each combat, add #b%d #yMadness to your hand."
     ]
   },
   "Strops:HermitsTiara": {
@@ -43,7 +43,7 @@
     "NAME": "Fractal",
     "FLAVOR": "Too many Body Slams may pollute your card set? Don't worry, once you collect 3 of them in your hand, they will merge into a Body Slam++ automatically.",
     "DESCRIPTIONS": [
-      "At the start of the first turn of each combat, add a copy of #yBody #ySlam+ to your hand, draw pile and discard pile. At the start of the second turn of each combat, add a copy of #yBody #ySlam+ to your hand."
+      "At the start of the #b%dst turn of each combat, add a #yBody #ySlam+ to your hand, draw pile and discard pile. At the start of the #b%dnd turn of each combat, add a #yBody #ySlam+ to your hand."
     ]
   },
   "Strops:IcyTouch": {
@@ -67,7 +67,7 @@
     "NAME": "Sanity Maintenance Apparatus",
     "FLAVOR": "I thought it should be used only in case of SAN crisis and never expected a low-HP use... Wait?",
     "DESCRIPTIONS": [
-      "During combats against common enemies, your HP has a lower limit of #b%d.",
+      "During combats against normal enemies, your HP has a lower limit of #b%d.",
       "Note",
       "This relic won't spawn on Floor 49 or higher."
     ]
@@ -85,12 +85,9 @@
     "NAME": "Sunflower in A Summer",
     "FLAVOR": "That sky, that summer.",
     "DESCRIPTIONS": [
-      "Upon pickup, choose one: Change all the #y? rooms in the second Act into #yCampfire ones; or obtain a special potion.",
+      "Upon pickup, choose one: Change all the #y? rooms in the second Act into #yCampfire ones; ADDITIONALLY change all the #yNormal #yEnemy rooms there into #rElite ones; or obtain a special potion.",
       "Note",
-      "1. This relic will only spawn on Act 1. NL 2.You can set B1 to 1 in mod config to also turn regular enemy rooms into elite ones.",
-      "",
-      "",
-      "Upon pickup, choose one: change all the #y? rooms in the second Act into #yCampfire ones, all the regular #yEnemy rooms there into #yElite ones; or obtain a special potion."
+      "This relic will only spawn on Act 1."
     ]
   },
   "Strops:Atri": {
@@ -118,14 +115,14 @@
     "NAME": "Grass Now And Flowers Then",
     "FLAVOR": "To enlighten, to shield, and to empower.",
     "DESCRIPTIONS": [
-      "Upon pickup, add a copy of #yGift #yof #yArcane to your deck."
+      "Upon pickup, add a #yGift #yof #yArcane to your deck."
     ]
   },
   "Strops:SiphonGem": {
     "NAME": "Siphon Gem",
     "FLAVOR": "Certainly, we can present you with the whole ticket. The remaining matters are no more than how to get to that door, and how to follow the performance behind it.",
     "DESCRIPTIONS": [
-      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL [#2aecd7]One [#2aecd7]usable [#2aecd7]time [#2aecd7]per [#2aecd7]Run NL Obtain a random key that's still missing.",
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL [#ec902a]%d [#2aecd7]usable [#2aecd7]time [#2aecd7]per [#2aecd7]Run NL Obtain a random key that's still missing. NL #pstrops:Tricolor : gain #b%d #ygold instead.",
       "Note",
       "This relic won't spawn on Act 4."
     ]
@@ -134,11 +131,11 @@
     "NAME": "Upgrade",
     "FLAVOR": "The great waves advance and rise, one by one!",
     "DESCRIPTIONS": [
-      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL [#ec902a]3 [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Consume all your #yGold. For every #b%d #yGold consumed by this effect, obtain one of the following relics, chosen randomly: 1 - a #yVirja; 2 - an #yOddly #ySmooth #yStone; 3 - a #yGolden #yIdol; 4 - a #yStarberry.",
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL [#ec902a]%d [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Consume all your #yGold. For every #b%d #yGold consumed by this effect, obtain one of the following relics, chosen randomly: 1 - a #yVirja; 2 - an #yOddly #ySmooth #yStone; 3 - a #yGolden #yIdol; 4 - a #yStarberry.",
       "Note",
       "When used, any #yGold remaining last that fails to reach #b%d will be wasted.",
       "Note",
-      "This relic won't spawn in a shop or on Act 4."
+      "This relic won't spawn in shops or on Act 4."
     ]
   },
   "Strops:Key": {
@@ -157,19 +154,19 @@
     "NAME": "Film Starry Curtain",
     "FLAVOR": "It’s amazing grace, created by some of the residents together in a town.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. At the start of each turn after draw, add #yDazed to your hand until it is full."
+      "Gain [E] at the start of your turn. At the start of each turn after draw, add #yAurora to your hand until it is full."
     ]
   },
   "Strops:SoulStitch": {
     "NAME": "Soul Stitch",
     "FLAVOR": "Once worn, the devil’s whispers echo around your ears.",
     "DESCRIPTIONS": [
-      "Upon pickup, lose #r%d Max HP. When you would die, set your Max HP to (the number of #yAttacks in your deck minus #b%d [REMOVE_SPACE]) times #b%d , and heal fully instead (works once).",
+      "When you would die, set your Max HP to (the number of #yAttacks in your deck minus #b%d [REMOVE_SPACE]) times #b%d , and heal fully instead (works once).",
       "Note",
       "This relic will be triggered before #yLizard #yTail and #yFairy #yin #ya #yBottle.",
       "",
       "",
-      "Upon pickup, lose #r%d Max HP. When you would die, set your Max HP to (the number of #yAttacks in your deck plus #b%d [REMOVE_SPACE]) times #b%d , and heal fully instead (works once)."
+      "When you would die, set your Max HP to (the number of #yAttacks in your deck plus #b%d [REMOVE_SPACE]) times #b%d , and heal fully instead (works once)."
     ]
   },
   "Strops:ZhelpArcaneTalents": {
@@ -213,7 +210,7 @@
     "DESCRIPTIONS": [
       "For every #b%d cards you #yUpgrade in your deck, you may remove a card from your deck.",
       "Note",
-      "This relic won't spawn on Floor 44 or higher."
+      "This relic won't spawn on Floor 41 or higher."
     ]
   },
   "Strops:DelayedGratification": {
@@ -227,7 +224,7 @@
     "NAME": "Weather Control Device",
     "FLAVOR": "Warning: Weather Control Device Detected",
     "DESCRIPTIONS": [
-      "Upon pickup, add a copy of #yLightning #yStorm to your deck."
+      "Upon pickup, add a #yLightning #yStorm to your deck."
     ]
   },
   "Strops:ZhelpLightningStorm": {
@@ -241,7 +238,7 @@
     "NAME": "Lemonade",
     "FLAVOR": "Why not drink it and enjoy a cool summer?",
     "DESCRIPTIONS": [
-      "The first time your total Energy reaches or exceeds #b%d each turn, draw #b%d card. The next combat and every #b%d combats after will drop a bonus reward of #b%d #yEnergy #yPotion.",
+      "The first time your current Energy reaches or exceeds #b%d each turn, draw #b%d card. The next combat and every #b%d combats after will drop a bonus reward of #b%d #yEnergy #yPotion.",
       "Note",
       "This relic won't spawn on Floor 44 or higher."
     ]
@@ -259,7 +256,7 @@
     "DESCRIPTIONS": [
       "Upon pickup, choose one: The Merchant will have all its relics discounted by #b%d%% ; or the Merchant will only sell #yRare relics, but with they discounted by #b%d%%.",
       "Note",
-      "This relic won't spawn in a shop or on Act 4."
+      "This relic won't spawn in shops or on Act 4."
     ]
   },
   "Strops:ProfiteeringMerchantAttempted": {
@@ -280,7 +277,7 @@
     "NAME": "Toxic Lump",
     "FLAVOR": "Don’t say it’s toxic. Just say it’s kind of mysterious, will you?",
     "DESCRIPTIONS": [
-      "For every #b%d HP lost while you're in #yWrath , gain #b%d Max HP. NL During each combat, this no longer works once you have healed 50 HP or more.",
+      "During a combat, for every #b%d HP lost while you're in #yWrath, gain #b%d Max HP at the end of the combat. NL This works at most 5 times for each combat.",
       "Note",
       "This relic won't spawn on Act 4."
     ]
@@ -289,7 +286,7 @@
     "NAME": "Plague Stopwatch",
     "FLAVOR": "Since sanguine is such an unpleasant word, we‘re now considering replacing it with plague.",
     "DESCRIPTIONS": [
-      "For every #b%d cards you play, trigger #yPoison on ALL enemies."
+      "Upon pickup, you may add #b%d #yEnvenom+ to your deck. For every #b%d cards you play, trigger #yPoison on ALL enemies."
     ]
   },
   "Strops:SoulCannon": {
@@ -404,7 +401,7 @@
     "NAME": "Restrained Heart",
     "FLAVOR": "Is it an urge of destruction, or an unconscious dream.",
     "DESCRIPTIONS": [
-      "Whenever you need to discard during your turn, you can choose to discard one fewer card.",
+      "Whenever you need to discard during your turn, you may choose to discard one fewer card.",
       "Note",
       "This only works for unconditional discard. [#2aecd7]Right [#2aecd7]click to switch between ready and unready. NL #ySelective #ydiscard: You're allowed to finish after selecting one fewer card. NL #yAll #ydiscard: You'll be asked which card to keep (optional). NL #yRandom #ydiscard: If this is ready, one fewer card will be discarded automatically.",
       "",
@@ -432,9 +429,9 @@
     "NAME": "Decanter",
     "FLAVOR": "How did you find it?",
     "DESCRIPTIONS": [
-      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL [#ec902a]3 [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Select one of your Energy-giving relic, negating its next one time of penalty effect.",
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL [#ec902a]3 [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Select one of your Boss relics, negating its next one time of penalty effect.",
       "Note",
-      "1. This relic takes an each-specified logic, so it works only for Energy-giving relics in base game and this mod. NL 2. When the penalty comes during a combat, each use of this relic will prevent that throughout the whole combat. NL 3. The relic's usable times are consumed after it finally finishes an instance of negating. NL 4. Please make sure the selection is done before the penalty you care may come.",
+      "1. This relic takes an each-specified logic, so it works only for Boss relics in base game and this mod. NL 2. When the penalty comes during a combat, each use of this relic will prevent that throughout the whole combat. NL 3. The relic's usable times are consumed after it finally finishes an instance of negating. NL 4. Please make sure the selection is done before the penalty you care may come.",
       "",
       "",
       "Current target: #y%s"
@@ -460,7 +457,7 @@
     "NAME": "Raining Ruins",
     "FLAVOR": "This is the last, and also a tour. This is nostalgia, and also a pursuit. This is wandering, and also a pilgrimage. This is tragedy, and also a quest.",
     "DESCRIPTIONS": [
-      "[#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL #bstrops:Cooldown [#2aecd7]: [#ec902a]%d [#2aecd7]Combats NL Draw a random card that can draw.",
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL #bstrops:Cooldown [#2aecd7]: [#ec902a]%d [#2aecd7]Combats NL Draw a random card that can draw, and gain [E] .",
       "Note",
       "This relic actually works in a way of trying to put the card from draw pile into hand. If there's no qualified cards in draw pile, that triggers piles reshuffling and doesn't start Cooldown."
     ]
@@ -469,7 +466,7 @@
     "NAME": "Phoenix Gift",
     "FLAVOR": "Now we wonder where Parting Gift is being.",
     "DESCRIPTIONS": [
-      "If you end your turn without #yBlock, any unblocked attack damage you receive will equally reduce this relic's counter (initially #b%d [REMOVE_SPACE]). When the counter falls to zero, add a #yRare relic to the current combat's reward, and this no longer works.",
+      "If you end your turn without #yBlock, any unblocked attack damage you receive will equally reduce this relic's counter (initially #b%d [REMOVE_SPACE]). When the counter falls to zero, add a random #yRare relic to the current combat's reward, and this no longer works.",
       "Note",
       "1. This relic will only spawn on Act 1 and 2. NL 2. This relic will check the player's Block before all other onEndTurn effects.",
       "",
@@ -502,7 +499,7 @@
     "NAME": "Chugging Mask",
     "FLAVOR": "I swung in the center of the dance floor.",
     "DESCRIPTIONS": [
-      "Whenever you gain or lose Max HP out of combat, heal HP equally. Upon pickup, gain #b%d Max HP."
+      "Whenever you gain or lose Max HP, heal HP equally."
     ]
   },
   "Strops:ExitPhase": {
@@ -518,9 +515,9 @@
     "NAME": "Maniacal",
     "FLAVOR": "Congrats for your happy tomorrow, and I myself will go meet my netherworld.",
     "DESCRIPTIONS": [
-      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]or [#2aecd7]at [#2aecd7]the [#2aecd7]first [#2aecd7]turn [#2aecd7]in [#2aecd7]combat [#2aecd7]to [#2aecd7]enable/disable NL Overkill damage increases your #yBlock at a #b%d%% ratio. If enabled, at the end of each turn, lose #b%d%% of your #yBlock and deal damage #b%d%% of the amount lost to ALL enemies.",
+      "Overkill damage increases your #yBlock at a #b%d%% ratio. NL [#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]or [#2aecd7]at [#2aecd7]the [#2aecd7]first [#2aecd7]turn [#2aecd7]in [#2aecd7]combat [#2aecd7]to [#2aecd7]enable/disable NL At the end of each turn, lose #b%d%% of your #yBlock and deal damage #b%d%% of the amount lost to ALL enemies.",
       "Note",
-      "1. This relic won't spawn at Spear & Shield. NL 2.This relic will effect after all other onEndTurn effects (except that of #yFTL #yEngines [REMOVE_SPACE])."
+      "1. This relic won't spawn at Spear & Shield. NL 2. This relic will effect after all other onEndTurn effects (except that of #yFTL #yEngines [REMOVE_SPACE])."
     ]
   },
   "Strops:RainbowColoredCircle": {
@@ -538,7 +535,7 @@
     "DESCRIPTIONS": [
       "Upon pickup, choose a #yPower in your deck. Whenever you draw the card, deal #b%d damage to all the enemies that intend to attack. You can also set off the card actively and deal #b%d damage to ALL enemies!",
       "Note",
-      "1. To set off means dragging the card to the specified area on screen and making it hover there for a while until it is #yExcluded. NL 2. You can adjust the required hovering time T(s) in mod config.",
+      "1. To set off means dragging the card to the specified area on screen and making it hover there for a while until it is #yExcluded. NL 2. [#2aecd7]Right [#2aecd7]click to enable/disable. NL 3. You can adjust the required hovering time T(s) in mod config.",
       "",
       "",
       "Choose a card to combine with",
@@ -559,7 +556,7 @@
     "NAME": "Grabby Hands",
     "FLAVOR": "This is what keeps happening in your group, not in my group!",
     "DESCRIPTIONS": [
-      "Add an additional, unskippable card reward to each combat. After #b%d combats' latency, out of combat, cards obtained this way can be removed arbitrarily from your deck.",
+      "Add #b%d additional, unskippable card reward to each combat. After #b%d combats' latency, out of combat, cards obtained this way can be removed arbitrarily from your deck.",
       "Note",
       "[#2aecd7]Right [#2aecd7]click [#2aecd7]this [#2aecd7]relic to remove grabbed cards.",
       "",
@@ -587,7 +584,7 @@
     "DESCRIPTIONS": [
       "Out of combat, whenever you try to obtain a potion in case of a full potion slot, #ystrops:Invoke your potion array and heal according to the potion removed: NL #yCommon - #b%d HP; NL #yUncommon - #b%d HP; NL #yRare - #b%d HP. NL The relic can store at most #b%d HP overhealed this way, which can be retrieved any time out of combat.",
       "Note",
-      "1. This relic won't spawn on Act 4. NL 2. Retrieve: [#2aecd7]Right [#2aecd7]click [#2aecd7]this [#2aecd7]relic to heal as much HP as stored and then clear the storage. NL #r3. This works at most #r3 times in each room."
+      "1. This relic won't spawn on Act 4. NL 2. Retrieve: [#2aecd7]Right [#2aecd7]click [#2aecd7]this [#2aecd7]relic to heal as much HP as stored and then clear the storage. NL 3. This works at most #r3 times in each room."
     ]
   },
   "Strops:StrongestPotion": {
@@ -622,14 +619,14 @@
     "NAME": "Big Bow",
     "FLAVOR": "Big enough for me to fly with? Whether I’m in a shrine, a student union’s office, or a club room, I’m supposed to have the potential, right?",
     "DESCRIPTIONS": [
-      "Upon pickup, add #b%d copy of #yJust #yLucky to your deck. Whenever you #yScry, draw #b%d card subsequently."
+      "Upon pickup, add #b%d #yJust #yLucky to your deck. Whenever you #yScry, draw #b%d card subsequently."
     ]
   },
   "Strops:Calculator": {
     "NAME": "Calculator",
     "FLAVOR": "\nYou’ve got the item wrong, which annoyed the Lady Luck. Now, with this thing only, I guess you’ll have to manage to survive upcoming zombie waves all by yourself, on a rainy evening.",
     "DESCRIPTIONS": [
-      "Draw five fewer cards at the start of each turn. [#2aecd7]Each [#2aecd7]time [#2aecd7]you [#2aecd7]right [#2aecd7]click [#2aecd7]this [#2aecd7]during [#2aecd7]your [#2aecd7]turn, draw a card and add its Cost to this relic's counter (by at least 1). On the counter exceeding #b%d, discard your hand and this no longer works this turn."
+      "Draw #b%d fewer cards at the start of each turn. [#2aecd7]Each [#2aecd7]time [#2aecd7]you [#2aecd7]right [#2aecd7]click [#2aecd7]this [#2aecd7]during [#2aecd7]your [#2aecd7]turn, draw a card and add its Cost to this relic's counter this turn (by at least 1). On the counter exceeding #b%d, discard your hand and this no longer works this turn."
     ]
   },
   "Strops:StackedPlate": {
@@ -643,7 +640,7 @@
     "NAME": "Hearth’smores",
     "FLAVOR": "Gather ‘round the fire for a toasty treat!",
     "DESCRIPTIONS": [
-      "Put a card in your hand into your draw pile, and draw a card. As of the #b%dnd use per turn, each use costs [E] .",
+      "Put a card in your hand into your draw pile, and draw a card. As of the #b%dnd use per turn, each use costs [E] . NL #pstrops:Tricolor : [#2aecd7]Right [#2aecd7]click to switch between ready and unready. If unready, the card put back will determinedly end up next to top of the draw pile.",
       "Note",
       "Drag the card onto the draw pile to activate."
     ]
@@ -659,7 +656,7 @@
     "NAME": "Autumn Colors",
     "FLAVOR": "If summer comes, can autumn be far behind?",
     "DESCRIPTIONS": [
-      "Gains 1 charge for each #yCampfire you pass during Act 2. Spends 1 charge to add a relic to each combat's reward during Act 3.",
+      "Gains #b%d charge for each #yCampfire you pass during Act 2. Spends #b%d charge to add a random relic to each combat's reward during Act 3.",
       "Note",
       "This relic will only spawn on Act 1."
     ]
@@ -686,7 +683,7 @@
     "NAME": "Cutting Machine",
     "FLAVOR": "Decomposes the block silently; Releases the energy wordlessly.",
     "DESCRIPTIONS": [
-      "Upon pickup, add a copy of #yPart #yScrapper to your deck."
+      "Upon pickup, add a #yPart #yScrapper to your deck."
     ]
   },
   "Strops:ZhelpPartScrapper": {
@@ -700,7 +697,186 @@
     "NAME": "Messy Puppy",
     "FLAVOR": "Imagine treating it as a ghost.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. At the end of enemies' turn, each dead enemy revives as a minion with a HP of #b%d. This triggers at most #b%d times per combat."
+      "Gain [E] at the start of your turn. At the end of enemies' turn, each dead enemy revives as a minion with a HP of #b%d. This gets triggered at most #b%d times per combat."
+    ]
+  },
+  "Strops:MinoshiroModoki": {
+    "NAME": "Minoshiro Modoki",
+    "FLAVOR": "A leftover from an ancient civilization, you're not sure if opening it will get you cursed.",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]enable/disable NL At the start of each combat, copy all of the cards in your deck, except #yBasic and #rCurse ones, into the draw pile. These copies cost #b%d less until played."
+    ]
+  },
+  "Strops:HermitsPockets": {
+    "NAME": "Hermit's Pockets",
+    "FLAVOR": "This is, say, a 3-D pocket!",
+    "DESCRIPTIONS": [
+      "At the start of each combat, you may choose one of #b%d random cards that are not in your deck to put into the draw pile. NL #pstrops:Tricolor : These cards are #yupgraded."
+    ]
+  },
+  "Strops:AmorphousMass": {
+    "NAME": "Amorphous Mass",
+    "FLAVOR": "This armor keeps changing its appearance according to the enemies' states, how odd.",
+    "DESCRIPTIONS": [
+      "At the end of each turn, gain #b%d #yBlock for each enemy in combat that has an even HP.",
+      "Note",
+      "This relic will check the enemies' HPs before all other onEndTurn effects."
+    ]
+  },
+  "Strops:SwordOfFeastAndFamine": {
+    "NAME": "Sword of Feast and Famine",
+    "FLAVOR": "Its instructions read “Famine or feast, humans decide.”",
+    "DESCRIPTIONS": [
+      "Upon pickup, brews a #yFrugal #yPotion and a #yGreedy #yPotion.",
+      "Note",
+      "This relic won't spawn in shops or on Act 4.",
+      "",
+      "",
+      "Blupon blipon bloopon...!"
+    ]
+  },
+  "Strops:ZhelpFrugalPotion": {
+    "NAME": "Tool Relic: Frugal Potion",
+    "FLAVOR": "This relic will NOT spawn in game at all.",
+    "DESCRIPTIONS": [
+      "Your #yFrugal #yPotions effect this way: “At battle start, turn your #yGold #b%d%% as much as before and gain #b%d #yArtifact. When discarded, heal #b%d HP (increased equally by the amount of #yArtifact gained this run).”"
+    ]
+  },
+  "Strops:ZhelpGreedyPotion": {
+    "NAME": "Tool Relic: Greedy Potion",
+    "FLAVOR": "This relic will NOT spawn in game at all.",
+    "DESCRIPTIONS": [
+      "Your #yGreedy #yPotions effect this way: “At battle start, turn your #yGold #b%d%% as much as before and gain two #yWeak #b%d time, two #yFrail #b%d time and two #yVulnerable #b%d time. When discarded, turn your #yGold #b%d%% as much as before.”"
+    ]
+  },
+  "Strops:VolcanicCryster": {
+    "NAME": "Volcanic Cryster",
+    "FLAVOR": "“The fire has an undoubtedly immense power, and just be careful not to get yourself incinerated with it.” - Kublai the Great",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. At the start of each combat, spawns a #rMad #rGremlin with #b%d Max HP for the enemy, and makes it lose #b%d #yStrength.",
+      "",
+      "",
+      "",
+      "",
+      "Gain [E] at the start of your turn. At the start of each combat, spawns a #rMad #rGremlin with #b%d Max HP for the enemy, and makes it gain #b%d #yStrength."
+    ]
+  },
+  "Strops:Turbolens": {
+    "NAME": "Turbolens",
+    "FLAVOR": "Through it, you seem to be able to catch a glimpse of rusty lakescape somewhere unknown out of Spire.",
+    "DESCRIPTIONS": [
+      "During a combat, every #b%d time you play a card while the difference between your current Energy and hand size is greater than #b%d, draw #b%d card."
+    ]
+  },
+  "Strops:BlackRabbit": {
+    "NAME": "Black Rabbit",
+    "FLAVOR": "Echo of Noise.",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL You can distribute #yUpgrades freely among the cards in your deck.",
+      "Note",
+      "If you also have #yGlass #yRod, this relic will become unusable on finishing one use.",
+      "",
+      "",
+      "Choose cards to downgrade",
+      "Choose cards to upgrade (at most #b%d)"
+    ]
+  },
+  "Strops:StroopsTester": {
+    "NAME": "Stroop's Tester",
+    "FLAVOR": "[#7fff00]WHITE[] [#000000]pollution,[] [#ffffff]GREEN[] [#000000]eco-friend.[] [#87ceeb]PURPLE[] [#000000]passion,[] [#ee82ee]BLUE[] [#000000]upset.[]",
+    "DESCRIPTIONS": [
+      "The first card played each turn that's NOT #yupgraded is played twice. At the start of each combat, put a #rPride on top of your draw pile."
+    ]
+  },
+  "Strops:LuckyStar": {
+    "NAME": "Lucky Star",
+    "FLAVOR": "This relic has no flavor text yet.",
+    "DESCRIPTIONS": [
+      "At the end of each combat, if the #b%dnd and the #b%dnd-to-last cards played are the same card in your deck, #yUpgrade it. Lucky!",
+      "Note",
+      "This relic won't spawn on Floor 44 or higher."
+    ]
+  },
+  "Strops:Wedgue": {
+    "NAME": "Wedgue",
+    "FLAVOR": "What’s past is... wedgue?",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose a particular Cost, Type or Rarity and #rBecome #rCursed #r- #rAscender's #rBane. At the start of each turn, add a random card in the draw pile or discard pile into your hand that corresponds to your choice (the draw pile has priority), and #yRetain it for that turn.",
+      "",
+      "",
+      "",
+      "",
+      "At the start of each turn, add a random %s in the draw pile or discard pile into your hand (the draw pile has priority), and #yRetain it for that turn.",
+      "#b0 -Cost card",
+      "#b1 -Cost card",
+      "#b2 -Cost card",
+      "#b3 -Cost or higher card",
+      "#yAttack",
+      "#ySkill",
+      "#yPower",
+      "#yCommon",
+      "#yUncommon",
+      "#yRare"
+    ]
+  },
+  "Strops:NoNameForNow3": {
+    "NAME": "No Name For Now (3)",
+    "FLAVOR": "This relic has no flavor text yet.",
+    "DESCRIPTIONS": [
+      "At the end of each combat, if you have #b%d or less #yGold, gain #b%d #yGold and heal #b%d HP.",
+      "Note",
+      "This relic won't spawn on Act 4."
+    ]
+  },
+  "Strops:Register": {
+    "NAME": "Register",
+    "FLAVOR": "Monsters in Spire don't seem to have any issues with being exploited as registers.",
+    "DESCRIPTIONS": [
+      "You can register your cards on your enemies, who will return the cards registered on them on death. For every #b%d cards registered on an enemy, it gains #b%d #rBeat #rOf #rDeath.",
+      "Note",
+      "1. [#2aecd7]Right [#2aecd7]click to enable/disable. NL 2. You can adjust the required hovering time T(s) in mod config."
+    ]
+  },
+  "Strops:SoulCraft": {
+    "NAME": "Soul Craft",
+    "FLAVOR": "This recipe carries a simple way to promote participation of potions in combats.",
+    "DESCRIPTIONS": [
+      "Whenever you try to gain #yCommon or #yUncommon potions out of combat, add a corresponding soul craft card to your deck instead. The card triggers the use effect of its corresponding potion when played, has #yExhaust, draws a card when drawn, and gets removed form your deck after #b%d play."
+    ]
+  },
+  "Strops:StrikersVeil": {
+    "NAME": "Striker's Veil",
+    "FLAVOR": "No use is a good use.",
+    "DESCRIPTIONS": [
+      "Whenever you receive an attack, reveal the top card of your draw pile. If it's an #yAttack that costs #b%d or more, put it into the discard pile and #ystrops:Evade this attack."
+    ]
+  },
+  "Strops:FishingNet": {
+    "NAME": "Fishing Net",
+    "FLAVOR": "Time to expose the net to the sun.",
+    "DESCRIPTIONS": [
+      "At the start of each turn, you may choose a card in the draw pile to put into the discard pile, which costs 0 until played. NL During each combat, lose #b%d HP to activate this. Each activated combat raises the threshold by #b%d, and each not-activated combat lowers it by #b%d at the end of combat."
+    ]
+  },
+  "Strops:NoNameForNow4": {
+    "NAME": "No Name For Now (4)",
+    "FLAVOR": "This relic has no flavor text yet.",
+    "DESCRIPTIONS": [
+      "Whenever you lose a buff, gain #b%d #yBlock. Upon pickup, choose #b%d #yAttacks in your deck, which will grant you #b%d #yVigor after played.",
+      "",
+      "",
+      "",
+      "",
+      "Choose %d cards to combine with"
+    ]
+  },
+  "Strops:PainsReward": {
+    "NAME": "“Pain’s Reward”",
+    "FLAVOR": "This is indeed a pain’s reward, but the reward is not actually a pain.",
+    "DESCRIPTIONS": [
+      "If your HP is at or below #b%d at the end of combat, gain #b%d Max HP.",
+      "Note",
+      "1. This relic won't spawn on Act 4. NL 2. This relic will effect before all other onEndBattle effects."
     ]
   }
 }

@@ -2,12 +2,13 @@ package strops.patch;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.actions.unique.RestoreRetainedCardsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 import strops.relics.SeaOfMoon;
 
 public class PatchSeaOfMoon {
@@ -20,6 +21,11 @@ public class PatchSeaOfMoon {
         @SpireInsertPatch(rloc = 20, localvars = {"card"})
         public static void Insert(AbstractCard __inst, AbstractCard card) {
             card.selfRetain = __inst.selfRetain;
+            if(card.selfRetain){
+                card.initializeDescription();
+            }
+
+            /*
             if(card.selfRetain){
                 boolean hasRetainAlready=false;
                 //logger.info("卡牌生描述："+card.rawDescription.toLowerCase());
@@ -35,6 +41,8 @@ public class PatchSeaOfMoon {
                     card.initializeDescription();
                 }
             }
+
+             */
         }
     }
 
@@ -53,6 +61,7 @@ public class PatchSeaOfMoon {
         }
     }
 
+    /*
     @SpirePatch(
             clz= AbstractDungeon.class,
             method="nextRoomTransition",
@@ -76,6 +85,32 @@ public class PatchSeaOfMoon {
                         c.rawDescription=(new SeaOfMoon()).DESCRIPTIONS[5]+c.rawDescription;
                         c.initializeDescription();
                     }
+                }
+            }
+        }
+    }
+
+     */
+
+    @SpirePatch(
+            clz= AbstractCard.class,
+            method="initializeDescription"
+    )
+    public static class PatchTool4 {
+        @SpirePrefixPatch
+        public static void Prefix(AbstractCard __inst) {
+            if(__inst.selfRetain){
+                boolean hasRetainAlready=false;
+                //logger.info("卡牌生描述："+card.rawDescription.toLowerCase());
+                for(String s: GameDictionary.RETAIN.NAMES){
+                    //logger.info("保留关键词："+s);
+                    if(__inst.rawDescription.toLowerCase().startsWith(s)||__inst.rawDescription.toLowerCase().startsWith(" "+s)){
+                        hasRetainAlready=true;
+                        break;
+                    }
+                }
+                if(!hasRetainAlready){
+                    __inst.rawDescription=CardCrawlGame.languagePack.getRelicStrings(SeaOfMoon.ID).DESCRIPTIONS[5]+__inst.rawDescription;
                 }
             }
         }

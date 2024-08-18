@@ -1,8 +1,10 @@
 package strops.relics;
 
+import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -10,10 +12,11 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import strops.helpers.ModHelper;
 import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSetting;
+import strops.utilities.StaticHelpers;
 
 import java.util.ArrayList;
 
-public class HearthsMores extends StropsAbstractRelic{
+public class HearthsMores extends StropsAbstractRelic implements ClickableRelic, CustomSavable<Boolean> {
     public static final String ID = ModHelper.makePath(HearthsMores.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(HearthsMores.class.getSimpleName());
     //private static final String IMG_PATH_O = ModHelper.makeOPath(FTLEngines.class.getSimpleName());
@@ -62,11 +65,40 @@ public class HearthsMores extends StropsAbstractRelic{
     }
 
     @Override
+    public void onRightClick() {
+        if(!hasTriColor()){
+            return;
+        }
+
+        if(StaticHelpers.canClickRelic2(this)){
+            grayscale=!grayscale;
+        }
+    }
+
+    @Override
+    public Boolean onSave(){
+        return grayscale;
+    }
+
+    @Override
+    public void onLoad(Boolean savedGrayscale){
+        grayscale=savedGrayscale;
+    }
+
+    @Override
+    public void renderAndCheck(SpriteBatch sb){
+        if (AbstractDungeon.player.isDraggingCard) {
+            renderHitArea(sb);
+        }
+    }
+
+    /*
+    @Override
     public void renderInTopPanel(SpriteBatch sb) {
         super.renderInTopPanel(sb);
         if (AbstractDungeon.player.isDraggingCard) {
             renderHitArea(sb);
-            /*
+            \*
             if ((InputHelper.mX >= centerX) &&
                     (InputHelper.mX <= centerX + width) &&
                     (InputHelper.mY >= centerY) &&
@@ -96,9 +128,10 @@ public class HearthsMores extends StropsAbstractRelic{
                 }
             }
 
-             */
+             *\
         }
     }
+    */
 
     public static void renderHitArea(SpriteBatch sb){
         Color col=Color.valueOf("#ff6d06");

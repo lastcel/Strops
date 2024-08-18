@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
 import strops.helpers.ModHelper;
 import strops.patch.PatchClockWithNoHands;
+import strops.patch.PatchDecanter;
 import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSetting;
 
@@ -67,6 +68,40 @@ public class ClockWithNoHands extends StropsAbstractRelic implements CustomSavab
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void onUnequip(){
+        PatchDecanter.isPreventHasRelic=true;
+        if(AbstractDungeon.id.equals(TheCity.ID)){
+            try {
+                TheCity.eliteMonsterList.clear();
+                Method m = AbstractDungeon.class.getDeclaredMethod("generateElites", int.class);
+                m.setAccessible(true);
+                m.invoke(CardCrawlGame.dungeon,10);
+            } catch (IllegalAccessException|NoSuchMethodException|InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        } else if(AbstractDungeon.id.equals(TheBeyond.ID)){
+            try {
+                TheBeyond.eliteMonsterList.clear();
+                Method m = AbstractDungeon.class.getDeclaredMethod("generateElites", int.class);
+                m.setAccessible(true);
+                m.invoke(CardCrawlGame.dungeon,10);
+            } catch (IllegalAccessException|NoSuchMethodException|InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        } else if(AbstractDungeon.id.equals(TheEnding.ID)){
+            try {
+                TheEnding.eliteMonsterList.clear();
+                Method m = AbstractDungeon.class.getDeclaredMethod("generateMonsters");
+                m.setAccessible(true);
+                m.invoke(CardCrawlGame.dungeon);
+            } catch (IllegalAccessException|NoSuchMethodException|InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
+        PatchDecanter.isPreventHasRelic=false;
     }
 
     @Override

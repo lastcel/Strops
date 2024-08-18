@@ -35,6 +35,7 @@ import java.util.ArrayList;
 public abstract class StropsAbstractRelic extends CustomRelic {
 
     public boolean canCopy = true;
+    public boolean canSpawnInBattle = true;
 
     protected boolean usedThisTurn = false;
     //protected boolean needUp = false;
@@ -297,12 +298,13 @@ public abstract class StropsAbstractRelic extends CustomRelic {
 
     @Override
     public AbstractRelic makeCopy() {
-        if(AbstractDungeon.player!=null&&AbstractDungeon.player.hasRelic(relicId)&&!canCopy){
+        if((AbstractDungeon.player!=null&&AbstractDungeon.player.hasRelic(relicId)&&!canCopy)||
+                (AbstractDungeon.currMapNode!=null&&AbstractDungeon.getCurrRoom()!=null&&AbstractDungeon.getCurrRoom().phase==AbstractRoom.RoomPhase.COMBAT&&!canSpawnInBattle&&!AbstractDungeon.loading_post_combat)){
             switch (tier){
                 case COMMON:return new Strawberry();
                 case UNCOMMON:return new Pear();
                 case RARE:return new Mango();
-                case BOSS:return new TinyHouse();
+                case BOSS:return new TheCrow();
                 case SHOP:return new Waffle();
                 case SPECIAL:return new GoldenIdol();
                 default:return new Circlet();
@@ -381,4 +383,14 @@ public abstract class StropsAbstractRelic extends CustomRelic {
             }
         }
     }
+
+    public static boolean hasTriColor(){
+        if(Settings.isEndless){
+            return true;
+        }
+        
+        return Settings.hasRubyKey && Settings.hasSapphireKey &&Settings.hasEmeraldKey;
+    }
+
+    public void renderAndCheck(SpriteBatch sb){}
 }

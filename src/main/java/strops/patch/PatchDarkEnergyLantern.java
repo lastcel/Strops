@@ -78,8 +78,8 @@ public class PatchDarkEnergyLantern {
                         //频闪需要onTrigger
                         if(r.counter==0){
                             r.flash();
-                            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, DarkEnergyLantern.BONUS.value));
-                            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, r));
+                            AbstractDungeon.actionManager.addToTop(new DrawCardAction(AbstractDungeon.player, DarkEnergyLantern.BONUS.value));
+                            AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, r));
                         }
                     }
                 }

@@ -5,11 +5,15 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.ObtainPotionAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.curses.AscendersBane;
+import com.megacrit.cardcrawl.cards.curses.CurseOfTheBell;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.KnowingSkull;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.Frost;
 import com.megacrit.cardcrawl.potions.EntropicBrew;
 import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.rewards.RewardItem;
@@ -20,6 +24,9 @@ import com.megacrit.cardcrawl.ui.campfire.SmithOption;
 import com.megacrit.cardcrawl.vfx.ObtainPotionEffect;
 import strops.relics.Decanter;
 import strops.relics.GlowFeather;
+import strops.relics.Wedgue;
+
+import java.util.Iterator;
 
 public class PatchDecanter {
 
@@ -526,6 +533,83 @@ public class PatchDecanter {
         public static AbstractDungeon.CurrentScreen DECANTER_SELECT;
     }
 
+    //冻结核心
+    @SpirePatch(
+            clz= FrozenCore.class,
+            method="onPlayerEndTurn"
+    )
+    public static class PatchTool31 {
+        @SpirePrefixPatch
+        public static SpireReturn<Void> Prefix(FrozenCore __inst) {
+            AbstractRelic r2;
+            if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
+                    ((Decanter)(r2 = AbstractDungeon.player.getRelic(Decanter.ID)))
+                            .relicToDisenchant.equals(FrozenCore.ID)){
+                r2.flash();
+                __inst.flash();
+                AbstractDungeon.player.channelOrb(new Frost());
+                return SpireReturn.Return();
+            }
+            return SpireReturn.Continue();
+        }
+    }
+
+    //异蛇之眼
+    @SpirePatch(
+            clz= SneckoEye.class,
+            method="atPreBattle"
+    )
+    public static class PatchTool32 {
+        @SpirePrefixPatch
+        public static SpireReturn<Void> Prefix(SneckoEye __inst) {
+            AbstractRelic r2;
+            if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
+                    ((Decanter)(r2 = AbstractDungeon.player.getRelic(Decanter.ID)))
+                            .relicToDisenchant.equals(SneckoEye.ID)){
+                r2.flash();
+                return SpireReturn.Return();
+            }
+            return SpireReturn.Continue();
+        }
+    }
+
+    //召唤铃铛
+    @SpirePatch(
+            clz= CardGroup.class,
+            method="initializeDeck"
+    )
+    public static class PatchTool33 {
+        @SpirePostfixPatch
+        public static void Postfix(CardGroup __inst, CardGroup masterDeck) {
+            Decanter r2;
+            if(AbstractDungeon.player.hasRelic(Decanter.ID)){
+                r2 = (Decanter)(AbstractDungeon.player.getRelic(Decanter.ID));
+                if(r2.relicToDisenchant.equals(CallingBell.ID)){
+                    r2.flash();
+
+                    Iterator<AbstractCard> iterator = __inst.group.iterator();
+                    while (iterator.hasNext()){
+                        AbstractCard c=iterator.next();
+                        if(c.cardID.equals(CurseOfTheBell.ID)){
+                            iterator.remove();
+                            break;
+                        }
+                    }
+                } else if(r2.relicToDisenchant.equals(Wedgue.ID)){
+                    r2.flash();
+
+                    Iterator<AbstractCard> iterator = __inst.group.iterator();
+                    while (iterator.hasNext()){
+                        AbstractCard c=iterator.next();
+                        if(c.cardID.equals(AscendersBane.ID)){
+                            iterator.remove();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     /*
     @SpirePatch(

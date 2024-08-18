@@ -23,18 +23,17 @@ public class Maniacal extends StropsAbstractRelic implements ClickableRelic {
     public static final String ID = ModHelper.makePath(Maniacal.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Maniacal.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(Maniacal.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
+    //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
-    public static final int NUM1=30;
-    public static final int NUM2=10;
-    public static final int NUM3=15;
+    public static final int NUM1=30,NUM2=10,NUM3=15,TIER=2;
 
     public static final IntSliderSetting BLOCK_CO=new IntSliderSetting("Maniacal_Multiplier_Block", "N1/10", NUM1, 10,50);
     public static final IntSliderSetting COST=new IntSliderSetting("Maniacal_Cost", "N2/10", NUM2, 1,10);
     public static final IntSliderSetting DAMAGE_CO=new IntSliderSetting("Maniacal_Multiplier_Damage", "N3/10", NUM3, 5,30);
-    public static final IntSliderSetting MH=new IntSliderSetting("ChuggingMask_MH","MH",0,-20,20);
-    public static final IntSliderSetting G=new IntSliderSetting("ChuggingMask_G","G",0,-100,100);
+    public static final IntSliderSetting MH=new IntSliderSetting("Maniacal_MH","MH",0,-20,20);
+    public static final IntSliderSetting G=new IntSliderSetting("Maniacal_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Maniacal_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(BLOCK_CO);
@@ -42,11 +41,12 @@ public class Maniacal extends StropsAbstractRelic implements ClickableRelic {
         settings.add(DAMAGE_CO);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public Maniacal() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

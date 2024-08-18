@@ -8,10 +8,11 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.helpers.ModHelper;
 import strops.powers.FrozenPower;
 
-public class Blizzard extends AbstractPotion {
+public class Blizzard extends AbstractStropsPotion {
     public static final String POTION_ID = ModHelper.makePath(Blizzard.class.getSimpleName());
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
 
@@ -28,9 +29,16 @@ public class Blizzard extends AbstractPotion {
     }
 
     public void use(AbstractCreature target) {
-        for (AbstractMonster m : (AbstractDungeon.getMonsters()).monsters) {
-            if (!m.isDeadOrEscaped()){
-                addToBot(new ApplyPowerAction(m,AbstractDungeon.player,new FrozenPower(m)));
+
+    }
+
+    @Override
+    public void onDiscarded(){
+        if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT){
+            for (AbstractMonster m : (AbstractDungeon.getMonsters()).monsters) {
+                if (!m.isDeadOrEscaped()){
+                    addToBot(new ApplyPowerAction(m,AbstractDungeon.player,new FrozenPower(m)));
+                }
             }
         }
     }
@@ -40,6 +48,12 @@ public class Blizzard extends AbstractPotion {
         return 0;
     }
 
+    @Override
+    public boolean canUse() {
+        return false;
+    }
+
+    @Override
     public AbstractPotion makeCopy() {
         return new Blizzard();
     }

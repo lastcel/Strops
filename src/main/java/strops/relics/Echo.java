@@ -18,24 +18,26 @@ public class Echo extends StropsAbstractRelic implements ClickableRelic {
     public static final String ID = ModHelper.makePath(Echo.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Echo.class.getSimpleName());
     //private static final String IMG_PATH_O = ModHelper.makeOPath(FTLEngines.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.RARE;
+    //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    public static final int NUM1=3;
+    public static final int NUM1=3,TIER=3;
 
     public static final IntSliderSetting USABLE=new IntSliderSetting("Echo_Usable", "N1", NUM1, 1,10);
     public static final IntSliderSetting MH=new IntSliderSetting("Echo_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Echo_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Echo_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(USABLE);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public Echo() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
     }
 
@@ -51,6 +53,15 @@ public class Echo extends StropsAbstractRelic implements ClickableRelic {
 
     @Override
     public void onRightClick() {
+        //Strops.logger.info("当前房间阶段="+AbstractDungeon.getCurrRoom().phase);
+        /*
+        for(String s:AbstractDungeon.uncommonRelicPool){
+            Strops.logger.info(s);
+        }
+
+         */
+        //Strops.logger.info("当前屏幕="+AbstractDungeon.screen);
+
         if (counter <= 0) {
             return;
         }

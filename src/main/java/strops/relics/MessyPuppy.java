@@ -118,8 +118,8 @@ public class MessyPuppy extends StropsAbstractRelic{
         MonsterGroup mg = AbstractDungeon.getMonsters();
         m.drawX = (float)counter/(CAPACITY.value+1)*Settings.WIDTH;
         m.drawY = 0.65f*Settings.HEIGHT;
-        if(m.hb_h>250f){
-            m.hb_h=250f;
+        if(m.hb_h>220f){
+            m.hb_h=220f;
         }
         m.hb.move(m.drawX, m.drawY);
         m.init();

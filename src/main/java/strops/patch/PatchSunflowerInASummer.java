@@ -42,7 +42,7 @@ public class PatchSunflowerInASummer {
                             n.room=new RestRoom();
                         }
 
-                        if(SunflowerInASummer.ISELITELIZE.value==1&&n.room instanceof MonsterRoom&&
+                        if(PatchTool2.isElitelize.get()&&n.room instanceof MonsterRoom&&
                                 !(n.room instanceof MonsterRoomElite)&&
                                 !(n.room instanceof MonsterRoomBoss)){
                             n.room=new MonsterRoomElite();
@@ -59,6 +59,7 @@ public class PatchSunflowerInASummer {
     )
     public static class PatchTool2{
         public static StaticSpireField<Boolean> everMetSunflower= new StaticSpireField<>(() -> false);
+        public static StaticSpireField<Boolean> isElitelize= new StaticSpireField<>(() -> false);
     }
 
     @SpirePatch(
@@ -67,6 +68,7 @@ public class PatchSunflowerInASummer {
     )
     public static class PatchTool3{
         public static SpireField<Boolean> ever_met_sunflower= new SpireField<>(()->false);
+        public static SpireField<Boolean> is_elitelize= new SpireField<>(()->false);
     }
 
     @SpirePatch(
@@ -78,6 +80,7 @@ public class PatchSunflowerInASummer {
         @SpireInsertPatch(rloc = 67)
         public static void Insert(SaveFile __instance, SaveFile.SaveType type) {
             PatchTool3.ever_met_sunflower.set(__instance, PatchTool2.everMetSunflower.get());
+            PatchTool3.is_elitelize.set(__instance, PatchTool2.isElitelize.get());
         }
     }
 
@@ -89,6 +92,7 @@ public class PatchSunflowerInASummer {
         @SpireInsertPatch(rloc = 92,localvars = {"params"})
         public static void Insert(SaveFile save,@ByRef HashMap<Object, Object>[] params) {
             params[0].put("ever_met_sunflower",PatchTool3.ever_met_sunflower.get(save));
+            params[0].put("is_elitelize",PatchTool3.is_elitelize.get(save));
         }
     }
 
@@ -97,10 +101,12 @@ public class PatchSunflowerInASummer {
             method="loadSave"
     )
     public static class PatchTool6 {
-        @SpirePrefixPatch
-        public static void Prefix(AbstractDungeon __instance, SaveFile saveFile) {
+        @SpireInsertPatch(rloc = 2)
+        public static void Insert(AbstractDungeon __instance, SaveFile saveFile) {
             PatchTool2.everMetSunflower.set(PatchTool3.ever_met_sunflower.get(saveFile));
-            if(PatchTool2.everMetSunflower.get()){
+            PatchTool2.isElitelize.set(PatchTool3.is_elitelize.get(saveFile));
+            if(PatchTool2.everMetSunflower.get()&&
+                    (AbstractDungeon.actNum == 1)){
                 for(AbstractRelic r:AbstractDungeon.player.relics){
                     if(r.relicId.equals(SunflowerInASummer.ID)){
                         r.flash();
@@ -123,6 +129,7 @@ public class PatchSunflowerInASummer {
             ExtendedSaveFile saveFilePlus;
             saveFilePlus=gson.fromJson(savestr,ExtendedSaveFile.class);
             PatchTool3.ever_met_sunflower.set(saveFile,saveFilePlus.ever_met_sunflower);
+            PatchTool3.is_elitelize.set(saveFile,saveFilePlus.is_elitelize);
         }
     }
 
@@ -134,6 +141,7 @@ public class PatchSunflowerInASummer {
         @SpireInsertPatch(rloc=3)
         public static void Insert() {
             PatchTool2.everMetSunflower.set(false);
+            PatchTool2.isElitelize.set(false);
         }
     }
 

@@ -19,24 +19,26 @@ public class SoulCannon extends StropsAbstractRelic implements ClickableRelic {
     public static final String ID = ModHelper.makePath(SoulCannon.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(SoulCannon.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(SoulCannon.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
+    //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
-    public static final int NUM1=3;
+    public static final int NUM1=3,TIER=2;
 
-    public static final IntSliderSetting WARMUP=new IntSliderSetting("SoulCannon_Warmup","N1",NUM1,1,10);
+    public static final IntSliderSetting WARMUP=new IntSliderSetting("SoulCannon_Warmup","N1", NUM1,1,10);
     public static final IntSliderSetting MH=new IntSliderSetting("SoulCannon_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("SoulCannon_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("SoulCannon_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(WARMUP);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public SoulCannon() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
     }
 

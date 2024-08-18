@@ -21,21 +21,25 @@ public class ButchersBlade extends StropsAbstractRelic implements OnAfterUseCard
     // 轮廓图片路径
     private static final String IMG_PATH_O = ModHelper.makeOPath(ButchersBlade.class.getSimpleName());
     // 遗物类型
-    private static final RelicTier RELIC_TIER = RelicTier.COMMON;
+    //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     // 点击音效
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
+    public static final int TIER=1;
+
     public static final IntSliderSetting MH=new IntSliderSetting("ButchersBlade_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("ButchersBlade_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("ButchersBlade_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public ButchersBlade() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         canCopy=false;
     }

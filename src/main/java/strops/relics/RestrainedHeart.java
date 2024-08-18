@@ -14,22 +14,26 @@ public class RestrainedHeart extends StropsAbstractRelic implements ClickableRel
     public static final String ID = ModHelper.makePath(RestrainedHeart.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(RestrainedHeart.class.getSimpleName());
     //private static final String IMG_PATH_O = ModHelper.makeOPath(RestrainedHeart.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.RARE;
+    //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
     //public boolean isEffective=true;
 
+    public static final int TIER=3;
+
     public static final IntSliderSetting MH=new IntSliderSetting("RestrainedHeart_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("RestrainedHeart_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("RestrainedHeart_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public RestrainedHeart() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

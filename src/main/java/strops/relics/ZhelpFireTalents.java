@@ -20,11 +20,11 @@ public class ZhelpFireTalents extends StropsAbstractRelic {
     public static final int NUM4=4;
     public static final int NUM5=8;
 
-    public static final IntSliderSetting COST=new IntSliderSetting("Fir_COST", "N1", NUM1, 3);
-    public static final IntSliderSetting MGC_BASE=new IntSliderSetting("Fir_MGC_BASE", "N2", NUM2, 22);
-    public static final IntSliderSetting MGC_UPGRADED=new IntSliderSetting("Fir_MGC_UPGRADED", "N3", NUM3, 30);
-    public static final IntSliderSetting THIRST_TURN=new IntSliderSetting("Fir_THIRST_TURN", "N4", NUM4, 1,10);
-    public static final IntSliderSetting THIRST_BOOST=new IntSliderSetting("Fir_THIRST_BOOST", "N5", NUM5, 1,50);
+    public static final IntSliderSetting COST=new IntSliderSetting("Fir_Cost", "N1", NUM1, 3);
+    public static final IntSliderSetting MGC_BASE=new IntSliderSetting("Fir_Mgc_Base", "N2", NUM2, 22);
+    public static final IntSliderSetting MGC_UPGRADED=new IntSliderSetting("Fir_Mgc_Upgraded", "N3", NUM3, 30);
+    public static final IntSliderSetting THIRST_TURN=new IntSliderSetting("Fir_Thirst_Turn", "N4", NUM4, 1,10);
+    public static final IntSliderSetting THIRST_BOOST=new IntSliderSetting("Fir_Thirst_Boost", "N5", NUM5, 1,50);
 
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();

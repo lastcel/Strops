@@ -15,6 +15,9 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import strops.relics.HearthsMores;
+import strops.relics.StropsAbstractRelic;
+
+import java.util.Collections;
 
 public class PatchHearthsMores {
 
@@ -170,7 +173,15 @@ public class PatchHearthsMores {
         AbstractCard c = p.hoveredCard;
         //logger.info("悬停卡为："+c);
         //forceTrueRandomSpot=true;
-        p.hand.moveToDeck(c,true);
+        if(AbstractDungeon.player.getRelic(HearthsMores.ID).grayscale
+                && StropsAbstractRelic.hasTriColor()){
+            p.hand.moveToDeck(c,false);
+            if(p.drawPile.group.size()>=2){
+                Collections.swap(p.drawPile.group,p.drawPile.group.size()-1,p.drawPile.group.size()-2);
+            }
+        } else {
+            p.hand.moveToDeck(c,true);
+        }
         //forceTrueRandomSpot=false;
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,1));
     }

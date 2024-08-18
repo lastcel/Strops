@@ -20,11 +20,11 @@ public class ZhelpArcaneTalents extends StropsAbstractRelic {
     public static final int NUM4=2;
     public static final int NUM5=6;
 
-    public static final IntSliderSetting COST=new IntSliderSetting("Arc_COST", "N1", NUM1, 3);
-    public static final IntSliderSetting DMG_BASE=new IntSliderSetting("Arc_DMG_BASE", "N2", NUM2, 15);
-    public static final IntSliderSetting DMG_UPGRADED=new IntSliderSetting("Arc_DMG_UPGRADED", "N3", NUM3, 20);
-    public static final IntSliderSetting THIRST_TURN=new IntSliderSetting("Arc_THIRST_TURN", "N4", NUM4, 1,5);
-    public static final IntSliderSetting THIRST_BOOST=new IntSliderSetting("Arc_THIRST_BOOST", "N5", NUM5, 1,20);
+    public static final IntSliderSetting COST=new IntSliderSetting("Arc_Cost", "N1", NUM1, 3);
+    public static final IntSliderSetting DMG_BASE=new IntSliderSetting("Arc_Dmg_Base", "N2", NUM2, 15);
+    public static final IntSliderSetting DMG_UPGRADED=new IntSliderSetting("Arc_Dmg_Upgraded", "N3", NUM3, 20);
+    public static final IntSliderSetting THIRST_TURN=new IntSliderSetting("Arc_Thirst_Turn", "N4", NUM4, 1,5);
+    public static final IntSliderSetting THIRST_BOOST=new IntSliderSetting("Arc_Thirst_Boost", "N5", NUM5, 1,20);
 
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();

@@ -15,18 +15,17 @@ public class Evasive extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(Evasive.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Evasive.class.getSimpleName());
     //private static final String IMG_PATH_O = ModHelper.makeOPath(Evasive.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.RARE;
+    //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
-    public static final int NUM1=4;
-    public static final int NUM2=8;
-    public static final int NUM3=0;
+    public static final int NUM1=4,NUM2=8,NUM3=0,TIER=3;
 
     public static final IntSliderSetting MATCH_1=new IntSliderSetting("Evasive_Match_1", "N1", NUM1, 1,32);
     public static final IntSliderSetting MATCH_2=new IntSliderSetting("Evasive_Match_2", "N2", NUM2, 1,32);
     public static final IntSliderSetting MATCH_3=new IntSliderSetting("Evasive_Match_3", "N3", NUM3, 32);
     public static final IntSliderSetting MH=new IntSliderSetting("Evasive_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Evasive_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Evasive_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MATCH_1);
@@ -34,11 +33,12 @@ public class Evasive extends StropsAbstractRelic{
         settings.add(MATCH_3);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public Evasive() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

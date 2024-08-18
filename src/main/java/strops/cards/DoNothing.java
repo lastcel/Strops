@@ -1,4 +1,3 @@
-/*
 package strops.cards;
 
 import basemod.abstracts.CustomCard;
@@ -40,5 +39,3 @@ public class DoNothing extends CustomCard {
         return new DoNothing();
     }
 }
-
- */

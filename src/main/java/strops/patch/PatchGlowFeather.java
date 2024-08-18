@@ -15,7 +15,6 @@ import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
-import strops.modcore.Strops;
 import strops.relics.GlowFeather;
 
 import java.lang.reflect.Field;

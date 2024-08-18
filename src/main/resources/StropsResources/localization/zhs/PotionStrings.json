@@ -2,7 +2,7 @@
   "Strops:Blizzard": {
     "NAME": "暴风雪",
     "DESCRIPTIONS": [
-      "封印所有敌人的行动直到其失去生命。"
+      "丢弃时，冻结所有敌人的行动直到其失去生命。"
     ]
   },
   "Strops:PhantasmalShootingStar": {
@@ -10,6 +10,18 @@
     "DESCRIPTIONS": [
       "在本场战斗中，你造成 #b%.1f 倍 #y攻击 伤害。 NL #r这瓶药水会在每一幕开始时消失。",
       "在本场战斗中，你造成 #b%.0f 倍 #y攻击 伤害。 NL #r这瓶药水会在每一幕开始时消失。"
+    ]
+  },
+  "Strops:FrugalPotion": {
+    "NAME": "节俭药水",
+    "DESCRIPTIONS": [
+      "战斗开始时，将你的 #y金币 变为原来的 #b%d #b%% ，并获得 #b%d 层 #y人工制品 。 NL 丢弃时，回复 #b%d 点生命（随本局游戏获得 #y人工制品 的层数等量增加）。"
+    ]
+  },
+  "Strops:GreedyPotion": {
+    "NAME": "贪婪药水",
+    "DESCRIPTIONS": [
+      "战斗开始时，将你的 #y金币 变为原来的 #b%d #b%% ，并获得 #b%d 次两层 #y虚弱 、 #b%d 次两层 #y脆弱 和 #b%d 次两层 #y易伤 。 NL 丢弃时，将你的金币变为原来的 #b%d #b%% 。"
     ]
   }
 }

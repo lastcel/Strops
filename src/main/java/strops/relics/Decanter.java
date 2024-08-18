@@ -35,7 +35,7 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
 
     public static final int NUM1=3;
 
-    public static final IntSliderSetting USABLE=new IntSliderSetting("Decanter_USABLE", "N1", NUM1, 1,10);
+    public static final IntSliderSetting USABLE=new IntSliderSetting("Decanter_Usable", "N1", NUM1, 1,10);
     public static final IntSliderSetting MH=new IntSliderSetting("Decanter_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Decanter_G","G",0,-100,100);
     public ArrayList<RelicSetting> BuildRelicSettings() {
@@ -182,7 +182,7 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
     public void atBattleStart(){
         List<AbstractRelic> inBattleRelics = AbstractDungeon.player.relics.stream()
                 .filter(r->IN_BATTLE_RELICS.contains(r.relicId)).collect(Collectors.toList());
-        if(inBattleRelics.size()>0&&IN_BATTLE_RELICS.contains(relicToDisenchant)&&
+        if(!inBattleRelics.isEmpty() &&IN_BATTLE_RELICS.contains(relicToDisenchant)&&
                 !relicToDisenchant.equals(SlaversCollar.ID)){
             for (AbstractRelic r:AbstractDungeon.player.relics){
                 if(r.relicId.equals(relicToDisenchant)){
@@ -212,7 +212,7 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
         return String.format(this.DESCRIPTIONS[0], USABLE.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], USABLE.value));
@@ -272,6 +272,9 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
             HoveringKite.ID,
             SlaversCollar.ID,
             MarkOfPain.ID,
+            FrozenCore.ID,
+            SneckoEye.ID,
+            CallingBell.ID,
             //strops
             BambooDragonflyOfHanyuHorner.ID,
             DelayedGratification.ID,
@@ -279,7 +282,11 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
             Key.ID,
             FTLEngines.ID,
             MessyPuppy.ID,
-            FilmStarryCurtain.ID
+            FilmStarryCurtain.ID,
+            VolcanicCryster.ID,
+            Polearm.ID,
+            StroopsTester.ID,
+            Wedgue.ID
     ));
 
     private static final Set<String> IN_BATTLE_RELICS = new HashSet<>(Arrays.asList(
@@ -290,12 +297,19 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
             HoveringKite.ID,
             SlaversCollar.ID,
             MarkOfPain.ID,
+            FrozenCore.ID,
+            SneckoEye.ID,
+            CallingBell.ID,
             //strops
             BambooDragonflyOfHanyuHorner.ID,
             DelayedGratification.ID,
             DepartmentStore.ID,
             FTLEngines.ID,
             MessyPuppy.ID,
-            FilmStarryCurtain.ID
+            FilmStarryCurtain.ID,
+            VolcanicCryster.ID,
+            Polearm.ID,
+            StroopsTester.ID,
+            Wedgue.ID
     ));
 }

@@ -19,13 +19,17 @@ public class AutumnColors extends StropsAbstractRelic{
     private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    public static final int TIER=tier2Num(RELIC_TIER);
+    public static final int NUM1=1,NUM2=1,TIER=tier2Num(RELIC_TIER);
 
+    public static final IntSliderSetting IN=new IntSliderSetting("AutumnColors_In","N1",NUM1,1,5);
+    public static final IntSliderSetting OUT=new IntSliderSetting("AutumnColors_Out","N2",NUM2,1,5);
     public static final IntSliderSetting MH=new IntSliderSetting("AutumnColors_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("AutumnColors_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("AutumnColors_R","R", TIER,1,3);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
+        settings.add(IN);
+        settings.add(OUT);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -50,29 +54,29 @@ public class AutumnColors extends StropsAbstractRelic{
     public void justEnteredRoom(AbstractRoom room){
         if(AbstractDungeon.actNum==2&&room instanceof RestRoom){
             flash();
-            counter++;
+            counter+=IN.value;
         }
     }
 
     @Override
     public void atBattleStart(){
-        if(AbstractDungeon.actNum==3&&counter>0){
+        if(AbstractDungeon.actNum==3&&counter>=OUT.value){
             flash();
             AbstractRelic.RelicTier tier = AbstractDungeon.returnRandomRelicTier();
             AbstractDungeon.getCurrRoom().addRelicToRewards(tier);
-            counter--;
+            counter-=OUT.value;
         }
     }
 
     @Override
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
+        return String.format(this.DESCRIPTIONS[0],IN.value,OUT.value);
     }
 
 
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(this.DESCRIPTIONS[0]);
+        str_out.add(String.format(this.DESCRIPTIONS[0],IN.value,OUT.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         str_out.add(this.DESCRIPTIONS[1]);

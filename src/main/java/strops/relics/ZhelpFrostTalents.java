@@ -20,11 +20,11 @@ public class ZhelpFrostTalents extends StropsAbstractRelic {
     public static final int NUM4=3;
     public static final int NUM5=7;
 
-    public static final IntSliderSetting COST=new IntSliderSetting("Fro_COST", "N1", NUM1, 3);
-    public static final IntSliderSetting BLK_BASE=new IntSliderSetting("Fro_BLK_BASE", "N2", NUM2, 18);
-    public static final IntSliderSetting BLK_UPGRADED=new IntSliderSetting("Fro_BLK_UPGRADED", "N3", NUM3, 24);
-    public static final IntSliderSetting THIRST_TURN=new IntSliderSetting("Fro_THIRST_TURN", "N4", NUM4, 1,7);
-    public static final IntSliderSetting THIRST_BOOST=new IntSliderSetting("Fro_THIRST_BOOST", "N5", NUM5, 1,25);
+    public static final IntSliderSetting COST=new IntSliderSetting("Fro_Cost", "N1", NUM1, 3);
+    public static final IntSliderSetting BLK_BASE=new IntSliderSetting("Fro_Blk_Base", "N2", NUM2, 18);
+    public static final IntSliderSetting BLK_UPGRADED=new IntSliderSetting("Fro_Blk_Upgraded", "N3", NUM3, 24);
+    public static final IntSliderSetting THIRST_TURN=new IntSliderSetting("Fro_Thirst_Turn", "N4", NUM4, 1,7);
+    public static final IntSliderSetting THIRST_BOOST=new IntSliderSetting("Fro_Thirst_Boost", "N5", NUM5, 1,25);
 
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();

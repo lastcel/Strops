@@ -11,8 +11,8 @@ import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import strops.potions.Blizzard;
-import strops.potions.PhantasmalShootingStar;
+import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
+import strops.potions.*;
 import strops.relics.*;
 
 import java.util.Arrays;
@@ -39,13 +39,17 @@ public class PatchZan {
                 if(__inst.potions.get(0).ID.equals(Blizzard.POTION_ID)){
                     healAmount=Zan.BLIZZARD_BONUS;
                 } else if (__inst.potions.get(0).ID.equals(PhantasmalShootingStar.POTION_ID)){
-                    healAmount= Zan.SHOOTINGSTAR_BONUS;
+                    healAmount=Zan.SHOOTINGSTAR_BONUS;
+                } else if(__inst.potions.get(0).ID.equals(FrugalPotion.POTION_ID)){
+                    healAmount=Zan.FRUGALPOTION_BONUS;
+                } else if(__inst.potions.get(0).ID.equals(GreedyPotion.POTION_ID)){
+                    healAmount=Zan.GREEDYPOTION_BONUS;
                 } else {
                     switch(__inst.potions.get(0).rarity){
                         case COMMON:healAmount=Zan.COMMON_BONUS.value;break;
                         case UNCOMMON:healAmount=Zan.UNCOMMON_BONUS.value;break;
                         case RARE:healAmount=Zan.RARE_BONUS.value;break;
-                        default:healAmount=0;break;
+                        default:healAmount=1;break;
                     }
                 }
 
@@ -110,6 +114,7 @@ public class PatchZan {
         }
     }
 
+    /*
     @SpirePatch(
             clz= PotionHelper.class,
             method="getRandomPotion",
@@ -124,6 +129,23 @@ public class PatchZan {
         }
     }
 
+     */
+
+    @SpirePatch(
+            clz= PotionHelper.class,
+            method="getRandomPotion",
+            paramtypez = {Random.class}
+    )
+    public static class PatchTool4 {
+        @SpireInsertPatch(rloc = 1,localvars = {"randomKey"})
+        public static SpireReturn<AbstractPotion> Insert(Random rng, String randomKey) {
+            if(SPECIAL_POTIONS.contains(randomKey)){
+                return SpireReturn.Return(PotionHelper.getRandomPotion(rng));
+            }
+            return SpireReturn.Continue();
+        }
+    }
+
     @SpirePatch(
             clz= PotionHelper.class,
             method="getRandomPotion",
@@ -131,15 +153,61 @@ public class PatchZan {
     )
     public static class PatchTool5 {
         @SpireInsertPatch(rloc = 1,localvars = {"randomKey"})
-        public static void Insert(@ByRef String[] randomKey) {
-            while(SPECIAL_POTIONS.contains(randomKey[0])){
-                randomKey[0] = PotionHelper.potions.get(AbstractDungeon.potionRng.random(PotionHelper.potions.size() - 1));
+        public static SpireReturn<AbstractPotion> Insert(String randomKey) {
+            if(SPECIAL_POTIONS.contains(randomKey)){
+                return SpireReturn.Return(PotionHelper.getRandomPotion());
+            }
+            return SpireReturn.Continue();
+        }
+    }
+
+    @SpirePatch(
+            clz= PotionPopUp.class,
+            method="updateInput"
+    )
+    public static class PatchTool6 {
+        @SpireInsertPatch(rloc = 54)
+        public static void Insert(PotionPopUp __inst,AbstractPotion ___potion) {
+            if(___potion instanceof AbstractStropsPotion){
+                ((AbstractStropsPotion) ___potion).onDiscarded();
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz= AbstractPlayer.class,
+            method="preBattlePrep"
+    )
+    public static class PatchTool7 {
+        @SpirePostfixPatch
+        public static void Postfix(AbstractPlayer __inst) {
+            for(AbstractPotion p:AbstractDungeon.player.potions){
+                if(p instanceof AbstractStropsPotion){
+                    ((AbstractStropsPotion) p).atPreBattleFlowing();
+                }
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz= AbstractRoom.class,
+            method="update"
+    )
+    public static class PatchTool8 {
+        @SpireInsertPatch(rloc=51)
+        public static void Insert(AbstractRoom __inst) {
+            for(AbstractPotion p:AbstractDungeon.player.potions){
+                if(p instanceof AbstractStropsPotion){
+                    ((AbstractStropsPotion) p).atBattleStartFlowing();
+                }
             }
         }
     }
 
     public static final Set<String> SPECIAL_POTIONS = new HashSet<>(Arrays.asList(
             Blizzard.POTION_ID,
-            PhantasmalShootingStar.POTION_ID
+            PhantasmalShootingStar.POTION_ID,
+            FrugalPotion.POTION_ID,
+            GreedyPotion.POTION_ID
     ));
 }

@@ -4,6 +4,7 @@ import basemod.abstracts.CustomBottleRelic;
 import basemod.abstracts.CustomSavable;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnAfterUseCardRelic;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -27,26 +28,29 @@ public class Transcendence extends StropsAbstractRelic implements OnAfterUseCard
         CustomBottleRelic, CustomSavable<ArrayList<Integer>> {
     public static final String ID = ModHelper.makePath(Transcendence.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Transcendence.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.SHOP;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    //private static final RelicTier RELIC_TIER = RelicTier.SHOP;
+    private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    public static final int NUM1=3;
+    public static final int NUM1=3,TIER=5;
 
     public static final IntSliderSetting THRESHOLD=new IntSliderSetting("Transcendence_Threshold", "N1", NUM1, 1,10);
     public static final IntSliderSetting MH=new IntSliderSetting("Transcendence_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Transcendence_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Transcendence_R","R",TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public Transcendence() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         canCopy=false;
+        canSpawnInBattle=false;
     }
 
     private boolean cardSelected = true;
@@ -151,6 +155,7 @@ public class Transcendence extends StropsAbstractRelic implements OnAfterUseCard
             for (int i = 0; i < handsize; i++) {
                 addToTop(new ExcludeAction(1, true, true, false, Settings.ACTION_DUR_XFAST));
             }
+            addToTop(new RelicAboveCreatureAction(AbstractDungeon.player,this));
         }
         counter++;
     }

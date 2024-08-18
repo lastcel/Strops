@@ -17,17 +17,17 @@ public class Zan extends StropsAbstractRelic implements ClickableRelic, CustomSa
     public static final String ID = ModHelper.makePath(Zan.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Zan.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(Zan.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
+    //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
     private int keptSecondCounter;
 
-    public static final int NUM1=10;
-    public static final int NUM2=20;
-    public static final int NUM3=30;
-    public static final int NUM4=20;
+    public static final int NUM1=10,NUM2=20,NUM3=30,NUM4=20,TIER=2;
     public static final int BLIZZARD_BONUS=70;
     public static final int SHOOTINGSTAR_BONUS=50;
+    public static final int FRUGALPOTION_BONUS=50;
+    public static final int GREEDYPOTION_BONUS=50;
+
     public static final int LIMIT=3;
 
     public static final IntSliderSetting COMMON_BONUS=new IntSliderSetting("Zan_Common_Bonus", "N1", NUM1, 6,15);
@@ -36,6 +36,7 @@ public class Zan extends StropsAbstractRelic implements ClickableRelic, CustomSa
     public static final IntSliderSetting STORAGE=new IntSliderSetting("Zan_Storage", "N4", NUM4, 0,45);
     public static final IntSliderSetting MH=new IntSliderSetting("Zan_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Zan_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Zan_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(COMMON_BONUS);
@@ -44,11 +45,12 @@ public class Zan extends StropsAbstractRelic implements ClickableRelic, CustomSa
         settings.add(STORAGE);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public Zan() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

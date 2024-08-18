@@ -11,24 +11,26 @@ public class Ribbon extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(Ribbon.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Ribbon.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(Ribbon.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.RARE;
+    //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    public static final int NUM1=2;
+    public static final int NUM1=2,TIER=3;
 
     public static final IntSliderSetting THRESHOLD=new IntSliderSetting("Ribbon_Threshold", "N1", NUM1, 1,4);
     public static final IntSliderSetting MH=new IntSliderSetting("Ribbon_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Ribbon_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Ribbon_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public Ribbon() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
     }
 

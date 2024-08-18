@@ -6,6 +6,7 @@ import basemod.eventUtil.AddEventParams;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 
@@ -20,7 +21,6 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,6 +29,8 @@ import strops.events.StropsMindBloom;
 import strops.helpers.ModHelper;
 import strops.patch.PatchGrassNowAndFlowersThen;
 import strops.potions.Blizzard;
+import strops.potions.FrugalPotion;
+import strops.potions.GreedyPotion;
 import strops.potions.PhantasmalShootingStar;
 import strops.relics.*;
 import strops.textkeynumbers.*;
@@ -130,6 +132,9 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addCard(new FireTalents());
         BaseMod.addCard(new LightningStorm());
         BaseMod.addCard(new PartScrapper());
+        BaseMod.addCard(new BodySlamPlusPlus());
+        BaseMod.addCard(new Aurora());
+        BaseMod.addCard(new SoulCraftedCard());
     }
 
     @Override
@@ -226,6 +231,25 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addRelic(new Leviboard(), RelicType.SHARED);
         BaseMod.addRelic(new CuttingMachine(), RelicType.SHARED);
         BaseMod.addRelic(new MessyPuppy(), RelicType.SHARED);
+        BaseMod.addRelic(new MinoshiroModoki(), RelicType.SHARED);
+        BaseMod.addRelic(new HermitsPockets(), RelicType.SHARED);
+        BaseMod.addRelic(new AmorphousMass(), RelicType.SHARED);
+        BaseMod.addRelic(new SwordOfFeastAndFamine(), RelicType.SHARED);
+        BaseMod.addPotion(FrugalPotion.class, Color.ORANGE.cpy(), null, null, FrugalPotion.POTION_ID);
+        BaseMod.addPotion(GreedyPotion.class, Color.GOLD.cpy(), null, null, GreedyPotion.POTION_ID);
+        BaseMod.addRelic(new VolcanicCryster(), RelicType.SHARED);
+        BaseMod.addRelic(new Turbolens(), RelicType.SHARED);
+        BaseMod.addRelic(new BlackRabbit(), RelicType.SHARED);
+        BaseMod.addRelic(new StroopsTester(), RelicType.SHARED);
+        BaseMod.addRelic(new LuckyStar(), RelicType.SHARED);
+        BaseMod.addRelic(new Wedgue(), RelicType.SHARED);
+        BaseMod.addRelic(new NoNameForNow3(), RelicType.SHARED);
+        BaseMod.addRelic(new Register(), RelicType.SHARED);
+        BaseMod.addRelic(new SoulCraft(), RelicType.SHARED);
+        BaseMod.addRelic(new StrikersVeil(), RelicType.SHARED);
+        BaseMod.addRelic(new FishingNet(), RelicType.SHARED);
+        BaseMod.addRelic(new NoNameForNow4(), RelicType.SHARED);
+        BaseMod.addRelic(new PainsReward(), RelicType.SHARED);
 
         BaseMod.addRelic(new ZhelpArcaneTalents(), RelicType.SHARED);
         BaseMod.addRelic(new ZhelpFrostTalents(), RelicType.SHARED);
@@ -233,6 +257,8 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addRelic(new ZhelpLightningStorm(), RelicType.SHARED);
         BaseMod.addRelic(new ZhelpDecanter(), RelicType.SHARED);
         BaseMod.addRelic(new ZhelpPartScrapper(), RelicType.SHARED);
+        BaseMod.addRelic(new ZhelpFrugalPotion(), RelicType.SHARED);
+        BaseMod.addRelic(new ZhelpGreedyPotion(), RelicType.SHARED);
 
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(Atri.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(Bolster.class.getSimpleName()));
@@ -307,6 +333,23 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         UnlockTracker.markRelicAsSeen(Leviboard.ID);
         UnlockTracker.markRelicAsSeen(CuttingMachine.ID);
         UnlockTracker.markRelicAsSeen(MessyPuppy.ID);
+        UnlockTracker.markRelicAsSeen(MinoshiroModoki.ID);
+        UnlockTracker.markRelicAsSeen(HermitsPockets.ID);
+        UnlockTracker.markRelicAsSeen(AmorphousMass.ID);
+        UnlockTracker.markRelicAsSeen(SwordOfFeastAndFamine.ID);
+        UnlockTracker.markRelicAsSeen(VolcanicCryster.ID);
+        UnlockTracker.markRelicAsSeen(Turbolens.ID);
+        UnlockTracker.markRelicAsSeen(BlackRabbit.ID);
+        UnlockTracker.markRelicAsSeen(StroopsTester.ID);
+        UnlockTracker.markRelicAsSeen(LuckyStar.ID);
+        UnlockTracker.markRelicAsSeen(Wedgue.ID);
+        UnlockTracker.markRelicAsSeen(NoNameForNow3.ID);
+        UnlockTracker.markRelicAsSeen(Register.ID);
+        UnlockTracker.markRelicAsSeen(SoulCraft.ID);
+        UnlockTracker.markRelicAsSeen(StrikersVeil.ID);
+        UnlockTracker.markRelicAsSeen(FishingNet.ID);
+        UnlockTracker.markRelicAsSeen(NoNameForNow4.ID);
+        UnlockTracker.markRelicAsSeen(PainsReward.ID);
 
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpArcaneTalents.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpFrostTalents.class.getSimpleName()));
@@ -314,12 +357,17 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpLightningStorm.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ZhelpDecanter.ID);
         UnlockTracker.markRelicAsSeen(ZhelpPartScrapper.ID);
+        UnlockTracker.markRelicAsSeen(ZhelpFrugalPotion.ID);
+        UnlockTracker.markRelicAsSeen(ZhelpGreedyPotion.ID);
 
         UnlockTracker.markCardAsSeen(ModHelper.makePath(ArcaneTalents.class.getSimpleName()));
         UnlockTracker.markCardAsSeen(ModHelper.makePath(FrostTalents.class.getSimpleName()));
         UnlockTracker.markCardAsSeen(ModHelper.makePath(FireTalents.class.getSimpleName()));
         UnlockTracker.markCardAsSeen(ModHelper.makePath(LightningStorm.class.getSimpleName()));
         UnlockTracker.markCardAsSeen(PartScrapper.ID);
+        UnlockTracker.markCardAsSeen(BodySlamPlusPlus.ID);
+        UnlockTracker.markCardAsSeen(Aurora.ID);
+        UnlockTracker.markCardAsSeen(SoulCraftedCard.ID);
     }
 
     @Override
@@ -429,12 +477,31 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BuildSettings(new Leviboard());
         BuildSettings(new CuttingMachine());
         BuildSettings(new MessyPuppy());
+        BuildSettings(new MinoshiroModoki());
+        BuildSettings(new HermitsPockets());
+        BuildSettings(new AmorphousMass());
+        BuildSettings(new SwordOfFeastAndFamine());
+        BuildSettings(new VolcanicCryster());
+        BuildSettings(new Turbolens());
+        BuildSettings(new BlackRabbit());
+        BuildSettings(new StroopsTester());
+        BuildSettings(new LuckyStar());
+        BuildSettings(new Wedgue());
+        BuildSettings(new NoNameForNow3());
+        BuildSettings(new Register());
+        BuildSettings(new SoulCraft());
+        BuildSettings(new StrikersVeil());
+        BuildSettings(new FishingNet());
+        BuildSettings(new NoNameForNow4());
+        BuildSettings(new PainsReward());
 
         BuildSettings(new ZhelpArcaneTalents());
         BuildSettings(new ZhelpFrostTalents());
         BuildSettings(new ZhelpFireTalents());
         BuildSettings(new ZhelpLightningStorm());
         BuildSettings(new ZhelpPartScrapper());
+        BuildSettings(new ZhelpFrugalPotion());
+        BuildSettings(new ZhelpGreedyPotion());
 
         loadSettingsData();
         for (StropsAbstractRelic relic : RelicSettings.keySet()) {
@@ -448,6 +515,12 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         }), 2, 3, 50, 50, settingsButtons);
         settingsPanel.addUIElement(pager);
         BaseMod.registerModBadge(badgeTexture, "strops", "旅渚Lastcel", "0230", settingsPanel);
+
+        if(!Loader.isModLoaded("RelicFilter")&&
+                !(Loader.isModLoaded("IsaacMod")&&Loader.isModLoaded("MoreIsaacExpansion"))){
+            RelicLibrary.resetForReload();
+            RelicLibrary.initialize();
+        }
 
         CardBorderGlowManager.addGlowInfo(new CardBorderGlowManager.GlowInfo(){
             @Override
@@ -479,6 +552,26 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
             @Override
             public String glowID() {
                 return ModHelper.makePath(ArcaneTalents.class.getSimpleName())+"@Glow";
+            }
+        });
+
+        CardBorderGlowManager.addGlowInfo(new CardBorderGlowManager.GlowInfo(){
+            @Override
+            public boolean test(AbstractCard c) {
+                for(AbstractRelic r:AbstractDungeon.player.relics) {
+                    if(r.relicId.equals(Wedgue.ID)&&c==((Wedgue)r).drawnCard) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            @Override
+            public Color getColor(AbstractCard card) {
+                return Color.PURPLE.cpy();
+            }
+            @Override
+            public String glowID() {
+                return Wedgue.ID+"@Glow";
             }
         });
     }
@@ -526,18 +619,24 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
 
     @Override
     public int receiveMaxHPChange(int amount){
-        if(AbstractDungeon.getCurrMapNode()!=null&&AbstractDungeon.getCurrRoom()!=null&&AbstractDungeon.getCurrRoom().phase!=AbstractRoom.RoomPhase.COMBAT){
-            for(AbstractRelic r:AbstractDungeon.player.relics){
-                if(r.relicId.equals(ChuggingMask.ID)){
-                    r.flash();
-                    if(amount>0){
-                        AbstractDungeon.player.heal(amount);
-                    } else if(amount<0){
-                        AbstractDungeon.player.heal(-amount);
-                    }
+        for(AbstractRelic r:AbstractDungeon.player.relics){
+            if(r.relicId.equals(ChuggingMask.ID)){
+                r.flash();
+                if(amount>0){
+                    AbstractDungeon.player.heal(amount);
+                } else if(amount<0){
+                    AbstractDungeon.player.heal(-amount);
                 }
+                break;
             }
         }
+
+        /*
+        if(AbstractDungeon.getCurrMapNode()!=null&&AbstractDungeon.getCurrRoom()!=null&&AbstractDungeon.getCurrRoom().phase!=AbstractRoom.RoomPhase.COMBAT){
+
+        }
+
+         */
 
         return amount;
     }

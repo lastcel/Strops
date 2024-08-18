@@ -18,28 +18,30 @@ public class Extractor extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(Extractor.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Extractor.class.getSimpleName());
     //private static final String IMG_PATH_O = ModHelper.makeOPath(FTLEngines.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.COMMON;
+    //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
     private final ArrayList<MonsterGoldInfo> accounts=new ArrayList<>();
 
-    public static final int NUM1=2,NUM2=5;
+    public static final int NUM1=2,NUM2=5,TIER=1;
 
-    public static final IntSliderSetting BONUS=new IntSliderSetting("Extractor_BONUS", "N1", NUM1, 1,10);
-    public static final IntSliderSetting THRESHOLD=new IntSliderSetting("Extractor_THRESHOLD", "N2", NUM2, 1,10);
+    public static final IntSliderSetting BONUS=new IntSliderSetting("Extractor_Bonus", "N1", NUM1, 1,10);
+    public static final IntSliderSetting THRESHOLD=new IntSliderSetting("Extractor_Threshold", "N2", NUM2, 1,10);
     public static final IntSliderSetting MH=new IntSliderSetting("Extractor_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Extractor_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Extractor_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(BONUS);
         settings.add(THRESHOLD);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public Extractor() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
     }

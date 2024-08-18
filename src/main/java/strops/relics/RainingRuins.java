@@ -6,6 +6,7 @@ import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.ShuffleAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -46,7 +47,7 @@ public class RainingRuins extends StropsAbstractRelic implements ClickableRelic 
     private static final String IMG_PATH = ModHelper.makeIPath(RainingRuins.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(RainingRuins.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
     public static boolean bruh = false;
 
@@ -114,6 +115,7 @@ public class RainingRuins extends StropsAbstractRelic implements ClickableRelic 
             return;
         }
 
+        /*
         if (AbstractDungeon.player.drawPile.isEmpty()) {
             if (AbstractDungeon.player.discardPile.size() > 0) {
                 addToBot(new EmptyDeckShuffleAction());
@@ -122,21 +124,26 @@ public class RainingRuins extends StropsAbstractRelic implements ClickableRelic 
             return;
         }
 
+         */
+
         CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
             if (useCheck(c)){
                 tmp.addToRandomSpot(c);
             }
         }
-        if (tmp.size() == 0) {
-            if (AbstractDungeon.player.discardPile.size() > 0) {
+
+        if (tmp.isEmpty()) {
+            if (!AbstractDungeon.player.discardPile.isEmpty()) {
                 addToBot(new EmptyDeckShuffleAction());
                 addToBot(new ShuffleAction(AbstractDungeon.player.drawPile, false));
+                addToBot(new GainEnergyAction(1));
             }
             return;
         }
 
         addToBot(new GeneralDrawPileToHandAction(1, myNeeds()));
+        addToBot(new GainEnergyAction(1));
         counter=COOLDOWN.value;
         stopPulse();
     }

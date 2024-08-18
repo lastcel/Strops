@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import strops.helpers.ModHelper;
 import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSetting;
@@ -15,16 +14,16 @@ import java.util.ArrayList;
 public class Bolster extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(Bolster.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Bolster.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.RARE;
+    //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static int NUM1=11,NUM2=3,TIER=3;
+    public static final int NUM1=11,NUM2=3,TIER=3;
 
     public static final IntSliderSetting THRESHOLD = new IntSliderSetting("Bolster_Threshold", "N1", NUM1, 5,15);
     public static final IntSliderSetting BONUS = new IntSliderSetting("Bolster_Bonus", "N2", NUM2, 1,5);
     public static final IntSliderSetting MH=new IntSliderSetting("Bolster_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Bolster_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("Bolster_R","R", TIER,1,3);
+    public static final IntSliderSetting R=new IntSliderSetting("Bolster_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
@@ -36,9 +35,8 @@ public class Bolster extends StropsAbstractRelic {
     }
 
     public Bolster() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
-        tier=num2Tier(R.value);
 
         if(DESCRIPTIONS[5].equals("1")){
             flavorText=String.format(flavorText,THRESHOLD.value);
@@ -58,6 +56,7 @@ public class Bolster extends StropsAbstractRelic {
         super.update();
         if(isObtained){
             counter=AbstractDungeon.player.relics.size();
+            this.pulse=(counter >= THRESHOLD.value);
         }
     }
 
@@ -82,7 +81,12 @@ public class Bolster extends StropsAbstractRelic {
         return str_out;
     }
 
-    public AbstractRelic makeCopy() {
-        return new Bolster();
+    @Override
+    public void setCounter(int setCounter){
+        counter=setCounter;
+
+        if(counter>=THRESHOLD.value){
+            flash();
+        }
     }
 }

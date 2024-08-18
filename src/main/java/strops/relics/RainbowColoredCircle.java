@@ -14,24 +14,26 @@ public class RainbowColoredCircle extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(RainbowColoredCircle.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(RainbowColoredCircle.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(RainbowColoredCircle.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
+    //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    public static final int NUM1=3;
+    public static final int NUM1=3,TIER=2;
 
     public static final IntSliderSetting MATCH=new IntSliderSetting("RCC_Match", "N1", NUM1, 2,5);
     public static final IntSliderSetting MH=new IntSliderSetting("RCC_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("RCC_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("RCC_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MATCH);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public RainbowColoredCircle() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

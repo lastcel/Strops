@@ -21,28 +21,31 @@ public class GlassRod extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(GlassRod.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(GlassRod.class.getSimpleName());
     //private static final String IMG_PATH_O = ModHelper.makeOPath(GlassRod.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.RARE;
+    //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
     public static final String[] UI_TEXT = CardCrawlGame.languagePack.getUIString("CampfireTokeEffect").TEXT;
 
     public boolean cardsSelected=true;
+    public static boolean canReopenIfCancel=true;
 
-    public static final int NUM1=3;
+    public static final int NUM1=3,TIER=3;
 
     public static final IntSliderSetting THRESHOLD=new IntSliderSetting("GlassRod_Threshold", "N1", NUM1, 1,5);
     public static final IntSliderSetting MH=new IntSliderSetting("GlassRod_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("GlassRod_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("GlassRod_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public GlassRod() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;
@@ -61,15 +64,30 @@ public class GlassRod extends StropsAbstractRelic {
             return;
         }
         for(AbstractCard c: AbstractDungeon.player.masterDeck.group){
+
+            /*
             if(!c.upgraded){
                 PatchGlassRod.PatchTool1.everPreUpgrade.set(c,true);
                 PatchGlassRod.PatchTool2.everCounted.set(c,false);
             }
+
+             */
+
+            PatchGlassRod.PatchTool2.currentSearing.set(c,c.timesUpgraded);
+            int delta=PatchGlassRod.PatchTool2.currentSearing.get(c)-PatchGlassRod.PatchTool2.lastSearing.get(c);
+            if(PatchGlassRod.PatchTool2.lastSearing.get(c)>=0&&delta>0){
+                counter+=delta;
+            }
+            PatchGlassRod.PatchTool2.lastSearing.set(c,c.timesUpgraded);
+
+            /*
             if(c.upgraded&&PatchGlassRod.PatchTool1.everPreUpgrade.get(c)&&
             !PatchGlassRod.PatchTool2.everCounted.get(c)){
                 counter++;
                 PatchGlassRod.PatchTool2.everCounted.set(c,true);
             }
+
+             */
         }
         AbstractRoom.RoomPhase phase = AbstractDungeon.getCurrRoom().phase;
         if (cardsSelected && counter >= THRESHOLD.value && phase != AbstractRoom.RoomPhase.INCOMPLETE && phase != AbstractRoom.RoomPhase.COMBAT && VALID_SCREENS.contains(AbstractDungeon.screen)) {
@@ -79,6 +97,7 @@ public class GlassRod extends StropsAbstractRelic {
             beginLongPulse();
             cardsSelected = false;
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
+            canReopenIfCancel=false;
         }
         if (!cardsSelected && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             cardsSelected = true;
@@ -92,12 +111,14 @@ public class GlassRod extends StropsAbstractRelic {
                 AbstractDungeon.player.masterDeck.removeCard(card);
             }
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
+            canReopenIfCancel=true;
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
         } else if (!cardsSelected && AbstractDungeon.screen != AbstractDungeon.CurrentScreen.GRID) {
             // Canceled.
             cardsSelected = true;
             stopPulse();
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
+            canReopenIfCancel=true;
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
         }
     }
@@ -112,7 +133,7 @@ public class GlassRod extends StropsAbstractRelic {
 
     @Override
     public boolean canSpawn() {
-        return (Settings.isEndless || (AbstractDungeon.floorNum <= 43));
+        return (Settings.isEndless || (AbstractDungeon.floorNum <= 40));
     }
 
     @Override

@@ -26,21 +26,24 @@ public class GrabbyHands extends StropsAbstractRelic implements ClickableRelic, 
         CustomSavable<ArrayList<CardGrabbyInfo>> {
     public static final String ID = ModHelper.makePath(GrabbyHands.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(GrabbyHands.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(FTLEngines.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(GrabbyHands.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
     //public static ArrayList<AbstractCard> cards = new ArrayList<>();
     public boolean cardsSelected=true;
     private AbstractDungeon.CurrentScreen prevScreen;
+    private AbstractRoom.RoomPhase prevPhase;
 
-    public static final int NUM1=3;
+    public static final int NUM1=1,NUM2=3;
 
-    public static final IntSliderSetting LATENCY=new IntSliderSetting("GrabbyHands_Latency", "N1", NUM1, 1,7);
+    public static final IntSliderSetting SIZE=new IntSliderSetting("GrabbyHands_Size", "N1", NUM1, 1,3);
+    public static final IntSliderSetting LATENCY=new IntSliderSetting("GrabbyHands_Latency", "N2", NUM2, 1,7);
     public static final IntSliderSetting MH=new IntSliderSetting("GrabbyHands_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("GrabbyHands_G","G",0,-100,100);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
+        settings.add(SIZE);
         settings.add(LATENCY);
         settings.add(MH);
         settings.add(G);
@@ -48,7 +51,7 @@ public class GrabbyHands extends StropsAbstractRelic implements ClickableRelic, 
     }
 
     public GrabbyHands() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;
@@ -126,6 +129,10 @@ public class GrabbyHands extends StropsAbstractRelic implements ClickableRelic, 
             return;
         }
 
+        if(AbstractDungeon.screen==AbstractDungeon.CurrentScreen.GRID||AbstractDungeon.screen==AbstractDungeon.CurrentScreen.CARD_REWARD){
+            return;
+        }
+
         CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard card : AbstractDungeon.player.masterDeck.getPurgeableCards().group) {
             if (PatchGrabbyHands.PatchTool6.isGrabbed.get(card)&&
@@ -143,6 +150,7 @@ public class GrabbyHands extends StropsAbstractRelic implements ClickableRelic, 
             AbstractDungeon.overlayMenu.cancelButton.hide();
             AbstractDungeon.previousScreen = AbstractDungeon.screen;
         }
+        prevPhase=AbstractDungeon.getCurrRoom().phase;
         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
         prevScreen = AbstractDungeon.screen;
         AbstractDungeon.gridSelectScreen.open(tmp, tmp.size(), true, this.DESCRIPTIONS[6]);
@@ -170,7 +178,7 @@ public class GrabbyHands extends StropsAbstractRelic implements ClickableRelic, 
                 card.target_y = Settings.HEIGHT / 2f;
                 AbstractDungeon.player.masterDeck.removeCard(card);
             }
-            AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
+            AbstractDungeon.getCurrRoom().phase = prevPhase;
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
         }
     }
@@ -200,13 +208,13 @@ public class GrabbyHands extends StropsAbstractRelic implements ClickableRelic, 
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0], LATENCY.value);
+        return String.format(this.DESCRIPTIONS[0], SIZE.value, LATENCY.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0], LATENCY.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0], SIZE.value, LATENCY.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         str_out.add(this.DESCRIPTIONS[1]);

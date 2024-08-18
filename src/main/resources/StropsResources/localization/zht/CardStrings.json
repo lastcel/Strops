@@ -23,47 +23,47 @@
   },
   "Strops:ChooseAttemptedVersion": {
     "NAME": "自己戴上",
-    "DESCRIPTION": "商人的所有遺物稍微打折。"
+    "DESCRIPTION": "商人的所有遺物稍微打折"
   },
   "Strops:ChooseAchievedVersion": {
     "NAME": "給商人戴上",
     "DESCRIPTION": "商人僅提供 *稀有 遺物，但大幅優惠！"
   },
   "Strops:DoAddEnvenom": {
-    "NAME": "惡毒即力量（已棄用）",
-    "DESCRIPTION": "將一張 *塗毒+ 加入你的牌組。"
+    "NAME": "惡毒即力量",
+    "DESCRIPTION": "將 M 張 *塗毒+ 加入你的牌組"
   },
   "Strops:DoNothing": {
-    "NAME": "無視即溫柔（已棄用）",
-    "DESCRIPTION": "什麼也不做。"
+    "NAME": "無視即溫柔",
+    "DESCRIPTION": "什麼也不做"
   },
   "Strops:Zero": {
     "NAME": "回到原點",
-    "DESCRIPTION": "變形為 *靈魂加農炮 。"
+    "DESCRIPTION": "變形為 *靈魂加農炮"
   },
   "Strops:OneTiny": {
     "NAME": "小試牛刀",
-    "DESCRIPTION": "變形為 *靈魂加農炮Ⅰ型（小） 。"
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅰ型（小）"
   },
   "Strops:OneHuge": {
     "NAME": "大試牛刀",
-    "DESCRIPTION": "變形為 *靈魂加農炮Ⅰ型（大） 。"
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅰ型（大）"
   },
   "Strops:TwoTiny": {
     "NAME": "小試蛇刀",
-    "DESCRIPTION": "變形為 *靈魂加農炮Ⅱ型（小） 。"
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅱ型（小）"
   },
   "Strops:TwoHuge": {
     "NAME": "大試蛇刀",
-    "DESCRIPTION": "變形為 *靈魂加農炮Ⅱ型（大） 。"
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅱ型（大）"
   },
   "Strops:ThreeTiny": {
     "NAME": "小試雞刀",
-    "DESCRIPTION": "變形為 *靈魂加農炮Ⅲ型（小） 。"
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅲ型（小）"
   },
   "Strops:ThreeHuge": {
     "NAME": "大試雞刀",
-    "DESCRIPTION": "變形為 *靈魂加農炮Ⅲ型（大） 。"
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅲ型（大）"
   },
   "Strops:HealToFull": {
     "NAME": "朝霞",
@@ -93,8 +93,78 @@
     "NAME": "遠方",
     "DESCRIPTION": "將第二幕的所有 *? 房間變為 *篝火"
   },
+  "Strops:ToGetHer": {
+    "NAME": "世界盡頭",
+    "DESCRIPTION": "將第二幕的所有 *? 房間變為 *篝火 ， *普通敵人 房間變為 *精英 房間"
+  },
   "Strops:ToFight": {
     "NAME": "身後",
     "DESCRIPTION": "獲得一瓶 *幻影流星"
+  },
+  "Strops:BodySlamPlusPlus": {
+    "NAME": "泰山壓頂++",
+    "DESCRIPTION": "造成你當前 格擋 值兩倍的傷害",
+    "UPGRADE_DESCRIPTION": " NL （造成 !D! 點傷害）"
+  },
+  "Strops:Aurora": {
+    "NAME": "極光",
+    "DESCRIPTION": "虛無"
+  },
+  "Strops:ChooseCost": {
+    "NAME": "耗能",
+    "DESCRIPTION": "選擇 *耗能"
+  },
+  "Strops:Choose0Cost": {
+    "NAME": "耗能=0",
+    "DESCRIPTION": "選擇 *耗能為0的牌"
+  },
+  "Strops:Choose1Cost": {
+    "NAME": "耗能=1",
+    "DESCRIPTION": "選擇 *耗能為1的牌"
+  },
+  "Strops:Choose2Cost": {
+    "NAME": "耗能=2",
+    "DESCRIPTION": "選擇 *耗能為2的牌"
+  },
+  "Strops:Choose3PlusCost": {
+    "NAME": "耗能≥3",
+    "DESCRIPTION": "選擇 *耗能為3及以上的牌"
+  },
+  "Strops:ChooseType": {
+    "NAME": "類型",
+    "DESCRIPTION": "选择 *類型"
+  },
+  "Strops:ChooseAttack": {
+    "NAME": "攻擊",
+    "DESCRIPTION": "選擇 *攻擊牌"
+  },
+  "Strops:ChooseSkill": {
+    "NAME": "技能",
+    "DESCRIPTION": "選擇 *技能牌"
+  },
+  "Strops:ChoosePower": {
+    "NAME": "能力",
+    "DESCRIPTION": "選擇 *能力牌"
+  },
+  "Strops:ChooseRarity": {
+    "NAME": "稀有度",
+    "DESCRIPTION": "選擇 *稀有度"
+  },
+  "Strops:ChooseCommon": {
+    "NAME": "普通",
+    "DESCRIPTION": "選擇 *普通牌"
+  },
+  "Strops:ChooseUncommon": {
+    "NAME": "罕見",
+    "DESCRIPTION": "選擇 *罕見牌"
+  },
+  "Strops:ChooseRare": {
+    "NAME": "稀有",
+    "DESCRIPTION": "選擇 *稀有牌"
+  },
+  "Strops:SoulCraftedCard": {
+    "NAME": "靈魂製作：",
+    "DESCRIPTION": "消耗 NL 抽到這張牌時，抽一張牌 NL 再打出 M 次後從牌組中移除 NL 觸發 *%s 的效果",
+    "UPGRADE_DESCRIPTION": "？"
   }
 }

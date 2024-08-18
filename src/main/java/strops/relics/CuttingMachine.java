@@ -19,10 +19,12 @@ public class CuttingMachine extends StropsAbstractRelic{
 
     public static final IntSliderSetting MH=new IntSliderSetting("CuttingMachine_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("CuttingMachine_G","G",0,-100,100);
+    public static final IntSliderSetting P=new IntSliderSetting("CuttingMachine_P","P", 150,50,300);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MH);
         settings.add(G);
+        settings.add(P);
         return settings;
     }
 
@@ -51,5 +53,10 @@ public class CuttingMachine extends StropsAbstractRelic{
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;
+    }
+
+    @Override
+    public int getPrice(){
+        return P.value;
     }
 }

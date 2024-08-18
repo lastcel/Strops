@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class ExtendedSaveFile extends SaveFile {
     public boolean ever_met_sunflower=false;
+    public boolean is_elitelize=false;
     public ArrayList<ExtendedCardSave> extended_cards;
     public int not_used_cannon_turn=0;
 }

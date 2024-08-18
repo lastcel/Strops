@@ -23,10 +23,12 @@ public class WeatherControlDevice extends StropsAbstractRelic{
 
     public static final IntSliderSetting MH=new IntSliderSetting("WCD_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("WCD_G","G",0,-100,100);
+    public static final IntSliderSetting P=new IntSliderSetting("WCD_P","P", 150,50,300);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MH);
         settings.add(G);
+        settings.add(P);
         return settings;
     }
 
@@ -57,12 +59,17 @@ public class WeatherControlDevice extends StropsAbstractRelic{
         return this.DESCRIPTIONS[0];
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(this.DESCRIPTIONS[0]);
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;
+    }
+
+    @Override
+    public int getPrice(){
+        return P.value;
     }
 }

@@ -43,6 +43,53 @@ public class Leviboard extends StropsAbstractRelic{
         onEquipMods(MH,G);
     }
 
+    /*
+    @Override
+    public int onPlayerHeal(int healAmount){
+        pulse=canFly();
+        if(pulse){
+            flash();
+        }
+        return healAmount;
+    }
+
+    @Override
+    public void wasHPLost(int damageAmount){
+        pulse=canFly();
+        if(pulse){
+            flash();
+        }
+    }
+
+    @Override
+    public void onGainGold(){
+        pulse=canFly();
+        if(pulse){
+            flash();
+        }
+    }
+
+    @Override
+    public void onLoseGold(){
+        pulse=canFly();
+        if(pulse){
+            flash();
+        }
+    }
+
+     */
+
+    /*
+    @Override
+    public void update(){
+        super.update();
+        if(isObtained){
+            pulse=canFly();
+        }
+    }
+
+     */
+
     @Override
     public String getUpdatedDescription() {
         return String.format(this.DESCRIPTIONS[0], HP_THRESHOLD.value,GOLD_THRESHOLD.value);
@@ -68,4 +115,17 @@ public class Leviboard extends StropsAbstractRelic{
         return (AbstractDungeon.player.currentHealth<=HP_THRESHOLD.value)||
                 (AbstractDungeon.player.gold>=GOLD_THRESHOLD.value);
     }
+
+    /*
+    @Override
+    public void setCounter(int setCounter){
+        counter=setCounter;
+
+        pulse=canFly();
+        if(pulse){
+            flash();
+        }
+    }
+
+     */
 }

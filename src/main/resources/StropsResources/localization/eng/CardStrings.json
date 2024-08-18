@@ -1,13 +1,13 @@
 {
   "Strops:ArcaneTalents": {
     "NAME": "Gift of Arcane",
-    "DESCRIPTION": "Deal !D! damage. NL strops:Turnthirst ( !M! ):The damage is increased by !Strops:KN1! . NL Exhaust. NL Add a copy of *Gift *of *Frost on top of your draw pile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL strops:Turnthirst ( !M! ):The damage is increased by !Strops:KN1! . NL Exhaust. NL Add a copy of *Gift *of *Frost+ on top of your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL strops:Turnthirst ( !M! ):The damage is increased by !Strops:KN1! . NL Exhaust. NL Add a *Gift *of *Frost on top of your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL strops:Turnthirst ( !M! ):The damage is increased by !Strops:KN1! . NL Exhaust. NL Add a *Gift *of *Frost+ on top of your draw pile."
   },
   "Strops:FrostTalents": {
     "NAME": "Gift of Frost",
-    "DESCRIPTION": "Gain !B! Block. NL strops:Turnthirst ( !M! ):The Block is increased by !Strops:KN1! . NL Exhaust. NL Add a copy of *Gift *of *Fire on top of your draw pile.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL strops:Turnthirst ( !M! ):The Block is increased by !Strops:KN1! . NL Exhaust. NL Add a copy of *Gift *of *Fire+ on top of your draw pile."
+    "DESCRIPTION": "Gain !B! Block. NL strops:Turnthirst ( !M! ):The Block is increased by !Strops:KN1! . NL Exhaust. NL Add a *Gift *of *Fire on top of your draw pile.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL strops:Turnthirst ( !M! ):The Block is increased by !Strops:KN1! . NL Exhaust. NL Add a *Gift *of *Fire+ on top of your draw pile."
   },
   "Strops:FireTalents": {
     "NAME": "Gift of Fire",
@@ -30,11 +30,11 @@
     "DESCRIPTION": "The Merchant will only sell *Rare relics, but they're super cheaper!"
   },
   "Strops:DoAddEnvenom": {
-    "NAME": "To Hurt, Being Forceful (Deprecated)",
-    "DESCRIPTION": "Add a copy of *Envenom+ to your deck."
+    "NAME": "To Hurt, Being Forceful",
+    "DESCRIPTION": "Add !M! *Envenom+ to your deck."
   },
   "Strops:DoNothing": {
-    "NAME": "To Ignore, Being Gentle (Deprecated)",
+    "NAME": "To Ignore, Being Gentle",
     "DESCRIPTION": "Do nothing."
   },
   "Strops:Zero": {
@@ -93,8 +93,78 @@
     "NAME": "Far Away",
     "DESCRIPTION": "Change all the *? rooms in the second Act into *Campfire ones."
   },
+  "Strops:ToGetHer": {
+    "NAME": "The End of The World",
+    "DESCRIPTION": "Change all the *? rooms in the second Act into *Campfire ones, and all the *Normal *Enemy rooms into *Elite ones."
+  },
   "Strops:ToFight": {
     "NAME": "Just Behind",
     "DESCRIPTION": "Obtain a *Phantasmal *Shooting *Star potion."
+  },
+  "Strops:BodySlamPlusPlus": {
+    "NAME": "Body Slam++",
+    "DESCRIPTION": "Deal damage double as much as your Block.",
+    "UPGRADE_DESCRIPTION": " NL (Deals !D! damage.)"
+  },
+  "Strops:Aurora": {
+    "NAME": "Aurora",
+    "DESCRIPTION": "Ethereal."
+  },
+  "Strops:ChooseCost": {
+    "NAME": "Cost",
+    "DESCRIPTION": "Choose *Cost."
+  },
+  "Strops:Choose0Cost": {
+    "NAME": "Cost=0",
+    "DESCRIPTION": "Choose *0-Cost *Cards."
+  },
+  "Strops:Choose1Cost": {
+    "NAME": "Cost=1",
+    "DESCRIPTION": "Choose *1-Cost *Cards."
+  },
+  "Strops:Choose2Cost": {
+    "NAME": "Cost=2",
+    "DESCRIPTION": "Choose *2-Cost *Cards."
+  },
+  "Strops:Choose3PlusCost": {
+    "NAME": "Cost>=3",
+    "DESCRIPTION": "Choose *3-Cost *or *higher *Cards."
+  },
+  "Strops:ChooseType": {
+    "NAME": "Type",
+    "DESCRIPTION": "Choose *Type."
+  },
+  "Strops:ChooseAttack": {
+    "NAME": "Attack",
+    "DESCRIPTION": "Choose *Attacks."
+  },
+  "Strops:ChooseSkill": {
+    "NAME": "Skill",
+    "DESCRIPTION": "Choose *Skills."
+  },
+  "Strops:ChoosePower": {
+    "NAME": "Power",
+    "DESCRIPTION": "Choose *Powers."
+  },
+  "Strops:ChooseRarity": {
+    "NAME": "Rarity",
+    "DESCRIPTION": "Choose *Rarity."
+  },
+  "Strops:ChooseCommon": {
+    "NAME": "Common",
+    "DESCRIPTION": "Choose *Common *Cards."
+  },
+  "Strops:ChooseUncommon": {
+    "NAME": "Uncommon",
+    "DESCRIPTION": "Choose *Uncommon *Cards."
+  },
+  "Strops:ChooseRare": {
+    "NAME": "Rare",
+    "DESCRIPTION": "Choose *Rare *Cards."
+  },
+  "Strops:SoulCraftedCard": {
+    "NAME": "Soul Craft: ",
+    "DESCRIPTION": "Exhaust. NL Draw a card when this is drawn. NL !M! play left before getting removed from your deck. NL Trigger *%s.",
+    "UPGRADE_DESCRIPTION": "?"
   }
 }

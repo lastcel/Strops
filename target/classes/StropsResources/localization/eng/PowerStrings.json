@@ -23,5 +23,11 @@
       "#yAttacks deal #b%.1fx damage.",
       "#yAttacks deal #b%.0fx damage."
     ]
+  },
+  "Strops:RegisterPower": {
+    "NAME": "Register",
+    "DESCRIPTIONS": [
+      "On death, the following cards will be returned to your hand:"
+    ]
   }
 }

@@ -41,6 +41,7 @@ public class ProfiteeringMerchant extends StropsAbstractRelic{
         super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
+        canSpawnInBattle =false;
     }
 
     @Override

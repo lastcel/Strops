@@ -1,4 +1,3 @@
-/*
 package strops.cards;
 
 import basemod.abstracts.CustomCard;
@@ -13,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import strops.helpers.ModHelper;
+import strops.relics.PlagueStopwatch;
 
 public class DoAddEnvenom extends CustomCard {
     public static final String ID = ModHelper.makePath(DoAddEnvenom.class.getSimpleName());
@@ -27,15 +27,19 @@ public class DoAddEnvenom extends CustomCard {
 
     public DoAddEnvenom(){
         super(ID, NAME, IMG_PATH, -2, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.magicNumber=this.baseMagicNumber=PlagueStopwatch.BONUS.value;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {}
 
     public void onChoseThisOption() {
-        AbstractCard c=new Envenom();
-        c.upgrade();
-        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c,
-                Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+        for(int i=0;i<PlagueStopwatch.BONUS.value;i++){
+            AbstractCard c=new Envenom();
+            c.upgrade();
+
+            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c,
+                    Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+        }
         if(AbstractDungeon.getCurrRoom().phase==AbstractRoom.RoomPhase.INCOMPLETE){
             AbstractDungeon.getCurrRoom().phase=AbstractRoom.RoomPhase.COMPLETE;
         }
@@ -47,5 +51,3 @@ public class DoAddEnvenom extends CustomCard {
         return new DoAddEnvenom();
     }
 }
-
- */

@@ -19,16 +19,16 @@ public class StackedPlate extends StropsAbstractRelic{
     private static final String IMG_PATH = ModHelper.makeIPath(StackedPlate.class.getSimpleName());
     //private static final String IMG_PATH_O = ModHelper.makeOPath(FTLEngines.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.RARE;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
     public static final int NUM1=1,NUM2=2,TIER=3;
 
-    public static final IntSliderSetting BASE=new IntSliderSetting("StackedPlate_Base_v0.12.4", "N1", NUM1, 1,2);
-    public static final IntSliderSetting BONUS=new IntSliderSetting("StackedPlate_Bonus_v0.12.4", "N2", NUM2, 1,4);
+    public static final IntSliderSetting BASE=new IntSliderSetting("StackedPlate_Base_v0.12.5", "N1", NUM1, 1,3);
+    public static final IntSliderSetting BONUS=new IntSliderSetting("StackedPlate_Bonus_v0.12.5", "N2", NUM2, 1,4);
     //public static final IntSliderSetting THRESHOLD=new IntSliderSetting("StackedPlate_Threshold", "N2", NUM2, 1,17);
-    public static final IntSliderSetting MH=new IntSliderSetting("StackedPlate_MH_v0.12.4","MH",0,-20,20);
-    public static final IntSliderSetting G=new IntSliderSetting("StackedPlate_G_v0.12.4","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("StackedPlate_R","R", TIER,1,3);
+    public static final IntSliderSetting MH=new IntSliderSetting("StackedPlate_MH_v0.12.5","MH",0,-20,20);
+    public static final IntSliderSetting G=new IntSliderSetting("StackedPlate_G_v0.12.5","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("StackedPlate_R_v0.12.5","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(BASE);

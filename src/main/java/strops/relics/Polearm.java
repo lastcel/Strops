@@ -16,26 +16,29 @@ import java.util.ArrayList;
 public class Polearm extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(Polearm.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Polearm.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.BOSS;
+    private static final String IMG_PATH_O = ModHelper.makeOPath(Polearm.class.getSimpleName());
+    //private static final RelicTier RELIC_TIER = RelicTier.BOSS;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static int NUM1=6,NUM2=2;
+    public static int NUM1=6,NUM2=2,TIER=4;
 
     public static final IntSliderSetting BONUS = new IntSliderSetting("Polearm_Bonus", "N1", NUM1, 10);
     public static final IntSliderSetting PENALTY = new IntSliderSetting("Polearm_Penalty", "N2", NUM2, 4);
     public static final IntSliderSetting MH=new IntSliderSetting("Polearm_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Polearm_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Polearm_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(BONUS);
         settings.add(PENALTY);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public Polearm() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
     }
 
@@ -51,22 +54,31 @@ public class Polearm extends StropsAbstractRelic {
             addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ThousandCutsPower(AbstractDungeon.player, BONUS.value), BONUS.value));
             addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         }
-        if(PENALTY.value>0){
+
+        if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
+                ((Decanter)AbstractDungeon.player.getRelic(Decanter.ID))
+                        .relicToDisenchant.equals(Polearm.ID)){
+            AbstractDungeon.player.getRelic(Decanter.ID).flash();
+        } else if(PENALTY.value>0){
             for (AbstractMonster m : (AbstractDungeon.getMonsters()).monsters) {
                 addToTop(new RelicAboveCreatureAction(m, this));
                 m.addPower(new ThornsPower(m, PENALTY.value));
             }
+            AbstractDungeon.onModifyPower();
         }
-        AbstractDungeon.onModifyPower();
     }
 
     @Override
     public void onSpawnMonster(AbstractMonster monster) {
-        flash();
-        if(PENALTY.value>0){
+        if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
+                ((Decanter)AbstractDungeon.player.getRelic(Decanter.ID))
+                        .relicToDisenchant.equals(Polearm.ID)){
+            AbstractDungeon.player.getRelic(Decanter.ID).flash();
+        } else if(PENALTY.value>0){
+            flash();
             monster.addPower(new ThornsPower(monster, PENALTY.value));
+            AbstractDungeon.onModifyPower();
         }
-        AbstractDungeon.onModifyPower();
     }
 
     public String getUpdatedDescription() {

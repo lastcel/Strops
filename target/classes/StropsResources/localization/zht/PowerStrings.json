@@ -2,13 +2,13 @@
   "Strops:RitualOfRitualPower": {
     "NAME": "儀式的儀式",
     "DESCRIPTIONS": [
-      "在你的每個回合結束時，獲得 #b%d 層 #y儀式 。（在儀式之後生效）"
+      "在你的每個回合結束時，獲得 #b%d 層 #y儀式 （在儀式之後生效）"
     ]
   },
   "Strops:FireTalentsPower": {
     "NAME": "火焰天賦",
     "DESCRIPTIONS": [
-      "在你的每個回合結束時，造成 #b%d 點傷害，隨機分配到所有敵人身上。"
+      "在你的每個回合結束時，造成 #b%d 點傷害，隨機分配到所有敵人身上"
     ]
   },
   "Strops:FrozenPower": {
@@ -20,8 +20,14 @@
   "Strops:CombatwiseDoubleDamagePower": {
     "NAME": "本場戰鬥倍增傷害",
     "DESCRIPTIONS": [
-      "#y攻擊 造成的傷害變為 #b%.1f 倍。",
-      "#y攻擊 造成的傷害變為 #b%.0f 倍。"
+      "#y攻擊 造成的傷害變為 #b%.1f 倍",
+      "#y攻擊 造成的傷害變為 #b%.0f 倍"
+    ]
+  },
+  "Strops:RegisterPower": {
+    "NAME": "寄存器",
+    "DESCRIPTIONS": [
+      "在死亡時，以下牌會被放回你的手牌："
     ]
   }
 }

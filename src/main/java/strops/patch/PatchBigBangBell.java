@@ -8,8 +8,10 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.combat.BattleStartEffect;
 import strops.relics.BigBangBell;
+import strops.relics.Register;
 
 public class PatchBigBangBell {
 
@@ -68,7 +70,9 @@ public class PatchBigBangBell {
     public static class PatchTool5 {
         @SpireInsertPatch(rloc = 114)
         public static void Insert(AbstractPlayer __inst) {
-            if(PatchTool1.inBigBangBell.get(__inst.hoveredCard)){
+            AbstractRelic r=AbstractDungeon.player.getRelic(Register.ID);
+
+            if(PatchTool1.inBigBangBell.get(__inst.hoveredCard)||(r!=null&&!r.grayscale)){
                 heldIsHoveringDropZone=__inst.isHoveringDropZone;
                 __inst.isHoveringDropZone=false;
                 hasChangedIHDZ=true;

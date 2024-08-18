@@ -7,19 +7,19 @@ public class ExtendedCardSave {
 
     public String id;
 
-    public boolean savedEverPreUpgrade;
+    //public boolean savedEverPreUpgrade;
 
-    public boolean savedEverCounted;
+    //public boolean savedEverCounted;
 
     public boolean isSelfRetain;
 
     public ExtendedCardSave(String cardID, int timesUpgraded, int misc,
-                            boolean savedEverPreUpgrade, boolean savedEverCounted, boolean selfRetain) {
+                            /*boolean savedEverPreUpgrade, boolean savedEverCounted,*/ boolean selfRetain) {
         this.id = cardID;
         this.upgrades = timesUpgraded;
         this.misc = misc;
-        this.savedEverPreUpgrade=savedEverPreUpgrade;
-        this.savedEverCounted=savedEverCounted;
+        //this.savedEverPreUpgrade=savedEverPreUpgrade;
+        //this.savedEverCounted=savedEverCounted;
         this.isSelfRetain=selfRetain;
     }
 }

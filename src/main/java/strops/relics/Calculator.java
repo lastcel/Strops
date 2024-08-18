@@ -19,13 +19,15 @@ public class Calculator extends StropsAbstractRelic implements ClickableRelic {
     private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static final int NUM1=7;
+    public static final int NUM1=5,NUM2=7;
 
-    public static final IntSliderSetting THRESHOLD=new IntSliderSetting("Calculator_Threshold", "N1", NUM1, 4,10);
+    public static final IntSliderSetting PENALTY=new IntSliderSetting("Calculator_Penalty", "N1", NUM1, 5);
+    public static final IntSliderSetting THRESHOLD=new IntSliderSetting("Calculator_Threshold", "N2", NUM2, 10);
     public static final IntSliderSetting MH=new IntSliderSetting("Calculator_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Calculator_G","G",0,-100,100);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
+        settings.add(PENALTY);
         settings.add(THRESHOLD);
         settings.add(MH);
         settings.add(G);
@@ -41,12 +43,12 @@ public class Calculator extends StropsAbstractRelic implements ClickableRelic {
     @Override
     public void onEquip(){
         onEquipMods(MH,G);
-        AbstractDungeon.player.masterHandSize-=5;
+        AbstractDungeon.player.masterHandSize-=PENALTY.value;
     }
 
     @Override
     public void onUnequip(){
-        AbstractDungeon.player.masterHandSize+=5;
+        AbstractDungeon.player.masterHandSize+=PENALTY.value;
     }
 
     @Override
@@ -76,13 +78,13 @@ public class Calculator extends StropsAbstractRelic implements ClickableRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0], THRESHOLD.value);
+        return String.format(this.DESCRIPTIONS[0], PENALTY.value, THRESHOLD.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0], THRESHOLD.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0], PENALTY.value, THRESHOLD.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;

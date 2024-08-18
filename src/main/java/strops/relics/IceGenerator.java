@@ -25,6 +25,7 @@ public class IceGenerator extends StropsAbstractRelic implements CustomSavable<B
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
     public boolean isHealToFull=false;
+    //public static AbstractRoom.RoomPhase previousPhase;
 
     public static final int NUM1=12,NUM2=8;
 
@@ -45,6 +46,7 @@ public class IceGenerator extends StropsAbstractRelic implements CustomSavable<B
         super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
+        canSpawnInBattle =false;
     }
 
     @Override
@@ -60,6 +62,7 @@ public class IceGenerator extends StropsAbstractRelic implements CustomSavable<B
             AbstractDungeon.overlayMenu.cancelButton.hide();
             AbstractDungeon.previousScreen = AbstractDungeon.screen;
         }
+        //previousPhase=AbstractDungeon.getCurrRoom().phase;
         AbstractDungeon.getCurrRoom().phase=AbstractRoom.RoomPhase.INCOMPLETE;
         PatchStrongestPotion.PatchTool1.whichCallThis.set(AbstractDungeon.cardRewardScreen,this);
         AbstractDungeon.cardRewardScreen.chooseOneOpen(iceGenChoices);

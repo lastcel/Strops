@@ -1,3 +1,4 @@
+//本遗物的一部分patch写在了醒咒器的patch里面
 package strops.relics;
 
 import com.megacrit.cardcrawl.core.Settings;
@@ -16,7 +17,7 @@ public class GlowFeather extends StropsAbstractRelic{
 
     public static final String ID = ModHelper.makePath(GlowFeather.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(GlowFeather.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(FTLEngines.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(GlowFeather.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
@@ -37,7 +38,7 @@ public class GlowFeather extends StropsAbstractRelic{
     }
 
     public GlowFeather() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

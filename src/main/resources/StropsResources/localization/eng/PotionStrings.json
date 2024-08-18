@@ -2,7 +2,7 @@
   "Strops:Blizzard": {
     "NAME": "Blizzard",
     "DESCRIPTIONS": [
-      "Seal ALL enemies' actions until they lose HP."
+      "When discarded, freeze ALL enemies' actions until they lose HP."
     ]
   },
   "Strops:PhantasmalShootingStar": {
@@ -10,6 +10,18 @@
     "DESCRIPTIONS": [
       "For this combat, #yAttacks deal #b%.1fx damage. NL #rThis #rpotion #rwill #rdisappear #rat #rthe #rstart #rof #reach #rAct.",
       "For this combat, #yAttacks deal #b%.0fx damage. NL #rThis #rpotion #rwill #rdisappear #rat #rthe #rstart #rof #reach #rAct."
+    ]
+  },
+  "Strops:FrugalPotion": {
+    "NAME": "Frugal Potion",
+    "DESCRIPTIONS": [
+      "At battle start, turn your #yGold #b%d%% as much as before and gain #b%d #yArtifact. NL When discarded, heal #b%d HP (increased equally by the amount of #yArtifact gained this run)."
+    ]
+  },
+  "Strops:GreedyPotion": {
+    "NAME": "Greedy Potion",
+    "DESCRIPTIONS": [
+      "At battle start, turn your #yGold #b%d%% as much as before and gain two #yWeaks #b%d time, two #yFrail #b%d time and two #yVulnerable #b%d time. NL When discarded, turn your #yGold #b%d%% as much as before."
     ]
   }
 }

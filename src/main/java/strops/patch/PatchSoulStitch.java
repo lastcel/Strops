@@ -6,6 +6,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.MarkOfTheBloom;
 import strops.helpers.ModHelper;
 import strops.relics.SoulStitch;
 
@@ -17,7 +18,7 @@ public class PatchSoulStitch {
     public static class PatchTool1 {
         @SpireInsertPatch(rloc = 126)
         public static SpireReturn<Void> Insert(AbstractPlayer __inst, DamageInfo info) {
-            if ((!__inst.hasRelic("Mark of the Bloom")) &&
+            if ((!__inst.hasRelic(MarkOfTheBloom.ID)) &&
                     __inst.hasRelic(ModHelper.makePath(SoulStitch.class.getSimpleName()))) {
                 for (AbstractRelic r: __inst.relics){
                     if((r.relicId.equals(ModHelper.makePath(SoulStitch.class.getSimpleName())))&&

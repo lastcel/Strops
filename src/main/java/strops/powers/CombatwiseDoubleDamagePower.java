@@ -23,7 +23,8 @@ public class CombatwiseDoubleDamagePower extends AbstractPower{
         this.ID = POWER_ID;
         this.owner = owner;
         this.multiplier = multiplier;
-        this.type = AbstractPower.PowerType.BUFF;
+        this.amount = -1;
+        this.type = PowerType.BUFF;
         this.priority=6;
         String path128 = "StropsResources/img/powers/Example84.png";
         String path48 = "StropsResources/img/powers/Example32.png";

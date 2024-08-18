@@ -1,3 +1,4 @@
+/*
 package strops.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -13,3 +14,5 @@ public class GainMaxHpAction extends AbstractGameAction {
         this.isDone = true;
     }
 }
+
+ */

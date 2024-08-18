@@ -43,5 +43,11 @@
       "invoke"
     ],
     "DESCRIPTION": "Remove the leftmost potion, move all the rest of potions 1 slot leftward, and finally set the upcoming potion into the rightmost slot."
+  },
+  {
+    "NAMES": [
+      "tricolor"
+    ],
+    "DESCRIPTION": "The condition is satisfied when you possess all the 3 keys."
   }
 ]

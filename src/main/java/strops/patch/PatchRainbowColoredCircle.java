@@ -4,12 +4,15 @@ import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import strops.relics.Evasive;
 import strops.relics.RainbowColoredCircle;
+import strops.relics.StrikersVeil;
 
 public class PatchRainbowColoredCircle {
 
@@ -43,6 +46,33 @@ public class PatchRainbowColoredCircle {
                             damageAmount[0]=0;
                         }
                         break;
+                    }
+                }
+
+                AbstractPlayer p=AbstractDungeon.player;
+                if(p.hasRelic(StrikersVeil.ID)&&!p.drawPile.group.isEmpty()){
+                    StrikersVeil sv=(StrikersVeil)p.getRelic(StrikersVeil.ID);
+
+                    /*
+                    if(sv.card!=null&&p.drawPile.group.contains(sv.card)){
+                        sv.card.shrink();
+                        (AbstractDungeon.getCurrRoom()).souls.onToDeck(sv.card, false,true);
+                    }
+
+                     */
+
+                    AbstractCard tempCard=p.drawPile.group.get(p.drawPile.group.size()-1);
+                    sv.card=tempCard.makeStatEquivalentCopy();
+                    sv.card.current_x=Settings.WIDTH * 0.08F;
+                    sv.card.current_y=Settings.HEIGHT * 0.5F;
+                    sv.card.drawScale=0.5f;
+                    if(tempCard.type == AbstractCard.CardType.ATTACK &&
+                            (tempCard.costForTurn >= 2 && !tempCard.freeToPlayOnce)){
+                        p.getRelic(StrikersVeil.ID).flash();
+                        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, p.getRelic(StrikersVeil.ID)));
+                        damageAmount[0]=0;
+                        p.drawPile.moveToDiscardPile(tempCard);
+                        //sv.card=null;
                     }
                 }
             }

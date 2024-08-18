@@ -4,6 +4,7 @@ import basemod.BaseMod;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import strops.actions.FilmStarryCurtainAction;
+import strops.cards.Aurora;
 import strops.helpers.ModHelper;
 import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSetting;
@@ -14,10 +15,10 @@ public class FilmStarryCurtain extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(FilmStarryCurtain.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(FilmStarryCurtain.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.BOSS;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    public static final IntSliderSetting MH=new IntSliderSetting("FilmStarryCurtain_MH_v0.12.0","MH",0,-20,20);
-    public static final IntSliderSetting G=new IntSliderSetting("FilmStarryCurtain_G_v0.12.0","G",0,-100,100);
+    public static final IntSliderSetting MH=new IntSliderSetting("FilmStarryCurtain_MH_v0.13.1","MH",0,-20,20);
+    public static final IntSliderSetting G=new IntSliderSetting("FilmStarryCurtain_G_v0.13.1","G",0,-100,100);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MH);
@@ -29,6 +30,8 @@ public class FilmStarryCurtain extends StropsAbstractRelic {
         super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
         showMHaG(MH,G);
         canCopy=false;
+
+        this.cardToPreview=new Aurora();
     }
 
     @Override

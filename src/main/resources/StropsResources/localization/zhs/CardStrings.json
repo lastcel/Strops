@@ -30,11 +30,11 @@
     "DESCRIPTION": "商人仅提供 *稀有 遗物，但大幅优惠！"
   },
   "Strops:DoAddEnvenom": {
-    "NAME": "恶毒即力量（已弃用）",
-    "DESCRIPTION": "将一张 *涂毒+ 加入你的牌组。"
+    "NAME": "恶毒即力量",
+    "DESCRIPTION": "将 M 张 *涂毒+ 加入你的牌组。"
   },
   "Strops:DoNothing": {
-    "NAME": "无视即温柔（已弃用）",
+    "NAME": "无视即温柔",
     "DESCRIPTION": "什么也不做。"
   },
   "Strops:Zero": {
@@ -93,8 +93,78 @@
     "NAME": "远方",
     "DESCRIPTION": "将第二幕的所有 *? 房间变为 *篝火 。"
   },
+  "Strops:ToGetHer": {
+    "NAME": "世界尽头",
+    "DESCRIPTION": "将第二幕的所有 *? 房间变为 *篝火 ， *普通敌人 房间变为 *精英 房间。"
+  },
   "Strops:ToFight": {
     "NAME": "身后",
     "DESCRIPTION": "获得一瓶 *幻影流星 。"
+  },
+  "Strops:BodySlamPlusPlus": {
+    "NAME": "全身撞击++",
+    "DESCRIPTION": "造成你当前 格挡 值两倍的伤害。",
+    "UPGRADE_DESCRIPTION": " NL （造成 !D! 点伤害。）"
+  },
+  "Strops:Aurora": {
+    "NAME": "极光",
+    "DESCRIPTION": "虚无 。"
+  },
+  "Strops:ChooseCost": {
+    "NAME": "耗能",
+    "DESCRIPTION": "选择 *耗能 。"
+  },
+  "Strops:Choose0Cost": {
+    "NAME": "耗能=0",
+    "DESCRIPTION": "选择 *耗能为0的牌 。"
+  },
+  "Strops:Choose1Cost": {
+    "NAME": "耗能=1",
+    "DESCRIPTION": "选择 *耗能为1的牌 。"
+  },
+  "Strops:Choose2Cost": {
+    "NAME": "耗能=2",
+    "DESCRIPTION": "选择 *耗能为2的牌 。"
+  },
+  "Strops:Choose3PlusCost": {
+    "NAME": "耗能≥3",
+    "DESCRIPTION": "选择 *耗能为3及以上的牌 。"
+  },
+  "Strops:ChooseType": {
+    "NAME": "类型",
+    "DESCRIPTION": "选择 *类型 。"
+  },
+  "Strops:ChooseAttack": {
+    "NAME": "攻击",
+    "DESCRIPTION": "选择 *攻击牌 。"
+  },
+  "Strops:ChooseSkill": {
+    "NAME": "技能",
+    "DESCRIPTION": "选择 *技能牌 。"
+  },
+  "Strops:ChoosePower": {
+    "NAME": "能力",
+    "DESCRIPTION": "选择 *能力牌 。"
+  },
+  "Strops:ChooseRarity": {
+    "NAME": "稀有度",
+    "DESCRIPTION": "选择 *稀有度 。"
+  },
+  "Strops:ChooseCommon": {
+    "NAME": "普通",
+    "DESCRIPTION": "选择 *普通牌 。"
+  },
+  "Strops:ChooseUncommon": {
+    "NAME": "罕见",
+    "DESCRIPTION": "选择 *罕见牌 。"
+  },
+  "Strops:ChooseRare": {
+    "NAME": "稀有",
+    "DESCRIPTION": "选择 *稀有牌 。"
+  },
+  "Strops:SoulCraftedCard": {
+    "NAME": "灵魂制作：",
+    "DESCRIPTION": "消耗 。 NL 抽到这张牌时，抽一张牌。 NL 再打出 M 次后从牌组中移除。 NL 触发 *%s 的效果。",
+    "UPGRADE_DESCRIPTION": "？"
   }
 }

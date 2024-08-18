@@ -29,7 +29,7 @@ public class PatchGenerosityCharm {
 
     public static ArrayList<String> rare_relics_stable=new ArrayList<>();
 
-    public static boolean isHolding=false;
+    //public static boolean isHolding=false;
 
     private static final List<AbstractRelic.RelicTier> RELIC_TIERS = Arrays.asList(AbstractRelic.RelicTier.COMMON, AbstractRelic.RelicTier.UNCOMMON, AbstractRelic.RelicTier.RARE);
 
