@@ -25,7 +25,7 @@ public class AutumnColors extends StropsAbstractRelic{
     public static final IntSliderSetting OUT=new IntSliderSetting("AutumnColors_Out","N2",NUM2,1,5);
     public static final IntSliderSetting MH=new IntSliderSetting("AutumnColors_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("AutumnColors_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("AutumnColors_R","R", TIER,1,3);
+    public static final IntSliderSetting R=new IntSliderSetting("AutumnColors_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(IN);

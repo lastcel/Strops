@@ -3,6 +3,7 @@ package strops.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import strops.relics.MessyPuppy;
 
 public class MessyPuppyAction extends AbstractGameAction {
@@ -14,7 +15,7 @@ public class MessyPuppyAction extends AbstractGameAction {
 
     @Override
     public void update(){
-        if (AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+        if (myAreMonstersBasicallyDead(AbstractDungeon.getMonsters())) {
             this.isDone=true;
             return;
         }
@@ -50,5 +51,13 @@ public class MessyPuppyAction extends AbstractGameAction {
             }
         }
         this.isDone = true;
+    }
+
+    public boolean myAreMonstersBasicallyDead(MonsterGroup mg) {
+        for (AbstractMonster m : mg.monsters) {
+            if (!m.isDying && !m.isEscaping)
+                return false;
+        }
+        return true;
     }
 }

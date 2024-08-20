@@ -26,9 +26,9 @@ public class StroopsTester extends StropsAbstractRelic{
 
     public static final int TIER=4;
 
-    public static final IntSliderSetting MH=new IntSliderSetting("NNFN1_MH","MH",0,-20,20);
-    public static final IntSliderSetting G=new IntSliderSetting("NNFN1_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("NNFN1_R","R", TIER,0,5);
+    public static final IntSliderSetting MH=new IntSliderSetting("StroopsTester_MH","MH",0,-20,20);
+    public static final IntSliderSetting G=new IntSliderSetting("StroopsTester_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("StroopsTester_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MH);

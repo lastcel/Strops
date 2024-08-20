@@ -15,27 +15,29 @@ import java.util.ArrayList;
 public class ToxicLump extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(ToxicLump.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(ToxicLump.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(ToxicLump.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
+    private static final String IMG_PATH_O = ModHelper.makeOPath(ToxicLump.class.getSimpleName());
+    //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
-    public static final int NUM1=9,NUM2=3,LIMIT=5;
+    public static final int NUM1=9,NUM2=3,TIER=2,LIMIT=5;
 
     public static final IntSliderSetting THRESHOLD=new IntSliderSetting("ToxicLump_Threshold_v0.15.1", "N1", NUM1, 3,30);
     public static final IntSliderSetting BONUS=new IntSliderSetting("ToxicLump_Bonus_v0.15.1", "N2", NUM2, 1,10);
     public static final IntSliderSetting MH=new IntSliderSetting("ToxicLump_MH_v0.15.1","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("ToxicLump_G_v0.15.1","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("ToxicLump_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
         settings.add(BONUS);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public ToxicLump() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

@@ -18,24 +18,26 @@ public class MinoshiroModoki extends StropsAbstractRelic implements ClickableRel
     public static final String ID = ModHelper.makePath(MinoshiroModoki.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(MinoshiroModoki.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(MinoshiroModoki.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.SHOP;
+    //private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    public static final int NUM1=1;
+    public static final int NUM1=1,TIER=5;
 
     public static final IntSliderSetting BONUS= new IntSliderSetting("MinoshiroModoki_Bonus", "N1", NUM1, 5);
     public static final IntSliderSetting MH=new IntSliderSetting("MinoshiroModoki_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("MinoshiroModoki_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("MinoshiroModoki_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(BONUS);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public MinoshiroModoki() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
     }
 

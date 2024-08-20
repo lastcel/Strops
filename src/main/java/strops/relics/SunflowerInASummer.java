@@ -18,26 +18,29 @@ import java.util.ArrayList;
 public class SunflowerInASummer extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(SunflowerInASummer.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(SunflowerInASummer.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
+    private static final String IMG_PATH_O = ModHelper.makeOPath(SunflowerInASummer.class.getSimpleName());
+    //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static final int NUM1=20;
+    public static final int NUM1=20,TIER=2;
 
     public static final IntSliderSetting BONUS=new IntSliderSetting("Iriya_Bonus_v0.12.0","10xN1",NUM1,11,30);
     //public static final IntSliderSetting ISELITELIZE=new IntSliderSetting("Iriya_IsElitelize_v0.12.5","B1",0,1);
     public static final IntSliderSetting MH=new IntSliderSetting("Iriya_MH_v0.12.0","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Iriya_G_v0.12.0","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Iriya_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(BONUS);
         //settings.add(ISELITELIZE);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public SunflowerInASummer() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

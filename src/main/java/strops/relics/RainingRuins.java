@@ -56,7 +56,7 @@ public class RainingRuins extends StropsAbstractRelic implements ClickableRelic 
     public static final IntSliderSetting COOLDOWN=new IntSliderSetting("RainyRuins_Cooldown", "N1", NUM1, 1,3);
     public static final IntSliderSetting MH=new IntSliderSetting("RainyRuins_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("RainyRuins_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("RainyRuins_R","R", TIER,1,3);
+    public static final IntSliderSetting R=new IntSliderSetting("RainyRuins_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(COOLDOWN);

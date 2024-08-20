@@ -2,8 +2,8 @@
   "modid": "strops",
   "name": "Strops 磨刀",
   "author_list": ["旅渚Lastcel"],
-  "description": "向尖塔中加入了81/90件遗物，其中约半数致敬了苦痛之环。\nAdded 81/90 relics for StS, half inspired by ROP(Ring of Pain).",
-  "version": "0.15.3",
+  "description": "向尖塔中加入了83/90件遗物，其中约半数致敬了苦痛之环。\nAdded 83/90 relics for StS, half inspired by ROP(Ring of Pain).",
+  "version": "0.15.4",
   "sts_version": "12-18-2022",
   "mts_version": "3.30.3",
   "dependencies": ["basemod","stslib"]

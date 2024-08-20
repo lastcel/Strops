@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class Extractor extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(Extractor.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Extractor.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(FTLEngines.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(Extractor.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
@@ -41,7 +41,7 @@ public class Extractor extends StropsAbstractRelic{
     }
 
     public Extractor() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
     }

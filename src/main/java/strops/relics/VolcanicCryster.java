@@ -27,6 +27,7 @@ public class VolcanicCryster extends StropsAbstractRelic{
     public static final IntSliderSetting COMPENSATE=new IntSliderSetting("VolcanicCryster_Compensate", "N2", NUM2, -5,7);
     public static final IntSliderSetting MH=new IntSliderSetting("VolcanicCryster_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("VolcanicCryster_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("VolcanicCryster_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(PENALTY);
@@ -37,7 +38,7 @@ public class VolcanicCryster extends StropsAbstractRelic{
     }
 
     public VolcanicCryster() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(TIER), LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
     }
 

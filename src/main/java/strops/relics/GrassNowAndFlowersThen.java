@@ -1,5 +1,3 @@
-//本遗物需要考证相关英文风味文本的原文，其他有些也是
-
 package strops.relics;
 
 import com.megacrit.cardcrawl.core.Settings;
@@ -16,6 +14,7 @@ import java.util.ArrayList;
 public class GrassNowAndFlowersThen extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(GrassNowAndFlowersThen.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(GrassNowAndFlowersThen.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(GrassNowAndFlowersThen.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
@@ -23,7 +22,7 @@ public class GrassNowAndFlowersThen extends StropsAbstractRelic {
 
     public static final IntSliderSetting MH=new IntSliderSetting("GrassNowAndFlowersThen_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("GrassNowAndFlowersThen_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("GrassNowAndFlowersThen_R","R", TIER,1,3);
+    public static final IntSliderSetting R=new IntSliderSetting("GrassNowAndFlowersThen_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MH);
@@ -33,7 +32,7 @@ public class GrassNowAndFlowersThen extends StropsAbstractRelic {
     }
 
     public GrassNowAndFlowersThen() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.cardToPreview=new ArcaneTalents();
     }

@@ -21,20 +21,19 @@ public class SeaOfMoon extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(SeaOfMoon.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(SeaOfMoon.class.getSimpleName());
     //private static final String IMG_PATH_O = ModHelper.makeOPath(FTLEngines.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.RARE;
+    //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
     private boolean cardSelected = true;
 
-    public static final int NUM1=2;
-    public static final int NUM2=2;
-    public static final int NUM3=2;
+    public static final int NUM1=2,NUM2=2,NUM3=2,TIER=3;
 
     public static final IntSliderSetting RECEPTOR=new IntSliderSetting("SeaOfMoon_Receptor", "N1", NUM1, 1,5);
     public static final IntSliderSetting DAMAGE=new IntSliderSetting("SeaOfMoon_Damage", "N2", NUM2, 5);
     public static final IntSliderSetting BLOCK=new IntSliderSetting("SeaOfMoon_Block", "N3", NUM3, 5);
     public static final IntSliderSetting MH=new IntSliderSetting("SeaOfMoon_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("SeaOfMoon_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("SeaOfMoon_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(RECEPTOR);
@@ -42,11 +41,12 @@ public class SeaOfMoon extends StropsAbstractRelic{
         settings.add(BLOCK);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public SeaOfMoon() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         canSpawnInBattle=false;
     }

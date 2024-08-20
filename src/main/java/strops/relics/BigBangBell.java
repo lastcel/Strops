@@ -65,7 +65,7 @@ public class BigBangBell extends StropsAbstractRelic implements
     public static final IntSliderSetting EMBOMB=new IntSliderSetting("BBB_Embomb","N2",NUM2,13,33);
     public static final IntSliderSetting MH=new IntSliderSetting("BBB_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("BBB_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("BBB_R","R", TIER,1,3);
+    public static final IntSliderSetting R=new IntSliderSetting("BBB_R","R", TIER,0,5);
     public static final IntSliderSetting START_TIME=new IntSliderSetting("BBB_Start_Time", "10xT", NUM3, 5,50);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();

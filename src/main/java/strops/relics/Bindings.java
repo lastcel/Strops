@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Bindings extends StropsAbstractRelic implements OnAfterUseCardRelic {
     public static final String ID = ModHelper.makePath(Bindings.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Bindings.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(Bindings.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(Bindings.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
@@ -40,7 +40,7 @@ public class Bindings extends StropsAbstractRelic implements OnAfterUseCardRelic
     }
 
     public Bindings() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
         showMHaG(MH,G);
         canCopy=false;
     }

@@ -15,7 +15,7 @@ public class SanityMaintenanceApparatus extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(SanityMaintenanceApparatus.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(SanityMaintenanceApparatus.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(SanityMaintenanceApparatus.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
+    //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
     public static final int NUM1=1,TIER=2;
@@ -23,7 +23,7 @@ public class SanityMaintenanceApparatus extends StropsAbstractRelic {
     public static final IntSliderSetting THRESHOLD=new IntSliderSetting("SMA_Threshold_v0.12.0", "N1", NUM1, 1,30);
     public static final IntSliderSetting MH=new IntSliderSetting("SMA_MH_v0.12.0","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("SMA_G_v0.12.0","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("SMA_R","R", TIER,1,3);
+    public static final IntSliderSetting R=new IntSliderSetting("SMA_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
@@ -34,8 +34,8 @@ public class SanityMaintenanceApparatus extends StropsAbstractRelic {
     }
 
     public SanityMaintenanceApparatus() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
-        tier=num2Tier(R.value);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
+        //tier=num2Tier(R.value);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

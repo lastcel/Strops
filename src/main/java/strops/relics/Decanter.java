@@ -23,6 +23,7 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
         CustomSavable<String> {
     public static final String ID = ModHelper.makePath(Decanter.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Decanter.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(Decanter.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
@@ -47,7 +48,7 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
     }
 
     public Decanter() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

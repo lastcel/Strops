@@ -12,27 +12,29 @@ import java.util.ArrayList;
 public class Leviboard extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(Leviboard.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Leviboard.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(SquirrelsRelief.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.COMMON;
+    private static final String IMG_PATH_O = ModHelper.makeOPath(Leviboard.class.getSimpleName());
+    //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    public static final int NUM1=20,NUM2=350;
+    public static final int NUM1=20,NUM2=350,TIER=1;
 
     public static final IntSliderSetting HP_THRESHOLD=new IntSliderSetting("Leviboard_Threshold_Hp", "N1", NUM1, 1,30);
     public static final IntSliderSetting GOLD_THRESHOLD=new IntSliderSetting("Leviboard_Threshold_Gold", "N2", NUM2, 100,400);
     public static final IntSliderSetting MH=new IntSliderSetting("Leviboard_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Leviboard_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Leviboard_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(HP_THRESHOLD);
         settings.add(GOLD_THRESHOLD);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public Leviboard() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

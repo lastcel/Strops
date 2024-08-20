@@ -18,22 +18,26 @@ public class WeatherControlDevice extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(WeatherControlDevice.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(WeatherControlDevice.class.getSimpleName());
     //private static final String IMG_PATH_O = ModHelper.makeOPath(WeatherControlDevice.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.SHOP;
+    //private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
+
+    public static final int TIER=5;
 
     public static final IntSliderSetting MH=new IntSliderSetting("WCD_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("WCD_G","G",0,-100,100);
     public static final IntSliderSetting P=new IntSliderSetting("WCD_P","P", 150,50,300);
+    public static final IntSliderSetting R=new IntSliderSetting("InsanityStone_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         settings.add(P);
         return settings;
     }
 
     public WeatherControlDevice() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.cardToPreview=new LightningStorm();
     }

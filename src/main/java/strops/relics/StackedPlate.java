@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class StackedPlate extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(StackedPlate.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(StackedPlate.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(FTLEngines.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(StackedPlate.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
@@ -40,7 +40,7 @@ public class StackedPlate extends StropsAbstractRelic{
     }
 
     public StackedPlate() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
     }
 

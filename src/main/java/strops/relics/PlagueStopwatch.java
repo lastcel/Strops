@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class PlagueStopwatch extends StropsAbstractRelic implements OnAfterUseCardRelic {
     public static final String ID = ModHelper.makePath(PlagueStopwatch.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(PlagueStopwatch.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(PlagueStopwatch.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(PlagueStopwatch.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
@@ -46,7 +46,7 @@ public class PlagueStopwatch extends StropsAbstractRelic implements OnAfterUseCa
     }
 
     public PlagueStopwatch() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         canSpawnInBattle=false;
 

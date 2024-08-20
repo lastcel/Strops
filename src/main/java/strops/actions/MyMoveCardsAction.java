@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import strops.relics.FishingNet;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,8 +21,6 @@ import java.util.function.Predicate;
 
 public class MyMoveCardsAction extends AbstractGameAction {
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("stslib:MoveCardsAction");
-
-    public static final String[] TEXT = uiStrings.TEXT;
 
     private AbstractPlayer p;
 
@@ -138,12 +137,8 @@ public class MyMoveCardsAction extends AbstractGameAction {
     }
 
     private String makeText() {
-        String ret;
-        if (this.amount == 1) {
-            ret = TEXT[0];
-        } else {
-            ret = TEXT[1];
-        }
+        String ret=CardCrawlGame.languagePack.getRelicStrings(FishingNet.ID).DESCRIPTIONS[5];
+
         String location = null;
         if (this.destination == this.p.hand) {
             location = uiStrings.TEXT_DICT.get("HAND");
@@ -156,6 +151,6 @@ public class MyMoveCardsAction extends AbstractGameAction {
         }
         if (location == null)
             location = "<Unknown>";
-        return String.format(ret, location);
+        return String.format(ret, amount, location);
     }
 }

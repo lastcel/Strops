@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class ChuggingMask extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(ChuggingMask.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(ChuggingMask.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(FTLEngines.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(ChuggingMask.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
@@ -28,7 +28,7 @@ public class ChuggingMask extends StropsAbstractRelic {
     }
 
     public ChuggingMask() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
         showMHaG(MH,G);
         canCopy=false;
     }

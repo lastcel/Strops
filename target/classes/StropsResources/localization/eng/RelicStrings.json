@@ -201,7 +201,7 @@
     "NAME": "Ribbon",
     "FLAVOR": "Yes, it's a taste of fairy tales and sweets!",
     "DESCRIPTIONS": [
-      "Every #b%d times you gain a buff, remove randomly one of your debuffs."
+      "Every #b%d times you gain a buff, remove randomly #b%d of your debuffs."
     ]
   },
   "Strops:GlassRod": {
@@ -468,7 +468,7 @@
     "DESCRIPTIONS": [
       "If you end your turn without #yBlock, any unblocked attack damage you receive will equally reduce this relic's counter (initially #b%d [REMOVE_SPACE]). When the counter falls to zero, add a random #yRare relic to the current combat's reward, and this no longer works.",
       "Note",
-      "1. This relic will only spawn on Act 1 and 2. NL 2. This relic will check the player's Block before all other onEndTurn effects.",
+      "1. This relic will only spawn on Act 1 & 2. NL 2. This relic will check the player's Block before all other onEndTurn effects.",
       "",
       "",
       "Phoenix Hate"
@@ -640,7 +640,7 @@
     "NAME": "Hearth’smores",
     "FLAVOR": "Gather ‘round the fire for a toasty treat!",
     "DESCRIPTIONS": [
-      "Put a card in your hand into your draw pile, and draw a card. As of the #b%dnd use per turn, each use costs [E] . NL strops:Tricolor : [#2aecd7]Right [#2aecd7]click to switch between ready and unready. If unready, the card put back will determinedly end up next to top of the draw pile.",
+      "Put a card in your hand into your draw pile, and draw a card. As of the #b%dnd use per turn, each use costs [E] . NL #pstrops:Tricolor : [#2aecd7]Right [#2aecd7]click to switch between ready and unready. If unready, the card put back will determinedly end up next to top of the draw pile.",
       "Note",
       "Drag the card onto the draw pile to activate."
     ]
@@ -727,7 +727,7 @@
     "NAME": "Sword of Feast and Famine",
     "FLAVOR": "Its instructions read “Famine or feast, humans decide.”",
     "DESCRIPTIONS": [
-      "Upon pickup, brews a #yFrugal #yPotion and a #yGreedy #yPotion.",
+      "Upon pickup, gain #b%d Potion slot, brewing a #yFrugal #yPotion and a #yGreedy #yPotion.",
       "Note",
       "This relic won't spawn in shops or on Act 4.",
       "",
@@ -855,7 +855,12 @@
     "NAME": "Fishing Net",
     "FLAVOR": "Time to expose the net to the sun.",
     "DESCRIPTIONS": [
-      "At the start of each turn, you may choose a card in the draw pile to put into the discard pile, which costs 0 until played. NL During each combat, lose #b%d HP to activate this. Each activated combat raises the threshold by #b%d, and each not-activated combat lowers it by #b%d at the end of combat."
+      "At the start of each turn, you may choose at most #b%d cards in the draw pile to put into the discard pile, which cost 0 until played. NL During each combat, lose #b%d HP to activate this. Each activated combat raises the threshold by #b%d, and each not-activated combat lowers it by #b%d.",
+      "",
+      "",
+      "",
+      "",
+      "Choose at most #b%d cards to put into your %s"
     ]
   },
   "Strops:NoNameForNow4": {
@@ -877,6 +882,31 @@
       "If your HP is at or below #b%d at the end of combat, gain #b%d Max HP.",
       "Note",
       "1. This relic won't spawn on Act 4. NL 2. This relic will effect before all other onEndBattle effects."
+    ]
+  },
+  "Strops:NoNameForNow5": {
+    "NAME": "No Name For Now (5)",
+    "FLAVOR": "This relic has no flavor text yet.",
+    "DESCRIPTIONS": [
+      "Whenever you would end a combat at the #b%dth turn, end it at the end of the #b%dth turn instead. If you shuffle #b%d time or less during a combat ended this way, add an #yAbacus to the combat's reward.",
+      "Note",
+      "This relic will only spawn on Act 1 & 2."
+    ]
+  },
+  "Strops:CirculatingLightAndColorShifter": {
+    "NAME": "Circulating Light And Color Shifter",
+    "FLAVOR": "This is not the end for me as a line of light... Actually this is a happy wrap-up for us as a group of lights.",
+    "DESCRIPTIONS": [
+      "If you buy an X in a shop, gain #b%d #ytemporary_hp at the start of the next #b%d combats. On Act 1/2/3, X is specified as %s%s / %s%s / %s%s respectively. NL #pstrops:Tricolor : X has no limit among cards, relics and potions.",
+      "Note",
+      "This relic won't spawn on Act 4.",
+      "",
+      "",
+      "Card",
+      "Relic",
+      "Potion",
+      "TBD",
+      "1"
     ]
   }
 }

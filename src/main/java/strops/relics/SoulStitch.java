@@ -14,28 +14,31 @@ import java.util.ArrayList;
 public class SoulStitch extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(SoulStitch.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(SoulStitch.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.SHOP;
+    private static final String IMG_PATH_O = ModHelper.makeOPath(SoulStitch.class.getSimpleName());
+    //private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
     public SoulStitch() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
     }
 
-    public static final int MAXHP=-18,NUM1=2,NUM2=10;
+    public static final int MAXHP=-18,NUM1=2,NUM2=10,TIER=5;
 
     //public static final IntSliderSetting PENALTY=new IntSliderSetting("SoulStitch_Penalty", "N1", NUM1, 30);
     public static final IntSliderSetting SUBTRAHEND=new IntSliderSetting("SoulStitch_Subtrahend_v0.13.4", "N1", NUM1, -3,5);
     public static final IntSliderSetting MULTIPLIER=new IntSliderSetting("SoulStitch_Multiplier_v0.13.4", "N2", NUM2, 1,15);
     public static final IntSliderSetting MH=new IntSliderSetting("SoulStitch_MH_v0.13.4","MH", MAXHP,-40,20);
     public static final IntSliderSetting G=new IntSliderSetting("SoulStitch_G_v0.13.4","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("SoulStitch_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(SUBTRAHEND);
         settings.add(MULTIPLIER);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 

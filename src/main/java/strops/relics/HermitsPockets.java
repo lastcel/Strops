@@ -21,7 +21,7 @@ public class HermitsPockets extends StropsAbstractRelic{
     public static final IntSliderSetting BONUS= new IntSliderSetting("HermitsPockets_Bonus", "N1", NUM1, 3,12);
     public static final IntSliderSetting MH=new IntSliderSetting("HermitsPockets_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("HermitsPockets_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("HermitsPockets_R","R", TIER,1,3);
+    public static final IntSliderSetting R=new IntSliderSetting("HermitsPockets_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(BONUS);

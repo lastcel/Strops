@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class IcyTouch extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(IcyTouch.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(IcyTouch.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(IcyTouch.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
@@ -25,7 +26,7 @@ public class IcyTouch extends StropsAbstractRelic {
     public static final IntSliderSetting BONUS= new IntSliderSetting("IcyTouch_Bonus", "N2", NUM2, 1,3);
     public static final IntSliderSetting MH=new IntSliderSetting("IcyTouch_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("IcyTouch_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("IcyTouch_R","R", TIER,1,3);
+    public static final IntSliderSetting R=new IntSliderSetting("IcyTouch_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
@@ -37,7 +38,7 @@ public class IcyTouch extends StropsAbstractRelic {
     }
 
     public IcyTouch() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
     }
 

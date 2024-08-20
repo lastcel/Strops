@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Bolster extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(Bolster.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Bolster.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(Bolster.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
@@ -35,7 +36,7 @@ public class Bolster extends StropsAbstractRelic {
     }
 
     public Bolster() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
 
         if(DESCRIPTIONS[5].equals("1")){

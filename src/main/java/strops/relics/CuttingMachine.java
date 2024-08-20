@@ -14,22 +14,27 @@ import java.util.ArrayList;
 public class CuttingMachine extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(CuttingMachine.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(CuttingMachine.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(CuttingMachine.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
+
+    public static final int TIER=5;
 
     public static final IntSliderSetting MH=new IntSliderSetting("CuttingMachine_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("CuttingMachine_G","G",0,-100,100);
     public static final IntSliderSetting P=new IntSliderSetting("CuttingMachine_P","P", 150,50,300);
+    public static final IntSliderSetting R=new IntSliderSetting("CuttingMachine_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         settings.add(P);
         return settings;
     }
 
     public CuttingMachine() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.cardToPreview=new PartScrapper();
     }

@@ -46,7 +46,7 @@ public class StrongestPotion extends StropsAbstractRelic{
     public StrongestPotion() {
         super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
         showMHaG(MH,G);
-        canSpawnInBattle =false;
+        canSpawnInBattle=false;
     }
 
     @Override

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class SquirrelsRelief extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(SquirrelsRelief.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(SquirrelsRelief.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(SquirrelsRelief.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(SquirrelsRelief.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
@@ -32,7 +32,7 @@ public class SquirrelsRelief extends StropsAbstractRelic{
     }
 
     public SquirrelsRelief() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
         showMHaG(MH,G);
         canCopy=false;
     }

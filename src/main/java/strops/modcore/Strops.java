@@ -250,6 +250,8 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addRelic(new FishingNet(), RelicType.SHARED);
         BaseMod.addRelic(new NoNameForNow4(), RelicType.SHARED);
         BaseMod.addRelic(new PainsReward(), RelicType.SHARED);
+        BaseMod.addRelic(new NoNameForNow5(), RelicType.SHARED);
+        BaseMod.addRelic(new CirculatingLightAndColorShifter(), RelicType.SHARED);
 
         BaseMod.addRelic(new ZhelpArcaneTalents(), RelicType.SHARED);
         BaseMod.addRelic(new ZhelpFrostTalents(), RelicType.SHARED);
@@ -350,6 +352,8 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         UnlockTracker.markRelicAsSeen(FishingNet.ID);
         UnlockTracker.markRelicAsSeen(NoNameForNow4.ID);
         UnlockTracker.markRelicAsSeen(PainsReward.ID);
+        UnlockTracker.markRelicAsSeen(NoNameForNow5.ID);
+        UnlockTracker.markRelicAsSeen(CirculatingLightAndColorShifter.ID);
 
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpArcaneTalents.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpFrostTalents.class.getSimpleName()));
@@ -494,6 +498,8 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BuildSettings(new FishingNet());
         BuildSettings(new NoNameForNow4());
         BuildSettings(new PainsReward());
+        BuildSettings(new NoNameForNow5());
+        BuildSettings(new CirculatingLightAndColorShifter());
 
         BuildSettings(new ZhelpArcaneTalents());
         BuildSettings(new ZhelpFrostTalents());

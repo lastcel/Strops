@@ -29,7 +29,7 @@ public class PatchRibbon {
                         if(r.counter==0){
                             r.flash();
                             AbstractDungeon.actionManager.addToTop(new RibbonAction(AbstractDungeon.player));
-                            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, r));
+                            AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, r));
                         }
                     }
                 }

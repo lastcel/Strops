@@ -19,8 +19,8 @@ import java.util.ArrayList;
 public class HearthsMores extends StropsAbstractRelic implements ClickableRelic, CustomSavable<Boolean> {
     public static final String ID = ModHelper.makePath(HearthsMores.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(HearthsMores.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(FTLEngines.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
+    private static final String IMG_PATH_O = ModHelper.makeOPath(HearthsMores.class.getSimpleName());
+    //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
     private static final Texture hitAreaImg = ImageMaster.loadImage("StropsResources/img/misc/BBBHitArea.png");
 
@@ -29,21 +29,23 @@ public class HearthsMores extends StropsAbstractRelic implements ClickableRelic,
     public static float centerX = 0;
     public static float centerY = 0;
 
-    public static final int NUM1=2;
+    public static final int NUM1=2,TIER=2;
 
     public static final IntSliderSetting THRESHOLD=new IntSliderSetting("HearthsMores_Threshold", "N1", NUM1, 1,6);
     public static final IntSliderSetting MH=new IntSliderSetting("HearthsMores_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("HearthsMores_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("HearthsMores_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public HearthsMores() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

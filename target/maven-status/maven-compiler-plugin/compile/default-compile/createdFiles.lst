@@ -9,6 +9,7 @@ strops\patch\PatchLightningStorm$PatchTool1.class
 strops\patch\PatchRestrainedHeart$PatchTool5.class
 strops\patch\PatchSwordOfFeastAndFamine$PatchTool1.class
 strops\patch\PatchBambooDragonflyOfHanyuHorner.class
+strops\patch\PatchNoNameForNow5$PatchTool1.class
 strops\potions\AbstractStropsPotion.class
 strops\relics\FilmStarryCurtain.class
 strops\patch\PatchReturnToHandInUseCardAction$PatchTool$Locator.class
@@ -152,6 +153,7 @@ strops\patch\PatchRestrainedHeart$PatchTool23.class
 strops\events\StropsMindBloom.class
 strops\patch\PatchDarkEnergyLantern$PatchTool4.class
 strops\patch\PatchSeaOfMoon$PatchTool1.class
+strops\relics\NoNameForNow5.class
 strops\relics\Ribbon.class
 strops\relics\Wedgue$1.class
 strops\cards\Zero.class
@@ -207,6 +209,7 @@ strops\patch\PatchKey$PatchTool1.class
 strops\utilities\StaticHelpers.class
 strops\patch\PatchAtri$PatchTool2.class
 strops\patch\PatchStroopsTester$PatchTool4.class
+strops\actions\EndBattleAction.class
 strops\patch\PatchDecanter.class
 strops\patch\PatchGlowFeather$PatchTool12.class
 strops\patch\PatchHearthsMores$PatchTool4.class
@@ -223,6 +226,7 @@ strops\patch\PatchSunflowerInASummer$PatchTool1.class
 strops\patch\PatchNoNameForNow4$PatchTool2.class
 strops\textkeynumbers\TextKeyNumber1.class
 strops\patch\PatchDarkEnergyLantern$PatchTool1.class
+strops\patch\PatchNoNameForNow5$PatchTool4.class
 strops\patch\PatchClockWithNoHands$PatchTool3.class
 strops\relics\Wedgue.class
 strops\patch\PatchUpgrade$PatchTool3.class
@@ -231,6 +235,7 @@ strops\patch\PatchReturnToHandInUseCardAction$PatchTool.class
 strops\relics\ZhelpGreedyPotion.class
 strops\patch\PatchSquirrelsRelief.class
 strops\patch\PatchRainbowColoredCircle.class
+strops\patch\PatchNoNameForNow5$PatchTool3.class
 strops\patch\PatchClockWithNoHands$PatchTool2.class
 strops\patch\PatchDecanter$PatchTool15.class
 strops\actions\HermitsPocketsAction.class
@@ -251,6 +256,7 @@ strops\patch\PatchUpgrade$PatchTool1.class
 strops\patch\PatchExtraBossRelic$Open$Locator.class
 strops\patch\PatchClockWithNoHands$PatchTool1.class
 strops\patch\PatchDarkEnergyLantern$PatchTool2.class
+strops\patch\PatchNoNameForNow5.class
 strops\patch\PatchDecanter$PatchTool13.class
 strops\cards\ChooseUncommon.class
 strops\patch\PatchWhiteDClips.class
@@ -270,6 +276,7 @@ strops\patch\PatchBigBangBell$PatchTool3.class
 strops\patch\PatchGlowFeather$PatchTool5$1.class
 strops\textkeynumbers\TextKeyNumber2.class
 strops\patch\PatchAtri.class
+strops\patch\PatchNoNameForNow5$PatchTool5.class
 strops\patch\PatchDecanter$PatchTool11.class
 strops\patch\PatchZan$PatchTool5.class
 strops\utilities\ExtendedSaveFile.class
@@ -412,6 +419,7 @@ strops\relics\ToxicLump.class
 strops\patch\PatchHearthsMores.class
 strops\patch\PatchGlowFeather$PatchTool4.class
 strops\patch\PatchRegister$PatchTool1.class
+strops\relics\CirculatingLightAndColorShifter$Angle.class
 strops\patch\PatchRestrainedHeart$PatchTool20.class
 strops\relics\NeuronSight.class
 strops\patch\PatchBindings$PatchTool4.class
@@ -445,6 +453,7 @@ strops\modcore\Strops.class
 strops\patch\PatchSquirrelsRelief$PatchTool1.class
 strops\patch\PatchBambooDragonflyOfHanyuHorner$PatchTool1.class
 strops\patch\PatchBindings$PatchTool1.class
+strops\relics\CirculatingLightAndColorShifter$1.class
 strops\patch\PatchBlackRabbit$PatchTool1.class
 strops\patch\PatchDecanter$PatchTool25.class
 strops\patch\PatchZan$PatchTool6.class

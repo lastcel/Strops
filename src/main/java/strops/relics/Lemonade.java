@@ -14,10 +14,10 @@ public class Lemonade extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(Lemonade.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Lemonade.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(Lemonade.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.COMMON;
+    //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
-    public static final int NUM1=7,NUM2=1,NUM3=4,NUM4=1;
+    public static final int NUM1=7,NUM2=1,NUM3=4,NUM4=1,TIER=1;
 
     public boolean isUsed=false;
 
@@ -27,6 +27,7 @@ public class Lemonade extends StropsAbstractRelic{
     public static final IntSliderSetting POTION=new IntSliderSetting("Lemonade_Potion", "N4", NUM4, 1,4);
     public static final IntSliderSetting MH=new IntSliderSetting("Lemonade_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Lemonade_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Lemonade_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(ENERGY);
@@ -35,11 +36,12 @@ public class Lemonade extends StropsAbstractRelic{
         settings.add(POTION);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public Lemonade() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
     }

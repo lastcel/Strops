@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class DelayedGratification extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(DelayedGratification.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(DelayedGratification.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(DelayedGratification.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(DelayedGratification.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.BOSS;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
@@ -34,7 +34,7 @@ public class DelayedGratification extends StropsAbstractRelic{
     }
 
     public DelayedGratification() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
         showMHaG(MH,G);
         canCopy=false;
     }

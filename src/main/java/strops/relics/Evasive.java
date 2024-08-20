@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Evasive extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(Evasive.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Evasive.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(Evasive.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(Evasive.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
@@ -38,7 +38,7 @@ public class Evasive extends StropsAbstractRelic{
     }
 
     public Evasive() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

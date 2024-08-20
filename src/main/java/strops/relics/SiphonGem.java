@@ -20,13 +20,13 @@ public class SiphonGem extends StropsAbstractRelic implements ClickableRelic {
     //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static final int NUM1=1,NUM2=50,TIER=1;
+    public static final int NUM1=1,NUM2=100,TIER=1;
 
     public static final IntSliderSetting USABLE=new IntSliderSetting("SiphonGem_Usable","N1",NUM1,1,4);
     public static final IntSliderSetting BONUS=new IntSliderSetting("SiphonGem_Bonus","N2",NUM2,300);
     public static final IntSliderSetting MH=new IntSliderSetting("SiphonGem_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("SiphonGem_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("SiphonGem_R","R", TIER,1,3);
+    public static final IntSliderSetting R=new IntSliderSetting("SiphonGem_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(USABLE);
@@ -87,7 +87,7 @@ public class SiphonGem extends StropsAbstractRelic implements ClickableRelic {
             array.add(ObtainKeyEffect.KeyColor.GREEN);
         }
 
-        rng= AbstractDungeon.miscRng.random(0,array.size()-1);
+        rng=AbstractDungeon.merchantRng.random(0,array.size()-1);
         cl=array.get(rng);
         AbstractDungeon.topLevelEffects.add(new ObtainKeyEffect(cl));
         counter--;

@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import strops.helpers.ModHelper;
 import strops.potions.FrugalPotion;
@@ -21,13 +22,15 @@ public class SwordOfFeastAndFamine extends StropsAbstractRelic{
 
     public static boolean isSwordReady=false;
 
-    public static final int TIER=2;
+    public static final int NUM1=1,TIER=2;
 
+    public static final IntSliderSetting SLOTS=new IntSliderSetting("SoFaF_Slots","N1", NUM1,2);
     public static final IntSliderSetting MH=new IntSliderSetting("SoFaF_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("SoFaF_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("SoFaF_R","R", TIER,1,3);
+    public static final IntSliderSetting R=new IntSliderSetting("SoFaF_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
+        settings.add(SLOTS);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -44,6 +47,12 @@ public class SwordOfFeastAndFamine extends StropsAbstractRelic{
     @Override
     public void onEquip(){
         onEquipMods(MH,G);
+
+        AbstractDungeon.player.potionSlots+=SLOTS.value;
+        for(int i=SLOTS.value;i>0;i--){
+            AbstractDungeon.player.potions.add(new PotionSlot(AbstractDungeon.player.potionSlots-i));
+        }
+
         if (AbstractDungeon.screen != AbstractDungeon.CurrentScreen.COMBAT_REWARD) {
             AbstractDungeon.combatRewardScreen.open(this.DESCRIPTIONS[5]);
             (AbstractDungeon.getCurrRoom()).rewardPopOutTimer = 0.0F;
@@ -62,13 +71,13 @@ public class SwordOfFeastAndFamine extends StropsAbstractRelic{
 
     @Override
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
+        return String.format(this.DESCRIPTIONS[0],SLOTS.value);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(this.DESCRIPTIONS[0]);
+        str_out.add(String.format(this.DESCRIPTIONS[0],SLOTS.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         str_out.add(this.DESCRIPTIONS[1]);

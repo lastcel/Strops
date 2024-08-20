@@ -7,6 +7,7 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ModHelper;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.shop.OnSaleTag;
 import com.megacrit.cardcrawl.shop.ShopScreen;
 import com.megacrit.cardcrawl.shop.StorePotion;
@@ -15,7 +16,9 @@ import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
+import strops.relics.CirculatingLightAndColorShifter;
 import strops.relics.GlowFeather;
+import strops.relics.StropsAbstractRelic;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -222,6 +225,8 @@ public class PatchGlowFeather {
 
                  */
             }
+
+            checkCLACS(CirculatingLightAndColorShifter.Angle.RELIC);
         }
     }
 
@@ -233,6 +238,8 @@ public class PatchGlowFeather {
         @SpireInsertPatch(rloc = 5)
         public static void Insert(ShopScreen __inst, AbstractCard hoveredCard) {
             freeItems.clear();
+
+            checkCLACS(CirculatingLightAndColorShifter.Angle.CARD);
         }
     }
 
@@ -244,6 +251,8 @@ public class PatchGlowFeather {
         @SpireInsertPatch(rloc = 8)
         public static void Insert(StorePotion __inst) {
             freeItems.clear();
+
+            checkCLACS(CirculatingLightAndColorShifter.Angle.POTION);
         }
     }
 
@@ -542,6 +551,27 @@ public class PatchGlowFeather {
                 if(!freeItems.contains(purgeFlag)&&MathUtils.floor(actualPurgeCost*GlowFeather.RATIO.value*0.01f)>=AbstractDungeon.player.currentHealth){
                     color[0] = Color.SALMON;
                 }
+            }
+        }
+    }
+
+    private static void checkCLACS(CirculatingLightAndColorShifter.Angle angle){
+        if(!StropsAbstractRelic.hasTriColor()&&AbstractDungeon.actNum!=1&&AbstractDungeon.actNum!=2&&AbstractDungeon.actNum!=3){
+            return;
+        }
+
+        for(AbstractRelic r:AbstractDungeon.player.relics){
+            if(!r.relicId.equals(CirculatingLightAndColorShifter.ID)){
+                continue;
+            }
+
+            if(StropsAbstractRelic.hasTriColor()){
+                r.onTrigger();
+                continue;
+            }
+
+            if(((CirculatingLightAndColorShifter)r).angles.get(AbstractDungeon.actNum-1)==angle){
+                r.onTrigger();
             }
         }
     }
