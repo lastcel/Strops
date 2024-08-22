@@ -87,9 +87,11 @@ public class SoulCraftedCard extends CustomCard implements CustomSavable<SoulCra
 
         //usable--;
         //magicNumber=baseMagicNumber=usable;
-        upgradeMagicNumber(-1);
-        rawDescription=String.format(DESCRIPTION,sourcePotion.name);
-        initializeDescription();
+        if(baseMagicNumber>0){
+            upgradeMagicNumber(-1);
+            rawDescription=String.format(DESCRIPTION,sourcePotion.name);
+            initializeDescription();
+        }
 
         Iterator<AbstractCard> iterator=AbstractDungeon.player.masterDeck.group.iterator();
         while (iterator.hasNext()){

@@ -25,12 +25,16 @@ import com.megacrit.cardcrawl.cards.red.Dropkick;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.potions.GamblersBrew;
+import com.megacrit.cardcrawl.potions.SneckoOil;
+import com.megacrit.cardcrawl.potions.SwiftPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import javassist.*;
 import javassist.expr.ExprEditor;
 import javassist.expr.NewExpr;
 import strops.actions.GeneralDrawPileToHandAction;
+import strops.cards.SoulCraftedCard;
 import strops.helpers.ModHelper;
 import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSetting;
@@ -236,6 +240,9 @@ public class RainingRuins extends StropsAbstractRelic implements ClickableRelic 
             InnerPeace.ID,
             Sanctity.ID,
             Scrawl.ID,
-            Impatience.ID
+            Impatience.ID,
+            SoulCraftedCard.ID+"_"+SwiftPotion.POTION_ID,
+            SoulCraftedCard.ID+"_"+GamblersBrew.POTION_ID,
+            SoulCraftedCard.ID+"_"+SneckoOil.POTION_ID
     ));
 }

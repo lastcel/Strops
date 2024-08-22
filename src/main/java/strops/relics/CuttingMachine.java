@@ -15,7 +15,7 @@ public class CuttingMachine extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(CuttingMachine.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(CuttingMachine.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(CuttingMachine.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.SHOP;
+    //private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
     public static final int TIER=5;

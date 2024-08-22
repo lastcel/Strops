@@ -166,5 +166,10 @@
     "NAME": "Soul Craft: ",
     "DESCRIPTION": "Exhaust. NL Draw a card when this is drawn. NL !M! play left before getting removed from your deck. NL Trigger *%s.",
     "UPGRADE_DESCRIPTION": "?"
+  },
+  "Strops:RoamingStrike": {
+    "NAME": "Roaming Strike",
+    "DESCRIPTION": "Deal damage M times the number of current Act. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": " NL (Deal !D! damage.)"
   }
 }

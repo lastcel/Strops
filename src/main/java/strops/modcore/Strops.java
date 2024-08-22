@@ -135,6 +135,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addCard(new BodySlamPlusPlus());
         BaseMod.addCard(new Aurora());
         BaseMod.addCard(new SoulCraftedCard());
+        BaseMod.addCard(new RoamingStrike());
     }
 
     @Override
@@ -252,6 +253,9 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addRelic(new PainsReward(), RelicType.SHARED);
         BaseMod.addRelic(new NoNameForNow5(), RelicType.SHARED);
         BaseMod.addRelic(new CirculatingLightAndColorShifter(), RelicType.SHARED);
+        BaseMod.addRelic(new BanishingMace(), RelicType.SHARED);
+        BaseMod.addRelic(new TheOwl(), RelicType.SHARED);
+        BaseMod.addRelic(new ShammyPeach(), RelicType.SHARED);
 
         BaseMod.addRelic(new ZhelpArcaneTalents(), RelicType.SHARED);
         BaseMod.addRelic(new ZhelpFrostTalents(), RelicType.SHARED);
@@ -261,6 +265,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addRelic(new ZhelpPartScrapper(), RelicType.SHARED);
         BaseMod.addRelic(new ZhelpFrugalPotion(), RelicType.SHARED);
         BaseMod.addRelic(new ZhelpGreedyPotion(), RelicType.SHARED);
+        BaseMod.addRelic(new ZhelpRoamingStrike(), RelicType.SHARED);
 
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(Atri.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(Bolster.class.getSimpleName()));
@@ -354,6 +359,9 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         UnlockTracker.markRelicAsSeen(PainsReward.ID);
         UnlockTracker.markRelicAsSeen(NoNameForNow5.ID);
         UnlockTracker.markRelicAsSeen(CirculatingLightAndColorShifter.ID);
+        UnlockTracker.markRelicAsSeen(BanishingMace.ID);
+        UnlockTracker.markRelicAsSeen(TheOwl.ID);
+        UnlockTracker.markRelicAsSeen(ShammyPeach.ID);
 
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpArcaneTalents.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpFrostTalents.class.getSimpleName()));
@@ -363,6 +371,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         UnlockTracker.markRelicAsSeen(ZhelpPartScrapper.ID);
         UnlockTracker.markRelicAsSeen(ZhelpFrugalPotion.ID);
         UnlockTracker.markRelicAsSeen(ZhelpGreedyPotion.ID);
+        UnlockTracker.markRelicAsSeen(ZhelpRoamingStrike.ID);
 
         UnlockTracker.markCardAsSeen(ModHelper.makePath(ArcaneTalents.class.getSimpleName()));
         UnlockTracker.markCardAsSeen(ModHelper.makePath(FrostTalents.class.getSimpleName()));
@@ -372,6 +381,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         UnlockTracker.markCardAsSeen(BodySlamPlusPlus.ID);
         UnlockTracker.markCardAsSeen(Aurora.ID);
         UnlockTracker.markCardAsSeen(SoulCraftedCard.ID);
+        UnlockTracker.markCardAsSeen(RoamingStrike.ID);
     }
 
     @Override
@@ -500,6 +510,9 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BuildSettings(new PainsReward());
         BuildSettings(new NoNameForNow5());
         BuildSettings(new CirculatingLightAndColorShifter());
+        BuildSettings(new BanishingMace());
+        BuildSettings(new TheOwl());
+        BuildSettings(new ShammyPeach());
 
         BuildSettings(new ZhelpArcaneTalents());
         BuildSettings(new ZhelpFrostTalents());
@@ -508,6 +521,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BuildSettings(new ZhelpPartScrapper());
         BuildSettings(new ZhelpFrugalPotion());
         BuildSettings(new ZhelpGreedyPotion());
+        BuildSettings(new ZhelpRoamingStrike());
 
         loadSettingsData();
         for (StropsAbstractRelic relic : RelicSettings.keySet()) {
@@ -578,6 +592,29 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
             @Override
             public String glowID() {
                 return Wedgue.ID+"@Glow";
+            }
+        });
+
+        CardBorderGlowManager.addGlowInfo(new CardBorderGlowManager.GlowInfo(){
+            @Override
+            public boolean test(AbstractCard c) {
+                if(!(c instanceof SoulCraftedCard)){
+                    return false;
+                }
+                for(AbstractCard c2:AbstractDungeon.player.masterDeck.group) {
+                    if(c2.uuid.equals(c.uuid)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            @Override
+            public Color getColor(AbstractCard card) {
+                return Color.YELLOW.cpy();
+            }
+            @Override
+            public String glowID() {
+                return SoulCraft.ID+"@Glow";
             }
         });
     }

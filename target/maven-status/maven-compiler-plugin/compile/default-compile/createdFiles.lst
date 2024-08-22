@@ -14,6 +14,7 @@ strops\potions\AbstractStropsPotion.class
 strops\relics\FilmStarryCurtain.class
 strops\patch\PatchReturnToHandInUseCardAction$PatchTool$Locator.class
 strops\patch\PatchGrabbyHands$PatchTool8.class
+strops\utilities\ShammyPeachButton.class
 strops\actions\SpawnMonsterAction.class
 strops\cards\DoAddEnvenom.class
 strops\relics\GlassRod.class
@@ -94,6 +95,7 @@ strops\cards\ChooseCommon.class
 strops\patch\PatchGlowFeather$PatchTool2.class
 strops\patch\PatchGlowFeather$PatchTool24.class
 strops\patch\PatchIceGenerator$PatchTool2.class
+strops\vfx\ShammyPeachEffect.class
 strops\patch\PatchTranscendence.class
 strops\potions\FrugalPotion.class
 strops\patch\PatchRegister$PatchTool3.class
@@ -118,6 +120,7 @@ strops\patch\PatchBlackRabbit.class
 strops\utilities\RelicSettingsButton.class
 strops\cards\Choose2Cost.class
 strops\patch\PatchDecanter$PatchTool29.class
+strops\modcore\Strops$4.class
 strops\patch\PatchLoseRelic$PatchTool1.class
 strops\patch\PatchDelayedGratification$PatchTool1.class
 strops\patch\PatchSeaOfMoon$PatchTool4.class
@@ -129,6 +132,7 @@ strops\relics\BigBangBell.class
 strops\relics\ShammyPeach.class
 strops\patch\PatchAtri$PatchTool5.class
 strops\relics\RainingRuins.class
+strops\relics\BanishingMace.class
 strops\actions\MessyPuppyAction.class
 strops\patch\PatchClockWithNoHands.class
 strops\patch\PatchGlowFeather$PatchTool19$1.class
@@ -374,6 +378,7 @@ strops\actions\ExcludeAction.class
 strops\patch\PatchRestrainedHeart$PatchTool25.class
 strops\patch\PatchGlowFeather$PatchTool13.class
 strops\patch\PatchSoulCannon$PatchTool5.class
+strops\cards\RoamingStrike.class
 strops\relics\Wedgue$Condition.class
 strops\patch\PatchGenerosityCharm$PatchTool1.class
 strops\utilities\AdvModSlider.class
@@ -388,6 +393,7 @@ strops\patch\PatchGlowFeather$PatchTool26.class
 strops\patch\PatchDelayedGratification$PatchTool3.class
 strops\patch\PatchProfiteeringMerchant$PatchTool3$1.class
 strops\relics\ChuggingMask.class
+strops\relics\ZhelpRoamingStrike.class
 strops\relics\ClockWithNoHands.class
 strops\patch\PatchDecanter$PatchTool26.class
 strops\patch\PatchSunflowerInASummer$PatchTool6.class

@@ -27,12 +27,14 @@ F:\Strops\src\main\java\strops\patch\PatchNoNameForNow5.java
 F:\Strops\src\main\java\strops\utilities\FloatSliderSetting.java
 F:\Strops\src\main\java\strops\cards\SoulCraftedCard.java
 F:\Strops\src\main\java\strops\cards\ChooseRarity.java
+F:\Strops\src\main\java\strops\cards\RoamingStrike.java
 F:\Strops\src\main\java\strops\actions\LoseMaxHpAction.java
 F:\Strops\src\main\java\strops\powers\CombatwiseDoubleDamagePower.java
 F:\Strops\src\main\java\strops\relics\ZhelpFrostTalents.java
 F:\Strops\src\main\java\strops\relics\SeaOfMoon.java
 F:\Strops\src\main\java\strops\relics\Fractal.java
 F:\Strops\src\main\java\strops\actions\SpawnMonsterAction.java
+F:\Strops\src\main\java\strops\utilities\ShammyPeachButton.java
 F:\Strops\src\main\java\strops\patch\PatchZan.java
 F:\Strops\src\main\java\strops\relics\ExitPhase.java
 F:\Strops\src\main\java\strops\cards\DoNothing.java
@@ -120,6 +122,7 @@ F:\Strops\src\main\java\strops\utilities\Pagination.java
 F:\Strops\src\main\java\strops\actions\EscapeAction.java
 F:\Strops\src\main\java\strops\cards\DoAddEnvenom.java
 F:\Strops\src\main\java\strops\relics\StrikersVeil.java
+F:\Strops\src\main\java\strops\vfx\ShammyPeachEffect.java
 F:\Strops\src\main\java\strops\textkeynumbers\TextKeyNumber2.java
 F:\Strops\src\main\java\strops\cards\ToFight.java
 F:\Strops\src\main\java\strops\actions\GainMaxHpAction.java
@@ -152,6 +155,7 @@ F:\Strops\src\main\java\strops\patch\PatchGenerosityCharm.java
 F:\Strops\src\main\java\strops\utilities\MonsterReviveInfo.java
 F:\Strops\src\main\java\strops\potions\Blizzard.java
 F:\Strops\src\main\java\strops\relics\MinoshiroModoki.java
+F:\Strops\src\main\java\strops\relics\ZhelpRoamingStrike.java
 F:\Strops\src\main\java\strops\patch\PatchSoulStitch.java
 F:\Strops\src\main\java\strops\relics\NeuronSight.java
 F:\Strops\src\main\java\strops\cards\HealToFull.java
@@ -177,6 +181,7 @@ F:\Strops\src\main\java\strops\cards\OneHuge.java
 F:\Strops\src\main\java\strops\relics\Wedgue.java
 F:\Strops\src\main\java\strops\relics\SoulCraft.java
 F:\Strops\src\main\java\strops\relics\ProfiteeringMerchantAchieved.java
+F:\Strops\src\main\java\strops\relics\BanishingMace.java
 F:\Strops\src\main\java\strops\patch\PatchMessyPuppy.java
 F:\Strops\src\main\java\strops\actions\FastDamageAction.java
 F:\Strops\src\main\java\strops\vfx\ShowCardEffect.java

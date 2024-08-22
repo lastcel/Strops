@@ -53,7 +53,7 @@ public class MessyPuppyAction extends AbstractGameAction {
         this.isDone = true;
     }
 
-    public boolean myAreMonstersBasicallyDead(MonsterGroup mg) {
+    public static boolean myAreMonstersBasicallyDead(MonsterGroup mg) {
         for (AbstractMonster m : mg.monsters) {
             if (!m.isDying && !m.isEscaping)
                 return false;

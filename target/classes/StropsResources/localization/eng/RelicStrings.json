@@ -43,7 +43,7 @@
     "NAME": "Fractal",
     "FLAVOR": "Too many Body Slams may pollute your card set? Don't worry, once you collect 3 of them in your hand, they will merge into a Body Slam++ automatically.",
     "DESCRIPTIONS": [
-      "At the start of the #b%dst turn of each combat, add a #yBody #ySlam+ to your hand, draw pile and discard pile. At the start of the #b%dnd turn of each combat, add a #yBody #ySlam+ to your hand."
+      "At the start of the #b%dst turn of each combat, add a #yBody #ySlam+ into your hand, draw pile and discard pile. At the start of the #b%dnd turn of each combat, add a #yBody #ySlam+ into your hand."
     ]
   },
   "Strops:IcyTouch": {
@@ -907,6 +907,42 @@
       "Potion",
       "TBD",
       "1"
+    ]
+  },
+  "Strops:BanishingMace": {
+    "NAME": "Banishing Mace",
+    "FLAVOR": "Bears the power to forget all, including itself.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn, and add a #yRoaimg #yStrike into your hand."
+    ]
+  },
+  "Strops:ZhelpRoamingStrike": {
+    "NAME": "Tool Relic: Roaming Strike",
+    "FLAVOR": "This relic will NOT spawn in game at all.",
+    "DESCRIPTIONS": [
+      "Your #yRoaming #yStrikes have a damage ratio of #b%d and #b%d before and after #yUpgrade respectively."
+    ]
+  },
+  "Strops:TheOwl": {
+    "NAME": "The Owl",
+    "FLAVOR": "Walkers stop to talk, but its tracks in the dark night seem constantly inaccessible.",
+    "DESCRIPTIONS": [
+      "During a combat, for every #b%d non- #yAttacks you played, draw #b%d card. For every #b%d cards in your draw pile, hand and discard pile, the threshold is lowered by 1 (to minimum 1)."
+    ]
+  },
+  "Strops:ShammyPeach": {
+    "NAME": "Shammy Peach",
+    "FLAVOR": "May you meet a peach-styled romance next door.",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Click [#2aecd7]the [#2aecd7]arrows [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL [#ec902a]%d [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Enter the draw pile or the discard pile, forming a new draw pile, hand and discard pile exactly as the original flow direction. Any that can't fit in the new hand will end up in the new discard pile, granting you #b%d #yBlock for each.",
+      "",
+      "",
+      "",
+      "",
+      "To The Draw Pile",
+      "Enter the draw pile. The old hand becomes the new discard pile, and the old discard pile becomes the new draw pile.",
+      "To The Discard Pile",
+      "Enter the discard pile. The old hand becomes the new draw pile, and the old draw pile becomes the new discard pile."
     ]
   }
 }

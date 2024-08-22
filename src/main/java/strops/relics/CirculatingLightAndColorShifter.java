@@ -70,7 +70,7 @@ public class CirculatingLightAndColorShifter extends StropsAbstractRelic impleme
         tempAngles.add(Angle.RELIC);
         tempAngles.add(Angle.POTION);
 
-        if(AbstractDungeon.player==null){
+        if(AbstractDungeon.player==null||AbstractDungeon.miscRng==null){
             if(ACT1.value==0){
                 angles.add(Angle.NULL);
             } else {
@@ -242,6 +242,10 @@ public class CirculatingLightAndColorShifter extends StropsAbstractRelic impleme
             renderAngleOfCard(sb);
             renderAngleOfRelic(sb);
             renderAngleOfPotion(sb);
+            return;
+        }
+
+        if(AbstractDungeon.actNum!=1&&AbstractDungeon.actNum!=2&&AbstractDungeon.actNum!=3){
             return;
         }
 

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class StroopsTester extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(StroopsTester.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(StroopsTester.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(StroopsTester.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(StroopsTester.class.getSimpleName());
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
     private boolean activated = true;
@@ -38,7 +38,7 @@ public class StroopsTester extends StropsAbstractRelic{
     }
 
     public StroopsTester() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         cardToPreview=new Pride();
     }

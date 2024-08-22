@@ -104,7 +104,7 @@
   "Strops:BodySlamPlusPlus": {
     "NAME": "全身撞击++",
     "DESCRIPTION": "造成你当前 格挡 值两倍的伤害。",
-    "UPGRADE_DESCRIPTION": " NL （造成 !D! 点伤害。）"
+    "UPGRADE_DESCRIPTION": " NL （造成 D 点伤害。）"
   },
   "Strops:Aurora": {
     "NAME": "极光",
@@ -166,5 +166,10 @@
     "NAME": "灵魂制作：",
     "DESCRIPTION": "消耗 。 NL 抽到这张牌时，抽一张牌。 NL 再打出 M 次后从牌组中移除。 NL 触发 *%s 的效果。",
     "UPGRADE_DESCRIPTION": "？"
+  },
+  "Strops:RoamingStrike": {
+    "NAME": "漫游打击",
+    "DESCRIPTION": "造成当前幕数 M 倍的伤害。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": " NL （造成 D 点伤害。）"
   }
 }

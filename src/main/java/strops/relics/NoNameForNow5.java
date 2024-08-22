@@ -27,7 +27,7 @@ public class NoNameForNow5 extends StropsAbstractRelic{
     public static final int NUM1=4,NUM2=6,NUM3=1,TIER=2;
 
     public static final IntSliderSetting LOWER=new IntSliderSetting("NNFN5_Lower","N1", NUM1,1,10);
-    public static final IntSliderSetting UPPER=new IntSliderSetting("NNFN5_Upper","N2", NUM2,1,10);
+    public static final IntSliderSetting UPPER=new IntSliderSetting("NNFN5_Upper","N2", NUM2,2,11);
     public static final IntSliderSetting MAX_SHUFFLE=new IntSliderSetting("NNFN5_Max_Shuffle","N3", NUM3,3);
     public static final IntSliderSetting MH=new IntSliderSetting("NNFN5_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("NNFN5_G","G",0,-100,100);
@@ -86,6 +86,8 @@ public class NoNameForNow5 extends StropsAbstractRelic{
             //AbstractDungeon.getCurrRoom().endBattle();
             //activated=false;
             finished=true;
+            flash();
+            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player,this));
             addToBot(new EndBattleAction());
         }
     }

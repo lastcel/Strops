@@ -287,7 +287,8 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
             VolcanicCryster.ID,
             Polearm.ID,
             StroopsTester.ID,
-            Wedgue.ID
+            Wedgue.ID,
+            BanishingMace.ID
     ));
 
     private static final Set<String> IN_BATTLE_RELICS = new HashSet<>(Arrays.asList(
@@ -311,6 +312,7 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
             VolcanicCryster.ID,
             Polearm.ID,
             StroopsTester.ID,
-            Wedgue.ID
+            Wedgue.ID,
+            BanishingMace.ID
     ));
 }

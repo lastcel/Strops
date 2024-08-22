@@ -70,7 +70,7 @@ public class Zan extends StropsAbstractRelic implements ClickableRelic, CustomSa
     public void onEquip(){
         onEquipMods(MH,G);
         counter=(STORAGE.value==0)?-1:0;
-        if(AbstractDungeon.getCurrRoom().phase!= AbstractRoom.RoomPhase.COMBAT){
+        if(AbstractDungeon.getCurrRoom().phase!=AbstractRoom.RoomPhase.COMBAT){
             secondCounter=0;
         }
     }

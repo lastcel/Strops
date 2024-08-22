@@ -166,5 +166,10 @@
     "NAME": "靈魂製作：",
     "DESCRIPTION": "消耗 NL 抽到這張牌時，抽一張牌 NL 再打出 M 次後從牌組中移除 NL 觸發 *%s 的效果",
     "UPGRADE_DESCRIPTION": "？"
+  },
+  "Strops:RoamingStrike": {
+    "NAME": "漫遊打擊",
+    "DESCRIPTION": "造成當前幕數 M 倍的傷害 NL 消耗",
+    "UPGRADE_DESCRIPTION": " NL （造成 D 點傷害）"
   }
 }
