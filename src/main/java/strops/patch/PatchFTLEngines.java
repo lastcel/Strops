@@ -5,6 +5,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -30,6 +31,8 @@ public class PatchFTLEngines {
             for(AbstractRelic r:AbstractDungeon.player.relics){
                 if(r.relicId.equals(Maniacal.ID)){
                     if(!r.grayscale){
+                        r.flash();
+                        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player,r));
                         int blockLost=MathUtils.floor(AbstractDungeon.player.currentBlock*Maniacal.COST.value/10.0f);
                         int damage=MathUtils.floor(blockLost*Maniacal.DAMAGE_CO.value/10.0f);
                         if(blockLost>0){

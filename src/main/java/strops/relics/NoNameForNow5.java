@@ -24,17 +24,19 @@ public class NoNameForNow5 extends StropsAbstractRelic{
 
     public boolean activated=false,finished=false/*,everActivated=false*/;
 
-    public static final int NUM1=4,NUM2=6,NUM3=1,TIER=2;
+    public static final int NUM1=4,NUM2=5,NUM3=6,NUM4=1,TIER=2;
 
-    public static final IntSliderSetting LOWER=new IntSliderSetting("NNFN5_Lower","N1", NUM1,1,10);
-    public static final IntSliderSetting UPPER=new IntSliderSetting("NNFN5_Upper","N2", NUM2,2,11);
-    public static final IntSliderSetting MAX_SHUFFLE=new IntSliderSetting("NNFN5_Max_Shuffle","N3", NUM3,3);
-    public static final IntSliderSetting MH=new IntSliderSetting("NNFN5_MH","MH",0,-20,20);
-    public static final IntSliderSetting G=new IntSliderSetting("NNFN5_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("NNFN5_R","R", TIER,0,5);
+    public static final IntSliderSetting LOWER=new IntSliderSetting("NNFN5_Lower_v0.16.1","N1", NUM1,1,10);
+    public static final IntSliderSetting MIDDLE=new IntSliderSetting("NNFN5_Middle","N2", NUM2,1,10);
+    public static final IntSliderSetting UPPER=new IntSliderSetting("NNFN5_Upper_v0.16.1","N3", NUM3,2,11);
+    public static final IntSliderSetting MAX_SHUFFLE=new IntSliderSetting("NNFN5_Max_Shuffle_v0.16.1","N4", NUM4,3);
+    public static final IntSliderSetting MH=new IntSliderSetting("NNFN5_MH_v0.16.1","MH",0,-20,20);
+    public static final IntSliderSetting G=new IntSliderSetting("NNFN5_G_v0.16.1","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("NNFN5_R_v0.16.1","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(LOWER);
+        settings.add(MIDDLE);
         settings.add(UPPER);
         settings.add(MAX_SHUFFLE);
         settings.add(MH);
@@ -65,7 +67,7 @@ public class NoNameForNow5 extends StropsAbstractRelic{
     public void atTurnStart(){
         counter++;
 
-        if(counter==LOWER.value||counter==UPPER.value&&activated){
+        if(counter>=LOWER.value&&counter<=MIDDLE.value||counter==UPPER.value&&activated){
             beginLongPulse();
         } else {
             stopPulse();
@@ -119,13 +121,13 @@ public class NoNameForNow5 extends StropsAbstractRelic{
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0],LOWER.value,UPPER.value,MAX_SHUFFLE.value);
+        return String.format(this.DESCRIPTIONS[0],LOWER.value,MIDDLE.value,UPPER.value,MAX_SHUFFLE.value);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0],LOWER.value,UPPER.value,MAX_SHUFFLE.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0],LOWER.value,MIDDLE.value,UPPER.value,MAX_SHUFFLE.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         str_out.add(this.DESCRIPTIONS[1]);

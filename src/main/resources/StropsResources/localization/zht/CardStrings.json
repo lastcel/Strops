@@ -104,7 +104,7 @@
   "Strops:BodySlamPlusPlus": {
     "NAME": "泰山壓頂++",
     "DESCRIPTION": "造成你當前 格擋 值兩倍的傷害",
-    "UPGRADE_DESCRIPTION": " NL （造成 !D! 點傷害）"
+    "UPGRADE_DESCRIPTION": " NL （造成 D 點傷害）"
   },
   "Strops:Aurora": {
     "NAME": "極光",
@@ -169,7 +169,7 @@
   },
   "Strops:RoamingStrike": {
     "NAME": "漫遊打擊",
-    "DESCRIPTION": "造成當前幕數 M 倍的傷害 NL 消耗",
+    "DESCRIPTION": "造成當前幕數 M 倍的傷害 NL 獲得 [E] NL 消耗",
     "UPGRADE_DESCRIPTION": " NL （造成 D 點傷害）"
   }
 }

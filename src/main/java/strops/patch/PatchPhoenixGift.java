@@ -54,7 +54,9 @@ public class PatchPhoenixGift {
                             r.counter=0;
                         }
                         if(r.counter==0&&!isAct3Boss()){
-                            AbstractDungeon.getCurrRoom().addRelicToRewards(AbstractRelic.RelicTier.RARE);
+                            for(int i=0;i<PhoenixGift.BONUS.value;i++){
+                                AbstractDungeon.getCurrRoom().addRelicToRewards(AbstractRelic.RelicTier.RARE);
+                            }
                             r.setCounter(-2);
                         }
                     }

@@ -108,7 +108,7 @@ public class ExitPhase extends StropsAbstractRelic implements ClickableRelic {
 
     @Override
     public boolean canSpawn(){
-        return Settings.isEndless||AbstractDungeon.floorNum<=48;
+        return Settings.isEndless||AbstractDungeon.floorNum<=47;
     }
 
     @Override
@@ -116,7 +116,7 @@ public class ExitPhase extends StropsAbstractRelic implements ClickableRelic {
         return String.format(this.DESCRIPTIONS[0], COOLDOWN.value, BONUS.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], COOLDOWN.value, BONUS.value));

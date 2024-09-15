@@ -184,7 +184,8 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
         List<AbstractRelic> inBattleRelics = AbstractDungeon.player.relics.stream()
                 .filter(r->IN_BATTLE_RELICS.contains(r.relicId)).collect(Collectors.toList());
         if(!inBattleRelics.isEmpty() &&IN_BATTLE_RELICS.contains(relicToDisenchant)&&
-                !relicToDisenchant.equals(SlaversCollar.ID)){
+                !relicToDisenchant.equals(SlaversCollar.ID)&&
+                !relicToDisenchant.equals(StroopsTester.ID)){
             for (AbstractRelic r:AbstractDungeon.player.relics){
                 if(r.relicId.equals(relicToDisenchant)){
                     beginLongPulse();

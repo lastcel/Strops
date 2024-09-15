@@ -1,4 +1,4 @@
-//本遗物的patch写在了PatchFTLEngines里面
+//本遗物的部分patch写在了PatchFTLEngines里面
 package strops.relics;
 
 import com.badlogic.gdx.math.MathUtils;
@@ -75,8 +75,7 @@ public class Maniacal extends StropsAbstractRelic implements ClickableRelic {
         }
     }
 
-    @Override
-    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
+    public void onThisAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if (target.isPlayer)
             return;
         int overkill = damageAmount - target.currentHealth;

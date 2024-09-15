@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.orbs.Frost;
 import com.megacrit.cardcrawl.potions.EntropicBrew;
 import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.rewards.RewardItem;
+import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import com.megacrit.cardcrawl.shop.StorePotion;
 import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 import com.megacrit.cardcrawl.ui.campfire.RestOption;
@@ -26,6 +27,7 @@ import strops.relics.Decanter;
 import strops.relics.GlowFeather;
 import strops.relics.Wedgue;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class PatchDecanter {
@@ -172,9 +174,8 @@ public class PatchDecanter {
     public static class PatchTool9 {
         @SpirePrefixPatch
         public static void Prefix(EntropicBrew __inst, AbstractCreature target) {
-            AbstractRelic r2;
             if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
-                    ((Decanter)(r2 = AbstractDungeon.player.getRelic(Decanter.ID)))
+                    ((Decanter)AbstractDungeon.player.getRelic(Decanter.ID))
                             .relicToDisenchant.equals(Sozu.ID)){
                 isPreventHasRelic=true;
             }
@@ -294,12 +295,7 @@ public class PatchDecanter {
     public static class PatchTool17 {
         @SpirePrefixPatch
         public static SpireReturn<Integer> Prefix(BustedCrown __inst, int numberOfCards) {
-            AbstractRelic r2;
-            if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
-                    ((Decanter)(r2 = AbstractDungeon.player.getRelic(Decanter.ID)))
-                            .relicToDisenchant.equals(BustedCrown.ID)){
-                r2.flash();
-                ((Decanter) r2).decay();
+            if(AbstractDungeon.player.hasRelic(Decanter.ID)&&!AbstractDungeon.player.getRelic(Decanter.ID).grayscale){
                 return SpireReturn.Return(numberOfCards);
             }
             return SpireReturn.Continue();
@@ -360,9 +356,8 @@ public class PatchDecanter {
     public static class PatchTool20 {
         @SpirePrefixPatch
         public static void Prefix(AbstractMonster __inst, SpriteBatch sb) {
-            AbstractRelic r2;
             if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
-                    ((Decanter)(r2 = AbstractDungeon.player.getRelic(Decanter.ID)))
+                    ((Decanter)AbstractDungeon.player.getRelic(Decanter.ID))
                             .relicToDisenchant.equals(RunicDome.ID)){
                 isPreventHasRelic=true;
             }
@@ -389,9 +384,8 @@ public class PatchDecanter {
     public static class PatchTool22 {
         @SpireInsertPatch(rloc = 54)
         public static void Insert(AbstractMonster __inst, SpriteBatch sb) {
-            AbstractRelic r2;
             if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
-                    ((Decanter)(r2 = AbstractDungeon.player.getRelic(Decanter.ID)))
+                    ((Decanter)AbstractDungeon.player.getRelic(Decanter.ID))
                             .relicToDisenchant.equals(RunicDome.ID)){
                 isPreventHasRelic=true;
             }
@@ -456,9 +450,8 @@ public class PatchDecanter {
     public static class PatchTool26 {
         @SpirePrefixPatch
         public static SpireReturn<Boolean> Prefix(VelvetChoker __inst, AbstractCard card) {
-            AbstractRelic r2;
             if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
-                    ((Decanter)(r2 = AbstractDungeon.player.getRelic(Decanter.ID)))
+                    ((Decanter)AbstractDungeon.player.getRelic(Decanter.ID))
                             .relicToDisenchant.equals(VelvetChoker.ID)){
                 return SpireReturn.Return(true);
             }
@@ -611,6 +604,137 @@ public class PatchDecanter {
         }
     }
 
+    //破碎金冠
+    @SpirePatch(
+            clz=AbstractCard.class,
+            method=SpirePatch.CLASS
+    )
+    public static class PatchTool34{
+        public static SpireField<Boolean> isBusted=new SpireField<>(() -> false);
+    }
+
+    /*
+    //破碎金冠
+    @SpirePatch(
+            clz= AbstractDungeon.class,
+            method="getRewardCards"
+    )
+    public static class PatchTool35 {
+        @SpireInsertPatch(rloc=55,localvars = {"numCards","i","card"})
+        public static void Insert(int numCards, int i, AbstractCard card) {
+            if(AbstractDungeon.player.hasRelic(Decanter.ID)&&i>=numCards-2*getNumOfCrowns()){
+                Strops.logger.info("第一次破碎卡牌："+card.name);
+                PatchTool34.isBusted.set(card,true);
+            }
+        }
+    }
+
+     */
+
+    //破碎金冠
+    @SpirePatch(
+            clz= AbstractDungeon.class,
+            method="getRewardCards"
+    )
+    public static class PatchTool36 {
+        @SpireInsertPatch(rloc=64,localvars = {"numCards","retVal2"})
+        public static void Insert(int numCards, ArrayList<AbstractCard> retVal2) {
+            if(!AbstractDungeon.player.hasRelic(Decanter.ID)||AbstractDungeon.player.getRelic(Decanter.ID).grayscale){
+                return;
+            }
+            for(AbstractCard c:retVal2){
+                //Strops.logger.info("第二次待破碎卡牌："+c.name+"，对应第一次的"+retVal.get(retVal2.indexOf(c))+"，确认破碎="+PatchTool34.isBusted.get(retVal.get(retVal2.indexOf(c))));
+                //PatchTool34.isBusted.set(c,PatchTool34.isBusted.get(retVal.get(retVal2.indexOf(c))));
+                if(retVal2.indexOf(c)>=numCards-2*getNumOfCrowns()){
+                    PatchTool34.isBusted.set(c,true);
+                }
+            }
+        }
+    }
+
+    /*
+    //破碎金冠
+    @SpirePatch(
+            clz= AbstractDungeon.class,
+            method="getColorlessRewardCards"
+    )
+    public static class PatchTool36 {
+        @SpireInsertPatch(rloc=37,localvars = {"numCards","i","card"})
+        public static void Insert(int numCards, int i, AbstractCard card) {
+            if(AbstractDungeon.player.hasRelic(Decanter.ID)&&i>=numCards-2*getNumOfCrowns()){
+                PatchTool34.isBusted.set(card,true);
+            }
+        }
+    }
+
+     */
+
+    //破碎金冠
+    @SpirePatch(
+            clz= AbstractCard.class,
+            method="update"
+    )
+    public static class PatchTool37 {
+        @SpirePrefixPatch
+        public static void Prefix(AbstractCard __inst) {
+            if(PatchTool34.isBusted.get(__inst)){
+                __inst.drawScale=0.5f;
+            }
+        }
+    }
+
+    /*
+    //破碎金冠
+    @SpirePatch(
+            clz= FastCardObtainEffect.class,
+            method=SpirePatch.CONSTRUCTOR
+    )
+    public static class PatchTool38 {
+        @SpirePrefixPatch
+        public static SpireReturn<Void> Prefix(FastCardObtainEffect __inst, AbstractCard card, float x, float y) {
+            if(!PatchTool34.isBusted.get(card)){
+                return SpireReturn.Continue();
+            }
+            AbstractRelic r2;
+            if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
+                    ((Decanter)(r2 = AbstractDungeon.player.getRelic(Decanter.ID)))
+                            .relicToDisenchant.equals(BustedCrown.ID)){
+                r2.flash();
+                ((Decanter)r2).decay();
+                PatchTool34.isBusted.set(card,false);
+                return SpireReturn.Continue();
+            }
+            __inst.isDone=true;
+            return SpireReturn.Return();
+        }
+    }
+
+     */
+
+    //破碎金冠
+    @SpirePatch(
+            clz= CardRewardScreen.class,
+            method="cardSelectUpdate"
+    )
+    public static class PatchTool38 {
+        @SpireInsertPatch(rloc=30,localvars = {"hoveredCard"})
+        public static SpireReturn<Void> Insert(CardRewardScreen __inst, AbstractCard hoveredCard) {
+            if(!PatchTool34.isBusted.get(hoveredCard)){
+                return SpireReturn.Continue();
+            }
+            AbstractRelic r2;
+            if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
+                    ((Decanter)(r2 = AbstractDungeon.player.getRelic(Decanter.ID)))
+                            .relicToDisenchant.equals(BustedCrown.ID)){
+                r2.flash();
+                ((Decanter)r2).decay();
+                PatchTool34.isBusted.set(hoveredCard,false);
+                return SpireReturn.Continue();
+            }
+            return SpireReturn.Return();
+        }
+    }
+
     /*
     @SpirePatch(
             clz= TheBeyond.class,
@@ -656,5 +780,13 @@ public class PatchDecanter {
 
      */
 
-
+    private static int getNumOfCrowns(){
+        int count=0;
+        for(AbstractRelic r:AbstractDungeon.player.relics){
+            if(r.relicId.equals(BustedCrown.ID)){
+                count++;
+            }
+        }
+        return count;
+    }
 }

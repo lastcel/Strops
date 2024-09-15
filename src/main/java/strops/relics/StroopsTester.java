@@ -24,13 +24,15 @@ public class StroopsTester extends StropsAbstractRelic{
 
     private boolean activated = true;
 
-    public static final int TIER=4;
+    public static final int NUM1=2,TIER=4;
 
-    public static final IntSliderSetting MH=new IntSliderSetting("StroopsTester_MH","MH",0,-20,20);
-    public static final IntSliderSetting G=new IntSliderSetting("StroopsTester_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("StroopsTester_R","R", TIER,0,5);
+    public static final IntSliderSetting INTERVAL=new IntSliderSetting("StroopsTester_Interval","N1", NUM1,1,10);
+    public static final IntSliderSetting MH=new IntSliderSetting("StroopsTester_MH_v0.16.1","MH",0,-20,20);
+    public static final IntSliderSetting G=new IntSliderSetting("StroopsTester_G_v0.16.1","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("StroopsTester_R_v0.16.1","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
+        settings.add(INTERVAL);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -50,13 +52,23 @@ public class StroopsTester extends StropsAbstractRelic{
                 Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
 
          */
+        if(INTERVAL.value>1){
+            counter=0;
+        }
     }
 
     @Override
     public void atBattleStartPreDraw(){
+        counter++;
+        if(counter!=INTERVAL.value){
+            return;
+        }
+
+        counter=0;
         if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
                 ((Decanter)AbstractDungeon.player.getRelic(Decanter.ID))
                         .relicToDisenchant.equals(StroopsTester.ID)){
+            AbstractDungeon.player.getRelic(Decanter.ID).beginLongPulse();
             AbstractDungeon.player.getRelic(Decanter.ID).flash();
         } else {
             flash();
@@ -67,13 +79,13 @@ public class StroopsTester extends StropsAbstractRelic{
 
     @Override
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
+        return String.format(this.DESCRIPTIONS[0],INTERVAL.value);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(this.DESCRIPTIONS[0]);
+        str_out.add(String.format(this.DESCRIPTIONS[0],INTERVAL.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;

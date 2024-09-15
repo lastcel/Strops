@@ -49,8 +49,9 @@ public class PatchNoNameForNow5 {
         public static void Prefix(AbstractMonster __inst) {
             NoNameForNow5 r5=(NoNameForNow5)AbstractDungeon.player.getRelic(NoNameForNow5.ID);
 
-            if(r5!=null&&PatchGrassNowAndFlowersThen.PatchTool1.earliestTurnCount.get(AbstractDungeon.player)==
-                    NoNameForNow5.LOWER.value&&NoNameForNow5.UPPER.value>NoNameForNow5.LOWER.value&&
+            if(r5!=null&&PatchGrassNowAndFlowersThen.PatchTool1.earliestTurnCount.get(AbstractDungeon.player)>=
+                    NoNameForNow5.LOWER.value&&PatchGrassNowAndFlowersThen.PatchTool1.earliestTurnCount.get(AbstractDungeon.player)<=
+                    NoNameForNow5.MIDDLE.value&&NoNameForNow5.UPPER.value>NoNameForNow5.MIDDLE.value&&
                     MessyPuppyAction.myAreMonstersBasicallyDead(AbstractDungeon.getMonsters())&&
                     !(AbstractDungeon.getCurrRoom()).isBattleOver&&
                     !(AbstractDungeon.getCurrRoom()).cannotLose&&
@@ -91,8 +92,9 @@ public class PatchNoNameForNow5 {
         public static SpireReturn<Boolean> Prefix(MonsterGroup __inst) {
             NoNameForNow5 r5=(NoNameForNow5)AbstractDungeon.player.getRelic(NoNameForNow5.ID);
 
-            if(r5!=null&&(PatchGrassNowAndFlowersThen.PatchTool1.earliestTurnCount.get(AbstractDungeon.player)==
-                    NoNameForNow5.LOWER.value&&NoNameForNow5.UPPER.value>NoNameForNow5.LOWER.value||r5.activated)){
+            if(r5!=null&&(PatchGrassNowAndFlowersThen.PatchTool1.earliestTurnCount.get(AbstractDungeon.player)>=
+                    NoNameForNow5.LOWER.value&&PatchGrassNowAndFlowersThen.PatchTool1.earliestTurnCount.get(AbstractDungeon.player)<=
+                    NoNameForNow5.MIDDLE.value&&NoNameForNow5.UPPER.value>NoNameForNow5.MIDDLE.value||r5.activated)){
                 return SpireReturn.Return(false);
             }
 
@@ -149,8 +151,9 @@ public class PatchNoNameForNow5 {
         public static void Insert(AbstractPlayer __inst) {
             NoNameForNow5 r5=(NoNameForNow5)__inst.getRelic(NoNameForNow5.ID);
 
-            if(r5!=null&&__inst.escapeTimer!=0.0F&&PatchGrassNowAndFlowersThen.PatchTool1.earliestTurnCount.get(AbstractDungeon.player)==
-                    NoNameForNow5.LOWER.value&&NoNameForNow5.UPPER.value>NoNameForNow5.LOWER.value){
+            if(r5!=null&&__inst.escapeTimer!=0.0F&&PatchGrassNowAndFlowersThen.PatchTool1.earliestTurnCount.get(AbstractDungeon.player)>=
+                    NoNameForNow5.LOWER.value&&PatchGrassNowAndFlowersThen.PatchTool1.earliestTurnCount.get(AbstractDungeon.player)<=
+                    NoNameForNow5.MIDDLE.value&&NoNameForNow5.UPPER.value>NoNameForNow5.MIDDLE.value){
                 r5.activated=true;
                 r5.flash();
                 AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player,r5));

@@ -169,7 +169,7 @@
   },
   "Strops:RoamingStrike": {
     "NAME": "漫游打击",
-    "DESCRIPTION": "造成当前幕数 M 倍的伤害。 NL 消耗 。",
+    "DESCRIPTION": "造成当前幕数 M 倍的伤害。 NL 获得 [E] 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": " NL （造成 D 点伤害。）"
   }
 }

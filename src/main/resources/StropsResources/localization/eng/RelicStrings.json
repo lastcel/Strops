@@ -69,7 +69,7 @@
     "DESCRIPTIONS": [
       "During combats against normal enemies, your HP has a lower limit of #b%d.",
       "Note",
-      "This relic won't spawn on Floor 49 or higher."
+      "This relic won't spawn on Floor 48 or higher."
     ]
   },
   "Strops:HungrySun": {
@@ -78,7 +78,7 @@
     "DESCRIPTIONS": [
       "The first #b%d HP loss in each non-combat room heals you instead.",
       "Note",
-      "This relic won't spawn on Floor 49 or higher."
+      "This relic won't spawn on Floor 48 or higher."
     ]
   },
   "Strops:SunflowerInASummer": {
@@ -115,7 +115,7 @@
     "NAME": "Grass Now And Flowers Then",
     "FLAVOR": "To enlighten, to shield, and to empower.",
     "DESCRIPTIONS": [
-      "Upon pickup, add a #yGift #yof #yArcane to your deck."
+      "Upon pickup, add #b%d #yGift #yof #yArcane to your deck."
     ]
   },
   "Strops:SiphonGem": {
@@ -151,7 +151,7 @@
     ]
   },
   "Strops:FilmStarryCurtain": {
-    "NAME": "Film Starry Curtain",
+    "NAME": "Film -Starry Curtain-",
     "FLAVOR": "It’s amazing grace, created by some of the residents together in a town.",
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. At the start of each turn after draw, add #yAurora to your hand until it is full."
@@ -224,7 +224,7 @@
     "NAME": "Weather Control Device",
     "FLAVOR": "Warning: Weather Control Device Detected",
     "DESCRIPTIONS": [
-      "Upon pickup, add a #yLightning #yStorm to your deck."
+      "Upon pickup, add #b%d #yLightning #yStorm to your deck."
     ]
   },
   "Strops:ZhelpLightningStorm": {
@@ -238,7 +238,7 @@
     "NAME": "Lemonade",
     "FLAVOR": "Why not drink it and enjoy a cool summer?",
     "DESCRIPTIONS": [
-      "The first time your current Energy reaches or exceeds #b%d each turn, draw #b%d card. The next combat and every #b%d combats after will drop a bonus reward of #b%d #yEnergy #yPotion.",
+      "The first time your Energy reaches or exceeds #b%d each turn, draw #b%d card. The next combat and every #b%d combats after will drop a bonus reward of #b%d #yEnergy #yPotion.",
       "Note",
       "This relic won't spawn on Floor 44 or higher."
     ]
@@ -457,7 +457,7 @@
     "NAME": "Raining Ruins",
     "FLAVOR": "This is the last, and also a tour. This is nostalgia, and also a pursuit. This is wandering, and also a pilgrimage. This is tragedy, and also a quest.",
     "DESCRIPTIONS": [
-      "[#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL #bstrops:Cooldown [#2aecd7]: [#ec902a]%d [#2aecd7]Combats NL Draw a random card that can draw, and gain [E] .",
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL #bstrops:Cooldown [#2aecd7]: [#ec902a]%d [#2aecd7]Combats NL Draw a random card that can draw, and gain #b%d [E] .",
       "Note",
       "This relic actually works in a way of trying to put the card from draw pile into hand. If there's no qualified cards in draw pile, that triggers piles reshuffling and doesn't start Cooldown."
     ]
@@ -466,7 +466,7 @@
     "NAME": "Phoenix Gift",
     "FLAVOR": "Now we wonder where Parting Gift is being.",
     "DESCRIPTIONS": [
-      "If you end your turn without #yBlock, any unblocked attack damage you receive will equally reduce this relic's counter (initially #b%d [REMOVE_SPACE]). When the counter falls to zero, add a random #yRare relic to the current combat's reward, and this no longer works.",
+      "If you end your turn without #yBlock, any unblocked attack damage you receive will equally reduce this relic's counter (initially #b%d [REMOVE_SPACE]). When the counter falls to zero, add #b%d random #yRare relic to the current combat's reward, and this no longer works.",
       "Note",
       "1. This relic will only spawn on Act 1 & 2. NL 2. This relic will check the player's Block before all other onEndTurn effects.",
       "",
@@ -508,7 +508,7 @@
     "DESCRIPTIONS": [
       "[#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL #bstrops:Cooldown [#2aecd7]: [#ec902a]%d [#2aecd7]Combats NL Escape from a non-boss combat. Whenever you escape from a combat, gain #b%d #yGold.",
       "Note",
-      "This relic won't spawn on Floor 49 or higher."
+      "This relic won't spawn on Floor 48 or higher."
     ]
   },
   "Strops:Maniacal": {
@@ -591,7 +591,12 @@
     "NAME": "Strongest Potion",
     "FLAVOR": "A mango-flavored potion and a supermango-flavored one, which would you like?",
     "DESCRIPTIONS": [
-      "Upon pickup, choose one: gain #b%d Max HP; or gain #b%d Max HP, but at the start of the next #b%d combats lose #b%d #yStrength."
+      "Upon pickup, choose one: gain #b%d Max HP; or gain #b%d Max HP, but lose #b%d #yStrength at the start of the next #b%d combats.",
+      "",
+      "",
+      "",
+      "",
+      "1"
     ]
   },
   "Strops:GlowFeather": {
@@ -640,7 +645,7 @@
     "NAME": "Hearth’smores",
     "FLAVOR": "Gather ‘round the fire for a toasty treat!",
     "DESCRIPTIONS": [
-      "Put a card in your hand into your draw pile, and draw a card. As of the #b%dnd use per turn, each use costs [E] . NL #pstrops:Tricolor : [#2aecd7]Right [#2aecd7]click to switch between ready and unready. If unready, the card put back will determinedly end up next to top of the draw pile.",
+      "Put a card in your hand into your draw pile, and draw a card. As of the #b%dnd use per turn, each use costs [E] . NL #pstrops:Tricolor : [#2aecd7]Right [#2aecd7]click to switch between burning and out. If out, the card put back will definitely end up next to top of the draw pile.",
       "Note",
       "Drag the card onto the draw pile to activate."
     ]
@@ -674,7 +679,7 @@
     "NAME": "Leviboard",
     "FLAVOR": "A vehicle from the future, swift and handy.",
     "DESCRIPTIONS": [
-      "If your HP is at or below #b%d, or your #yGold is at or above #b%d, you may ignore paths when choosing the next room to travel to.",
+      "If you're with: HP at or below #b%d / #yGold at or above #b%d / no potions, you may ignore paths when choosing the next #yCampfire / #yShop / #y? room to travel to respectively.",
       "Note",
       "This relic won't spawn on Floor 41 or higher."
     ]
@@ -683,7 +688,7 @@
     "NAME": "Cutting Machine",
     "FLAVOR": "Decomposes the block silently; Releases the energy wordlessly.",
     "DESCRIPTIONS": [
-      "Upon pickup, add a #yPart #yScrapper to your deck."
+      "Upon pickup, add #b%d #yPart #yScrapper to your deck."
     ]
   },
   "Strops:ZhelpPartScrapper": {
@@ -785,7 +790,7 @@
     "NAME": "Stroop's Tester",
     "FLAVOR": "[#7fff00]WHITE[] [#000000]pollution,[] [#ffffff]GREEN[] [#000000]eco-friend.[] [#87ceeb]PURPLE[] [#000000]passion,[] [#ee82ee]BLUE[] [#000000]upset.[]",
     "DESCRIPTIONS": [
-      "The first card played each turn that's NOT #yupgraded is played twice. At the start of each combat, put a #rPride on top of your draw pile."
+      "The first card played each turn that's NOT #yupgraded is played twice. At the start of every #b%d combats, put a #rPride on top of your draw pile."
     ]
   },
   "Strops:LuckyStar": {
@@ -888,7 +893,7 @@
     "NAME": "No Name For Now (5)",
     "FLAVOR": "This relic has no flavor text yet.",
     "DESCRIPTIONS": [
-      "Whenever you would end a combat at the #b%dth turn, end it at the end of the #b%dth turn instead. If you shuffle #b%d time or less during a combat ended this way, add an #yAbacus to the combat's reward.",
+      "Whenever you would end a combat during the #b%dth - #b%dth turn, end it at the end of the #b%dth turn instead. If you shuffle #b%d time or less during a combat ended this way, add an #yAbacus to the combat's reward.",
       "Note",
       "This relic will only spawn on Act 1 & 2."
     ]
@@ -934,7 +939,7 @@
     "NAME": "Shammy Peach",
     "FLAVOR": "May you meet a peach-styled romance next door.",
     "DESCRIPTIONS": [
-      "[#2aecd7]Click [#2aecd7]the [#2aecd7]arrows [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL [#ec902a]%d [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Enter the draw pile or the discard pile, forming a new draw pile, hand and discard pile exactly as the original flow direction. Any that can't fit in the new hand will end up in the new discard pile, granting you #b%d #yBlock for each.",
+      "[#2aecd7]Click [#2aecd7]the [#2aecd7]arrows [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL [#ec902a]%d [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Enter the draw pile or the discard pile, forming a new draw pile, hand and discard pile exactly as the original flow direction. Any cards that can't fit in the new hand will end up in the new discard pile, granting you #b%d #yBlock for each.",
       "",
       "",
       "",

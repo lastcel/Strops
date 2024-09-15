@@ -16,13 +16,13 @@ public class Leviboard extends StropsAbstractRelic{
     //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    public static final int NUM1=20,NUM2=350,TIER=1;
+    public static final int NUM1=20,NUM2=300,TIER=1;
 
-    public static final IntSliderSetting HP_THRESHOLD=new IntSliderSetting("Leviboard_Threshold_Hp", "N1", NUM1, 1,30);
-    public static final IntSliderSetting GOLD_THRESHOLD=new IntSliderSetting("Leviboard_Threshold_Gold", "N2", NUM2, 100,400);
-    public static final IntSliderSetting MH=new IntSliderSetting("Leviboard_MH","MH",0,-20,20);
-    public static final IntSliderSetting G=new IntSliderSetting("Leviboard_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("Leviboard_R","R", TIER,0,5);
+    public static final IntSliderSetting HP_THRESHOLD=new IntSliderSetting("Leviboard_Threshold_Hp_v0.16.1", "N1", NUM1, 1,30);
+    public static final IntSliderSetting GOLD_THRESHOLD=new IntSliderSetting("Leviboard_Threshold_Gold_v0.16.1", "N2", NUM2, 100,400);
+    public static final IntSliderSetting MH=new IntSliderSetting("Leviboard_MH_v0.16.1","MH",0,-20,20);
+    public static final IntSliderSetting G=new IntSliderSetting("Leviboard_G_v0.16.1","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Leviboard_R_v0.16.1","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(HP_THRESHOLD);
@@ -113,9 +113,16 @@ public class Leviboard extends StropsAbstractRelic{
         return (Settings.isEndless || (AbstractDungeon.floorNum <= 40));
     }
 
-    public static boolean canFly(){
-        return (AbstractDungeon.player.currentHealth<=HP_THRESHOLD.value)||
-                (AbstractDungeon.player.gold>=GOLD_THRESHOLD.value);
+    public static boolean canFlyToCampfire(){
+        return AbstractDungeon.player.currentHealth<=HP_THRESHOLD.value;
+    }
+
+    public static boolean canFlyToShop(){
+        return AbstractDungeon.player.gold>=GOLD_THRESHOLD.value;
+    }
+
+    public static boolean canFlyToQuestion(){
+        return !AbstractDungeon.player.hasAnyPotions();
     }
 
     /*

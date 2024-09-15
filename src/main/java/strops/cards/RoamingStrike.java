@@ -3,6 +3,7 @@ package strops.cards;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -24,7 +25,7 @@ public class RoamingStrike extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public RoamingStrike() {
-        super(ID, NAME, IMG_PATH, 1, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, NAME, IMG_PATH, 2, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         baseDamage=0;
         magicNumber=baseMagicNumber=ZhelpRoamingStrike.MULTIPLIER_BASE.value;
         exhaust=true;
@@ -44,6 +45,7 @@ public class RoamingStrike extends CustomCard {
         this.baseDamage = AbstractDungeon.actNum * magicNumber;
         calculateCardDamage(m);
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new GainEnergyAction(1));
         rawDescription = CARD_STRINGS.DESCRIPTION;
         initializeDescription();
     }

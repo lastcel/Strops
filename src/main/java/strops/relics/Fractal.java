@@ -19,30 +19,32 @@ public class Fractal extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(Fractal.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Fractal.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(Fractal.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.SHOP;
+    //private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
     AbstractCard BodySlamAdded;
 
     int stepsToGrayScale =0;
 
-    public static int NUM1=1,NUM2=2;
+    public static int NUM1=1,NUM2=2,TIER=5;
 
     public static final IntSliderSetting MULTIPLE=new IntSliderSetting("Fractal_Multiple", "N1", NUM1, 1, 10);
     public static final IntSliderSetting SINGLE=new IntSliderSetting("Fractal_Single", "N2", NUM2,1,  10);
     public static final IntSliderSetting MH=new IntSliderSetting("Fractal_MH_v0.12.8","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Fractal_G_v0.12.8","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Fractal_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MULTIPLE);
         settings.add(SINGLE);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public Fractal() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
 
         AbstractCard c=new BodySlam();

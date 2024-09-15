@@ -215,7 +215,6 @@ F:\Strops\src\main\java\strops\relics\ZhelpFrugalPotion.java
 F:\Strops\src\main\java\strops\cards\ToGetHer.java
 F:\Strops\src\main\java\strops\utilities\RelicSetting.java
 F:\Strops\src\main\java\strops\patch\PatchSeaOfMoon.java
-F:\Strops\src\main\java\strops\relics\Visionary.java
 F:\Strops\src\main\java\strops\cards\BodySlamPlusPlus.java
 F:\Strops\src\main\java\strops\events\StropsMindBloom.java
 F:\Strops\src\main\java\strops\patch\PatchLeviboard.java
@@ -234,6 +233,7 @@ F:\Strops\src\main\java\strops\patch\PatchIceGenerator.java
 F:\Strops\src\main\java\strops\cards\FireTalents.java
 F:\Strops\src\main\java\strops\actions\LoseBlockAction.java
 F:\Strops\src\main\java\strops\patch\PatchDarkEnergyLantern.java
+F:\Strops\src\main\java\strops\patch\PatchManiacal.java
 F:\Strops\src\main\java\strops\patch\PatchTheCrow.java
 F:\Strops\src\main\java\strops\relics\Atri.java
 F:\Strops\src\main\java\strops\relics\RainingRuins.java
@@ -258,6 +258,7 @@ F:\Strops\src\main\java\strops\relics\NoNameForNow4.java
 F:\Strops\src\main\java\strops\actions\FilmStarryCurtainAction.java
 F:\Strops\src\main\java\strops\relics\ZhelpFireTalents.java
 F:\Strops\src\main\java\strops\relics\Key.java
+F:\Strops\src\main\java\strops\relics\TowerUp.java
 F:\Strops\src\main\java\strops\patch\PatchReturnToHandInUseCardAction.java
 F:\Strops\src\main\java\strops\patch\PatchSoulCannon.java
 F:\Strops\src\main\java\strops\patch\PatchStackedPlate.java

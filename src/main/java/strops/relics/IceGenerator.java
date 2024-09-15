@@ -21,29 +21,31 @@ public class IceGenerator extends StropsAbstractRelic implements CustomSavable<B
     public static final String ID = ModHelper.makePath(IceGenerator.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(IceGenerator.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(IceGenerator.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.RARE;
+    //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
     public boolean isHealToFull=false;
     //public static AbstractRoom.RoomPhase previousPhase;
 
-    public static final int NUM1=12,NUM2=8;
+    public static final int NUM1=12,NUM2=8,TIER=3;
 
     public static final IntSliderSetting MAXHP_PENALTY=new IntSliderSetting("IceGenerator_MaxHp_Penalty", "N1", NUM1, 20);
     public static final IntSliderSetting HP_PENALTY=new IntSliderSetting("IceGenerator_Hp_Penalty", "N2", NUM2, 20);
     public static final IntSliderSetting MH=new IntSliderSetting("IceGenerator_MH_v0.12.0","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("IceGenerator_G_v0.12.0","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("IceGenerator_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MAXHP_PENALTY);
         settings.add(HP_PENALTY);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public IceGenerator() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canSpawnInBattle =false;

@@ -90,6 +90,10 @@ public class StrongestPotion extends StropsAbstractRelic{
 
     @Override
     public String getUpdatedDescription() {
+        if(DESCRIPTIONS[5].equals("1")){
+            return String.format(this.DESCRIPTIONS[0], BONUS.value, SUPER_BONUS.value,
+                    INTENSE.value,DURATION.value);
+        }
         return String.format(this.DESCRIPTIONS[0], BONUS.value, SUPER_BONUS.value,
                 DURATION.value,INTENSE.value);
     }
@@ -97,8 +101,13 @@ public class StrongestPotion extends StropsAbstractRelic{
 
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0], BONUS.value, SUPER_BONUS.value,
-                DURATION.value,INTENSE.value));
+        if(DESCRIPTIONS[5].equals("1")){
+            str_out.add(String.format(this.DESCRIPTIONS[0], BONUS.value, SUPER_BONUS.value,
+                    INTENSE.value,DURATION.value));
+        } else {
+            str_out.add(String.format(this.DESCRIPTIONS[0], BONUS.value, SUPER_BONUS.value,
+                    DURATION.value,INTENSE.value));
+        }
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;

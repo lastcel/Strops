@@ -23,7 +23,7 @@ public class ShammyPeach extends StropsAbstractRelic{
     ShammyPeachButton buttonDraw;
     ShammyPeachButton buttonDiscard;
 
-    public static final int NUM1=3,NUM2=2,TIER=3;
+    public static final int NUM1=4,NUM2=2,TIER=3;
 
     public static final IntSliderSetting USABLE=new IntSliderSetting("ShammyPeach_Usable", "N1", NUM1, 1,10);
     public static final IntSliderSetting BLOCK=new IntSliderSetting("ShammyPeach_Block", "N2", NUM2, 1,5);

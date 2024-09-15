@@ -18,13 +18,15 @@ public class GrassNowAndFlowersThen extends StropsAbstractRelic {
     //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    public static final int TIER=3;
+    public static final int NUM1=1,TIER=3;
 
+    public static final IntSliderSetting COPIES=new IntSliderSetting("GrassNowAndFlowersThen_Copies","N1", NUM1,1,3);
     public static final IntSliderSetting MH=new IntSliderSetting("GrassNowAndFlowersThen_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("GrassNowAndFlowersThen_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("GrassNowAndFlowersThen_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
+        settings.add(COPIES);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -40,17 +42,20 @@ public class GrassNowAndFlowersThen extends StropsAbstractRelic {
     @Override
     public void onEquip(){
         onEquipMods(MH,G);
-        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new ArcaneTalents(),
-                Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+
+        for(int i=0;i<COPIES.value;i++){
+            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new ArcaneTalents(),
+                    Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+        }
     }
 
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
+        return String.format(this.DESCRIPTIONS[0],COPIES.value);
     }
 
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(this.DESCRIPTIONS[0]);
+        str_out.add(String.format(this.DESCRIPTIONS[0],COPIES.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;

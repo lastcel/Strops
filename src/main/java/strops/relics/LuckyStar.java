@@ -28,7 +28,7 @@ public class LuckyStar extends StropsAbstractRelic implements CustomBottleRelic 
 
     private final List<UUID> UUID_QUEUE = new ArrayList<>();
 
-    private UUID uuidStart = null;
+    public UUID uuidStart = null;
 
     public static final int NUM1 = 2, TIER = 2;
 

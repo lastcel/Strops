@@ -169,7 +169,7 @@
   },
   "Strops:RoamingStrike": {
     "NAME": "Roaming Strike",
-    "DESCRIPTION": "Deal damage M times the number of current Act. NL Exhaust.",
+    "DESCRIPTION": "Deal damage !M! times the number of the current Act. NL Gain [E]. NL Exhaust.",
     "UPGRADE_DESCRIPTION": " NL (Deal !D! damage.)"
   }
 }

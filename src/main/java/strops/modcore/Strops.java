@@ -14,6 +14,8 @@ import basemod.interfaces.*;
 import basemod.helpers.*;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.blue.GeneticAlgorithm;
+import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheBeyond;
@@ -545,19 +547,19 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         CardBorderGlowManager.addGlowInfo(new CardBorderGlowManager.GlowInfo(){
             @Override
             public boolean test(AbstractCard c) {
-                if(c.cardID.equals(ModHelper.makePath(ArcaneTalents.class.getSimpleName()))&&
+                if(c.cardID.equals(ArcaneTalents.ID)&&
                         PatchGrassNowAndFlowersThen.PatchTool1.earliestTurnCount
                                 .get(AbstractDungeon.player)>=c.magicNumber) {
                     return true;
                 }
 
-                if(c.cardID.equals(ModHelper.makePath(FrostTalents.class.getSimpleName()))&&
+                if(c.cardID.equals(FrostTalents.ID)&&
                         PatchGrassNowAndFlowersThen.PatchTool1.earliestTurnCount
                                 .get(AbstractDungeon.player)>=c.magicNumber) {
                     return true;
                 }
 
-                if(c.cardID.equals(ModHelper.makePath(FireTalents.class.getSimpleName()))&&
+                if(c.cardID.equals(FireTalents.ID)&&
                         PatchGrassNowAndFlowersThen.PatchTool1.earliestTurnCount
                                 .get(AbstractDungeon.player)>=((FireTalents)c).keyNumber1) {
                     return true;
@@ -571,7 +573,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
             }
             @Override
             public String glowID() {
-                return ModHelper.makePath(ArcaneTalents.class.getSimpleName())+"@Glow";
+                return GrassNowAndFlowersThen.ID+"@Glow";
             }
         });
 
@@ -615,6 +617,55 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
             @Override
             public String glowID() {
                 return SoulCraft.ID+"@Glow";
+            }
+        });
+
+        CardBorderGlowManager.addGlowInfo(new CardBorderGlowManager.GlowInfo(){
+            @Override
+            public boolean test(AbstractCard c) {
+                if(!AbstractDungeon.player.hasRelic(LuckyStar.ID)){
+                    return false;
+                }
+                if(((LuckyStar)AbstractDungeon.player.getRelic(LuckyStar.ID)).uuidStart!=null){
+                    return false;
+                }
+                for(AbstractCard c2:AbstractDungeon.player.masterDeck.group) {
+                    if(c2.uuid.equals(c.uuid)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            @Override
+            public Color getColor(AbstractCard card) {
+                return Color.ORANGE.cpy();
+            }
+            @Override
+            public String glowID() {
+                return LuckyStar.ID+"@Glow";
+            }
+        });
+
+        CardBorderGlowManager.addGlowInfo(new CardBorderGlowManager.GlowInfo(){
+            @Override
+            public boolean test(AbstractCard c) {
+                if(!c.cardID.equals(RitualDagger.ID)&&!c.cardID.equals(GeneticAlgorithm.ID)){
+                    return false;
+                }
+                for(AbstractCard c2:AbstractDungeon.player.masterDeck.group) {
+                    if(c2.uuid.equals(c.uuid)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            @Override
+            public Color getColor(AbstractCard card) {
+                return Color.YELLOW.cpy();
+            }
+            @Override
+            public String glowID() {
+                return "strops:VanillaDeckCheck@Glow";
             }
         });
     }

@@ -17,18 +17,17 @@ public class Bindings extends StropsAbstractRelic implements OnAfterUseCardRelic
     public static final String ID = ModHelper.makePath(Bindings.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Bindings.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(Bindings.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.COMMON;
+    //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static final int NUM1=1;
-    public static final int NUM2=3;
-    public static final int NUM3=1;
+    public static final int NUM1=1,NUM2=3,NUM3=1,TIER=1;
 
     public static final IntSliderSetting THRESHOLD=new IntSliderSetting("Bindings_Threshold", "N1", NUM1, 1,3);
     public static final IntSliderSetting BONUS=new IntSliderSetting("Bindings_Bonus", "N2", NUM2, 1,9);
     public static final IntSliderSetting DRAWBACK=new IntSliderSetting("Bindings_Drawback", "N3", NUM3, 1,9);
     public static final IntSliderSetting MH=new IntSliderSetting("Bindings_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Bindings_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Bindings_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
@@ -36,11 +35,12 @@ public class Bindings extends StropsAbstractRelic implements OnAfterUseCardRelic
         settings.add(DRAWBACK);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public Bindings() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         canCopy=false;
     }

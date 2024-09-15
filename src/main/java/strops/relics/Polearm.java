@@ -20,7 +20,7 @@ public class Polearm extends StropsAbstractRelic {
     //private static final RelicTier RELIC_TIER = RelicTier.BOSS;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static int NUM1=6,NUM2=2,TIER=4;
+    public static final int NUM1=6,NUM2=2,TIER=4;
 
     public static final IntSliderSetting BONUS = new IntSliderSetting("Polearm_Bonus", "N1", NUM1, 10);
     public static final IntSliderSetting PENALTY = new IntSliderSetting("Polearm_Penalty", "N2", NUM2, 4);

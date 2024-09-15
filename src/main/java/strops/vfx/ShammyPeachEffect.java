@@ -88,6 +88,7 @@ public class ShammyPeachEffect extends AbstractGameEffect {
                     }
                     for(int i=BaseMod.MAX_HAND_SIZE;i<tempDiscard.size();i++){
                         discard.add(tempDiscard.get(i));
+                        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, ShammyPeach.BLOCK.value));
                     }
                 }
             }

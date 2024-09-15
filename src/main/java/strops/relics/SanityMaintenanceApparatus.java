@@ -83,6 +83,6 @@ public class SanityMaintenanceApparatus extends StropsAbstractRelic {
 
     @Override
     public boolean canSpawn(){
-        return (Settings.isEndless || (AbstractDungeon.floorNum <= 48));
+        return (Settings.isEndless || (AbstractDungeon.floorNum <= 47));
     }
 }

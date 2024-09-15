@@ -8,6 +8,7 @@ strops\cards\ToEscape.class
 strops\patch\PatchLightningStorm$PatchTool1.class
 strops\patch\PatchRestrainedHeart$PatchTool5.class
 strops\patch\PatchSwordOfFeastAndFamine$PatchTool1.class
+strops\patch\PatchDecanter$PatchTool37.class
 strops\patch\PatchBambooDragonflyOfHanyuHorner.class
 strops\patch\PatchNoNameForNow5$PatchTool1.class
 strops\potions\AbstractStropsPotion.class
@@ -62,6 +63,7 @@ strops\patch\PatchMultiDamagePreview$PatchTool1.class
 strops\relics\RestrainedHeart.class
 strops\relics\StackedPlate.class
 strops\patch\PatchMessyPuppy$PatchTool2.class
+strops\patch\PatchManiacal$PatchTool1.class
 strops\patch\PatchSoulCannon$PatchTool3.class
 strops\utilities\RelicSetting.class
 strops\relics\ZhelpFrostTalents.class
@@ -113,6 +115,7 @@ strops\patch\PatchSwordOfFeastAndFamine$PatchTool2.class
 strops\patch\PatchWhiteDClips$PatchTool2.class
 strops\relics\Echo.class
 strops\patch\PatchSquirrelsRelief$PatchTool2.class
+strops\patch\PatchDecanter$PatchTool36.class
 strops\patch\PatchRestrainedHeart$PatchTool21.class
 strops\relics\FishingNet.class
 strops\patch\PatchBindings.class
@@ -130,6 +133,7 @@ strops\cards\TwoTiny.class
 strops\patch\PatchGlowFeather$PatchTool3.class
 strops\relics\BigBangBell.class
 strops\relics\ShammyPeach.class
+strops\modcore\Strops$5.class
 strops\patch\PatchAtri$PatchTool5.class
 strops\relics\RainingRuins.class
 strops\relics\BanishingMace.class
@@ -240,10 +244,10 @@ strops\relics\ZhelpGreedyPotion.class
 strops\patch\PatchSquirrelsRelief.class
 strops\patch\PatchRainbowColoredCircle.class
 strops\patch\PatchNoNameForNow5$PatchTool3.class
+strops\relics\TowerUp.class
 strops\patch\PatchClockWithNoHands$PatchTool2.class
 strops\patch\PatchDecanter$PatchTool15.class
 strops\actions\HermitsPocketsAction.class
-strops\patch\PatchLeviboard$PatchTool3.class
 strops\relics\SoulCraft.class
 strops\relics\TheOwl.class
 strops\patch\PatchIceGenerator.class
@@ -297,7 +301,6 @@ strops\cards\AbstractStropsCard.class
 strops\patch\PatchPainsReward.class
 strops\powers\FrozenPower$1.class
 strops\patch\PatchGlowFeather$PatchTool30.class
-strops\patch\PatchLeviboard$PatchTool2.class
 strops\patch\PatchGlowFeather$PatchTool25$1.class
 strops\patch\PatchIceGenerator$PatchTool4.class
 strops\relics\Calculator.class
@@ -367,6 +370,7 @@ strops\patch\PatchSoulCraft$PatchTool2.class
 strops\cards\ToFight.class
 strops\actions\LoseGoldAction.class
 strops\patch\PatchLoseRelic$PatchTool3.class
+strops\patch\PatchDecanter$PatchTool34.class
 strops\modcore\Strops$3.class
 strops\patch\PatchDelayedGratification$PatchTool2.class
 strops\patch\PatchRestrainedHeart$PatchTool12.class
@@ -388,6 +392,7 @@ strops\patch\PatchMultiDamagePreview.class
 strops\cards\Choose0Cost.class
 strops\actions\SetBlockAction.class
 strops\relics\Wedgue$Category.class
+strops\patch\PatchManiacal.class
 strops\cards\ToGetHer.class
 strops\patch\PatchGlowFeather$PatchTool26.class
 strops\patch\PatchDelayedGratification$PatchTool3.class
@@ -449,6 +454,7 @@ strops\patch\PatchStackableGoldenIdol.class
 strops\patch\PatchIceGenerator$PatchTool3.class
 strops\patch\PatchProfiteeringMerchant$PatchTool4$1.class
 strops\patch\PatchSteamEpic$PatchTool2.class
+strops\modcore\Strops$6.class
 strops\interfaces\IKeyNumber2.class
 strops\relics\HearthsMores.class
 strops\cards\ChooseCost.class
@@ -465,6 +471,7 @@ strops\patch\PatchDecanter$PatchTool25.class
 strops\patch\PatchZan$PatchTool6.class
 strops\patch\PatchFTLEngines$PatchTool1.class
 strops\cards\FireTalents.class
+strops\patch\PatchDecanter$PatchTool38.class
 strops\cards\HealToFull.class
 strops\patch\PatchGlowFeather$PatchTool6.class
 strops\patch\PatchStrongestPotion.class
@@ -519,7 +526,6 @@ strops\relics\IceGenerator.class
 strops\patch\PatchGlassRod$PatchTool2.class
 strops\relics\Extractor.class
 strops\patch\PatchDecanter$PatchTool4.class
-strops\relics\Visionary.class
 strops\relics\BlackRabbit.class
 strops\patch\PatchLoseRelic.class
 strops\relics\CirculatingLightAndColorShifter.class
