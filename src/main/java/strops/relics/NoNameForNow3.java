@@ -17,7 +17,7 @@ public class NoNameForNow3 extends StropsAbstractRelic{
     //private static final String IMG_PATH_O = ModHelper.makeOPath(NoNameForNow3.class.getSimpleName());
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static final int NUM1=60,NUM2=50,NUM3=8,TIER=1;
+    public static final int NUM1=65,NUM2=50,NUM3=8,TIER=1;
 
     public static final IntSliderSetting THRESHOLD=new IntSliderSetting("NNFN3_Threshold","N1", NUM1,1,100);
     public static final IntSliderSetting GOLD=new IntSliderSetting("NNFN3_Gold","N2", NUM2,300);

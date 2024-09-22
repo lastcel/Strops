@@ -18,17 +18,19 @@ public class Bolster extends StropsAbstractRelic {
     //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static final int NUM1=11,NUM2=3,TIER=3;
+    public static final int NUM1=10,NUM2=1,NUM3=2,TIER=3;
 
     public static final IntSliderSetting THRESHOLD = new IntSliderSetting("Bolster_Threshold", "N1", NUM1, 5,15);
-    public static final IntSliderSetting BONUS = new IntSliderSetting("Bolster_Bonus", "N2", NUM2, 1,5);
+    public static final IntSliderSetting BASE = new IntSliderSetting("Bolster_Base", "N2", NUM2, 5);
+    public static final IntSliderSetting EXTRA = new IntSliderSetting("Bolster_Extra", "N3", NUM3, 5);
     public static final IntSliderSetting MH=new IntSliderSetting("Bolster_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Bolster_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("Bolster_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
-        settings.add(BONUS);
+        settings.add(BASE);
+        settings.add(EXTRA);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -63,20 +65,26 @@ public class Bolster extends StropsAbstractRelic {
 
     @Override
     public void atBattleStart(){
+        int total=BASE.value;
         if(counter>=THRESHOLD.value){
+            total+=EXTRA.value;
+        }
+        if(total>0){
             flash();
-            addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, BONUS.value), BONUS.value));
+            addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, total), total));
             addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         }
     }
 
+    @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0],THRESHOLD.value,BONUS.value);
+        return String.format(this.DESCRIPTIONS[0], BASE.value, THRESHOLD.value, EXTRA.value);
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0], THRESHOLD.value, BONUS.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0], BASE.value, THRESHOLD.value, EXTRA.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;

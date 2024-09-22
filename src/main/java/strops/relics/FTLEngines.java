@@ -1,5 +1,6 @@
 package strops.relics;
 
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
@@ -17,11 +18,13 @@ public class FTLEngines extends StropsAbstractRelic{
     private static final RelicTier RELIC_TIER = RelicTier.BOSS;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    boolean isNotBoss = true;
+    private static boolean isNotBoss = true;
+    private float prevX,prevY;
+    public boolean isScaleUp=false;
 
-    public static final int NUM1=7;
+    public static final int NUM1=6;
 
-    public static final IntSliderSetting THRESHOLD=new IntSliderSetting("FTL_THRESHOLD", "N1", NUM1, 4,10);
+    public static final IntSliderSetting THRESHOLD=new IntSliderSetting("FTL_Threshold", "N1", NUM1, 3,12);
     public static final IntSliderSetting MH=new IntSliderSetting("FTL_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("FTL_G","G",0,-100,100);
     public ArrayList<RelicSetting> BuildRelicSettings() {
@@ -69,7 +72,11 @@ public class FTLEngines extends StropsAbstractRelic{
         if(isNotBoss){
             counter++;
             if(counter==THRESHOLD.value){
+                jump(true);
                 beginLongPulse();
+            } else if(counter>THRESHOLD.value){
+                jump(false);
+                stopPulse();
             }
         }
     }
@@ -77,7 +84,10 @@ public class FTLEngines extends StropsAbstractRelic{
     @Override
     public void onVictory(){
         counter=-1;
-        stopPulse();
+        if(pulse){
+            jump(false);
+            stopPulse();
+        }
     }
 
     @Override
@@ -85,7 +95,7 @@ public class FTLEngines extends StropsAbstractRelic{
         return String.format(this.DESCRIPTIONS[0], THRESHOLD.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], THRESHOLD.value));
@@ -94,5 +104,22 @@ public class FTLEngines extends StropsAbstractRelic{
         str_out.add(this.DESCRIPTIONS[1]);
         str_out.add(this.DESCRIPTIONS[2]);
         return str_out;
+    }
+
+    private void jump(boolean isOntoPlayer){
+        AbstractPlayer p=AbstractDungeon.player;
+        if(isOntoPlayer){
+            prevX=currentX;
+            prevY=currentY;
+            isScaleUp=true;
+            currentX=p.hb.cX - p.animX;
+            currentY=p.hb.cY + p.hb.height * 0.8f - p.animY;
+            scale*=2.0f;
+        } else {
+            currentX=prevX;
+            currentY=prevY;
+            isScaleUp=false;
+        }
+        hb.move(currentX,currentY);
     }
 }

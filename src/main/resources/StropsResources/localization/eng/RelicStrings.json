@@ -17,14 +17,14 @@
     "NAME": "Hermit's Tiara",
     "FLAVOR": "Think of my help, forgive my limitations.",
     "DESCRIPTIONS": [
-      "If you have #b%d or fewer relics, gain #b%d #yStrength at the start of combat."
+      "Gain #b%d #yStrength at the start of each combat. If you have #b%d or fewer relics, gain #b%d more."
     ]
   },
   "Strops:Bolster": {
     "NAME": "Bolster",
     "FLAVOR": "Prepare to face the mighty Bolster!",
     "DESCRIPTIONS": [
-      "If you have #b%d or more relics, gain #b%d #yStrength at the start of combat.",
+      "Gain #b%d #yStrength at the start of each combat. If you have #b%d or more relics, gain #b%d more.",
       "",
       "",
       "",
@@ -85,7 +85,7 @@
     "NAME": "Sunflower in A Summer",
     "FLAVOR": "That sky, that summer.",
     "DESCRIPTIONS": [
-      "Upon pickup, choose one: Change all the #y? rooms in the second Act into #yCampfire ones; ADDITIONALLY change all the #yNormal #yEnemy rooms there into #rElite ones; or obtain a special potion.",
+      "Upon pickup, choose one: Change all the #y? rooms in the second Act into #yCampfire ones; ADDITIONALLY change all the #yNormal #yEnemy rooms there into #rElite ones; or obtain #b%d special potion.",
       "Note",
       "This relic will only spawn on Act 1."
     ]
@@ -254,7 +254,7 @@
     "NAME": "Profiteering Merchant",
     "FLAVOR": "The mask seems to get corrupt soon after it came into the Spire.",
     "DESCRIPTIONS": [
-      "Upon pickup, choose one: The Merchant will have all its relics discounted by #b%d%% ; or the Merchant will only sell #yRare relics, but with they discounted by #b%d%%.",
+      "Upon pickup, choose one: The Merchant will have all its relics discounted by #b%d%% ; or the Merchant will only sell #yRare relics, but with them discounted by #b%d%%.",
       "Note",
       "This relic won't spawn in shops or on Act 4."
     ]
@@ -270,16 +270,16 @@
     "NAME": "Profiteering Merchant (Achieved)",
     "FLAVOR": "You chose to dress the Merchant in it.",
     "DESCRIPTIONS": [
-      "Replaces #yProfiteering #yMerchant. The Merchant will only sell #yRare relics, but with they discounted by #b%d%%."
+      "Replaces #yProfiteering #yMerchant. The Merchant will only sell #yRare relics, but with them discounted by #b%d%%."
     ]
   },
   "Strops:ToxicLump": {
     "NAME": "Toxic Lump",
     "FLAVOR": "Don’t say it’s toxic. Just say it’s kind of mysterious, will you?",
     "DESCRIPTIONS": [
-      "During a combat, for every #b%d HP lost while you're in #yWrath, gain #b%d Max HP at the end of the combat. NL This works at most 5 times for each combat.",
+      "During a combat, for every #b%d HP lost while you're in #yWrath, gain #b%d Max HP at the end of the combat.",
       "Note",
-      "This relic won't spawn on Act 4."
+      "1. This relic won't spawn on Act 4. NL 2. This works at most #r5 times for each combat."
     ]
   },
   "Strops:PlagueStopwatch": {
@@ -547,7 +547,7 @@
     "NAME": "Ice Generator",
     "FLAVOR": "Watching it makes you uncontrollably recall the charming figure of northern winter.",
     "DESCRIPTIONS": [
-      "Upon pickup, choose one: Heal all of your HP at the start of each Act as well as immediately; or lose #r%d Max HP and #r%d HP successively, and obtain a special potion.",
+      "Upon pickup, choose one: Heal all of your HP at the start of each Act as well as immediately; or lose #r%d Max HP and #r%d HP successively, and obtain #b%d special potion.",
       "Note",
       "This relic won't spawn at Neow or on Act 4."
     ]
@@ -614,7 +614,7 @@
     "DESCRIPTIONS": [
       "#ystrops:Evade the #b%dth and #b%dth attacks you receive each combat.",
       "Note",
-      "1. This relic generally won't spawn at Spear & Shield. NL 2. You can set a 3rd match value (N3) in mod config.",
+      "1. This relic generally won't spawn at Spear & Shield. NL 2. You can set a 3rd match value (S1) in mod config.",
       "",
       "",
       "#ystrops:Evade the #b%dth, #b%dth and #b%dth attacks you receive each combat."
@@ -670,7 +670,7 @@
     "NAME": "Generosity Charm",
     "FLAVOR": "It only has a low price, but it's said to be able to effectively raise the happiness of its owner.",
     "DESCRIPTIONS": [
-      "Common, uncommon and rare relic rewards now provide one choice out of #b%d, and Boss relic rewards now provide one choice out of #b%d.",
+      "Common, uncommon and rare relic rewards now provide one choice of #b%d, and Boss relic rewards now provide one choice of #b%d.",
       "Note",
       "1. This relic won't spawn at Spear & Shield. NL 2. Any non-Boss relic that has not been chosen will return to the randomizing pool."
     ]
@@ -709,7 +709,7 @@
     "NAME": "Minoshiro Modoki",
     "FLAVOR": "A leftover from an ancient civilization, you're not sure if opening it will get you cursed.",
     "DESCRIPTIONS": [
-      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]enable/disable NL At the start of each combat, copy all of the cards in your deck, except #yBasic and #rCurse ones, into the draw pile. These copies cost #b%d less until played."
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]enable/disable NL At the start of each combat, copy all of the cards in your deck, except #yBasic ones, into the draw pile. These copies cost #b%d less until played."
     ]
   },
   "Strops:HermitsPockets": {
@@ -732,7 +732,7 @@
     "NAME": "Sword of Feast and Famine",
     "FLAVOR": "Its instructions read “Famine or feast, humans decide.”",
     "DESCRIPTIONS": [
-      "Upon pickup, gain #b%d Potion slot, brewing a #yFrugal #yPotion and a #yGreedy #yPotion.",
+      "Upon pickup, gain #b%d Potion slot, brewing #b%d #yFrugal #yPotion and #b%d #yGreedy #yPotion.",
       "Note",
       "This relic won't spawn in shops or on Act 4.",
       "",
@@ -770,7 +770,14 @@
     "NAME": "Turbolens",
     "FLAVOR": "Through it, you seem to be able to catch a glimpse of rusty lakescape somewhere unknown out of Spire.",
     "DESCRIPTIONS": [
-      "During a combat, every #b%d time you play a card while the difference between your current Energy and hand size is greater than #b%d, draw #b%d card."
+      "At the end of each turn, #yExhaust #b%d random #yStatus or #rCurse in your discard pile. During each combat, If you ever gain #b%d Energy while having lost #b%d or less Energy, this gets significantly boosted.",
+      "",
+      "",
+      "",
+      "",
+      "For this combat, at the start and end of each turn, #yExhaust ALL #yStatuses and #rCurses in your hand, draw pile and discard pile.",
+      "For this combat, at the end of each turn, #yExhaust #b%d random #yStatus or #rCurse in your discard pile.",
+      "1"
     ]
   },
   "Strops:BlackRabbit": {
@@ -783,7 +790,8 @@
       "",
       "",
       "Choose cards to downgrade",
-      "Choose cards to upgrade (at most #b%d)"
+      "Choose cards to upgrade (at most #b%d)",
+      "Upon pickup, #yUpgrade #b%d random cards. NL "
     ]
   },
   "Strops:StroopsTester": {
@@ -806,7 +814,7 @@
     "NAME": "Wedgue",
     "FLAVOR": "What’s past is... wedgue?",
     "DESCRIPTIONS": [
-      "Upon pickup, choose a particular Cost, Type or Rarity and #rBecome #rCursed #r- #rAscender's #rBane. At the start of each turn, add a random card in the draw pile or discard pile into your hand that corresponds to your choice (the draw pile has priority), and #yRetain it for that turn.",
+      "Upon pickup, choose a particular Cost, Type or Rarity and #rBecome #rCursed #r- #r%d #rAscender's #rBane. At the start of each turn, add a random card in the draw pile or discard pile into your hand that corresponds to your choice (the draw pile has priority), and #yRetain it for that turn.",
       "",
       "",
       "",
@@ -853,7 +861,7 @@
     "NAME": "Striker's Veil",
     "FLAVOR": "No use is a good use.",
     "DESCRIPTIONS": [
-      "Whenever you receive an attack, reveal the top card of your draw pile. If it's an #yAttack that costs #b%d or more, put it into the discard pile and #ystrops:Evade this attack."
+      "Whenever you receive an attack, reveal the top #b%d cards of your draw pile. If there are any #yAttacks that cost #b%d or more, put the top one into the discard pile and #ystrops:Evade this attack."
     ]
   },
   "Strops:FishingNet": {
@@ -895,7 +903,10 @@
     "DESCRIPTIONS": [
       "Whenever you would end a combat during the #b%dth - #b%dth turn, end it at the end of the #b%dth turn instead. If you shuffle #b%d time or less during a combat ended this way, add an #yAbacus to the combat's reward.",
       "Note",
-      "This relic will only spawn on Act 1 & 2."
+      "This relic will only spawn on Act 1 & 2.",
+      "",
+      "",
+      ", I like You!"
     ]
   },
   "Strops:CirculatingLightAndColorShifter": {
@@ -918,7 +929,7 @@
     "NAME": "Banishing Mace",
     "FLAVOR": "Bears the power to forget all, including itself.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn, and add a #yRoaimg #yStrike into your hand."
+      "Gain [E] at the start of your turn, and add a #yRoaming #yStrike into your hand."
     ]
   },
   "Strops:ZhelpRoamingStrike": {
@@ -932,7 +943,7 @@
     "NAME": "The Owl",
     "FLAVOR": "Walkers stop to talk, but its tracks in the dark night seem constantly inaccessible.",
     "DESCRIPTIONS": [
-      "During a combat, for every #b%d non- #yAttacks you played, draw #b%d card. For every #b%d cards in your draw pile, hand and discard pile, the threshold is lowered by 1 (to minimum 1)."
+      "During a combat, for every #b%d #ySkills you played, draw #b%d card. For every #b%d cards in your draw pile, hand and discard pile, the threshold is lowered by 1 (to minimum 1)."
     ]
   },
   "Strops:ShammyPeach": {

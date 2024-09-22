@@ -103,7 +103,7 @@ public class PhoenixGift extends StropsAbstractRelic {
         initializeTips();
     }
 
-    static boolean isAct3Boss() {
+    public static boolean isAct3Boss() {
         return AbstractDungeon.actNum == 3 && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss;
     }
 }

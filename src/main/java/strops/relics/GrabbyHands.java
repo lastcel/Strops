@@ -35,10 +35,10 @@ public class GrabbyHands extends StropsAbstractRelic implements ClickableRelic, 
     private AbstractDungeon.CurrentScreen prevScreen;
     private AbstractRoom.RoomPhase prevPhase;
 
-    public static final int NUM1=1,NUM2=3;
+    public static final int NUM1=1,NUM2=4;
 
     public static final IntSliderSetting SIZE=new IntSliderSetting("GrabbyHands_Size", "N1", NUM1, 1,3);
-    public static final IntSliderSetting LATENCY=new IntSliderSetting("GrabbyHands_Latency", "N2", NUM2, 1,7);
+    public static final IntSliderSetting LATENCY=new IntSliderSetting("GrabbyHands_Latency", "N2", NUM2, 1,9);
     public static final IntSliderSetting MH=new IntSliderSetting("GrabbyHands_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("GrabbyHands_G","G",0,-100,100);
     public ArrayList<RelicSetting> BuildRelicSettings() {

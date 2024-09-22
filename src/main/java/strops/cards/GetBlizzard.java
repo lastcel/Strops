@@ -58,7 +58,9 @@ public class GetBlizzard extends AbstractStropsCard {
             }
         }
         if(canGet){
-            AbstractDungeon.player.obtainPotion(PotionHelper.getPotion(Blizzard.POTION_ID));
+            for(int i=0;i<IceGenerator.BOTTLE.value;i++){
+                AbstractDungeon.player.obtainPotion(PotionHelper.getPotion(Blizzard.POTION_ID));
+            }
         }
 
         if(AbstractDungeon.getCurrRoom().phase==AbstractRoom.RoomPhase.INCOMPLETE){

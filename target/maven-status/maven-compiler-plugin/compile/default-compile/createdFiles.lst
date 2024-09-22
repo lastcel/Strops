@@ -10,12 +10,14 @@ strops\patch\PatchRestrainedHeart$PatchTool5.class
 strops\patch\PatchSwordOfFeastAndFamine$PatchTool1.class
 strops\patch\PatchDecanter$PatchTool37.class
 strops\patch\PatchBambooDragonflyOfHanyuHorner.class
+strops\actions\WedgueRemoveRetainAction.class
 strops\patch\PatchNoNameForNow5$PatchTool1.class
 strops\potions\AbstractStropsPotion.class
 strops\relics\FilmStarryCurtain.class
 strops\patch\PatchReturnToHandInUseCardAction$PatchTool$Locator.class
 strops\patch\PatchGrabbyHands$PatchTool8.class
 strops\utilities\ShammyPeachButton.class
+strops\patch\PatchSoulCannon$PatchTool8.class
 strops\actions\SpawnMonsterAction.class
 strops\cards\DoAddEnvenom.class
 strops\relics\GlassRod.class
@@ -27,10 +29,10 @@ strops\actions\AtriAction.class
 strops\patch\PatchDecanter$PatchTool32.class
 strops\patch\PatchDarkEnergyLantern$PatchTool3.class
 strops\patch\PatchGrassNowAndFlowersThen$PatchTool2.class
+strops\actions\ManiacalAction.class
 strops\potions\Blizzard.class
 strops\actions\WedgueRetainAction.class
 strops\cards\ChoosePower.class
-strops\patch\PatchLemonade$PatchTool1.class
 strops\relics\ProfiteeringMerchant.class
 strops\relics\GoneWithTheFlow.class
 strops\patch\PatchGlowFeather$PatchTool3$1.class
@@ -64,9 +66,11 @@ strops\relics\RestrainedHeart.class
 strops\relics\StackedPlate.class
 strops\patch\PatchMessyPuppy$PatchTool2.class
 strops\patch\PatchManiacal$PatchTool1.class
+strops\patch\PatchTurbolens.class
 strops\patch\PatchSoulCannon$PatchTool3.class
 strops\utilities\RelicSetting.class
 strops\relics\ZhelpFrostTalents.class
+strops\patch\PatchTurbolens$PatchTool2.class
 strops\cards\PartScrapper.class
 strops\patch\PatchBindings$PatchTool3.class
 strops\patch\PatchReturnToHandInUseCardAction.class
@@ -91,6 +95,8 @@ strops\powers\RegisterPower.class
 strops\relics\SeaOfMoon.class
 strops\patch\PatchBindings$PatchTool2.class
 strops\patch\PatchSoulCraft$PatchTool3.class
+strops\patch\PatchTurbolens$PatchTool1.class
+strops\actions\FTLEnginesAction.class
 strops\relics\Register.class
 strops\patch\PatchGlowFeather$PatchTool20.class
 strops\cards\ChooseCommon.class
@@ -102,6 +108,7 @@ strops\patch\PatchTranscendence.class
 strops\potions\FrugalPotion.class
 strops\patch\PatchRegister$PatchTool3.class
 strops\patch\PatchSoulCannon$PatchTool7.class
+strops\actions\FTLEnginesAction$1.class
 strops\patch\PatchExitPhase$PatchTool1.class
 strops\patch\PatchDecanter$PatchTool28.class
 strops\patch\PatchDecanter$PatchTool33.class
@@ -181,7 +188,6 @@ strops\patch\PatchHearthsMores$PatchTool1.class
 strops\patch\PatchGlowFeather$PatchTool15.class
 strops\relics\WhiteDClips.class
 strops\patch\PatchRestrainedHeart$PatchTool4.class
-strops\utilities\FloatSliderSetting.class
 strops\cards\OneHuge.class
 strops\patch\PatchRestrainedHeart$PatchTool9.class
 strops\patch\PatchGrassNowAndFlowersThen$PatchTool1.class
@@ -226,6 +232,7 @@ strops\patch\PatchZan$1.class
 strops\patch\PatchDecanter$PatchTool14.class
 strops\cards\ChooseSkill.class
 strops\relics\SoulStitch.class
+strops\patch\PatchDepartmentStore$PatchTool6.class
 strops\patch\PatchGrassNowAndFlowersThen.class
 strops\patch\PatchBigBangBell$PatchTool1.class
 strops\relics\SquirrelsRelief.class
@@ -316,6 +323,7 @@ strops\patch\PatchExitPhase.class
 strops\patch\PatchRenderAndCheck$PatchTool1.class
 strops\actions\GeneralDrawPileToHandAction.class
 strops\patch\PatchVanillaBottles$PatchTool1.class
+strops\patch\PatchFTLEngines$PatchTool2.class
 strops\patch\PatchRibbon$PatchTool1.class
 strops\relics\HermitsTiara.class
 strops\patch\PatchTranscendence$PatchTool2.class
@@ -431,6 +439,7 @@ strops\patch\PatchHearthsMores.class
 strops\patch\PatchGlowFeather$PatchTool4.class
 strops\patch\PatchRegister$PatchTool1.class
 strops\relics\CirculatingLightAndColorShifter$Angle.class
+strops\patch\PatchTurbolens$PatchTool3.class
 strops\patch\PatchRestrainedHeart$PatchTool20.class
 strops\relics\NeuronSight.class
 strops\patch\PatchBindings$PatchTool4.class
@@ -464,6 +473,7 @@ strops\utilities\RelicSelectScreen.class
 strops\modcore\Strops.class
 strops\patch\PatchSquirrelsRelief$PatchTool1.class
 strops\patch\PatchBambooDragonflyOfHanyuHorner$PatchTool1.class
+strops\actions\FTLEnginesAction$2.class
 strops\patch\PatchBindings$PatchTool1.class
 strops\relics\CirculatingLightAndColorShifter$1.class
 strops\patch\PatchBlackRabbit$PatchTool1.class
@@ -481,6 +491,7 @@ strops\relics\DepartmentStore.class
 strops\patch\PatchGlassRod$PatchTool4.class
 strops\powers\FireTalentsPower.class
 strops\patch\PatchSoulCannon$PatchTool4.class
+strops\patch\PatchFTLEngines$PatchTool3.class
 strops\patch\PatchDecanter$PatchTool20.class
 strops\patch\PatchGrabbyHands$PatchTool7.class
 strops\relics\Atri.class

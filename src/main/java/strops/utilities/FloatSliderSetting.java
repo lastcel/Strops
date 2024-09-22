@@ -1,3 +1,4 @@
+/*
 package strops.utilities;
 
 import basemod.IUIElement;
@@ -81,3 +82,5 @@ public class FloatSliderSetting extends RelicSetting {
     }
 
 }
+
+ */

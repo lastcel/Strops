@@ -2,6 +2,7 @@ package strops.relics;
 
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.PotionHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import strops.helpers.ModHelper;
 import strops.patch.PatchGrassNowAndFlowersThen;
@@ -53,9 +54,20 @@ public class Lemonade extends StropsAbstractRelic{
         }
     }
 
+    @Override
     public void onVictory() {
-        counter=(++counter)%COMBAT.value;
         isUsed=false;
+
+        if(!PhoenixGift.isAct3Boss()){
+            counter=(++counter)%COMBAT.value;
+        }
+        if(counter==0){
+            flash();
+            stopPulse();
+            for(int i = 0; i < POTION.value; i++){
+                AbstractDungeon.getCurrRoom().addPotionToRewards(PotionHelper.getPotion("Energy Potion"));
+            }
+        }
         if(counter==COMBAT.value-1){
             beginLongPulse();
         }
@@ -84,6 +96,7 @@ public class Lemonade extends StropsAbstractRelic{
                 COMBAT.value, POTION.value);
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], ENERGY.value, DRAW.value,

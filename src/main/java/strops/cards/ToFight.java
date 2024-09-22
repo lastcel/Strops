@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.helpers.ModHelper;
 import strops.potions.PhantasmalShootingStar;
 import strops.relics.Decanter;
+import strops.relics.SunflowerInASummer;
 
 public class ToFight extends CustomCard {
     public static final String ID = ModHelper.makePath(ToFight.class.getSimpleName());
@@ -47,7 +48,9 @@ public class ToFight extends CustomCard {
             }
         }
         if(canGet){
-            AbstractDungeon.player.obtainPotion(PotionHelper.getPotion(PhantasmalShootingStar.POTION_ID));
+            for(int i=0;i< SunflowerInASummer.BOTTLE.value;i++){
+                AbstractDungeon.player.obtainPotion(PotionHelper.getPotion(PhantasmalShootingStar.POTION_ID));
+            }
         }
 
         if(AbstractDungeon.getCurrRoom().phase== AbstractRoom.RoomPhase.INCOMPLETE){

@@ -1,5 +1,7 @@
 package strops.relics;
 
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -46,31 +48,32 @@ public class SanityMaintenanceApparatus extends StropsAbstractRelic {
         onEquipMods(MH,G);
     }
 
-    public int currhp;
-
     @Override
     public int onLoseHpLast(int damageAmount){
-        currhp=AbstractDungeon.player.currentHealth;
+        int currhp=AbstractDungeon.player.currentHealth;
 
         if(!(AbstractDungeon.getCurrRoom() instanceof MonsterRoom) ||
                 (AbstractDungeon.getCurrRoom() instanceof MonsterRoomElite) ||
                 (AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss)){
-            return  damageAmount;
+            return damageAmount;
         }
         if(currhp<THRESHOLD.value){
             return damageAmount;
         }
-        if((damageAmount==0)||(damageAmount<=currhp-THRESHOLD.value)){
+        if(damageAmount<=currhp-THRESHOLD.value){
             return damageAmount;
         }
         flash();
+        addToBot(new RelicAboveCreatureAction(AbstractDungeon.player,this));
         return (currhp - THRESHOLD.value);
     }
 
+    @Override
     public String getUpdatedDescription() {
         return String.format(this.DESCRIPTIONS[0], THRESHOLD.value);
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], THRESHOLD.value));

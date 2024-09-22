@@ -665,7 +665,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
             }
             @Override
             public String glowID() {
-                return "strops:VanillaDeckCheck@Glow";
+                return "Strops:VanillaDeckCheck@Glow";
             }
         });
     }

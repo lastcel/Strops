@@ -66,7 +66,7 @@ public class TheOwl extends StropsAbstractRelic{
 
     @Override
     public void onUseCard(AbstractCard targetCard, UseCardAction useCardAction){
-        if(targetCard.type!=AbstractCard.CardType.ATTACK){
+        if(targetCard.type==AbstractCard.CardType.SKILL){
             secondCounter++;
         }
 

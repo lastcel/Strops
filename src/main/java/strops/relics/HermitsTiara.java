@@ -19,17 +19,19 @@ public class HermitsTiara extends StropsAbstractRelic {
     //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static final int NUM1=9,NUM2=3,TIER=3;
+    public static final int NUM1=8,NUM2=1,NUM3=2,TIER=3;
 
     public static final IntSliderSetting THRESHOLD = new IntSliderSetting("HermitsTiara_Threshold", "N1", NUM1, 2,12);
-    public static final IntSliderSetting BONUS = new IntSliderSetting("HermitsTiara_Bonus", "N2", NUM2, 1,5);
+    public static final IntSliderSetting BASE = new IntSliderSetting("HermitsTiara_Base", "N2", NUM2, 5);
+    public static final IntSliderSetting EXTRA = new IntSliderSetting("HermitsTiara_Extra", "N3", NUM3, 5);
     public static final IntSliderSetting MH=new IntSliderSetting("HermitsTiara_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("HermitsTiara_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("HermitsTiara_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
-        settings.add(BONUS);
+        settings.add(BASE);
+        settings.add(EXTRA);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -67,20 +69,26 @@ public class HermitsTiara extends StropsAbstractRelic {
 
     @Override
     public void atBattleStart(){
+        int total=BASE.value;
         if(counter<=THRESHOLD.value){
+            total+=EXTRA.value;
+        }
+        if(total>0){
             flash();
-            addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, BONUS.value), BONUS.value));
+            addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, total), total));
             addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         }
     }
 
+    @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0], THRESHOLD.value, BONUS.value);
+        return String.format(this.DESCRIPTIONS[0], BASE.value, THRESHOLD.value, EXTRA.value);
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0], THRESHOLD.value, BONUS.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0], BASE.value, THRESHOLD.value, EXTRA.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;

@@ -45,8 +45,12 @@ public class PatchSwordOfFeastAndFamine {
         @SpireInsertPatch(rloc = 33)
         public static void Insert(CombatRewardScreen __inst) {
             if(SwordOfFeastAndFamine.isSwordReady){
-                __inst.rewards.add(new RewardItem(new FrugalPotion()));
-                __inst.rewards.add(new RewardItem(new GreedyPotion()));
+                for(int i=0;i<SwordOfFeastAndFamine.BOTTLE_FRUGAL.value;i++){
+                    __inst.rewards.add(new RewardItem(new FrugalPotion()));
+                }
+                for(int i=0;i<SwordOfFeastAndFamine.BOTTLE_GREEDY.value;i++){
+                    __inst.rewards.add(new RewardItem(new GreedyPotion()));
+                }
                 SwordOfFeastAndFamine.isSwordReady=false;
             }
         }

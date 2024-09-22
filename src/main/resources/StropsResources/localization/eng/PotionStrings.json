@@ -21,7 +21,7 @@
   "Strops:GreedyPotion": {
     "NAME": "Greedy Potion",
     "DESCRIPTIONS": [
-      "At battle start, turn your #yGold #b%d%% as much as before and gain two #yWeaks #b%d time, two #yFrail #b%d time and two #yVulnerable #b%d time. NL When discarded, turn your #yGold #b%d%% as much as before."
+      "At battle start, turn your #yGold #b%d%% as much as before and gain two #yWeak #b%d time, two #yFrail #b%d time and two #yVulnerable #b%d time. NL When discarded, turn your #yGold #b%d%% as much as before."
     ]
   }
 }

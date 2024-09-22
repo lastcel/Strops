@@ -1,6 +1,7 @@
 package strops.patch;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.saveAndContinue.SaveAndContinue;
@@ -97,6 +98,22 @@ public class PatchSoulCannon {
         @SpireInsertPatch(rloc=3)
         public static void Insert() {
             PatchTool1.notUsedCannonTurn.set(0);
+        }
+    }
+
+    @SpirePatch(
+            clz= GameActionManager.class,
+            method="getNextAction"
+    )
+    public static class PatchTool8 {
+        @SpireInsertPatch(rloc = 185)
+        public static void Insert(GameActionManager __inst) {
+            for(AbstractRelic r:AbstractDungeon.player.relics){
+                if(AbstractStropsCard.CANNON_RELICS.contains(r.relicId)){
+                    r.onTrigger();
+                    break;
+                }
+            }
         }
     }
 }

@@ -51,12 +51,14 @@ F:\Strops\src\main\java\strops\relics\VolcanicCryster.java
 F:\Strops\src\main\java\strops\actions\AtriAction.java
 F:\Strops\src\main\java\strops\relics\GrassNowAndFlowersThen.java
 F:\Strops\src\main\java\strops\relics\RestrainedHeart.java
+F:\Strops\src\main\java\strops\actions\FTLEnginesAction.java
 F:\Strops\src\main\java\strops\vfx\ObtainRelicLater.java
 F:\Strops\src\main\java\strops\patch\PatchStrongestPotion.java
 F:\Strops\src\main\java\strops\patch\PatchSwordOfFeastAndFamine.java
 F:\Strops\src\main\java\strops\cards\ToEscape.java
 F:\Strops\src\main\java\strops\patch\PatchNoNameForNow4.java
 F:\Strops\src\main\java\strops\relics\SoulCannon.java
+F:\Strops\src\main\java\strops\patch\PatchTurbolens.java
 F:\Strops\src\main\java\strops\patch\PatchLightningStorm.java
 F:\Strops\src\main\java\strops\relics\FTLEngines.java
 F:\Strops\src\main\java\strops\utilities\IntSliderSetting.java
@@ -184,6 +186,7 @@ F:\Strops\src\main\java\strops\relics\ProfiteeringMerchantAchieved.java
 F:\Strops\src\main\java\strops\relics\BanishingMace.java
 F:\Strops\src\main\java\strops\patch\PatchMessyPuppy.java
 F:\Strops\src\main\java\strops\actions\FastDamageAction.java
+F:\Strops\src\main\java\strops\actions\WedgueRemoveRetainAction.java
 F:\Strops\src\main\java\strops\vfx\ShowCardEffect.java
 F:\Strops\src\main\java\strops\powers\FireTalentsPower.java
 F:\Strops\src\main\java\strops\powers\RegisterPower.java
@@ -244,6 +247,7 @@ F:\Strops\src\main\java\strops\cardmods\CardModDecreaseCostUntilPlayed.java
 F:\Strops\src\main\java\strops\patch\PatchRenderAndCheck.java
 F:\Strops\src\main\java\strops\relics\Leviboard.java
 F:\Strops\src\main\java\strops\utilities\ExtendedCardSave.java
+F:\Strops\src\main\java\strops\actions\ManiacalAction.java
 F:\Strops\src\main\java\strops\cards\ThreeTiny.java
 F:\Strops\src\main\java\strops\potions\FrugalPotion.java
 F:\Strops\src\main\java\strops\patch\PatchLemonade.java

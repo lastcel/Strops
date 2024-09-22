@@ -54,6 +54,10 @@ public class SoulCannon extends StropsAbstractRelic implements ClickableRelic {
             return;
         }
 
+        if(AbstractDungeon.screen==AbstractDungeon.CurrentScreen.GRID||AbstractDungeon.screen==AbstractDungeon.CurrentScreen.CARD_REWARD){
+            return;
+        }
+
         InputHelper.moveCursorToNeutralPosition();
         ArrayList<AbstractCard> typeChoices = new ArrayList<>();
         typeChoices.add(new OneTiny());

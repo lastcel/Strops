@@ -22,15 +22,17 @@ public class SunflowerInASummer extends StropsAbstractRelic {
     //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static final int NUM1=20,TIER=2;
+    public static final int NUM1=1,NUM2=20,TIER=2;
 
-    public static final IntSliderSetting BONUS=new IntSliderSetting("Iriya_Bonus_v0.12.0","10xN1",NUM1,11,30);
+    public static final IntSliderSetting BOTTLE=new IntSliderSetting("Iriya_Bottle","N1", NUM1,1,5);
+    public static final IntSliderSetting BONUS=new IntSliderSetting("Iriya_Bonus_v0.12.0","10xS1", NUM2,11,30);
     //public static final IntSliderSetting ISELITELIZE=new IntSliderSetting("Iriya_IsElitelize_v0.12.5","B1",0,1);
     public static final IntSliderSetting MH=new IntSliderSetting("Iriya_MH_v0.12.0","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Iriya_G_v0.12.0","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("Iriya_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
+        settings.add(BOTTLE);
         settings.add(BONUS);
         //settings.add(ISELITELIZE);
         settings.add(MH);
@@ -65,6 +67,7 @@ public class SunflowerInASummer extends StropsAbstractRelic {
         AbstractDungeon.cardRewardScreen.chooseOneOpen(iriyaChoices);
     }
 
+    @Override
     public boolean canSpawn() {
         return  AbstractDungeon.actNum == 1 ;
     }
@@ -81,13 +84,15 @@ public class SunflowerInASummer extends StropsAbstractRelic {
 
      */
 
+    @Override
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
+        return String.format(this.DESCRIPTIONS[0],BOTTLE.value);
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(this.DESCRIPTIONS[0]);
+        str_out.add(String.format(this.DESCRIPTIONS[0],BOTTLE.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         str_out.add(this.DESCRIPTIONS[1]);

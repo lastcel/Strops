@@ -94,6 +94,7 @@ public class MyMoveCardsAction extends AbstractGameAction {
     }
 
     public void update() {
+        //Strops.logger.info("时长="+duration+"，isDone="+isDone);
         if (this.duration == Settings.ACTION_DUR_MED) {
             if (this.isSpecific) {
                 moveCards();

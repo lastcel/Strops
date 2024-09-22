@@ -27,10 +27,11 @@ public class IceGenerator extends StropsAbstractRelic implements CustomSavable<B
     public boolean isHealToFull=false;
     //public static AbstractRoom.RoomPhase previousPhase;
 
-    public static final int NUM1=12,NUM2=8,TIER=3;
+    public static final int NUM1=12,NUM2=8,NUM3=1,TIER=3;
 
     public static final IntSliderSetting MAXHP_PENALTY=new IntSliderSetting("IceGenerator_MaxHp_Penalty", "N1", NUM1, 20);
     public static final IntSliderSetting HP_PENALTY=new IntSliderSetting("IceGenerator_Hp_Penalty", "N2", NUM2, 20);
+    public static final IntSliderSetting BOTTLE=new IntSliderSetting("IceGenerator_Bottle", "N3", NUM3, 1,3);
     public static final IntSliderSetting MH=new IntSliderSetting("IceGenerator_MH_v0.12.0","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("IceGenerator_G_v0.12.0","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("IceGenerator_R","R", TIER,0,5);
@@ -38,6 +39,7 @@ public class IceGenerator extends StropsAbstractRelic implements CustomSavable<B
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MAXHP_PENALTY);
         settings.add(HP_PENALTY);
+        settings.add(BOTTLE);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -91,13 +93,13 @@ public class IceGenerator extends StropsAbstractRelic implements CustomSavable<B
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0], MAXHP_PENALTY.value, HP_PENALTY.value);
+        return String.format(this.DESCRIPTIONS[0], MAXHP_PENALTY.value, HP_PENALTY.value, BOTTLE.value);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0], MAXHP_PENALTY.value, HP_PENALTY.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0], MAXHP_PENALTY.value, HP_PENALTY.value, BOTTLE.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         str_out.add(this.DESCRIPTIONS[1]);

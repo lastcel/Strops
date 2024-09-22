@@ -20,12 +20,14 @@ public class FishingNet extends StropsAbstractRelic implements OnLoseTempHpRelic
     private static final String IMG_PATH_O = ModHelper.makeOPath(FishingNet.class.getSimpleName());
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
+    public boolean firstTurn=true;
+
     public static final int NUM1=2,NUM2=15,NUM3=5,NUM4=10,TIER=3;
 
     public static final IntSliderSetting CARDS=new IntSliderSetting("FishingNet_Cards","N1", NUM1,1,5);
     public static final IntSliderSetting INITIAL=new IntSliderSetting("FishingNet_Initial","N2", NUM2,30);
     public static final IntSliderSetting UP_REGULATE=new IntSliderSetting("FishingNet_Up-regulate","N3", NUM3,10);
-    public static final IntSliderSetting DOWN_REGULATE=new IntSliderSetting("FishingNet_Down-regulate","N4", NUM4,10);
+    public static final IntSliderSetting DOWN_REGULATE=new IntSliderSetting("FishingNet_Down-regulate","N4", NUM4,20);
     public static final IntSliderSetting MH=new IntSliderSetting("FishingNet_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("FishingNet_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("FishingNet_R","R", TIER,0,5);
@@ -54,10 +56,20 @@ public class FishingNet extends StropsAbstractRelic implements OnLoseTempHpRelic
     }
 
     @Override
+    public void atPreBattle(){
+        firstTurn=true;
+    }
+
+    @Override
     public void atBattleStart(){
         secondCounter=0;
         if(counter>0){
             grayscale=true;
+        } else {
+            AbstractPlayer p=AbstractDungeon.player;
+            flash();
+            addToTop(new MyMoveCardsAction(p.discardPile, p.drawPile, CARDS.value,false));
+            addToTop(new RelicAboveCreatureAction(p,this));
         }
     }
 
@@ -66,6 +78,7 @@ public class FishingNet extends StropsAbstractRelic implements OnLoseTempHpRelic
         secondCounter+=damageAmount;
         if(secondCounter>=counter){
             grayscale=false;
+            flash();
         }
     }
 
@@ -74,6 +87,7 @@ public class FishingNet extends StropsAbstractRelic implements OnLoseTempHpRelic
         secondCounter+=damageAmount;
         if(secondCounter>=counter){
             grayscale=false;
+            flash();
         }
 
         return damageAmount;
@@ -96,6 +110,11 @@ public class FishingNet extends StropsAbstractRelic implements OnLoseTempHpRelic
 
     @Override
     public void atTurnStart(){
+        if(firstTurn){
+            firstTurn=false;
+            return;
+        }
+
         if(!grayscale){
             AbstractPlayer p=AbstractDungeon.player;
             flash();

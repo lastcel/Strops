@@ -13,7 +13,7 @@ import strops.relics.Leviboard;
 
 public class PatchLeviboard {
 
-    public static boolean savedWingedConnection;
+    //public static boolean savedWingedConnection;
 
     @SpirePatch(
             clz = MapRoomNode.class,

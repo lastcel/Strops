@@ -22,7 +22,7 @@ public class ProfiteeringMerchant extends StropsAbstractRelic{
     //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static final int NUM1=30,NUM2=40,TIER=2;
+    public static final int NUM1=35,NUM2=40,TIER=2;
 
     public static final IntSliderSetting DISCOUNT_ATTEMPTED=new IntSliderSetting("PM_Discount_Attempted_2", "N1",NUM1, 21,60);
     public static final IntSliderSetting DISCOUNT_ACHIEVED=new IntSliderSetting("PM_Discount_Achieved_2", "N2", NUM2, 70);

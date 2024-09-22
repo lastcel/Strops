@@ -22,15 +22,19 @@ public class SwordOfFeastAndFamine extends StropsAbstractRelic{
 
     public static boolean isSwordReady=false;
 
-    public static final int NUM1=1,TIER=2;
+    public static final int NUM1=1,NUM2=1,NUM3=1,TIER=2;
 
-    public static final IntSliderSetting SLOTS=new IntSliderSetting("SoFaF_Slots","N1", NUM1,2);
+    public static final IntSliderSetting SLOTS=new IntSliderSetting("SoFaF_Slots","N1", NUM1,4);
+    public static final IntSliderSetting BOTTLE_FRUGAL=new IntSliderSetting("SoFaF_Bottle_Frugal","N2", NUM2,2);
+    public static final IntSliderSetting BOTTLE_GREEDY=new IntSliderSetting("SoFaF_Bottle_Greedy","N3", NUM3,2);
     public static final IntSliderSetting MH=new IntSliderSetting("SoFaF_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("SoFaF_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("SoFaF_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(SLOTS);
+        settings.add(BOTTLE_FRUGAL);
+        settings.add(BOTTLE_GREEDY);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -57,12 +61,20 @@ public class SwordOfFeastAndFamine extends StropsAbstractRelic{
             AbstractDungeon.combatRewardScreen.open(this.DESCRIPTIONS[5]);
             (AbstractDungeon.getCurrRoom()).rewardPopOutTimer = 0.0F;
             AbstractDungeon.combatRewardScreen.rewards.removeIf(r -> r.type == RewardItem.RewardType.CARD);
-            AbstractDungeon.combatRewardScreen.rewards.add(new RewardItem(new FrugalPotion()));
-            AbstractDungeon.combatRewardScreen.rewards.add(new RewardItem(new GreedyPotion()));
+            for(int i=0;i<BOTTLE_FRUGAL.value;i++){
+                AbstractDungeon.combatRewardScreen.rewards.add(new RewardItem(new FrugalPotion()));
+            }
+            for (int i=0;i<BOTTLE_GREEDY.value;i++){
+                AbstractDungeon.combatRewardScreen.rewards.add(new RewardItem(new GreedyPotion()));
+            }
             AbstractDungeon.combatRewardScreen.positionRewards();
         } else if(AbstractDungeon.combatRewardScreen.rewards.stream().noneMatch(r->r.relic==this)){
-            AbstractDungeon.combatRewardScreen.rewards.add(new RewardItem(new FrugalPotion()));
-            AbstractDungeon.combatRewardScreen.rewards.add(new RewardItem(new GreedyPotion()));
+            for(int i=0;i<BOTTLE_FRUGAL.value;i++){
+                AbstractDungeon.combatRewardScreen.rewards.add(new RewardItem(new FrugalPotion()));
+            }
+            for (int i=0;i<BOTTLE_GREEDY.value;i++){
+                AbstractDungeon.combatRewardScreen.rewards.add(new RewardItem(new GreedyPotion()));
+            }
             AbstractDungeon.combatRewardScreen.positionRewards();
         } else {
             isSwordReady=true;
@@ -71,13 +83,13 @@ public class SwordOfFeastAndFamine extends StropsAbstractRelic{
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0],SLOTS.value);
+        return String.format(this.DESCRIPTIONS[0],SLOTS.value,BOTTLE_FRUGAL.value,BOTTLE_GREEDY.value);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0],SLOTS.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0],SLOTS.value,BOTTLE_FRUGAL.value,BOTTLE_GREEDY.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         str_out.add(this.DESCRIPTIONS[1]);

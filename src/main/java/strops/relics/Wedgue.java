@@ -41,13 +41,15 @@ public class Wedgue extends StropsAbstractRelic implements CustomSavable<Wedgue.
         COST,TYPE,RARITY
     }
 
-    public static final int TIER=4;
+    public static final int NUM1=1,TIER=4;
 
+    public static final IntSliderSetting PENALTY=new IntSliderSetting("Wedgue_Penalty","N1", NUM1,3);
     public static final IntSliderSetting MH=new IntSliderSetting("Wedgue_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Wedgue_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("Wedgue_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
+        settings.add(PENALTY);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -76,8 +78,10 @@ public class Wedgue extends StropsAbstractRelic implements CustomSavable<Wedgue.
     public void onEquip(){
         onEquipMods(MH,G);
 
-        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new AscendersBane(),
-                Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+        for(int i=0;i<PENALTY.value;i++){
+            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new AscendersBane(),
+                    Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+        }
 
         InputHelper.moveCursorToNeutralPosition();
         ArrayList<AbstractCard> wedgueChoices = new ArrayList<>();
@@ -219,13 +223,13 @@ public class Wedgue extends StropsAbstractRelic implements CustomSavable<Wedgue.
 
     @Override
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
+        return String.format(this.DESCRIPTIONS[0],PENALTY.value);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(this.DESCRIPTIONS[0]);
+        str_out.add(String.format(this.DESCRIPTIONS[0],PENALTY.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;

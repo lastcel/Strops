@@ -17,19 +17,21 @@ public class StrikersVeil extends StropsAbstractRelic{
     private static final String IMG_PATH_O = ModHelper.makeOPath(StrikersVeil.class.getSimpleName());
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
-    public AbstractCard card=null;
+    public ArrayList<AbstractCard> cards=new ArrayList<>();
     public float timer;
     public static float DURATION=1.0f;
     public boolean inTurn;
 
-    public static final int NUM1=2,TIER=1;
+    public static final int NUM1=2,NUM2=2,TIER=1;
 
-    public static final IntSliderSetting THRESHOLD=new IntSliderSetting("StrikersVeil_Threshold","N1", NUM1,3);
+    public static final IntSliderSetting REVEAL=new IntSliderSetting("StrikersVeil_Reveal","N1", NUM1,1,5);
+    public static final IntSliderSetting THRESHOLD=new IntSliderSetting("StrikersVeil_Threshold","N2", NUM2,3);
     public static final IntSliderSetting MH=new IntSliderSetting("StrikersVeil_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("StrikersVeil_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("StrikersVeil_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
+        settings.add(REVEAL);
         settings.add(THRESHOLD);
         settings.add(MH);
         settings.add(G);
@@ -72,7 +74,7 @@ public class StrikersVeil extends StropsAbstractRelic{
         if(/*card!=null&&*/inTurn){
             timer+=Gdx.graphics.getDeltaTime();
             if(timer>=DURATION){
-                card=null;
+                cards.clear();
                 inTurn=false;
             }
         }
@@ -80,25 +82,25 @@ public class StrikersVeil extends StropsAbstractRelic{
 
     @Override
     public void renderAndCheck(SpriteBatch sb){
-        if(card!=null){
-            card.render(sb);
+        for(AbstractCard c:cards){
+            c.render(sb);
         }
     }
 
     @Override
     public void onVictory(){
-        card=null;
+        cards.clear();
     }
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0],THRESHOLD.value);
+        return String.format(this.DESCRIPTIONS[0], REVEAL.value, THRESHOLD.value);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0],THRESHOLD.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0], REVEAL.value, THRESHOLD.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;

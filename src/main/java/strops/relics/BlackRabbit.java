@@ -1,12 +1,16 @@
 package strops.relics;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import strops.helpers.ModHelper;
 import strops.patch.PatchBigBangBell;
 import strops.patch.PatchGlassRod;
@@ -16,6 +20,9 @@ import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSetting;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class BlackRabbit extends StropsAbstractRelic implements ClickableRelic {
     public static final String ID = ModHelper.makePath(BlackRabbit.class.getSimpleName());
@@ -32,13 +39,15 @@ public class BlackRabbit extends StropsAbstractRelic implements ClickableRelic {
     private final CardGroup onResult = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
     int numCards;
 
-    public static final int TIER=1;
+    public static final int NUM1=0,TIER=1;
 
+    public static final IntSliderSetting UPGRADABLE=new IntSliderSetting("BlackRabbit_Upgradable","S1", NUM1,5);
     public static final IntSliderSetting MH=new IntSliderSetting("BlackRabbit_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("BlackRabbit_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("BlackRabbit_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
+        settings.add(UPGRADABLE);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -55,17 +64,49 @@ public class BlackRabbit extends StropsAbstractRelic implements ClickableRelic {
     @Override
     public void onEquip(){
         onEquipMods(MH,G);
+
+        if(UPGRADABLE.value>0) {
+            ArrayList<AbstractCard> upgradableCards = new ArrayList<>();
+            List<AbstractCard> upgradeReadyCards;
+            for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+                if (c.canUpgrade()){
+                    upgradableCards.add(c);
+                }
+            }
+            Collections.shuffle(upgradableCards, new Random(AbstractDungeon.miscRng.randomLong()));
+            upgradeReadyCards=upgradableCards.subList(0,UPGRADABLE.value);
+
+            for (AbstractCard c : upgradeReadyCards) {
+                if (c.canUpgrade()) {
+                    float x = MathUtils.random(0.1F, 0.9F) * Settings.WIDTH;
+                    float y = MathUtils.random(0.2F, 0.8F) * Settings.HEIGHT;
+                    AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(c
+                            .makeStatEquivalentCopy(), x, y));
+                    AbstractDungeon.topLevelEffects.add(new UpgradeShineEffect(x, y));
+                    c.upgrade();
+                    AbstractDungeon.player.bottledCardUpgradeCheck(c);
+                }
+            }
+        }
     }
 
     @Override
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
+        if(UPGRADABLE.value==0){
+            return this.DESCRIPTIONS[0];
+        }
+        return String.format(DESCRIPTIONS[7], UPGRADABLE.value)+DESCRIPTIONS[0];
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(this.DESCRIPTIONS[0]);
+        if(UPGRADABLE.value==0){
+            str_out.add(this.DESCRIPTIONS[0]);
+        } else {
+            str_out.add(String.format(DESCRIPTIONS[7], UPGRADABLE.value)+DESCRIPTIONS[0]);
+        }
+
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         str_out.add(this.DESCRIPTIONS[1]);

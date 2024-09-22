@@ -7,9 +7,9 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import strops.helpers.ModHelper;
 import strops.relics.Decanter;
 import strops.relics.DepartmentStore;
+import strops.relics.Turbolens;
 
 public class PatchDepartmentStore {
 
@@ -53,7 +53,7 @@ public class PatchDepartmentStore {
             boolean isTired=false;
             if(!PatchTool1.isInRecharge.get(AbstractDungeon.player)&&(EnergyPanel.totalCount==0)){
                 for (AbstractRelic r : AbstractDungeon.player.relics) {
-                    if (r.relicId.equals(ModHelper.makePath(DepartmentStore.class.getSimpleName()))) {
+                    if (r.relicId.equals(DepartmentStore.ID)) {
                         r.flash();
                         isTired=true;
                         break;
@@ -83,7 +83,7 @@ public class PatchDepartmentStore {
             boolean isTired=false;
             if(!PatchTool1.isInRecharge.get(AbstractDungeon.player)&&(EnergyPanel.totalCount==0)){
                 for (AbstractRelic r : AbstractDungeon.player.relics) {
-                    if (r.relicId.equals(ModHelper.makePath(DepartmentStore.class.getSimpleName()))) {
+                    if (r.relicId.equals(DepartmentStore.ID)) {
                         r.flash();
                         isTired=true;
                         break;
@@ -98,6 +98,28 @@ public class PatchDepartmentStore {
                     r2.flash();
                 } else {
                     AbstractDungeon.actionManager.addToBottom(new PressEndTurnButtonAction());
+                }
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz= EnergyPanel.class,
+            method="useEnergy"
+    )
+    public static class PatchTool6{
+        @SpirePostfixPatch
+        public static void Prefix(int e){
+            for(AbstractRelic r:AbstractDungeon.player.relics){
+                if(r.relicId.equals(Turbolens.ID)){
+                    if(((Turbolens)r).isBoosted||((Turbolens)r).isFrozen){
+                        break;
+                    }
+                    ((Turbolens)r).secondCounter+=Math.min(e,EnergyPanel.totalCount);
+                    if(((Turbolens)r).secondCounter>Turbolens.LOSS_MAX.value){
+                        ((Turbolens)r).freeze();
+                    }
+                    break;
                 }
             }
         }

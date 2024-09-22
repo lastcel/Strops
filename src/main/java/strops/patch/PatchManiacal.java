@@ -19,7 +19,7 @@ public class PatchManiacal {
         public static void Insert(AbstractMonster __inst, DamageInfo info, int damageAmount) {
             for(AbstractRelic r:AbstractDungeon.player.relics){
                 if(r.relicId.equals(Maniacal.ID)){
-                    ((Maniacal)r).onThisAttack(info,damageAmount,__inst);
+                    ((Maniacal)r).onThisAttack(damageAmount,__inst);
                     break;
                 }
             }

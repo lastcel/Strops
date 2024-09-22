@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import strops.relics.AmorphousMass;
 import strops.relics.PhoenixGift;
 
@@ -53,7 +52,7 @@ public class PatchPhoenixGift {
                         if(r.counter<0){
                             r.counter=0;
                         }
-                        if(r.counter==0&&!isAct3Boss()){
+                        if(r.counter==0&&!PhoenixGift.isAct3Boss()){
                             for(int i=0;i<PhoenixGift.BONUS.value;i++){
                                 AbstractDungeon.getCurrRoom().addRelicToRewards(AbstractRelic.RelicTier.RARE);
                             }
@@ -80,7 +79,10 @@ public class PatchPhoenixGift {
         }
     }
 
+    /*
     static boolean isAct3Boss() {
         return AbstractDungeon.actNum == 3 && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss;
     }
+
+     */
 }

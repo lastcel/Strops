@@ -96,7 +96,7 @@ public class SoulCannonOneTiny extends StropsAbstractRelic implements ClickableR
     }
 
     @Override
-    public void onPlayerEndTurn() {
+    public void onTrigger() {
         if(!usedThisTurn){
             counter++;
             if(counter>=WARMUP.value){
@@ -114,6 +114,10 @@ public class SoulCannonOneTiny extends StropsAbstractRelic implements ClickableR
 
     @Override
     public void onRightClick() {
+        if(AbstractDungeon.screen==AbstractDungeon.CurrentScreen.GRID||AbstractDungeon.screen==AbstractDungeon.CurrentScreen.CARD_REWARD){
+            return;
+        }
+
         AbstractRoom currRoom = AbstractDungeon.getCurrRoom();
         if ((currRoom != null) && (currRoom.phase != AbstractRoom.RoomPhase.COMBAT)) {
             InputHelper.moveCursorToNeutralPosition();

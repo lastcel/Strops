@@ -4,7 +4,6 @@ package strops.relics;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -75,14 +74,14 @@ public class Maniacal extends StropsAbstractRelic implements ClickableRelic {
         }
     }
 
-    public void onThisAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
+    public void onThisAttack(int damageAmount, AbstractCreature target) {
         if (target.isPlayer)
             return;
         int overkill = damageAmount - target.currentHealth;
         if (overkill <= 0)
             return;
         overkill= MathUtils.floor(overkill*Maniacal.BLOCK_CO.value/10.0f);
-        addToBot(new GainBlockAction(AbstractDungeon.player,AbstractDungeon.player,overkill));
+        addToTop(new GainBlockAction(AbstractDungeon.player,AbstractDungeon.player,overkill));
     }
 
     @Override

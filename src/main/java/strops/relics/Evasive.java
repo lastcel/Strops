@@ -22,7 +22,7 @@ public class Evasive extends StropsAbstractRelic{
 
     public static final IntSliderSetting MATCH_1=new IntSliderSetting("Evasive_Match_1", "N1", NUM1, 1,32);
     public static final IntSliderSetting MATCH_2=new IntSliderSetting("Evasive_Match_2", "N2", NUM2, 1,32);
-    public static final IntSliderSetting MATCH_3=new IntSliderSetting("Evasive_Match_3", "N3", NUM3, 32);
+    public static final IntSliderSetting MATCH_3=new IntSliderSetting("Evasive_Match_3", "S1", NUM3, 32);
     public static final IntSliderSetting MH=new IntSliderSetting("Evasive_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Evasive_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("Evasive_R","R", TIER,0,5);

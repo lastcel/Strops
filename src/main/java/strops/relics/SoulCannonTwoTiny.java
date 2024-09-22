@@ -38,9 +38,9 @@ public class SoulCannonTwoTiny extends StropsAbstractRelic implements ClickableR
     private static final RelicTier RELIC_TIER = RelicTier.SPECIAL;
     private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
-    public static final int NUM1=3,NUM2=15,NUM3=18,NUM4=21,NUM5=27;
+    public static final int NUM1=4,NUM2=15,NUM3=18,NUM4=21,NUM5=27;
 
-    public static final IntSliderSetting COST=new IntSliderSetting("TwoTiny_Cost", "N1", NUM1, 1,10);
+    public static final IntSliderSetting COST=new IntSliderSetting("TwoTiny_Cost", "N1", NUM1, 1,12);
     public static final IntSliderSetting ACT1=new IntSliderSetting("TwoTiny_Act1", "N2", NUM2, 10,50);
     public static final IntSliderSetting ACT2=new IntSliderSetting("TwoTiny_Act2", "N3", NUM3, 12,60);
     public static final IntSliderSetting ACT3=new IntSliderSetting("TwoTiny_Act3", "N4", NUM4, 14,70);
@@ -81,7 +81,7 @@ public class SoulCannonTwoTiny extends StropsAbstractRelic implements ClickableR
     }
 
     @Override
-    public void onPlayerEndTurn() {
+    public void onTrigger() {
         if(!usedThisTurn){
             counter++;
             if(counter>=WARMUP.value){
@@ -99,6 +99,10 @@ public class SoulCannonTwoTiny extends StropsAbstractRelic implements ClickableR
 
     @Override
     public void onRightClick() {
+        if(AbstractDungeon.screen==AbstractDungeon.CurrentScreen.GRID||AbstractDungeon.screen==AbstractDungeon.CurrentScreen.CARD_REWARD){
+            return;
+        }
+
         AbstractRoom currRoom = AbstractDungeon.getCurrRoom();
         if ((currRoom != null) && (currRoom.phase != AbstractRoom.RoomPhase.COMBAT)) {
             InputHelper.moveCursorToNeutralPosition();

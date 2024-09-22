@@ -14,6 +14,8 @@ import strops.relics.Evasive;
 import strops.relics.RainbowColoredCircle;
 import strops.relics.StrikersVeil;
 
+import java.util.ArrayList;
+
 public class PatchRainbowColoredCircle {
 
     @SpirePatch(
@@ -50,8 +52,29 @@ public class PatchRainbowColoredCircle {
                 }
 
                 AbstractPlayer p=AbstractDungeon.player;
-                if(p.hasRelic(StrikersVeil.ID)&&!p.drawPile.group.isEmpty()){
+                ArrayList<AbstractCard> draw=p.drawPile.group;
+                if(p.hasRelic(StrikersVeil.ID)){
                     StrikersVeil sv=(StrikersVeil)p.getRelic(StrikersVeil.ID);
+
+                    sv.cards.clear();
+                    for(int i=0;i<draw.size()&&i<StrikersVeil.REVEAL.value;i++){
+                        AbstractCard tempCard=draw.get(draw.size()-1-i).makeStatEquivalentCopy();
+                        tempCard.current_x=Settings.WIDTH * 0.08F+tempCard.hb.width*i;
+                        tempCard.current_y=Settings.HEIGHT * 0.7F;
+                        tempCard.drawScale=0.5f;
+                        sv.cards.add(tempCard);
+                    }
+                    for(int i=0;i<draw.size()&&i<StrikersVeil.REVEAL.value;i++){
+                        AbstractCard realCard=draw.get(draw.size()-1-i);
+                        if(realCard.type == AbstractCard.CardType.ATTACK &&
+                                (realCard.costForTurn >= StrikersVeil.THRESHOLD.value && !realCard.freeToPlayOnce)){
+                            p.getRelic(StrikersVeil.ID).flash();
+                            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(p, sv));
+                            damageAmount[0]=0;
+                            p.drawPile.moveToDiscardPile(realCard);
+                            break;
+                        }
+                    }
 
                     /*
                     if(sv.card!=null&&p.drawPile.group.contains(sv.card)){
@@ -61,6 +84,7 @@ public class PatchRainbowColoredCircle {
 
                      */
 
+                    /*
                     AbstractCard tempCard=p.drawPile.group.get(p.drawPile.group.size()-1);
                     sv.card=tempCard.makeStatEquivalentCopy();
                     sv.card.current_x=Settings.WIDTH * 0.08F;
@@ -74,6 +98,8 @@ public class PatchRainbowColoredCircle {
                         p.drawPile.moveToDiscardPile(tempCard);
                         //sv.card=null;
                     }
+
+                     */
                 }
             }
         }
