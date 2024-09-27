@@ -418,7 +418,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         try {
             config = new SpireConfig("strops", "stropsSettingsData");
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.info("An exception happened while creating stropsSettingsData!");
         }
 
         Texture badgeTexture = new Texture("StropsResources/img/misc/ModBadge.png");
@@ -683,7 +683,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
             }
             config.save();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.info("An exception happened during strops' saveSettingsData!");
         }
     }
 
@@ -705,7 +705,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
             }
         } catch (IOException e) {
             //logger.error("Failed to load Strops settings data!");
-            e.printStackTrace();
+            logger.info("An exception happened during strops' loadSettingsData!");
         }
         for (StropsAbstractRelic _r : RelicSettings.keySet()) {
             AbstractRelic r = RelicLibrary.getRelic(_r.relicId);
