@@ -15,24 +15,26 @@ public class SquirrelsRelief extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(SquirrelsRelief.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(SquirrelsRelief.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(SquirrelsRelief.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.SHOP;
+    //private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
-    public static final int NUM1=1;
+    public static final int NUM1=2,TIER=5;
 
-    public static final IntSliderSetting BONUS=new IntSliderSetting("SquirrelsRelief_Bonus", "N1", NUM1, 3);
+    public static final IntSliderSetting BONUS=new IntSliderSetting("SquirrelsRelief_Bonus", "N1", NUM1, 4);
     public static final IntSliderSetting MH=new IntSliderSetting("SquirrelsRelief_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("SquirrelsRelief_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("SquirrelsRelief_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(BONUS);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public SquirrelsRelief() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         canCopy=false;
     }

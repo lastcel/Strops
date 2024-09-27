@@ -258,6 +258,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addRelic(new BanishingMace(), RelicType.SHARED);
         BaseMod.addRelic(new TheOwl(), RelicType.SHARED);
         BaseMod.addRelic(new ShammyPeach(), RelicType.SHARED);
+        BaseMod.addRelic(new Catalyst(), RelicType.SHARED);
 
         BaseMod.addRelic(new ZhelpArcaneTalents(), RelicType.SHARED);
         BaseMod.addRelic(new ZhelpFrostTalents(), RelicType.SHARED);
@@ -364,6 +365,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         UnlockTracker.markRelicAsSeen(BanishingMace.ID);
         UnlockTracker.markRelicAsSeen(TheOwl.ID);
         UnlockTracker.markRelicAsSeen(ShammyPeach.ID);
+        UnlockTracker.markRelicAsSeen(Catalyst.ID);
 
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpArcaneTalents.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpFrostTalents.class.getSimpleName()));
@@ -515,6 +517,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BuildSettings(new BanishingMace());
         BuildSettings(new TheOwl());
         BuildSettings(new ShammyPeach());
+        BuildSettings(new Catalyst());
 
         BuildSettings(new ZhelpArcaneTalents());
         BuildSettings(new ZhelpFrostTalents());

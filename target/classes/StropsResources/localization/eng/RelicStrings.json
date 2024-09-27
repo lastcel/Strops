@@ -413,7 +413,7 @@
     "NAME": "Steam Epic",
     "FLAVOR": "I prefer to call it Steam Rare.",
     "DESCRIPTIONS": [
-      "All non- #yStatus non- #rCurse cards that have #yExhaust are #yRetained at the end of turn, and won't get #yExhausted due to #yEthereal."
+      "The first #b%d non- #yStatus non- #rCurse cards with #yExhaust each combat are #yRetained at the end of turn, and won't get #yExhausted due to #yEthereal."
     ]
   },
   "Strops:FTLEngines": {
@@ -556,7 +556,7 @@
     "NAME": "Grabby Hands",
     "FLAVOR": "This is what keeps happening in your group, not in my group!",
     "DESCRIPTIONS": [
-      "Add #b%d additional, unskippable card reward to each combat. After #b%d combats' latency, out of combat, cards obtained this way can be removed arbitrarily from your deck.",
+      "Add #b%d additional, unskippable card reward to each non-Boss combat. After #b%d combats' latency, out of combat, cards obtained this way can be removed arbitrarily from your deck.",
       "Note",
       "[#2aecd7]Right [#2aecd7]click [#2aecd7]this [#2aecd7]relic to remove grabbed cards.",
       "",
@@ -654,7 +654,7 @@
     "NAME": "Squirrels' Relief",
     "FLAVOR": "“The relief is not bad, but I still want to watch how these little animals get moving with my own eyes.”——Ranwid",
     "DESCRIPTIONS": [
-      "All operations on your #yStrength are done equally to your #yDexterity instead. Upon pickup, obtain #b%d #yOddly #ySmooth #yStone."
+      "All operations on your #yStrength are done equally to your #yDexterity instead. Upon pickup, obtain #b%d #yOddly #ySmooth #yStones."
     ]
   },
   "Strops:AutumnColors": {
@@ -709,7 +709,7 @@
     "NAME": "Minoshiro Modoki",
     "FLAVOR": "A leftover from an ancient civilization, you're not sure if opening it will get you cursed.",
     "DESCRIPTIONS": [
-      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]enable/disable NL At the start of each combat, copy all of the cards in your deck, except #yBasic ones, into the draw pile. These copies cost #b%d less until played."
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]enable/disable NL At the start of each combat, copy all of the cards in your deck, except Strike and Defend ones, into the draw pile. These copies cost #b%d less until played."
     ]
   },
   "Strops:HermitsPockets": {
@@ -959,6 +959,18 @@
       "Enter the draw pile. The old hand becomes the new discard pile, and the old discard pile becomes the new draw pile.",
       "To The Discard Pile",
       "Enter the discard pile. The old hand becomes the new draw pile, and the old draw pile becomes the new discard pile."
+    ]
+  },
+  "Strops:Catalyst": {
+    "NAME": "Catalyst",
+    "FLAVOR": "There was originally a switch for handling on the bottle, but it's been broken now.",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose #b%d card in your deck. Whenever you draw this card, draw #b%d more card.",
+      "",
+      "",
+      "",
+      "",
+      "Choose %d card to combine with"
     ]
   }
 }

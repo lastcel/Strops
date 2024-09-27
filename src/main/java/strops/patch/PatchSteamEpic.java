@@ -1,15 +1,15 @@
 package strops.patch;
 
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import strops.helpers.ModHelper;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.relics.SteamEpic;
 
 public class PatchSteamEpic {
 
+    /*
     private static boolean savedIsEthereal;
 
     @SpirePatch(
@@ -37,6 +37,24 @@ public class PatchSteamEpic {
         @SpirePostfixPatch
         public static void Postfix(AbstractCard __inst) {
             __inst.isEthereal=savedIsEthereal;
+        }
+    }
+
+     */
+
+    @SpirePatch(
+            clz= AbstractRoom.class,
+            method="endTurn"
+    )
+    public static class PatchTool1 {
+        @SpireInsertPatch(rloc = 2)
+        public static void Insert(AbstractRoom __inst) {
+            for(AbstractRelic r:AbstractDungeon.player.relics){
+                if(r.relicId.equals(SteamEpic.ID)){
+                    ((SteamEpic)r).onThisTriggered();
+                    break;
+                }
+            }
         }
     }
 }

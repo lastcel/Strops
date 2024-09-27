@@ -25,7 +25,7 @@ public class Maniacal extends StropsAbstractRelic implements ClickableRelic {
     //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
-    public static final int NUM1=30,NUM2=10,NUM3=15,TIER=2;
+    public static final int NUM1=30,NUM2=10,NUM3=13,TIER=2;
 
     public static final IntSliderSetting BLOCK_CO=new IntSliderSetting("Maniacal_Multiplier_Block", "N1/10", NUM1, 10,50);
     public static final IntSliderSetting COST=new IntSliderSetting("Maniacal_Cost", "N2/10", NUM2, 1,10);

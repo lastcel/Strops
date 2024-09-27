@@ -5,7 +5,9 @@ import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.cardmods.CardModDecreaseCostUntilPlayed;
 import strops.helpers.ModHelper;
@@ -13,6 +15,7 @@ import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSetting;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MinoshiroModoki extends StropsAbstractRelic implements ClickableRelic {
     public static final String ID = ModHelper.makePath(MinoshiroModoki.class.getSimpleName());
@@ -39,6 +42,21 @@ public class MinoshiroModoki extends StropsAbstractRelic implements ClickableRel
     public MinoshiroModoki() {
         super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
+        removeStrikeTip();
+    }
+
+    private void removeStrikeTip() {
+        ArrayList<String> strikes = new ArrayList<>();
+        for (String s : GameDictionary.STRIKE.NAMES)
+            strikes.add(s.toLowerCase());
+        for (Iterator<PowerTip> t = this.tips.iterator(); t.hasNext(); ) {
+            PowerTip derp = t.next();
+            String s = derp.header.toLowerCase();
+            if (strikes.contains(s)) {
+                t.remove();
+                break;
+            }
+        }
     }
 
     @Override

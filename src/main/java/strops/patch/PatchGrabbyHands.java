@@ -5,6 +5,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.MonsterRoom;
+import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import com.megacrit.cardcrawl.screens.CombatRewardScreen;
 import com.megacrit.cardcrawl.ui.buttons.SingingBowlButton;
@@ -67,7 +69,9 @@ public class PatchGrabbyHands {
     public static class PatchTool1 {
         @SpireInsertPatch(rloc = 17)
         public static void Insert(CombatRewardScreen __inst) {
-            if(AbstractDungeon.player.hasRelic(GrabbyHands.ID)){
+            if(AbstractDungeon.getCurrRoom() instanceof MonsterRoom &&
+                    !(AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss) &&
+                    AbstractDungeon.player.hasRelic(GrabbyHands.ID)){
                 AbstractDungeon.player.getRelic(GrabbyHands.ID).flash();
                 for(int i=0;i<GrabbyHands.SIZE.value;i++) {
                     RewardItem cardReward2 = new RewardItem();

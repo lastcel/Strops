@@ -103,6 +103,7 @@ strops\cards\ChooseCommon.class
 strops\patch\PatchGlowFeather$PatchTool2.class
 strops\patch\PatchGlowFeather$PatchTool24.class
 strops\patch\PatchIceGenerator$PatchTool2.class
+strops\patch\PatchCatalyst.class
 strops\vfx\ShammyPeachEffect.class
 strops\patch\PatchTranscendence.class
 strops\potions\FrugalPotion.class
@@ -210,6 +211,7 @@ strops\patch\PatchAtri$PatchTool3.class
 strops\relics\RainingRuins$1.class
 strops\patch\PatchDepartmentStore$PatchTool1.class
 strops\relics\Transcendence.class
+strops\patch\PatchCatalyst$PatchTool1.class
 strops\patch\PatchNoNameForNow4$PatchTool4.class
 strops\relics\ProfiteeringMerchantAchieved.class
 strops\patch\PatchSunflowerInASummer$PatchTool2.class
@@ -294,6 +296,7 @@ strops\patch\PatchAtri.class
 strops\patch\PatchNoNameForNow5$PatchTool5.class
 strops\patch\PatchDecanter$PatchTool11.class
 strops\patch\PatchZan$PatchTool5.class
+strops\patch\PatchCatalyst$PatchTool2.class
 strops\utilities\ExtendedSaveFile.class
 strops\patch\PatchDecanter$PatchTool2.class
 strops\patch\PatchGenerosityCharm$CallingBellUpdatePatch.class
@@ -462,7 +465,6 @@ strops\patch\PatchWhiteDClips$PatchTool1.class
 strops\patch\PatchStackableGoldenIdol.class
 strops\patch\PatchIceGenerator$PatchTool3.class
 strops\patch\PatchProfiteeringMerchant$PatchTool4$1.class
-strops\patch\PatchSteamEpic$PatchTool2.class
 strops\modcore\Strops$6.class
 strops\interfaces\IKeyNumber2.class
 strops\relics\HearthsMores.class
@@ -569,6 +571,7 @@ strops\patch\PatchBigBow$PatchTool3.class
 strops\patch\PatchLemonade.class
 strops\patch\PatchZan$PatchTool3.class
 strops\patch\PatchPhoenixGift.class
+strops\relics\Catalyst.class
 strops\patch\PatchDecanter$PatchTool1.class
 strops\patch\PatchGrabbyHands$PatchTool2.class
 strops\patch\PatchSunflowerInASummer.class

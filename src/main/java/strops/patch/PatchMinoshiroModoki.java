@@ -18,7 +18,7 @@ public class PatchMinoshiroModoki {
         @SpireInsertPatch(rloc = 2,localvars = {"copy"})
         public static void Insert(CardGroup __inst, CardGroup copy) {
             CardGroup savedCopy=new CardGroup(copy, CardGroup.CardGroupType.UNSPECIFIED);
-            savedCopy.group.removeIf(c -> c.rarity == AbstractCard.CardRarity.BASIC);
+            savedCopy.group.removeIf(c -> c.hasTag(AbstractCard.CardTags.STARTER_DEFEND) || c.hasTag(AbstractCard.CardTags.STARTER_STRIKE));
 
             for(AbstractRelic r:AbstractDungeon.player.relics){
                 if(r.relicId.equals(MinoshiroModoki.ID)&&!r.grayscale){
