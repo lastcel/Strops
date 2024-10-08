@@ -65,6 +65,10 @@
     "NAME": "大试鸡刀",
     "DESCRIPTION": "变形为 *灵魂加农炮Ⅹ型（大） 。"
   },
+  "Strops:Four": {
+    "NAME": "猫刀",
+    "DESCRIPTION": "变形为 *灵魂加农炮С型 。"
+  },
   "Strops:HealToFull": {
     "NAME": "朝霞",
     "DESCRIPTION": "回复所有生命。 NL 在每一幕开始时，再次回复所有生命。"

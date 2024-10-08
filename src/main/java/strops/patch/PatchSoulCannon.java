@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.saveAndContinue.SaveAndContinue;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 import strops.cards.AbstractStropsCard;
-import strops.relics.SoulCannon;
 import strops.relics.StropsAbstractRelic;
 import strops.utilities.ExtendedSaveFile;
 
@@ -67,7 +66,7 @@ public class PatchSoulCannon {
             //BaseMod.logger.info("加载地牢存档");
             for(AbstractRelic r:AbstractDungeon.player.relics){
                 //BaseMod.logger.info("遗物="+r.name);
-                if(AbstractStropsCard.CANNON_RELICS.contains(r.relicId)&&!r.relicId.equals(SoulCannon.ID)){
+                if(AbstractStropsCard.CANNON_RELICS.contains(r.relicId)){
                     //BaseMod.logger.info("检测到二炮");
                     ((StropsAbstractRelic)r).updateFormat();
                     break;

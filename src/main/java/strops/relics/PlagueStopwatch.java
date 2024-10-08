@@ -36,12 +36,14 @@ public class PlagueStopwatch extends StropsAbstractRelic implements OnAfterUseCa
     public static final IntSliderSetting MH=new IntSliderSetting("PlagueStopwatch_MH_v0.14.3","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("PlagueStopwatch_G_v0.14.3","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("PlagueStopwatch_R_v0.14.3","R", TIER,0,5);
+    public static final IntSliderSetting B1=new IntSliderSetting("PlagueStopwatch_B1","B1", 0,1);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
+        settings.add(B1);
         return settings;
     }
 
@@ -51,7 +53,9 @@ public class PlagueStopwatch extends StropsAbstractRelic implements OnAfterUseCa
         canSpawnInBattle=false;
 
         AbstractCard c=new Envenom();
-        c.upgrade();
+        if(B1.value==0){
+            c.upgrade();
+        }
         this.cardToPreview=c;
     }
 
@@ -96,13 +100,20 @@ public class PlagueStopwatch extends StropsAbstractRelic implements OnAfterUseCa
 
     @Override
     public String getUpdatedDescription() {
+        if(B1.value==1){
+            return String.format(this.DESCRIPTIONS[5], BONUS.value, THRESHOLD.value);
+        }
         return String.format(this.DESCRIPTIONS[0], BONUS.value, THRESHOLD.value);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0], BONUS.value, THRESHOLD.value));
+        if(B1.value==1){
+            str_out.add(String.format(this.DESCRIPTIONS[5], BONUS.value, THRESHOLD.value));
+        } else {
+            str_out.add(String.format(this.DESCRIPTIONS[0], BONUS.value, THRESHOLD.value));
+        }
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;

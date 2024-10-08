@@ -53,6 +53,7 @@ public abstract class StropsAbstractRelic extends CustomRelic {
     public static String format1,format2,format3,format4;
 
     public int secondCounter=-1;
+    public Color color=Color.CYAN;
 
     public StropsAbstractRelic(String id, Texture texture, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx) {
         super(id, texture, tier, sfx);
@@ -372,14 +373,14 @@ public abstract class StropsAbstractRelic extends CustomRelic {
 
                     FontHelper.renderFontRightTopAligned(sb, FontHelper.topPanelInfoFont,
 
-                            Integer.toString(this.secondCounter), offX + this.currentX + 30.0F * Settings.scale, this.currentY + 28.0F * Settings.scale, Color.CYAN);
+                            Integer.toString(this.secondCounter), offX + this.currentX + 30.0F * Settings.scale, this.currentY + 28.0F * Settings.scale, color);
                 } catch (IllegalAccessException|NoSuchFieldException e) {
                     e.printStackTrace();
                 }
             } else {
                 FontHelper.renderFontRightTopAligned(sb, FontHelper.topPanelInfoFont,
 
-                        Integer.toString(this.secondCounter), this.currentX + 30.0F * Settings.scale, this.currentY + 28.0F * Settings.scale, Color.CYAN);
+                        Integer.toString(this.secondCounter), this.currentX + 30.0F * Settings.scale, this.currentY + 28.0F * Settings.scale, color);
             }
         }
     }
@@ -389,8 +390,21 @@ public abstract class StropsAbstractRelic extends CustomRelic {
             return true;
         }
         
-        return Settings.hasRubyKey && Settings.hasSapphireKey &&Settings.hasEmeraldKey;
+        return Settings.hasRubyKey && Settings.hasSapphireKey && Settings.hasEmeraldKey;
     }
 
     public void renderAndCheck(SpriteBatch sb){}
+
+    public static boolean canSpawnCannonFour(){
+        if(SoulCannonFour.UPPER.value==0){
+            return true;
+        }
+        if(SoulCannonFour.UPPER.value==-1){
+            return AbstractDungeon.player.masterDeck.group.stream().filter(c->c.rarity==AbstractCard.CardRarity.RARE).count()<=SoulCannonFour.LOWER.value;
+        }
+        if(SoulCannonFour.LOWER.value>=SoulCannonFour.UPPER.value){
+            return AbstractDungeon.player.masterDeck.group.stream().filter(c->c.rarity==AbstractCard.CardRarity.RARE).count()>=SoulCannonFour.UPPER.value&&AbstractDungeon.player.masterDeck.group.stream().filter(c->c.rarity==AbstractCard.CardRarity.RARE).count()<=SoulCannonFour.LOWER.value;
+        }
+        return AbstractDungeon.player.masterDeck.group.stream().filter(c->c.rarity==AbstractCard.CardRarity.RARE).count()<=SoulCannonFour.LOWER.value||AbstractDungeon.player.masterDeck.group.stream().filter(c->c.rarity==AbstractCard.CardRarity.RARE).count()>=SoulCannonFour.UPPER.value;
+    }
 }

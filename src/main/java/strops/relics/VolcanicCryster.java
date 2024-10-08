@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinWarrior;
+import com.megacrit.cardcrawl.powers.LockOnPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import strops.actions.UsePreBattleActionAction;
 import strops.helpers.ModHelper;
@@ -21,10 +22,11 @@ public class VolcanicCryster extends StropsAbstractRelic{
     private static final String IMG_PATH_O = ModHelper.makeOPath(VolcanicCryster.class.getSimpleName());
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static final int NUM1=29,NUM2=3,TIER=4;
+    public static final int NUM1=33,NUM2=3,NUM3=3,TIER=4;
 
     public static final IntSliderSetting PENALTY=new IntSliderSetting("VolcanicCryster_Penalty", "N1", NUM1, 11,80);
     public static final IntSliderSetting COMPENSATE=new IntSliderSetting("VolcanicCryster_Compensate", "N2", NUM2, -5,7);
+    public static final IntSliderSetting DEFECT=new IntSliderSetting("VolcanicCryster_Compensate_Defect", "N3", NUM3, 30);
     public static final IntSliderSetting MH=new IntSliderSetting("VolcanicCryster_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("VolcanicCryster_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("VolcanicCryster_R","R", TIER,0,5);
@@ -32,6 +34,7 @@ public class VolcanicCryster extends StropsAbstractRelic{
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(PENALTY);
         settings.add(COMPENSATE);
+        settings.add(DEFECT);
         settings.add(MH);
         settings.add(G);
         return settings;
@@ -56,18 +59,18 @@ public class VolcanicCryster extends StropsAbstractRelic{
     @Override
     public String getUpdatedDescription() {
         if(COMPENSATE.value>=0){
-            return String.format(this.DESCRIPTIONS[0], PENALTY.value, COMPENSATE.value);
+            return String.format(this.DESCRIPTIONS[0], PENALTY.value, COMPENSATE.value, DEFECT.value);
         }
-        return String.format(this.DESCRIPTIONS[5], PENALTY.value, -COMPENSATE.value);
+        return String.format(this.DESCRIPTIONS[5], PENALTY.value, -COMPENSATE.value, DEFECT.value);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         if(COMPENSATE.value>=0){
-            str_out.add(String.format(this.DESCRIPTIONS[0], PENALTY.value, COMPENSATE.value));
+            str_out.add(String.format(this.DESCRIPTIONS[0], PENALTY.value, COMPENSATE.value, DEFECT.value));
         } else {
-            str_out.add(String.format(this.DESCRIPTIONS[5], PENALTY.value, -COMPENSATE.value));
+            str_out.add(String.format(this.DESCRIPTIONS[5], PENALTY.value, -COMPENSATE.value, DEFECT.value));
         }
         str_out.add("");
         str_out.add(getMHaG(MH,G));
@@ -94,6 +97,9 @@ public class VolcanicCryster extends StropsAbstractRelic{
             addToBot(new RelicAboveCreatureAction(m, this));
             if(COMPENSATE.value!=0){
                 addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new StrengthPower(m, -COMPENSATE.value), -COMPENSATE.value));
+            }
+            if(DEFECT.value!=0){
+                addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new LockOnPower(m, DEFECT.value), DEFECT.value));
             }
         }
     }

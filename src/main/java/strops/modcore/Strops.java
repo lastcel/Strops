@@ -200,6 +200,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addRelic(new SoulCannonTwoHuge(), RelicType.SHARED);
         BaseMod.addRelic(new SoulCannonThreeTiny(), RelicType.SHARED);
         BaseMod.addRelic(new SoulCannonThreeHuge(), RelicType.SHARED);
+        BaseMod.addRelic(new SoulCannonFour(), RelicType.SHARED);
         BaseMod.addRelic(new Bindings(), RelicType.SHARED);
         BaseMod.addRelic(new WhiteDClips(), RelicType.SHARED);
         BaseMod.addRelic(new RestrainedHeart(), RelicType.GREEN);
@@ -310,6 +311,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(SoulCannonTwoHuge.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(SoulCannonThreeTiny.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(SoulCannonThreeHuge.class.getSimpleName()));
+        UnlockTracker.markRelicAsSeen(SoulCannonFour.ID);
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(Bindings.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(WhiteDClips.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(RestrainedHeart.class.getSimpleName()));
@@ -462,6 +464,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BuildSettings(new SoulCannonTwoHuge());
         BuildSettings(new SoulCannonThreeTiny());
         BuildSettings(new SoulCannonThreeHuge());
+        BuildSettings(new SoulCannonFour());
         BuildSettings(new Bindings());
         BuildSettings(new WhiteDClips());
         BuildSettings(new RestrainedHeart());

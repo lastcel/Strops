@@ -39,6 +39,7 @@ public class Echo extends StropsAbstractRelic implements ClickableRelic {
     public Echo() {
         super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
+        this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
     }
 
     @Override
@@ -131,6 +132,8 @@ public class Echo extends StropsAbstractRelic implements ClickableRelic {
          */
         str_out.add("");
         str_out.add(getMHaG(MH,G));
+        str_out.add(this.DESCRIPTIONS[1]);
+        str_out.add(this.DESCRIPTIONS[2]);
         return str_out;
     }
 
@@ -140,6 +143,12 @@ public class Echo extends StropsAbstractRelic implements ClickableRelic {
         tips.clear();
         tips.add(new PowerTip(name, description));
         showMHaG(MH,G);
+        tips.add(new PowerTip(DESCRIPTIONS[1], DESCRIPTIONS[2]));
         initializeTips();
+    }
+
+    @Override
+    public boolean canSpawn() {
+        return AbstractDungeon.floorNum>=1;
     }
 }

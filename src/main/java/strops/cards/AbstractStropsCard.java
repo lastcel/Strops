@@ -29,7 +29,8 @@ public abstract class AbstractStropsCard extends CustomCard implements IKeyNumbe
             ModHelper.makePath(SoulCannonTwoTiny.class.getSimpleName()),
             ModHelper.makePath(SoulCannonTwoHuge.class.getSimpleName()),
             ModHelper.makePath(SoulCannonThreeTiny.class.getSimpleName()),
-            ModHelper.makePath(SoulCannonThreeHuge.class.getSimpleName())
+            ModHelper.makePath(SoulCannonThreeHuge.class.getSimpleName()),
+            SoulCannonFour.ID
             ));
 
     @Override

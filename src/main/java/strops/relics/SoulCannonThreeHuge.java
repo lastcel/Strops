@@ -112,6 +112,9 @@ public class SoulCannonThreeHuge extends StropsAbstractRelic implements Clickabl
             typeChoices.add(new TwoTiny());
             typeChoices.add(new TwoHuge());
             typeChoices.add(new ThreeTiny());
+            if(canSpawnCannonFour()){
+                typeChoices.add(new Four());
+            }
 
             if(AbstractDungeon.isScreenUp){
                 AbstractDungeon.dynamicBanner.hide();

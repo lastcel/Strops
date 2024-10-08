@@ -13,7 +13,7 @@ public class ZhelpRoamingStrike extends StropsAbstractRelic{
     private static final RelicTier RELIC_TIER = RelicTier.SPECIAL;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    public static final int NUM1=6,NUM2=8;
+    public static final int NUM1=5,NUM2=7;
 
     public static final IntSliderSetting MULTIPLIER_BASE=new IntSliderSetting("RoamingStrike_Multiplier_Base", "N1", NUM1, 10);
     public static final IntSliderSetting MULTIPLIER_UPGRADED=new IntSliderSetting("RoamingStrike_Multiplier_Upgraded", "N2", NUM2, 15);

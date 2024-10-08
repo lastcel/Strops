@@ -113,8 +113,8 @@ public class Catalyst extends StropsAbstractRelic implements
     public void onCardDraw(AbstractCard drawnCard) {
         if(PatchCatalyst.PatchTool1.inCatalyst.get(drawnCard)){
             flash();
-            addToBot(new DrawCardAction(AbstractDungeon.player, DRAW.value));
             addToBot(new RelicAboveCreatureAction(AbstractDungeon.player,this));
+            addToBot(new DrawCardAction(AbstractDungeon.player, DRAW.value));
         }
     }
 

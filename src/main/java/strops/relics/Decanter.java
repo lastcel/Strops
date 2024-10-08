@@ -206,6 +206,10 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
 
     @Override
     public boolean canSpawn(){
+        if(AbstractDungeon.floorNum<1){
+            return false;
+        }
+
         return (float)COMPENSATE_ABLE_RELICS.size()/AbstractDungeon.bossRelicPool.size()>=0.25;
     }
 

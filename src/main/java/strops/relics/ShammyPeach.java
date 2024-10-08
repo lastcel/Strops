@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import strops.helpers.ModHelper;
 import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSetting;
@@ -43,6 +44,7 @@ public class ShammyPeach extends StropsAbstractRelic{
     public ShammyPeach() {
         super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
+        this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;
         buttonDraw=new ShammyPeachButton(true);
         buttonDiscard=new ShammyPeachButton(false);
@@ -122,6 +124,13 @@ public class ShammyPeach extends StropsAbstractRelic{
         str_out.add(String.format(DESCRIPTIONS[0],USABLE.value,BLOCK.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
+        str_out.add(this.DESCRIPTIONS[1]);
+        str_out.add(this.DESCRIPTIONS[2]);
         return str_out;
+    }
+
+    @Override
+    public boolean canSpawn() {
+        return AbstractDungeon.floorNum>=1;
     }
 }

@@ -47,6 +47,7 @@ strops\utilities\Pagination.class
 strops\patch\PatchAtri$PatchTool1.class
 strops\patch\PatchEcho$PatchTool2.class
 strops\patch\PatchGlowFeather$PatchTool11.class
+strops\actions\ReduceCardRewardSizeAction.class
 strops\powers\FrozenPower.class
 strops\relics\RainbowColoredCircle.class
 strops\patch\PatchPhoenixGift$PatchTool3.class
@@ -364,6 +365,7 @@ strops\patch\PatchRestrainedHeart$PatchTool7.class
 strops\patch\PatchStroopsTester.class
 strops\patch\PatchGenerosityCharm$1.class
 strops\relics\DelayedGratification.class
+strops\relics\Gluttony.class
 strops\patch\PatchLuckyStar.class
 strops\patch\PatchDecanter$PatchTool7.class
 strops\relics\ZhelpLightningStorm.class
@@ -384,6 +386,7 @@ strops\patch\PatchLoseRelic$PatchTool3.class
 strops\patch\PatchDecanter$PatchTool34.class
 strops\modcore\Strops$3.class
 strops\patch\PatchDelayedGratification$PatchTool2.class
+strops\relics\SoulCannonFour.class
 strops\patch\PatchRestrainedHeart$PatchTool12.class
 strops\relics\HungrySun.class
 strops\relics\StropsAbstractRelic.class
@@ -391,6 +394,7 @@ strops\patch\PatchGlowFeather$PatchTool9.class
 strops\patch\PatchDecanter$PatchTool27.class
 strops\actions\ExcludeAction.class
 strops\patch\PatchRestrainedHeart$PatchTool25.class
+strops\cards\FinalForm.class
 strops\patch\PatchGlowFeather$PatchTool13.class
 strops\patch\PatchSoulCannon$PatchTool5.class
 strops\cards\RoamingStrike.class
@@ -412,6 +416,7 @@ strops\relics\ChuggingMask.class
 strops\relics\ZhelpRoamingStrike.class
 strops\relics\ClockWithNoHands.class
 strops\patch\PatchDecanter$PatchTool26.class
+strops\relics\IronGrinder.class
 strops\patch\PatchSunflowerInASummer$PatchTool6.class
 strops\patch\PatchGrabbyHands$PatchTool10.class
 strops\patch\PatchRestrainedHeart$PatchTool11.class
@@ -496,6 +501,7 @@ strops\patch\PatchSoulCannon$PatchTool4.class
 strops\patch\PatchFTLEngines$PatchTool3.class
 strops\patch\PatchDecanter$PatchTool20.class
 strops\patch\PatchGrabbyHands$PatchTool7.class
+strops\cards\Four.class
 strops\relics\Atri.class
 strops\patch\PatchGlowFeather$PatchTool4$1.class
 strops\patch\PatchGlowFeather$PatchTool8.class

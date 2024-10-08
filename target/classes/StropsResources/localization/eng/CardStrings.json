@@ -65,6 +65,10 @@
     "NAME": "Rush for a Rooster One",
     "DESCRIPTION": "Changes into *Soul *Cannon *Type-X *Huge."
   },
+  "Strops:Four": {
+    "NAME": "A Cat One",
+    "DESCRIPTION": "Changes into *Soul *Cannon *Type-C."
+  },
   "Strops:HealToFull": {
     "NAME": "The Morning Glow",
     "DESCRIPTION": "Heal all of your HP at the start of each Act as well as immediately."

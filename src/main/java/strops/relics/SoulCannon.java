@@ -66,6 +66,9 @@ public class SoulCannon extends StropsAbstractRelic implements ClickableRelic {
         typeChoices.add(new TwoHuge());
         typeChoices.add(new ThreeTiny());
         typeChoices.add(new ThreeHuge());
+        if(canSpawnCannonFour()){
+            typeChoices.add(new Four());
+        }
 
         if(AbstractDungeon.isScreenUp){
             AbstractDungeon.dynamicBanner.hide();
@@ -80,7 +83,7 @@ public class SoulCannon extends StropsAbstractRelic implements ClickableRelic {
         return String.format(this.DESCRIPTIONS[0],WARMUP.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0],WARMUP.value));

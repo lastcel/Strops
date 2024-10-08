@@ -43,27 +43,31 @@
   },
   "Strops:OneTiny": {
     "NAME": "小試牛刀",
-    "DESCRIPTION": "變形為 *靈魂加農炮Ⅰ型（小）"
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅱ型（小）"
   },
   "Strops:OneHuge": {
     "NAME": "大試牛刀",
-    "DESCRIPTION": "變形為 *靈魂加農炮Ⅰ型（大）"
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅱ型（大）"
   },
   "Strops:TwoTiny": {
     "NAME": "小試蛇刀",
-    "DESCRIPTION": "變形為 *靈魂加農炮Ⅱ型（小）"
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅵ型（小）"
   },
   "Strops:TwoHuge": {
     "NAME": "大試蛇刀",
-    "DESCRIPTION": "變形為 *靈魂加農炮Ⅱ型（大）"
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅵ型（大）"
   },
   "Strops:ThreeTiny": {
     "NAME": "小試雞刀",
-    "DESCRIPTION": "變形為 *靈魂加農炮Ⅲ型（小）"
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅹ型（小）"
   },
   "Strops:ThreeHuge": {
     "NAME": "大試雞刀",
-    "DESCRIPTION": "變形為 *靈魂加農炮Ⅲ型（大）"
+    "DESCRIPTION": "變形為 *靈魂加農炮Ⅹ型（大）"
+  },
+  "Strops:Four": {
+    "NAME": "貓刀",
+    "DESCRIPTION": "變形為 *靈魂加農炮С型"
   },
   "Strops:HealToFull": {
     "NAME": "朝霞",

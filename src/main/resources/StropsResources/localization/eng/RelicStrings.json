@@ -286,7 +286,12 @@
     "NAME": "Plague Stopwatch",
     "FLAVOR": "Since sanguine is such an unpleasant word, we‘re now considering replacing it with plague.",
     "DESCRIPTIONS": [
-      "Upon pickup, you may add #b%d #yEnvenom+ to your deck. For every #b%d cards you play, trigger #yPoison on ALL enemies."
+      "Upon pickup, you may add #b%d #yEnvenom+ to your deck. For every #b%d cards you play, trigger #yPoison on ALL enemies.",
+      "",
+      "",
+      "",
+      "",
+      "Upon pickup, you may add #b%d #yEnvenom to your deck. For every #b%d cards you play, trigger #yPoison on ALL enemies."
     ]
   },
   "Strops:SoulCannon": {
@@ -378,6 +383,20 @@
       "I'm on Act #r4 !"
     ]
   },
+  "Strops:SoulCannonFour": {
+    "NAME": "Soul Cannon Type-C",
+    "FLAVOR": "There was once a time when souls' value could be measured by cobs.",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Right[] [#2aecd7]click[] [#2aecd7]out[] [#2aecd7]of[] [#2aecd7]combat[] [#2aecd7]to[] [#2aecd7]activate[] NL Switch the type! NL [#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL Lose a #yCard #yReward #yPoint this combat to deal damage. On Act 1/2/3, the damage is %s%d / %s%d / %s%d respectively.",
+      "Use Condition",
+      "One usable time per Turn NL Positive #yCard #yReward #yPoint in the current combat NL Earlier than Act #r3 Boss",
+      "",
+      "I've already used that this turn.",
+      "This combat now rewards no cards.",
+      "",
+      "I'm no earlier than Act #r3 Boss!"
+    ]
+  },
   "Strops:Bindings": {
     "NAME": "Bindings",
     "FLAVOR": "Of what?",
@@ -403,7 +422,7 @@
     "DESCRIPTIONS": [
       "Whenever you need to discard during your turn, you may choose to discard one fewer card.",
       "Note",
-      "This only works for unconditional discard. [#2aecd7]Right [#2aecd7]click to switch between ready and unready. NL #ySelective #ydiscard: You're allowed to finish after selecting one fewer card. NL #yAll #ydiscard: You'll be asked which card to keep (optional). NL #yRandom #ydiscard: If this is ready, one fewer card will be discarded automatically.",
+      "This only works for unconditional discard. [#2aecd7]Right [#2aecd7]click to switch between ready and unready. NL #yAll #ydiscard: You'll be asked which card to keep (optional). NL #ySelective #ydiscard: You're allowed to finish after selecting one fewer card. NL #yRandom #ydiscard: If this is ready, one fewer card will be discarded automatically.",
       "",
       "",
       "prevent being discarded"
@@ -431,7 +450,7 @@
     "DESCRIPTIONS": [
       "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL [#ec902a]3 [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Select one of your Boss relics, negating its next one time of penalty effect.",
       "Note",
-      "1. This relic takes an each-specified logic, so it works only for Boss relics in base game and this mod. NL 2. When the penalty comes during a combat, each use of this relic will prevent that throughout the whole combat. NL 3. The relic's usable times are consumed after it finally finishes an instance of negating. NL 4. Please make sure the selection is done before the penalty you care may come.",
+      "1. This relic takes an each-specified logic, so it works only for Boss relics in base game and this mod. NL 2. This relic won't spawn at Neow.",
       "",
       "",
       "Current target: #y%s"
@@ -488,8 +507,8 @@
     "FLAVOR": "It's echoing a red image.",
     "DESCRIPTIONS": [
       "[#2aecd7]Right [#2aecd7]click [#2aecd7]to [#2aecd7]activate NL [#ec902a]%d [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Obtain the last used potion.",
-      "",
-      "",
+      "Note",
+      "This relic won't spawn at Neow.",
       "",
       "",
       "i.e. #y%s"
@@ -624,7 +643,9 @@
     "NAME": "Big Bow",
     "FLAVOR": "Big enough for me to fly with? Whether I’m in a shrine, a student union’s office, or a club room, I’m supposed to have the potential, right?",
     "DESCRIPTIONS": [
-      "Upon pickup, add #b%d #yJust #yLucky to your deck. Whenever you #yScry, draw #b%d card subsequently."
+      "Upon pickup, add #b%d #yJust #yLucky to your deck. Whenever you #yScry, draw #b%d card subsequently.",
+      "Note",
+      "This relic won't spawn at Neow."
     ]
   },
   "Strops:Calculator": {
@@ -654,7 +675,7 @@
     "NAME": "Squirrels' Relief",
     "FLAVOR": "“The relief is not bad, but I still want to watch how these little animals get moving with my own eyes.”——Ranwid",
     "DESCRIPTIONS": [
-      "All operations on your #yStrength are done equally to your #yDexterity instead. Upon pickup, obtain #b%d #yOddly #ySmooth #yStones."
+      "All operations on your #yStrength are done equally to your #yDexterity instead. Upon pickup, obtain #b%d #yOddly #ySmooth #yStone."
     ]
   },
   "Strops:AutumnColors": {
@@ -758,12 +779,12 @@
     "NAME": "Volcanic Cryster",
     "FLAVOR": "“The fire has an undoubtedly immense power, and just be careful not to get yourself incinerated with it.” - Kublai the Great",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. At the start of each combat, spawns a #rMad #rGremlin with #b%d Max HP for the enemy, and makes it lose #b%d #yStrength.",
+      "Gain [E] at the start of your turn. At the start of each combat, spawns a #rMad #rGremlin with #b%d Max HP for the enemy, makes it lose #b%d #yStrength and applies #b%d #yLock-On to it.",
       "",
       "",
       "",
       "",
-      "Gain [E] at the start of your turn. At the start of each combat, spawns a #rMad #rGremlin with #b%d Max HP for the enemy, and makes it gain #b%d #yStrength."
+      "Gain [E] at the start of your turn. At the start of each combat, spawns a #rMad #rGremlin with #b%d Max HP for the enemy, makes it gain #b%d #yStrength and applies #b%d #yLock-On to it."
     ]
   },
   "Strops:Turbolens": {
@@ -798,7 +819,12 @@
     "NAME": "Stroop's Tester",
     "FLAVOR": "[#7fff00]WHITE[] [#000000]pollution,[] [#ffffff]GREEN[] [#000000]eco-friend.[] [#87ceeb]PURPLE[] [#000000]passion,[] [#ee82ee]BLUE[] [#000000]upset.[]",
     "DESCRIPTIONS": [
-      "The first card played each turn that's NOT #yupgraded is played twice. At the start of every #b%d combats, put a #rPride on top of your draw pile."
+      "The first card played each turn that's NOT #yupgraded is played twice. At the start of the later #b%d of every #b%d combats, put a #rPride on top of your draw pile.",
+      "",
+      "",
+      "",
+      "",
+      "1"
     ]
   },
   "Strops:LuckyStar": {
@@ -951,8 +977,8 @@
     "FLAVOR": "May you meet a peach-styled romance next door.",
     "DESCRIPTIONS": [
       "[#2aecd7]Click [#2aecd7]the [#2aecd7]arrows [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL [#ec902a]%d [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Enter the draw pile or the discard pile, forming a new draw pile, hand and discard pile exactly as the original flow direction. Any cards that can't fit in the new hand will end up in the new discard pile, granting you #b%d #yBlock for each.",
-      "",
-      "",
+      "Note",
+      "This relic won't spawn at Neow.",
       "",
       "",
       "To The Draw Pile",

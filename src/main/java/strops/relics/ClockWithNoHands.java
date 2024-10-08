@@ -27,7 +27,7 @@ public class ClockWithNoHands extends StropsAbstractRelic implements CustomSavab
     private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
-    public static final int NUM1=20;
+    public static final int NUM1=25;
 
     public static final IntSliderSetting PENALTY=new IntSliderSetting("Clock_PENALTY", "N1", NUM1, 0,100);
     public static final IntSliderSetting MH=new IntSliderSetting("Clock_MH","MH",0,-20,20);

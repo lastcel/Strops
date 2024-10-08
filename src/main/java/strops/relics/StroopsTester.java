@@ -1,5 +1,7 @@
 package strops.relics;
 
+import basemod.abstracts.CustomSavable;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -16,7 +18,7 @@ import strops.utilities.RelicSetting;
 
 import java.util.ArrayList;
 
-public class StroopsTester extends StropsAbstractRelic{
+public class StroopsTester extends StropsAbstractRelic implements CustomSavable<Integer> {
     public static final String ID = ModHelper.makePath(StroopsTester.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(StroopsTester.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(StroopsTester.class.getSimpleName());
@@ -24,14 +26,16 @@ public class StroopsTester extends StropsAbstractRelic{
 
     private boolean activated = true;
 
-    public static final int NUM1=2,TIER=4;
+    public static final int NUM1=2,NUM2=1,TIER=4;
 
-    public static final IntSliderSetting INTERVAL=new IntSliderSetting("StroopsTester_Interval","N1", NUM1,1,10);
+    public static final IntSliderSetting DUTY=new IntSliderSetting("StroopsTester_Duty","N2", NUM1,10);
+    public static final IntSliderSetting INTERVAL=new IntSliderSetting("StroopsTester_Interval","N1-N2", NUM2,10);
     public static final IntSliderSetting MH=new IntSliderSetting("StroopsTester_MH_v0.16.1","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("StroopsTester_G_v0.16.1","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("StroopsTester_R_v0.16.1","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
+        settings.add(DUTY);
         settings.add(INTERVAL);
         settings.add(MH);
         settings.add(G);
@@ -43,6 +47,7 @@ public class StroopsTester extends StropsAbstractRelic{
         super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         cardToPreview=new Pride();
+        color=Color.SCARLET;
     }
 
     @Override
@@ -52,19 +57,41 @@ public class StroopsTester extends StropsAbstractRelic{
                 Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
 
          */
-        if(INTERVAL.value>1){
-            counter=0;
+        if(DUTY.value==0){
+            return;
+        }
+        if(INTERVAL.value==0){
+            secondCounter=99;
+        } else {
+            counter=INTERVAL.value;
         }
     }
 
     @Override
+    public Integer onSave(){
+        return secondCounter;
+    }
+
+    @Override
+    public void onLoad(Integer savedSecondCounter){
+        secondCounter=savedSecondCounter;
+    }
+
+    @Override
     public void atBattleStartPreDraw(){
-        counter++;
-        if(counter!=INTERVAL.value){
+        if(DUTY.value==0){
             return;
         }
 
-        counter=0;
+        if(counter>0){
+            counter--;
+            return;
+        }
+
+        if(INTERVAL.value>0){
+            secondCounter--;
+        }
+
         if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
                 ((Decanter)AbstractDungeon.player.getRelic(Decanter.ID))
                         .relicToDisenchant.equals(StroopsTester.ID)){
@@ -78,14 +105,36 @@ public class StroopsTester extends StropsAbstractRelic{
     }
 
     @Override
+    public void onVictory(){
+        if(DUTY.value==0){
+            return;
+        }
+
+        if(counter==0){
+            counter=-1;
+            secondCounter=DUTY.value;
+        } else if(secondCounter==0){
+            secondCounter=-1;
+            counter=INTERVAL.value;
+        }
+    }
+
+    @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0],INTERVAL.value);
+        if(DESCRIPTIONS[5].equals("1")){
+            return String.format(this.DESCRIPTIONS[0],DUTY.value,DUTY.value+INTERVAL.value);
+        }
+        return String.format(this.DESCRIPTIONS[0],DUTY.value+INTERVAL.value,DUTY.value);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0],INTERVAL.value));
+        if(DESCRIPTIONS[5].equals("1")){
+            str_out.add(String.format(this.DESCRIPTIONS[0],DUTY.value,DUTY.value+INTERVAL.value));
+        } else {
+            str_out.add(String.format(this.DESCRIPTIONS[0],DUTY.value+INTERVAL.value,DUTY.value));
+        }
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;

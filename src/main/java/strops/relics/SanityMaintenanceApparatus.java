@@ -1,6 +1,7 @@
 package strops.relics;
 
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -48,7 +49,7 @@ public class SanityMaintenanceApparatus extends StropsAbstractRelic {
     }
 
     @Override
-    public int onLoseHpLast(int damageAmount){
+    public int onAttackedToChangeDamage(DamageInfo info, int damageAmount){
         int currhp=AbstractDungeon.player.currentHealth;
 
         if(!(AbstractDungeon.getCurrRoom() instanceof MonsterRoom) ||

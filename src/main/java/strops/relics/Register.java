@@ -40,7 +40,7 @@ public class Register extends StropsAbstractRelic implements ClickableRelic {
     public static float centerX = (wid-width)/2;
     public static float centerY = (hei-height*1.2f);
 
-    public static final int NUM1=2,NUM2=1,NUM3=10,TIER=3;
+    public static final int NUM1=2,NUM2=1,NUM3=10,TIER=2;
 
     public static final IntSliderSetting THRESHOLD=new IntSliderSetting("Register_Threshold","N1", NUM1,1,10);
     public static final IntSliderSetting PENALTY=new IntSliderSetting("Register_Penalty","N2", NUM2,5);

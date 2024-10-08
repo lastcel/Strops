@@ -113,6 +113,9 @@ public class SoulCannonTwoTiny extends StropsAbstractRelic implements ClickableR
             typeChoices.add(new TwoHuge());
             typeChoices.add(new ThreeTiny());
             typeChoices.add(new ThreeHuge());
+            if(canSpawnCannonFour()){
+                typeChoices.add(new Four());
+            }
 
             if(AbstractDungeon.isScreenUp){
                 AbstractDungeon.dynamicBanner.hide();

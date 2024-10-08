@@ -6,6 +6,7 @@ F:\Strops\src\main\java\strops\relics\Ribbon.java
 F:\Strops\src\main\java\strops\actions\RibbonAction.java
 F:\Strops\src\main\java\strops\relics\SteamEpic.java
 F:\Strops\src\main\java\strops\patch\PatchPhoenixGift.java
+F:\Strops\src\main\java\strops\relics\Gluttony.java
 F:\Strops\src\main\java\strops\patch\PatchRestrainedHeart.java
 F:\Strops\src\main\java\strops\relics\BlackRabbit.java
 F:\Strops\src\main\java\strops\patch\PatchRainbowColoredCircle.java
@@ -79,6 +80,7 @@ F:\Strops\src\main\java\strops\cards\Zero.java
 F:\Strops\src\main\java\strops\relics\StrongestPotion.java
 F:\Strops\src\main\java\strops\patch\PatchExtraBossRelicExtraPatch.java
 F:\Strops\src\main\java\strops\relics\MessyPuppy.java
+F:\Strops\src\main\java\strops\relics\IronGrinder.java
 F:\Strops\src\main\java\strops\relics\SoulCannonTwoHuge.java
 F:\Strops\src\main\java\strops\relics\Calculator.java
 F:\Strops\src\main\java\strops\actions\EndBattleAction.java
@@ -144,6 +146,7 @@ F:\Strops\src\main\java\strops\patch\PatchLuckyStar.java
 F:\Strops\src\main\java\strops\relics\IcyTouch.java
 F:\Strops\src\main\java\strops\modcore\Strops.java
 F:\Strops\src\main\java\strops\relics\GlassRod.java
+F:\Strops\src\main\java\strops\relics\SoulCannonFour.java
 F:\Strops\src\main\java\strops\patch\PatchSoulCraft.java
 F:\Strops\src\main\java\strops\patch\PatchExtraBossRelic.java
 F:\Strops\src\main\java\strops\relics\SoulCannonTwoTiny.java
@@ -157,6 +160,7 @@ F:\Strops\src\main\java\strops\actions\SteamEpicAction.java
 F:\Strops\src\main\java\strops\patch\PatchGenerosityCharm.java
 F:\Strops\src\main\java\strops\utilities\MonsterReviveInfo.java
 F:\Strops\src\main\java\strops\potions\Blizzard.java
+F:\Strops\src\main\java\strops\cards\FinalForm.java
 F:\Strops\src\main\java\strops\relics\MinoshiroModoki.java
 F:\Strops\src\main\java\strops\relics\ZhelpRoamingStrike.java
 F:\Strops\src\main\java\strops\patch\PatchSoulStitch.java
@@ -225,6 +229,7 @@ F:\Strops\src\main\java\strops\patch\PatchLeviboard.java
 F:\Strops\src\main\java\strops\cards\Strike.java
 F:\Strops\src\main\java\strops\cards\ChooseCost.java
 F:\Strops\src\main\java\strops\patch\PatchChuggingMask.java
+F:\Strops\src\main\java\strops\cards\Four.java
 F:\Strops\src\main\java\strops\relics\ZhelpArcaneTalents.java
 F:\Strops\src\main\java\strops\relics\HermitsTiara.java
 F:\Strops\src\main\java\strops\powers\FrozenPower.java
@@ -232,6 +237,7 @@ F:\Strops\src\main\java\strops\cards\Choose1Cost.java
 F:\Strops\src\main\java\strops\cards\ChooseAchievedVersion.java
 F:\Strops\src\main\java\strops\patch\PatchExitPhase.java
 F:\Strops\src\main\java\strops\relics\SquirrelsRelief.java
+F:\Strops\src\main\java\strops\actions\ReduceCardRewardSizeAction.java
 F:\Strops\src\main\java\strops\patch\PatchClockWithNoHands.java
 F:\Strops\src\main\java\strops\patch\PatchIceGenerator.java
 F:\Strops\src\main\java\strops\cards\FireTalents.java
