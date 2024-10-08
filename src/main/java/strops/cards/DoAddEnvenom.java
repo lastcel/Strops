@@ -35,7 +35,7 @@ public class DoAddEnvenom extends CustomCard {
     public void onChoseThisOption() {
         for(int i=0;i<PlagueStopwatch.BONUS.value;i++){
             AbstractCard c=new Envenom();
-            if(PlagueStopwatch.B1.value!=0){
+            if(PlagueStopwatch.B1.value==0){
                 c.upgrade();
             }
 
