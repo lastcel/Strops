@@ -29,5 +29,17 @@
     "DESCRIPTIONS": [
       "在死亡时，以下牌会被放回你的手牌："
     ]
+  },
+  "Strops:SkipPlayerTurnPower": {
+    "NAME": "跳过玩家回合",
+    "DESCRIPTIONS": [
+      "跳过你接下来的 #b%d 个回合。"
+    ]
+  },
+  "Strops:SuspendedGoldPower": {
+    "NAME": "重器孤悬",
+    "DESCRIPTIONS": [
+      "#b%d 回合后的回合结束时，获得 #b%d #y金币 。"
+    ]
   }
 }

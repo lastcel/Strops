@@ -18,7 +18,7 @@ public class Bindings extends StropsAbstractRelic implements OnAfterUseCardRelic
     private static final String IMG_PATH = ModHelper.makeIPath(Bindings.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(Bindings.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
     public static final int NUM1=1,NUM2=3,NUM3=1,TIER=1;
 
@@ -87,7 +87,7 @@ public class Bindings extends StropsAbstractRelic implements OnAfterUseCardRelic
         return String.format(this.DESCRIPTIONS[0], THRESHOLD.value, BONUS.value, DRAWBACK.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], THRESHOLD.value, BONUS.value, DRAWBACK.value));

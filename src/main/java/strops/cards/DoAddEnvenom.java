@@ -28,6 +28,10 @@ public class DoAddEnvenom extends CustomCard {
     public DoAddEnvenom(){
         super(ID, NAME, IMG_PATH, -2, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber=this.baseMagicNumber=PlagueStopwatch.BONUS.value;
+        if(PlagueStopwatch.B1.value==0){
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            initializeDescription();
+        }
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {}

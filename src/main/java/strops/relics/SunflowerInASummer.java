@@ -20,7 +20,7 @@ public class SunflowerInASummer extends StropsAbstractRelic {
     private static final String IMG_PATH = ModHelper.makeIPath(SunflowerInASummer.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(SunflowerInASummer.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
     public static final int NUM1=1,NUM2=20,TIER=2;
 

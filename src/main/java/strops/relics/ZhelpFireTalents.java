@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class ZhelpFireTalents extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(ZhelpFireTalents.class.getSimpleName());
-    private static final String IMG_PATH = ModHelper.makeIPath(ZhelpFireTalents.class.getSimpleName());
+    //private static final String IMG_PATH = ModHelper.makeIPath(ZhelpFireTalents.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.SPECIAL;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
@@ -37,7 +37,7 @@ public class ZhelpFireTalents extends StropsAbstractRelic {
     }
 
     public ZhelpFireTalents() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(TOOL_PATH), RELIC_TIER, LANDING_SOUND);
     }
 
     @Override

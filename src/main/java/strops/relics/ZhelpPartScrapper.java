@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class ZhelpPartScrapper extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(ZhelpPartScrapper.class.getSimpleName());
-    private static final String IMG_PATH = ModHelper.makeIPath(ZhelpPartScrapper.class.getSimpleName());
+    //private static final String IMG_PATH = ModHelper.makeIPath(ZhelpPartScrapper.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.SPECIAL;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
@@ -26,7 +26,7 @@ public class ZhelpPartScrapper extends StropsAbstractRelic{
     }
 
     public ZhelpPartScrapper() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(TOOL_PATH), RELIC_TIER, LANDING_SOUND);
     }
 
     @Override

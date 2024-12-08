@@ -18,7 +18,7 @@ public class IcyTouch extends StropsAbstractRelic {
     private static final String IMG_PATH = ModHelper.makeIPath(IcyTouch.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(IcyTouch.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
     public static final int NUM1=3,NUM2=1,TIER=2;
 

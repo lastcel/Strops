@@ -31,7 +31,8 @@
   },
   "Strops:DoAddEnvenom": {
     "NAME": "惡毒即力量",
-    "DESCRIPTION": "將 M 張 *塗毒+ 加入你的牌組"
+    "DESCRIPTION": "將 M 張 *塗毒 加入你的牌組",
+    "UPGRADE_DESCRIPTION": "將 M 張 *塗毒+ 加入你的牌組"
   },
   "Strops:DoNothing": {
     "NAME": "無視即溫柔",
@@ -175,5 +176,9 @@
     "NAME": "漫遊打擊",
     "DESCRIPTION": "造成當前幕數 M 倍的傷害 NL 獲得 [E] NL 消耗",
     "UPGRADE_DESCRIPTION": " NL （造成 D 點傷害）"
+  },
+  "Strops:FinalForm": {
+    "NAME": "最終形態",
+    "DESCRIPTION": "造成 D 點傷害 NL 獲得 B 點 格擋 NL 獲得 M *金幣 NL 第 !Strops:KN1! 回合結束時，獲得 !Strops:KN2! *金幣 NL 跳過你的下個回合 NL 消耗"
   }
 }

@@ -105,7 +105,7 @@ public class PainsReward extends StropsAbstractRelic{
 
     @Override
     public boolean canSpawn() {
-        return ( Settings.isEndless || (AbstractDungeon.actNum <= 3) );
+        return ( Settings.isEndless || (AbstractDungeon.floorNum <= 43) );
     }
 
     /*

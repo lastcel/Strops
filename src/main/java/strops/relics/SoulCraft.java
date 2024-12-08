@@ -13,7 +13,7 @@ public class SoulCraft extends StropsAbstractRelic{
     private static final String IMG_PATH_O = ModHelper.makeOPath(SoulCraft.class.getSimpleName());
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    public static final int NUM1=3,TIER=5;
+    public static final int NUM1=2,TIER=5;
 
     public static final IntSliderSetting USABLE=new IntSliderSetting("SoulCraft_Usable","N1", NUM1,1,10);
     public static final IntSliderSetting MH=new IntSliderSetting("SoulCraft_MH","MH",0,-20,20);

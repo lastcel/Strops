@@ -138,6 +138,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addCard(new Aurora());
         BaseMod.addCard(new SoulCraftedCard());
         BaseMod.addCard(new RoamingStrike());
+        BaseMod.addCard(new FinalForm());
     }
 
     @Override
@@ -247,12 +248,12 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addRelic(new StroopsTester(), RelicType.SHARED);
         BaseMod.addRelic(new LuckyStar(), RelicType.SHARED);
         BaseMod.addRelic(new Wedgue(), RelicType.SHARED);
-        BaseMod.addRelic(new NoNameForNow3(), RelicType.SHARED);
+        BaseMod.addRelic(new StringThe(), RelicType.SHARED);
         BaseMod.addRelic(new Register(), RelicType.SHARED);
         BaseMod.addRelic(new SoulCraft(), RelicType.SHARED);
         BaseMod.addRelic(new StrikersVeil(), RelicType.SHARED);
         BaseMod.addRelic(new FishingNet(), RelicType.SHARED);
-        BaseMod.addRelic(new NoNameForNow4(), RelicType.SHARED);
+        BaseMod.addRelic(new MosquitoCoil(), RelicType.SHARED);
         BaseMod.addRelic(new PainsReward(), RelicType.SHARED);
         BaseMod.addRelic(new NoNameForNow5(), RelicType.SHARED);
         BaseMod.addRelic(new CirculatingLightAndColorShifter(), RelicType.SHARED);
@@ -260,6 +261,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addRelic(new TheOwl(), RelicType.SHARED);
         BaseMod.addRelic(new ShammyPeach(), RelicType.SHARED);
         BaseMod.addRelic(new Catalyst(), RelicType.SHARED);
+        BaseMod.addRelic(new Gluttony(), RelicType.SHARED);
 
         BaseMod.addRelic(new ZhelpArcaneTalents(), RelicType.SHARED);
         BaseMod.addRelic(new ZhelpFrostTalents(), RelicType.SHARED);
@@ -270,6 +272,8 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addRelic(new ZhelpFrugalPotion(), RelicType.SHARED);
         BaseMod.addRelic(new ZhelpGreedyPotion(), RelicType.SHARED);
         BaseMod.addRelic(new ZhelpRoamingStrike(), RelicType.SHARED);
+        BaseMod.addRelic(new ZhelpFinalForm(), RelicType.SHARED);
+        BaseMod.addRelic(new ZhelpFinalFormPlus(), RelicType.SHARED);
 
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(Atri.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(Bolster.class.getSimpleName()));
@@ -355,12 +359,12 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         UnlockTracker.markRelicAsSeen(StroopsTester.ID);
         UnlockTracker.markRelicAsSeen(LuckyStar.ID);
         UnlockTracker.markRelicAsSeen(Wedgue.ID);
-        UnlockTracker.markRelicAsSeen(NoNameForNow3.ID);
+        UnlockTracker.markRelicAsSeen(StringThe.ID);
         UnlockTracker.markRelicAsSeen(Register.ID);
         UnlockTracker.markRelicAsSeen(SoulCraft.ID);
         UnlockTracker.markRelicAsSeen(StrikersVeil.ID);
         UnlockTracker.markRelicAsSeen(FishingNet.ID);
-        UnlockTracker.markRelicAsSeen(NoNameForNow4.ID);
+        UnlockTracker.markRelicAsSeen(MosquitoCoil.ID);
         UnlockTracker.markRelicAsSeen(PainsReward.ID);
         UnlockTracker.markRelicAsSeen(NoNameForNow5.ID);
         UnlockTracker.markRelicAsSeen(CirculatingLightAndColorShifter.ID);
@@ -368,6 +372,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         UnlockTracker.markRelicAsSeen(TheOwl.ID);
         UnlockTracker.markRelicAsSeen(ShammyPeach.ID);
         UnlockTracker.markRelicAsSeen(Catalyst.ID);
+        UnlockTracker.markRelicAsSeen(Gluttony.ID);
 
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpArcaneTalents.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpFrostTalents.class.getSimpleName()));
@@ -378,6 +383,8 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         UnlockTracker.markRelicAsSeen(ZhelpFrugalPotion.ID);
         UnlockTracker.markRelicAsSeen(ZhelpGreedyPotion.ID);
         UnlockTracker.markRelicAsSeen(ZhelpRoamingStrike.ID);
+        UnlockTracker.markRelicAsSeen(ZhelpFinalForm.ID);
+        UnlockTracker.markRelicAsSeen(ZhelpFinalFormPlus.ID);
 
         UnlockTracker.markCardAsSeen(ModHelper.makePath(ArcaneTalents.class.getSimpleName()));
         UnlockTracker.markCardAsSeen(ModHelper.makePath(FrostTalents.class.getSimpleName()));
@@ -388,6 +395,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         UnlockTracker.markCardAsSeen(Aurora.ID);
         UnlockTracker.markCardAsSeen(SoulCraftedCard.ID);
         UnlockTracker.markCardAsSeen(RoamingStrike.ID);
+        UnlockTracker.markCardAsSeen(FinalForm.ID);
     }
 
     @Override
@@ -508,12 +516,12 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BuildSettings(new StroopsTester());
         BuildSettings(new LuckyStar());
         BuildSettings(new Wedgue());
-        BuildSettings(new NoNameForNow3());
+        BuildSettings(new StringThe());
         BuildSettings(new Register());
         BuildSettings(new SoulCraft());
         BuildSettings(new StrikersVeil());
         BuildSettings(new FishingNet());
-        BuildSettings(new NoNameForNow4());
+        BuildSettings(new MosquitoCoil());
         BuildSettings(new PainsReward());
         BuildSettings(new NoNameForNow5());
         BuildSettings(new CirculatingLightAndColorShifter());
@@ -521,6 +529,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BuildSettings(new TheOwl());
         BuildSettings(new ShammyPeach());
         BuildSettings(new Catalyst());
+        BuildSettings(new Gluttony());
 
         BuildSettings(new ZhelpArcaneTalents());
         BuildSettings(new ZhelpFrostTalents());
@@ -530,6 +539,8 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BuildSettings(new ZhelpFrugalPotion());
         BuildSettings(new ZhelpGreedyPotion());
         BuildSettings(new ZhelpRoamingStrike());
+        BuildSettings(new ZhelpFinalForm());
+        BuildSettings(new ZhelpFinalFormPlus());
 
         loadSettingsData();
         for (StropsAbstractRelic relic : RelicSettings.keySet()) {

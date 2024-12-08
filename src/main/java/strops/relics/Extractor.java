@@ -54,6 +54,7 @@ public class Extractor extends StropsAbstractRelic{
     @Override
     public void atBattleStart(){
         accounts.clear();
+        counter=0;
     }
 
     @Override
@@ -79,7 +80,7 @@ public class Extractor extends StropsAbstractRelic{
             }
 
             if(monsterGoldInfo.extractedTimes<=THRESHOLD.value){
-                addToTop(new ExtractorAction(monsterGoldInfo.extractedMonster,BONUS.value));
+                addToTop(new ExtractorAction(this,monsterGoldInfo.extractedMonster,BONUS.value));
             }
         }
 
@@ -87,8 +88,14 @@ public class Extractor extends StropsAbstractRelic{
     }
 
     @Override
+    public void onVictory(){
+        AbstractDungeon.player.gainGold(counter);
+        counter=-1;
+    }
+
+    @Override
     public boolean canSpawn(){
-        return Settings.isEndless||AbstractDungeon.actNum<=3;
+        return Settings.isEndless||AbstractDungeon.floorNum<=43;
     }
 
     @Override
@@ -96,7 +103,7 @@ public class Extractor extends StropsAbstractRelic{
         return String.format(this.DESCRIPTIONS[0], BONUS.value, THRESHOLD.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], BONUS.value, THRESHOLD.value));

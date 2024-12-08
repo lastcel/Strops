@@ -55,6 +55,8 @@ public abstract class StropsAbstractRelic extends CustomRelic {
     public int secondCounter=-1;
     public Color color=Color.CYAN;
 
+    public static final String TOOL_PATH="StropsResources/img/misc/ToolIcon.png";
+
     public StropsAbstractRelic(String id, Texture texture, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx) {
         super(id, texture, tier, sfx);
     }

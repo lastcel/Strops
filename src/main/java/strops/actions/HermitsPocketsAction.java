@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
+import strops.cards.FinalForm;
 import strops.relics.HermitsPockets;
 
 import java.util.ArrayList;
@@ -82,6 +83,16 @@ public class HermitsPocketsAction extends AbstractGameAction {
                 derp.add(tmp2);
             }
         }
+
+        if(AbstractDungeon.miscRng.randomBoolean(HermitsPockets.CHANCE.value/100.0f)&&
+                player.masterDeck.group.stream().noneMatch(c->c.cardID.equals(FinalForm.ID))){
+            AbstractCard treasure=new FinalForm();
+            if(shouldUpgrade){
+                treasure.upgrade();
+            }
+            derp.add(treasure);
+        }
+
         return derp;
     }
 

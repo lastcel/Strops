@@ -69,7 +69,7 @@
     "DESCRIPTIONS": [
       "During combats against normal enemies, your HP has a lower limit of #b%d.",
       "Note",
-      "This relic won't spawn on Floor 48 or higher."
+      "This relic won't spawn on Floor 44 or higher."
     ]
   },
   "Strops:HungrySun": {
@@ -78,7 +78,7 @@
     "DESCRIPTIONS": [
       "The first #b%d HP loss in each non-combat room heals you instead.",
       "Note",
-      "This relic won't spawn on Floor 48 or higher."
+      "This relic won't spawn on Floor 44 or higher."
     ]
   },
   "Strops:SunflowerInASummer": {
@@ -108,14 +108,16 @@
     "NAME": "The Crow",
     "FLAVOR": "For the period of dusk, I‘ll be here with you.",
     "DESCRIPTIONS": [
-      "At the start of each combat, gain #b%d #yRitual. If you have #yCultist #yHeadpiece, also gain #b%d #ystrops:Ritual_of_Ritual."
+      "At the start of each combat, lose #b%d #yStrength and gain #b%d #yRitual. If you have #yCultist #yHeadpiece, also gain #b%d #ystrops:Ritual_of_Ritual."
     ]
   },
   "Strops:GrassNowAndFlowersThen": {
     "NAME": "Grass Now And Flowers Then",
     "FLAVOR": "To enlighten, to shield, and to empower.",
     "DESCRIPTIONS": [
-      "Upon pickup, add #b%d #yGift #yof #yArcane to your deck."
+      "Upon pickup, add #b%d #yGift #yof #yArcane to your deck.",
+      "Note",
+      "This relic won't spawn on Floor 44 or higher."
     ]
   },
   "Strops:SiphonGem": {
@@ -279,7 +281,7 @@
     "DESCRIPTIONS": [
       "During a combat, for every #b%d HP lost while you're in #yWrath, gain #b%d Max HP at the end of the combat.",
       "Note",
-      "1. This relic won't spawn on Act 4. NL 2. This works at most #r5 times for each combat."
+      "1. This relic won't spawn on on Floor 44 or higher. NL 2. This works at most #r5 times for each combat."
     ]
   },
   "Strops:PlagueStopwatch": {
@@ -469,7 +471,7 @@
     "DESCRIPTIONS": [
       "As of the second Act, each Elite combat is replaced by a random one from the previous Act, where the enemies’ Max HP is increased by #b%d%%.",
       "Note",
-      "1. This relic won't spawn at Spear & Shield. NL 2. This relic will take modded monsters into consideration, but not true for modded Acts."
+      "This relic won't spawn at Spear & Shield."
     ]
   },
   "Strops:RainingRuins": {
@@ -497,9 +499,9 @@
     "NAME": "Extractor",
     "FLAVOR": "\"Extractor\" is too long, let's shorten it to \"eater\".",
     "DESCRIPTIONS": [
-      "Whenever you fully block an attack from a non-minion enemy, gain #b%d #yGold. (Works at most #b%d times for each enemy)",
+      "Whenever you fully block an attack from a non-minion enemy, gain #b%d #yGold at the end of the combat. (Works at most #b%d times for each enemy)",
       "Note",
-      "This relic won't spawn on Act 4."
+      "This relic won't spawn on Floor 44 or higher."
     ]
   },
   "Strops:Echo": {
@@ -527,7 +529,7 @@
     "DESCRIPTIONS": [
       "[#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL #bstrops:Cooldown [#2aecd7]: [#ec902a]%d [#2aecd7]Combats NL Escape from a non-boss combat. Whenever you escape from a combat, gain #b%d #yGold.",
       "Note",
-      "This relic won't spawn on Floor 48 or higher."
+      "This relic won't spawn on Floor 44 or higher."
     ]
   },
   "Strops:Maniacal": {
@@ -740,6 +742,20 @@
       "At the start of each combat, you may choose one of #b%d random cards that are not in your deck to put into the draw pile. NL #pstrops:Tricolor : These cards are #yupgraded."
     ]
   },
+  "Strops:ZhelpFinalForm": {
+    "NAME": "Tool Relic: Final Form",
+    "FLAVOR": "This relic will NOT spawn in game at all.",
+    "DESCRIPTIONS": [
+      "Your #yFinal #yForms cost #b%d, have a damage value of #b%d and a #yBlock value of #b%d, and reward #b%d #yGold instantly and #b%d #yGold on hold, arriving at the end of Turn #b%d."
+    ]
+  },
+  "Strops:ZhelpFinalFormPlus": {
+    "NAME": "Tool Relic: Final Form+",
+    "FLAVOR": "This relic will NOT spawn in game at all.",
+    "DESCRIPTIONS": [
+      "Your #yFinal #yForm+s cost #b%d, have a damage value of #b%d and a #yBlock value of #b%d, and reward #b%d #yGold instantly and #b%d #yGold on hold, arriving at the end of Turn #b%d."
+    ]
+  },
   "Strops:AmorphousMass": {
     "NAME": "Amorphous Mass",
     "FLAVOR": "This armor keeps changing its appearance according to the enemies' states, how odd.",
@@ -829,7 +845,7 @@
   },
   "Strops:LuckyStar": {
     "NAME": "Lucky Star",
-    "FLAVOR": "This relic has no flavor text yet.",
+    "FLAVOR": "This relic has no flavor text yet. There will be!",
     "DESCRIPTIONS": [
       "At the end of each combat, if the #b%dnd and the #b%dnd-to-last cards played are the same card in your deck, #yUpgrade it. Lucky!",
       "Note",
@@ -858,13 +874,13 @@
       "#yRare"
     ]
   },
-  "Strops:NoNameForNow3": {
-    "NAME": "No Name For Now (3)",
-    "FLAVOR": "This relic has no flavor text yet.",
+  "Strops:StringThe": {
+    "NAME": "String",
+    "FLAVOR": "Stressed and then loose, far soon after close.",
     "DESCRIPTIONS": [
       "At the end of each combat, if you have #b%d or less #yGold, gain #b%d #yGold and heal #b%d HP.",
       "Note",
-      "This relic won't spawn on Act 4."
+      "This relic won't spawn on Floor 44 or higher."
     ]
   },
   "Strops:Register": {
@@ -902,9 +918,9 @@
       "Choose at most #b%d cards to put into your %s"
     ]
   },
-  "Strops:NoNameForNow4": {
-    "NAME": "No Name For Now (4)",
-    "FLAVOR": "This relic has no flavor text yet.",
+  "Strops:MosquitoCoil": {
+    "NAME": "Mosquito Coil",
+    "FLAVOR": "Ashy due to being spare for a long time, it still awaits lighting in flames of war.",
     "DESCRIPTIONS": [
       "Whenever you lose a buff, gain #b%d #yBlock. Upon pickup, choose #b%d #yAttacks in your deck, which will grant you #b%d #yVigor after played.",
       "",
@@ -920,7 +936,7 @@
     "DESCRIPTIONS": [
       "If your HP is at or below #b%d at the end of combat, gain #b%d Max HP.",
       "Note",
-      "1. This relic won't spawn on Act 4. NL 2. This relic will effect before all other onEndBattle effects."
+      "1. This relic won't spawn on Floor 44 or higher. NL 2. This relic will effect before all other onEndBattle effects."
     ]
   },
   "Strops:NoNameForNow5": {
@@ -941,7 +957,7 @@
     "DESCRIPTIONS": [
       "If you buy an X in a shop, gain #b%d #ytemporary_hp at the start of the next #b%d combats. On Act 1/2/3, X is specified as %s%s / %s%s / %s%s respectively. NL #pstrops:Tricolor : X has no limit among cards, relics and potions.",
       "Note",
-      "This relic won't spawn on Act 4.",
+      "This relic won't spawn at Shield & Spear.",
       "",
       "",
       "Card",
@@ -991,12 +1007,26 @@
     "NAME": "Catalyst",
     "FLAVOR": "There was originally a switch for handling on the bottle, but it's been broken now.",
     "DESCRIPTIONS": [
-      "Upon pickup, choose #b%d card in your deck. Whenever you draw this card, draw #b%d more card.",
+      "Upon pickup, choose #b%d card in your deck. Whenever you draw this card, draw #b%d more cards.",
       "",
       "",
       "",
       "",
       "Choose %d card to combine with"
+    ]
+  },
+  "Strops:Gluttony": {
+    "NAME": "Gluttony",
+    "FLAVOR": "This living armor feels as if it's to ingest you.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, if your HP is at or above #b%d%%, gain #b%d #yDexterity. Can be fed at Rest Sites.",
+      "Note",
+      "This relic won't spawn on Act 4.",
+      "",
+      "",
+      "Feed",
+      "Reduce your Gluttony's threshold by %d pp (amounted to %d HP currently).",
+      "At the start of each combat, if your HP is at or above #b%d%%, gain #b%d #yDexterity. Can be fed at Rest Sites (Full already!)"
     ]
   }
 }

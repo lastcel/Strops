@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.dungeons.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
+import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 import strops.relics.ClockWithNoHands;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class PatchClockWithNoHands {
     public static ArrayList<MonsterInfo> savedCustomElites2=new ArrayList<>();
     public static ArrayList<MonsterInfo> savedCustomElites3=new ArrayList<>();
     public static boolean isRecorded=false;
+    public static boolean justGenerateElites=false;
 
     @SpirePatch(
             clz= TheCity.class,
@@ -142,6 +144,57 @@ public class PatchClockWithNoHands {
                     AbstractDungeon.actionManager.addToBottom(new IncreaseMaxHpAction(m,
                             (float) ClockWithNoHands.PENALTY.value/100, true));
                 }
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz= AbstractDungeon.class,
+            method=SpirePatch.CONSTRUCTOR,
+            paramtypez = {String.class,String.class,AbstractPlayer.class,ArrayList.class}
+    )
+    public static class PatchTool6 {
+        @SpireInsertPatch(rloc = 24)
+        public static void Insert(AbstractDungeon __inst, String name, String levelId, AbstractPlayer p, ArrayList<String> newSpecialOneTimeEventList) {
+            ClockWithNoHands.generalGenerateElites();
+        }
+    }
+
+    @SpirePatch(
+            clz= AbstractDungeon.class,
+            method="nextRoomTransition",
+            paramtypez = {SaveFile.class}
+    )
+    public static class PatchTool7 {
+        @SpireInsertPatch(rloc = 14)
+        public static void Insert(AbstractDungeon __inst, SaveFile saveFile) {
+            if(AbstractDungeon.eliteMonsterList.size()==10){
+                ClockWithNoHands.generalGenerateElites();
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz= AbstractDungeon.class,
+            method="getEliteMonsterForRoomCreation"
+    )
+    public static class PatchTool8 {
+        @SpireInsertPatch(rloc = 1)
+        public static void Insert(AbstractDungeon __inst) {
+            justGenerateElites=true;
+        }
+    }
+
+    @SpirePatch(
+            clz= AbstractDungeon.class,
+            method="getEliteMonsterForRoomCreation"
+    )
+    public static class PatchTool9 {
+        @SpireInsertPatch(rloc = 3)
+        public static void Insert(AbstractDungeon __inst) {
+            if(justGenerateElites){
+                ClockWithNoHands.generalGenerateElites();
+                justGenerateElites=false;
             }
         }
     }

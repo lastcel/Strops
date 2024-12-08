@@ -108,7 +108,7 @@ public class ExitPhase extends StropsAbstractRelic implements ClickableRelic {
 
     @Override
     public boolean canSpawn(){
-        return Settings.isEndless||AbstractDungeon.floorNum<=47;
+        return Settings.isEndless||AbstractDungeon.floorNum<=43;
     }
 
     @Override

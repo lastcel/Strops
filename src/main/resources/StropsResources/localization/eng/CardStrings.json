@@ -31,7 +31,8 @@
   },
   "Strops:DoAddEnvenom": {
     "NAME": "To Hurt, Being Forceful",
-    "DESCRIPTION": "Add !M! *Envenom+ to your deck."
+    "DESCRIPTION": "Add !M! *Envenom to your deck.",
+    "UPGRADE_DESCRIPTION": "Add !M! *Envenom+ to your deck."
   },
   "Strops:DoNothing": {
     "NAME": "To Ignore, Being Gentle",
@@ -175,5 +176,9 @@
     "NAME": "Roaming Strike",
     "DESCRIPTION": "Deal damage !M! times the number of the current Act. NL Gain [E]. NL Exhaust.",
     "UPGRADE_DESCRIPTION": " NL (Deal !D! damage.)"
+  },
+  "Strops:FinalForm": {
+    "NAME": "Final Form",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL Gain !M! *Gold. NL At the end of Turn !Strops:KN1! , gain !Strops:KN2! *Gold.  NL Skip your next turn. NL Exhaust."
   }
 }

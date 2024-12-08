@@ -13,7 +13,7 @@ public class DepartmentStore extends StropsAbstractRelic {
     private static final String IMG_PATH = ModHelper.makeIPath(DepartmentStore.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(DepartmentStore.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.BOSS;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
     public static final IntSliderSetting MH=new IntSliderSetting("DepartmentStore_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Department_G","G",0,-100,100);

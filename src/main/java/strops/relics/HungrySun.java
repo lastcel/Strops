@@ -102,7 +102,7 @@ public class HungrySun extends StropsAbstractRelic {
 
     @Override
     public boolean canSpawn() {
-        return (Settings.isEndless || (AbstractDungeon.floorNum <= 47));
+        return (Settings.isEndless || (AbstractDungeon.floorNum <= 43));
     }
 
     public String getUpdatedDescription() {

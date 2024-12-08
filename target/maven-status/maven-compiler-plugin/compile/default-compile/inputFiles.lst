@@ -16,7 +16,7 @@ F:\Strops\src\main\java\strops\patch\PatchStackableGoldenIdol.java
 F:\Strops\src\main\java\strops\relics\Upgrade.java
 F:\Strops\src\main\java\strops\relics\InsanityStone.java
 F:\Strops\src\main\java\strops\actions\WedgueRetainAction.java
-F:\Strops\src\main\java\strops\relics\NoNameForNow3.java
+F:\Strops\src\main\java\strops\patch\PatchStropsSkipPlayerTurn.java
 F:\Strops\src\main\java\strops\cards\Choose3PlusCost.java
 F:\Strops\src\main\java\strops\cards\FrostTalents.java
 F:\Strops\src\main\java\strops\patch\PatchRibbon.java
@@ -58,7 +58,6 @@ F:\Strops\src\main\java\strops\vfx\ObtainRelicLater.java
 F:\Strops\src\main\java\strops\patch\PatchStrongestPotion.java
 F:\Strops\src\main\java\strops\patch\PatchSwordOfFeastAndFamine.java
 F:\Strops\src\main\java\strops\cards\ToEscape.java
-F:\Strops\src\main\java\strops\patch\PatchNoNameForNow4.java
 F:\Strops\src\main\java\strops\relics\SoulCannon.java
 F:\Strops\src\main\java\strops\patch\PatchTurbolens.java
 F:\Strops\src\main\java\strops\patch\PatchLightningStorm.java
@@ -80,7 +79,6 @@ F:\Strops\src\main\java\strops\cards\Zero.java
 F:\Strops\src\main\java\strops\relics\StrongestPotion.java
 F:\Strops\src\main\java\strops\patch\PatchExtraBossRelicExtraPatch.java
 F:\Strops\src\main\java\strops\relics\MessyPuppy.java
-F:\Strops\src\main\java\strops\relics\IronGrinder.java
 F:\Strops\src\main\java\strops\relics\SoulCannonTwoHuge.java
 F:\Strops\src\main\java\strops\relics\Calculator.java
 F:\Strops\src\main\java\strops\actions\EndBattleAction.java
@@ -99,6 +97,7 @@ F:\Strops\src\main\java\strops\relics\Bolster.java
 F:\Strops\src\main\java\strops\cards\Choose2Cost.java
 F:\Strops\src\main\java\strops\actions\LoseGoldAction.java
 F:\Strops\src\main\java\strops\patch\PatchBindings.java
+F:\Strops\src\main\java\strops\relics\Balance.java
 F:\Strops\src\main\java\strops\relics\SoulCannonOneTiny.java
 F:\Strops\src\main\java\strops\utilities\StaticHelpers.java
 F:\Strops\src\main\java\strops\relics\SoulCannonThreeTiny.java
@@ -158,6 +157,7 @@ F:\Strops\src\main\java\strops\cards\LightningStorm.java
 F:\Strops\src\main\java\strops\relics\SoulCannonOneHuge.java
 F:\Strops\src\main\java\strops\actions\SteamEpicAction.java
 F:\Strops\src\main\java\strops\patch\PatchGenerosityCharm.java
+F:\Strops\src\main\java\strops\relics\MosquitoCoil.java
 F:\Strops\src\main\java\strops\utilities\MonsterReviveInfo.java
 F:\Strops\src\main\java\strops\potions\Blizzard.java
 F:\Strops\src\main\java\strops\cards\FinalForm.java
@@ -166,6 +166,7 @@ F:\Strops\src\main\java\strops\relics\ZhelpRoamingStrike.java
 F:\Strops\src\main\java\strops\patch\PatchSoulStitch.java
 F:\Strops\src\main\java\strops\relics\NeuronSight.java
 F:\Strops\src\main\java\strops\cards\HealToFull.java
+F:\Strops\src\main\java\strops\powers\SuspendedGoldPower.java
 F:\Strops\src\main\java\strops\interfaces\IKeyNumber1.java
 F:\Strops\src\main\java\strops\cards\ChooseSkill.java
 F:\Strops\src\main\java\strops\relics\LuckyStar.java
@@ -181,6 +182,7 @@ F:\Strops\src\main\java\strops\utilities\RelicSelectScreen.java
 F:\Strops\src\main\java\strops\relics\BigBangBell.java
 F:\Strops\src\main\java\strops\relics\StropsAbstractRelic.java
 F:\Strops\src\main\java\strops\relics\SanityMaintenanceApparatus.java
+F:\Strops\src\main\java\strops\relics\ThreefoldCheque.java
 F:\Strops\src\main\java\strops\utilities\ImageButton.java
 F:\Strops\src\main\java\strops\cards\Choose0Cost.java
 F:\Strops\src\main\java\strops\relics\GrabbyHands.java
@@ -212,6 +214,7 @@ F:\Strops\src\main\java\strops\patch\PatchUpgrade.java
 F:\Strops\src\main\java\strops\patch\PatchDelayedGratification.java
 F:\Strops\src\main\java\strops\relics\GenerosityCharm.java
 F:\Strops\src\main\java\strops\cards\EatSuperMango.java
+F:\Strops\src\main\java\strops\patch\PatchMosquitoCoil.java
 F:\Strops\src\main\java\strops\cards\OneTiny.java
 F:\Strops\src\main\java\strops\relics\Extractor.java
 F:\Strops\src\main\java\strops\patch\PatchKey.java
@@ -224,9 +227,11 @@ F:\Strops\src\main\java\strops\cards\ToGetHer.java
 F:\Strops\src\main\java\strops\utilities\RelicSetting.java
 F:\Strops\src\main\java\strops\patch\PatchSeaOfMoon.java
 F:\Strops\src\main\java\strops\cards\BodySlamPlusPlus.java
+F:\Strops\src\main\java\strops\relics\StringThe.java
 F:\Strops\src\main\java\strops\events\StropsMindBloom.java
 F:\Strops\src\main\java\strops\patch\PatchLeviboard.java
 F:\Strops\src\main\java\strops\cards\Strike.java
+F:\Strops\src\main\java\strops\relics\ZhelpFinalFormPlus.java
 F:\Strops\src\main\java\strops\cards\ChooseCost.java
 F:\Strops\src\main\java\strops\patch\PatchChuggingMask.java
 F:\Strops\src\main\java\strops\cards\Four.java
@@ -252,10 +257,12 @@ F:\Strops\src\main\java\strops\relics\SunflowerInASummer.java
 F:\Strops\src\main\java\strops\actions\GeneralDrawPileToHandAction.java
 F:\Strops\src\main\java\strops\cardmods\CardModDecreaseCostUntilPlayed.java
 F:\Strops\src\main\java\strops\patch\PatchRenderAndCheck.java
+F:\Strops\src\main\java\strops\relics\ZhelpFinalForm.java
 F:\Strops\src\main\java\strops\relics\Leviboard.java
 F:\Strops\src\main\java\strops\utilities\ExtendedCardSave.java
 F:\Strops\src\main\java\strops\actions\ManiacalAction.java
 F:\Strops\src\main\java\strops\cards\ThreeTiny.java
+F:\Strops\src\main\java\strops\utilities\FeedOption.java
 F:\Strops\src\main\java\strops\potions\FrugalPotion.java
 F:\Strops\src\main\java\strops\patch\PatchLemonade.java
 F:\Strops\src\main\java\strops\potions\PhantasmalShootingStar.java
@@ -265,7 +272,6 @@ F:\Strops\src\main\java\strops\relics\SiphonGem.java
 F:\Strops\src\main\java\strops\utilities\AdvModSlider.java
 F:\Strops\src\main\java\strops\patch\PatchBambooDragonflyOfHanyuHorner.java
 F:\Strops\src\main\java\strops\relics\StroopsTester.java
-F:\Strops\src\main\java\strops\relics\NoNameForNow4.java
 F:\Strops\src\main\java\strops\actions\FilmStarryCurtainAction.java
 F:\Strops\src\main\java\strops\relics\ZhelpFireTalents.java
 F:\Strops\src\main\java\strops\patch\PatchCatalyst.java
@@ -281,6 +287,7 @@ F:\Strops\src\main\java\strops\patch\PatchHearthsMores.java
 F:\Strops\src\main\java\strops\relics\GlowFeather.java
 F:\Strops\src\main\java\strops\relics\SoulStitch.java
 F:\Strops\src\main\java\strops\cards\Aurora.java
+F:\Strops\src\main\java\strops\powers\SkipPlayerTurnPower.java
 F:\Strops\src\main\java\strops\patch\PatchBigBangBell.java
 F:\Strops\src\main\java\strops\patch\PatchGrassNowAndFlowersThen.java
 F:\Strops\src\main\java\strops\cards\ChooseType.java

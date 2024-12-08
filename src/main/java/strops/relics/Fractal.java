@@ -1,9 +1,6 @@
 package strops.relics;
 
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.BodySlam;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -26,7 +23,7 @@ public class Fractal extends StropsAbstractRelic {
 
     int stepsToGrayScale =0;
 
-    public static int NUM1=1,NUM2=2,TIER=5;
+    public static final int NUM1=1,NUM2=2,TIER=5;
 
     public static final IntSliderSetting MULTIPLE=new IntSliderSetting("Fractal_Multiple", "N1", NUM1, 1, 10);
     public static final IntSliderSetting SINGLE=new IntSliderSetting("Fractal_Single", "N2", NUM2,1,  10);
@@ -142,6 +139,7 @@ public class Fractal extends StropsAbstractRelic {
         for(AbstractCard c:AbstractDungeon.player.hand.group){
             if(c.cardID.equals(BodySlam.ID)&&c.upgraded){
                 bodySlamPieces.add(c);
+                //Strops.logger.info("检测到全身撞击："+c.uuid);
             }
             if(bodySlamPieces.size()==3){
                 break;
@@ -150,10 +148,15 @@ public class Fractal extends StropsAbstractRelic {
 
         if(bodySlamPieces.size()==3){
             for(AbstractCard c:bodySlamPieces){
+                AbstractDungeon.player.hand.group.remove(c);
+            }
+
+            for(AbstractCard c:bodySlamPieces){
                 resetCardBeforeMoving(c);
             }
 
             addToBot(new MakeTempCardInHandAction(new BodySlamPlusPlus(), 1));
+            addToBot(new DrawCardAction(AbstractDungeon.player,1));
         }
     }
 
@@ -179,6 +182,6 @@ public class Fractal extends StropsAbstractRelic {
         c.unhover();
         c.untip();
         c.stopGlowing();
-        AbstractDungeon.player.hand.group.remove(c);
+        //AbstractDungeon.player.hand.group.remove(c);
     }
 }

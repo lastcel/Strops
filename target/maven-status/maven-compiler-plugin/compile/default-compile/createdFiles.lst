@@ -8,6 +8,7 @@ strops\cards\ToEscape.class
 strops\patch\PatchLightningStorm$PatchTool1.class
 strops\patch\PatchRestrainedHeart$PatchTool5.class
 strops\patch\PatchSwordOfFeastAndFamine$PatchTool1.class
+strops\patch\PatchStropsSkipPlayerTurn$SkipPlayerTurn$Locator.class
 strops\patch\PatchDecanter$PatchTool37.class
 strops\patch\PatchBambooDragonflyOfHanyuHorner.class
 strops\actions\WedgueRemoveRetainAction.class
@@ -21,6 +22,7 @@ strops\patch\PatchSoulCannon$PatchTool8.class
 strops\actions\SpawnMonsterAction.class
 strops\cards\DoAddEnvenom.class
 strops\relics\GlassRod.class
+strops\patch\PatchMosquitoCoil$PatchTool1.class
 strops\patch\PatchGlowFeather$PatchTool7.class
 strops\patch\PatchGlowFeather$PatchTool16.class
 strops\cards\ChooseRarity.class
@@ -36,6 +38,7 @@ strops\cards\ChoosePower.class
 strops\relics\ProfiteeringMerchant.class
 strops\relics\GoneWithTheFlow.class
 strops\patch\PatchGlowFeather$PatchTool3$1.class
+strops\utilities\FeedOption.class
 strops\patch\PatchLuckyStar$PatchTool1.class
 strops\patch\PatchSunflowerInASummer$PatchTool3.class
 strops\utilities\MonsterGoldInfo.class
@@ -52,6 +55,7 @@ strops\powers\FrozenPower.class
 strops\relics\RainbowColoredCircle.class
 strops\patch\PatchPhoenixGift$PatchTool3.class
 strops\patch\PatchGlassRod$PatchTool7.class
+strops\patch\PatchClockWithNoHands$PatchTool7.class
 strops\relics\Evasive.class
 strops\patch\PatchDecanter$PatchTool16.class
 strops\potions\GreedyPotion.class
@@ -76,6 +80,7 @@ strops\cards\PartScrapper.class
 strops\patch\PatchBindings$PatchTool3.class
 strops\patch\PatchReturnToHandInUseCardAction.class
 strops\patch\PatchSoulCraft.class
+strops\patch\PatchClockWithNoHands$PatchTool8.class
 strops\relics\HermitsPockets.class
 strops\actions\ExtractorAction.class
 strops\actions\WedgueRetrieveDRPTHAAction.class
@@ -143,6 +148,7 @@ strops\patch\PatchGlowFeather$PatchTool3.class
 strops\relics\BigBangBell.class
 strops\relics\ShammyPeach.class
 strops\modcore\Strops$5.class
+strops\patch\PatchStropsSkipPlayerTurn$SkipPlayerTurn$PatchSkipPlayerTurnInternal$1.class
 strops\patch\PatchAtri$PatchTool5.class
 strops\relics\RainingRuins.class
 strops\relics\BanishingMace.class
@@ -153,8 +159,8 @@ strops\relics\WeatherControlDevice.class
 strops\patch\PatchDecanter$PatchTool17.class
 strops\patch\PatchGlowFeather$PatchTool1.class
 strops\patch\PatchSunflowerInASummer$PatchTool4.class
-strops\patch\PatchNoNameForNow4.class
 strops\patch\PatchVanillaBottles$PatchTool2.class
+strops\powers\SkipPlayerTurnPower.class
 strops\patch\PatchGlowFeather$PatchTool28.class
 strops\patch\PatchGlowFeather$PatchTool10.class
 strops\patch\PatchEcho$PatchTool1.class
@@ -196,7 +202,6 @@ strops\patch\PatchGrassNowAndFlowersThen$PatchTool1.class
 strops\relics\SoulCannonOneTiny.class
 strops\patch\PatchExtraBossRelic$Open.class
 strops\patch\PatchEcho.class
-strops\patch\PatchNoNameForNow4$PatchTool1.class
 strops\patch\PatchGlowFeather$PatchTool27$1.class
 strops\patch\PatchClockWithNoHands$PatchTool4.class
 strops\patch\PatchRibbon.class
@@ -213,7 +218,7 @@ strops\relics\RainingRuins$1.class
 strops\patch\PatchDepartmentStore$PatchTool1.class
 strops\relics\Transcendence.class
 strops\patch\PatchCatalyst$PatchTool1.class
-strops\patch\PatchNoNameForNow4$PatchTool4.class
+strops\patch\PatchClockWithNoHands$PatchTool6.class
 strops\relics\ProfiteeringMerchantAchieved.class
 strops\patch\PatchSunflowerInASummer$PatchTool2.class
 strops\patch\PatchLeviboard$PatchTool1.class
@@ -241,7 +246,6 @@ strops\patch\PatchBigBangBell$PatchTool1.class
 strops\relics\SquirrelsRelief.class
 strops\patch\PatchUpgrade$PatchTool2.class
 strops\patch\PatchSunflowerInASummer$PatchTool1.class
-strops\patch\PatchNoNameForNow4$PatchTool2.class
 strops\textkeynumbers\TextKeyNumber1.class
 strops\patch\PatchDarkEnergyLantern$PatchTool1.class
 strops\patch\PatchNoNameForNow5$PatchTool4.class
@@ -250,6 +254,7 @@ strops\relics\Wedgue.class
 strops\patch\PatchUpgrade$PatchTool3.class
 strops\patch\PatchBigBangBell$PatchTool6.class
 strops\patch\PatchReturnToHandInUseCardAction$PatchTool.class
+strops\patch\PatchStropsSkipPlayerTurn.class
 strops\relics\ZhelpGreedyPotion.class
 strops\patch\PatchSquirrelsRelief.class
 strops\patch\PatchRainbowColoredCircle.class
@@ -266,7 +271,6 @@ strops\patch\PatchEcho$PatchTool3.class
 strops\patch\PatchPainsReward$PatchTool1.class
 strops\patch\PatchVanillaBottles.class
 strops\cards\BodySlamPlusPlus.class
-strops\relics\NoNameForNow3.class
 strops\relics\VolcanicCryster.class
 strops\patch\PatchDecanter$PatchTool10.class
 strops\relics\Zan.class
@@ -281,6 +285,7 @@ strops\patch\PatchWhiteDClips.class
 strops\patch\PatchLemonade$PatchTool3.class
 strops\relics\ZhelpFireTalents.class
 strops\patch\PatchDepartmentStore$PatchTool5.class
+strops\relics\Balance.class
 strops\patch\PatchKey.class
 strops\utilities\IntSliderSetting.class
 strops\patch\PatchBigBangBell$PatchTool2.class
@@ -306,7 +311,6 @@ strops\relics\Bolster.class
 strops\cards\Aurora.class
 strops\relics\Lemonade.class
 strops\patch\PatchGlassRod$PatchTool5.class
-strops\relics\NoNameForNow4.class
 strops\cardmods\CardModDecreaseCostUntilPlayed.class
 strops\cards\AbstractStropsCard.class
 strops\patch\PatchPainsReward.class
@@ -378,6 +382,7 @@ strops\powers\RitualOfRitualPower.class
 strops\patch\PatchGlowFeather$PatchTool22$1.class
 strops\relics\SoulCannonThreeHuge.class
 strops\relics\BigBow.class
+strops\relics\MosquitoCoil.class
 strops\patch\PatchClockWithNoHands$PatchTool5.class
 strops\patch\PatchSoulCraft$PatchTool2.class
 strops\cards\ToFight.class
@@ -400,23 +405,27 @@ strops\patch\PatchSoulCannon$PatchTool5.class
 strops\cards\RoamingStrike.class
 strops\relics\Wedgue$Condition.class
 strops\patch\PatchGenerosityCharm$PatchTool1.class
+strops\patch\PatchStropsSkipPlayerTurn$SkipPlayerTurn.class
 strops\utilities\AdvModSlider.class
 strops\patch\PatchGlowFeather.class
+strops\relics\ZhelpFinalForm.class
+strops\relics\StringThe.class
 strops\patch\PatchGlowFeather$PatchTool2$1.class
 strops\patch\PatchMultiDamagePreview.class
 strops\cards\Choose0Cost.class
 strops\actions\SetBlockAction.class
+strops\patch\PatchStropsSkipPlayerTurn$SkipPlayerTurn$PatchSkipPlayerTurnInternal.class
 strops\relics\Wedgue$Category.class
 strops\patch\PatchManiacal.class
 strops\cards\ToGetHer.class
 strops\patch\PatchGlowFeather$PatchTool26.class
+strops\patch\PatchClockWithNoHands$PatchTool9.class
 strops\patch\PatchDelayedGratification$PatchTool3.class
 strops\patch\PatchProfiteeringMerchant$PatchTool3$1.class
 strops\relics\ChuggingMask.class
 strops\relics\ZhelpRoamingStrike.class
 strops\relics\ClockWithNoHands.class
 strops\patch\PatchDecanter$PatchTool26.class
-strops\relics\IronGrinder.class
 strops\patch\PatchSunflowerInASummer$PatchTool6.class
 strops\patch\PatchGrabbyHands$PatchTool10.class
 strops\patch\PatchRestrainedHeart$PatchTool11.class
@@ -442,6 +451,7 @@ strops\actions\RibbonAction.class
 strops\patch\PatchGrassNowAndFlowersThen$PatchTool4.class
 strops\patch\PatchGlowFeather$PatchTool19.class
 strops\patch\PatchGlowFeather$PatchTool22.class
+strops\relics\ZhelpFinalFormPlus.class
 strops\relics\ToxicLump.class
 strops\patch\PatchHearthsMores.class
 strops\patch\PatchGlowFeather$PatchTool4.class
@@ -467,10 +477,12 @@ strops\relics\ZhelpDecanter.class
 strops\relics\ButchersBlade.class
 strops\patch\PatchGlassRod$PatchTool8$1.class
 strops\patch\PatchWhiteDClips$PatchTool1.class
+strops\relics\ThreefoldCheque.class
 strops\patch\PatchStackableGoldenIdol.class
 strops\patch\PatchIceGenerator$PatchTool3.class
 strops\patch\PatchProfiteeringMerchant$PatchTool4$1.class
 strops\modcore\Strops$6.class
+strops\patch\PatchMosquitoCoil$PatchTool2.class
 strops\interfaces\IKeyNumber2.class
 strops\relics\HearthsMores.class
 strops\cards\ChooseCost.class
@@ -527,6 +539,7 @@ strops\cards\FrostTalents.class
 strops\relics\GrassNowAndFlowersThen.class
 strops\relics\FTLEngines.class
 strops\patch\PatchDecanter$PatchTool8.class
+strops\patch\PatchMosquitoCoil$PatchTool4.class
 strops\patch\PatchPhoenixGift$PatchTool1.class
 strops\patch\PatchGenerosityCharm$RewardItemClaimRewardPatch.class
 strops\patch\PatchGenerosityCharm$CallingBellOnEquipPatch.class
@@ -583,6 +596,7 @@ strops\patch\PatchGrabbyHands$PatchTool2.class
 strops\patch\PatchSunflowerInASummer.class
 strops\cards\LightningStorm.class
 strops\patch\PatchBigBow$PatchTool2.class
+strops\patch\PatchMosquitoCoil.class
 strops\relics\Key.class
 strops\patch\PatchGlowFeather$PatchTool26$1.class
 strops\patch\PatchGrabbyHands$PatchTool3.class
@@ -590,3 +604,4 @@ strops\cards\ThreeHuge.class
 strops\cards\TwoHuge.class
 strops\patch\PatchUpgrade.class
 strops\patch\PatchZan$PatchTool2.class
+strops\powers\SuspendedGoldPower.class

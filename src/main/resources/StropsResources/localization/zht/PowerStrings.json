@@ -18,7 +18,7 @@
     ]
   },
   "Strops:CombatwiseDoubleDamagePower": {
-    "NAME": "本場戰鬥倍增傷害",
+    "NAME": "本場戰鬥傷害倍增",
     "DESCRIPTIONS": [
       "#y攻擊 造成的傷害變為 #b%.1f 倍",
       "#y攻擊 造成的傷害變為 #b%.0f 倍"
@@ -28,6 +28,18 @@
     "NAME": "寄存器",
     "DESCRIPTIONS": [
       "在死亡時，以下牌會被放回你的手牌："
+    ]
+  },
+  "Strops:SkipPlayerTurnPower": {
+    "NAME": "跳過玩家回合",
+    "DESCRIPTIONS": [
+      "跳過你接下來的 #b%d 個回合。"
+    ]
+  },
+  "Strops:SuspendedGoldPower": {
+    "NAME": "重器孤懸",
+    "DESCRIPTIONS": [
+      "#b%d 回合後的回合結束時，獲得 #b%d #y金幣 。"
     ]
   }
 }

@@ -16,15 +16,17 @@ public class HermitsPockets extends StropsAbstractRelic{
     private static final String IMG_PATH_O = ModHelper.makeOPath(HermitsPockets.class.getSimpleName());
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
-    public static final int NUM1=7,TIER=1;
+    public static final int NUM1=7,NUM2=2,TIER=1;
 
-    public static final IntSliderSetting BONUS= new IntSliderSetting("HermitsPockets_Bonus", "N1", NUM1, 3,12);
+    public static final IntSliderSetting BONUS=new IntSliderSetting("HermitsPockets_Bonus", "N1", NUM1, 3,12);
+    public static final IntSliderSetting CHANCE=new IntSliderSetting("HermitsPockets_Chance", "S1", NUM2, 100);
     public static final IntSliderSetting MH=new IntSliderSetting("HermitsPockets_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("HermitsPockets_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("HermitsPockets_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(BONUS);
+        settings.add(CHANCE);
         settings.add(MH);
         settings.add(G);
         settings.add(R);

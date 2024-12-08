@@ -23,7 +23,7 @@ import java.util.function.Predicate;
 public class LuckyStar extends StropsAbstractRelic implements CustomBottleRelic {
     public static final String ID = ModHelper.makePath(LuckyStar.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(LuckyStar.class.getSimpleName());
-    ///private static final String IMG_PATH_O = ModHelper.makeOPath(LuckyStar.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(LuckyStar.class.getSimpleName());
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
     private final List<UUID> UUID_QUEUE = new ArrayList<>();
@@ -47,7 +47,7 @@ public class LuckyStar extends StropsAbstractRelic implements CustomBottleRelic 
     }
 
     public LuckyStar() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH, G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy = false;

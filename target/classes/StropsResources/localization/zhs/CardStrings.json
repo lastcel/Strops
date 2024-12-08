@@ -31,7 +31,8 @@
   },
   "Strops:DoAddEnvenom": {
     "NAME": "恶毒即力量",
-    "DESCRIPTION": "将 M 张 *涂毒+ 加入你的牌组。"
+    "DESCRIPTION": "将 M 张 *涂毒 加入你的牌组。",
+    "UPGRADE_DESCRIPTION": "将 M 张 *涂毒+ 加入你的牌组。"
   },
   "Strops:DoNothing": {
     "NAME": "无视即温柔",
@@ -175,5 +176,9 @@
     "NAME": "漫游打击",
     "DESCRIPTION": "造成当前幕数 M 倍的伤害。 NL 获得 [E] 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": " NL （造成 D 点伤害。）"
+  },
+  "Strops:FinalForm": {
+    "NAME": "最终形态",
+    "DESCRIPTION": "造成 D 点伤害。 NL 获得 B 点 格挡 。 NL 获得 M *金币 。 NL 第 !Strops:KN1! 回合结束时，获得 !Strops:KN2! *金币 。 NL 跳过你的下个回合。 NL 消耗 。"
   }
 }

@@ -28,7 +28,7 @@ public class Catalyst extends StropsAbstractRelic implements
     private boolean cardSelected = true;
     public static AbstractCard card = null;
 
-    public static final int NUM1=1,NUM2=1,TIER=3;
+    public static final int NUM1=1,NUM2=2,TIER=3;
 
     public static final IntSliderSetting RECEPTOR=new IntSliderSetting("Catalyst_Receptor", "N1", NUM1, 1,3);
     public static final IntSliderSetting DRAW=new IntSliderSetting("Catalyst_Draw", "N2", NUM2, 1,3);

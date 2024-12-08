@@ -29,5 +29,17 @@
     "DESCRIPTIONS": [
       "On death, the following cards will be returned to your hand:"
     ]
+  },
+  "Strops:SkipPlayerTurnPower": {
+    "NAME": "Skip Player Turn",
+    "DESCRIPTIONS": [
+      "Skip your next #b%d turn(s)."
+    ]
+  },
+  "Strops:SuspendedGoldPower": {
+    "NAME": "Suspended Treasure",
+    "DESCRIPTIONS": [
+      "At the end of #b%d turn(s) later, gain #b%d #yGold."
+    ]
   }
 }

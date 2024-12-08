@@ -215,7 +215,7 @@ public class CirculatingLightAndColorShifter extends StropsAbstractRelic impleme
 
     @Override
     public boolean canSpawn() {
-        return (Settings.isEndless || AbstractDungeon.actNum <= 3);
+        return (Settings.isEndless || AbstractDungeon.floorNum <= 54);
     }
 
     public String getAngleString(Angle angle){

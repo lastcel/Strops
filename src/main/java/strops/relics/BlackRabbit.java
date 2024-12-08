@@ -12,10 +12,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import strops.helpers.ModHelper;
-import strops.patch.PatchBigBangBell;
-import strops.patch.PatchGlassRod;
-import strops.patch.PatchGrabbyHands;
-import strops.patch.PatchTranscendence;
+import strops.patch.*;
 import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSetting;
 
@@ -28,7 +25,7 @@ public class BlackRabbit extends StropsAbstractRelic implements ClickableRelic {
     public static final String ID = ModHelper.makePath(BlackRabbit.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(BlackRabbit.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(BlackRabbit.class.getSimpleName());
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
     public boolean onCardsSelected=true,offCardsSelected=true;
     //private AbstractDungeon.CurrentScreen prevScreen;
@@ -224,6 +221,7 @@ public class BlackRabbit extends StropsAbstractRelic implements ClickableRelic {
                 PatchTranscendence.PatchTool1.inTranscendence.set(c2,PatchTranscendence.PatchTool1.inTranscendence.get(c));
                 PatchGrabbyHands.PatchTool6.isGrabbed.set(c2,PatchGrabbyHands.PatchTool6.isGrabbed.get(c));
                 PatchGrabbyHands.PatchTool7.ages.set(c2,PatchGrabbyHands.PatchTool7.ages.get(c));
+                PatchCatalyst.PatchTool1.inCatalyst.set(c2,PatchCatalyst.PatchTool1.inCatalyst.get(c));
 
                 AbstractDungeon.player.masterDeck.group.set(AbstractDungeon.player.masterDeck.group.indexOf(c),c2);
                 //logger.info("完成降级卡牌："+c2.name+"，升级次数="+c2.timesUpgraded);
