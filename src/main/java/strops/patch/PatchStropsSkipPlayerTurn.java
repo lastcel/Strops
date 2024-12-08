@@ -1,3 +1,5 @@
+//This file is largely copied from the Reliquary mod, credits to Cae!
+
 package strops.patch;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
@@ -34,7 +36,7 @@ public class PatchStropsSkipPlayerTurn {
                         }
                     });
                     AbstractDungeon.actionManager.addToBottom(new MonsterStartTurnAction());
-                    GameActionManager.damageReceivedThisTurn = 0;
+                    //GameActionManager.damageReceivedThisTurn = 0;
                     if (AbstractDungeon.player.getPower(SkipPlayerTurnPower.POWER_ID).amount <= 1) {
                         AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, SkipPlayerTurnPower.POWER_ID));
                     } else {
