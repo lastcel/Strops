@@ -26,7 +26,10 @@ public class MessyPuppyAction extends AbstractGameAction {
                 break;
             }
 
-            if(!m.isDying&&!m.halfDead){
+            if(!m.isDying&&!m.halfDead
+                    ||m.id.equals("downfall:NeowBoss")
+                    ||m.id.equals("Gensokyo:BlueSoul")
+                    ||m.id.equals("Gensokyo:PurpleSoul")){
                 continue;
             }
 

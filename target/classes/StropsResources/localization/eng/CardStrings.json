@@ -179,6 +179,6 @@
   },
   "Strops:FinalForm": {
     "NAME": "Final Form",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL Gain !M! *Gold. NL At the end of Turn !Strops:KN1! , gain !Strops:KN2! *Gold.  NL Skip your next turn. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Gain !M! *Gold. NL At the end of Turn !Strops:KN1! , gain !Strops:KN2! *Gold.  NL Skip your next turn. NL Exhaust."
   }
 }

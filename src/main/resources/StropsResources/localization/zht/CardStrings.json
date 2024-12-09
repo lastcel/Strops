@@ -179,6 +179,6 @@
   },
   "Strops:FinalForm": {
     "NAME": "最終形態",
-    "DESCRIPTION": "造成 D 點傷害 NL 獲得 B 點 格擋 NL 獲得 M *金幣 NL 第 !Strops:KN1! 回合結束時，獲得 !Strops:KN2! *金幣 NL 跳過你的下個回合 NL 消耗"
+    "DESCRIPTION": "獲得 B 點 格擋 NL 造成 D 點傷害 NL 獲得 M *金幣 NL 第 !Strops:KN1! 回合結束時，獲得 !Strops:KN2! *金幣 NL 跳過你的下個回合 NL 消耗"
   }
 }

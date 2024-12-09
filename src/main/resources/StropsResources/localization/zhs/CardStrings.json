@@ -179,6 +179,6 @@
   },
   "Strops:FinalForm": {
     "NAME": "最终形态",
-    "DESCRIPTION": "造成 D 点伤害。 NL 获得 B 点 格挡 。 NL 获得 M *金币 。 NL 第 !Strops:KN1! 回合结束时，获得 !Strops:KN2! *金币 。 NL 跳过你的下个回合。 NL 消耗 。"
+    "DESCRIPTION": "获得 B 点 格挡 。 NL 造成 D 点伤害。 NL 获得 M *金币 。 NL 第 !Strops:KN1! 回合结束时，获得 !Strops:KN2! *金币 。 NL 跳过你的下个回合。 NL 消耗 。"
   }
 }

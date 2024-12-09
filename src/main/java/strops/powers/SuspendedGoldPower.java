@@ -3,7 +3,6 @@ package strops.powers;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.GainGoldAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -48,12 +47,13 @@ public class SuspendedGoldPower extends AbstractPower{
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
+    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
         addToBot(new ReducePowerAction(this.owner, this.owner, this, 1));
         if(amount==1){
             AbstractDungeon.effectList.add(new RainingGoldEffect(gold * 2, true));
             AbstractDungeon.effectsQueue.add(new SpotlightPlayerEffect());
-            addToBot(new GainGoldAction(gold));
+            //addToBot(new GainGoldAction(gold));
+            AbstractDungeon.player.gainGold(gold);
         }
     }
 

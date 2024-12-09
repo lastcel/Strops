@@ -52,12 +52,13 @@ public class FinalForm extends AbstractStropsCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p,
-                damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
         addToBot(new GainBlockAction(p, p, block));
+        addToBot(new DamageAction(m, new DamageInfo(p,
+                damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
         AbstractDungeon.effectList.add(new RainingGoldEffect(magicNumber*2, true));
         AbstractDungeon.effectsQueue.add(new SpotlightPlayerEffect());
-        addToBot(new GainGoldAction(magicNumber));
+        //addToBot(new GainGoldAction(magicNumber));
+        AbstractDungeon.player.gainGold(magicNumber);
         if(PatchGrassNowAndFlowersThen.PatchTool1.earliestTurnCount.get(AbstractDungeon.player)<=ZhelpFinalForm.SUSPENSE_TURN.value){
             addToBot(new ApplyPowerAction(p,p,new SuspendedGoldPower(p,keyNumber2),keyNumber2));
         }
