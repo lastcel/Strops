@@ -1,19 +1,14 @@
 package strops.cards;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.helpers.ModHelper;
 import strops.patch.PatchStrongestPotion;
 import strops.relics.Wedgue;
-
-import java.util.ArrayList;
 
 public class ChooseType extends CustomCard {
     public static final String ID = ModHelper.makePath(ChooseType.class.getSimpleName());
