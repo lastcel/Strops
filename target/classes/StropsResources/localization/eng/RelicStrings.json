@@ -57,7 +57,7 @@
     "NAME": "Transcendence",
     "FLAVOR": "A bright self, a clear world.",
     "DESCRIPTIONS": [
-      "Upon pickup, choose a card in your deck. After you play the card, if it's one of the first #b%d cards played that turn, #ystrops:Exclude the rest of cards in your hand, then draw that many cards.",
+      "Upon pickup, choose a card. After you play the card, if it's one of the first #b%d cards played that turn, #ystrops:Exclude the rest of cards in your hand, then draw that many cards.",
       "Choose a card to combine with",
       "After you play ",
       " , if it's one of the first #b%d cards played that turn, #ystrops:Exclude the rest of cards in your hand, then draw that many cards."
@@ -85,7 +85,7 @@
     "NAME": "Sunflower in A Summer",
     "FLAVOR": "That sky, that summer.",
     "DESCRIPTIONS": [
-      "Upon pickup, choose one: Change all the #y? rooms in the second Act into #yCampfire ones; ADDITIONALLY change all the #yNormal #yEnemy rooms there into #rElite ones; or obtain #b%d special potion.",
+      "Upon pickup, choose one: Change all the #y? rooms in the second Act into #yCampfire ones; ALSO change all the #yNormal #yEnemy rooms there into #rElite ones; or obtain #b%d special potion.",
       "Note",
       "This relic will only spawn on Act 1."
     ]
@@ -554,7 +554,7 @@
     "NAME": "Big Bang Bell",
     "FLAVOR": "Mauuuuuryaaaaaaahh!",
     "DESCRIPTIONS": [
-      "Upon pickup, choose a #yPower in your deck. Whenever you draw the card, deal #b%d damage to all the enemies that intend to attack. You can also set off the card actively and deal #b%d damage to ALL enemies!",
+      "Upon pickup, choose a #yPower. Whenever you draw the card, deal #b%d damage to all the enemies that intend to attack. You can also set off the card actively and deal #b%d damage to ALL enemies!",
       "Note",
       "1. To set off means dragging the card to the specified area on screen and making it hover there for a while until it is #yExcluded. NL 2. [#2aecd7]Right [#2aecd7]click to enable/disable. NL 3. You can adjust the required hovering time T(s) in mod config.",
       "",
@@ -590,7 +590,7 @@
     "NAME": "Sea of Moon",
     "FLAVOR": "These emotions last for ever.",
     "DESCRIPTIONS": [
-      "Upon pickup, choose #b%d cards in your deck to infuse #yRetain into. Whenever you #yRetain a card, deal #b%d damage to ALL enemies and gain #b%d #yBlock.",
+      "Upon pickup, choose #b%d cards to infuse #yRetain into. Whenever you #yRetain a card, deal #b%d damage to ALL enemies and gain #b%d #yBlock.",
       "",
       "",
       "",
@@ -922,7 +922,7 @@
     "NAME": "Mosquito Coil",
     "FLAVOR": "Ashy due to being spare for a long time, it still awaits lighting in flames of war.",
     "DESCRIPTIONS": [
-      "Whenever you lose a buff, gain #b%d #yBlock. Upon pickup, choose #b%d #yAttacks in your deck, which will grant you #b%d #yVigor after played.",
+      "Whenever you lose a buff, gain #b%d #yBlock. Upon pickup, choose #b%d #yAttacks, which will grant you #b%d #yVigor after played.",
       "",
       "",
       "",
@@ -1007,7 +1007,7 @@
     "NAME": "Catalyst",
     "FLAVOR": "There was originally a switch for handling on the bottle, but it's been broken now.",
     "DESCRIPTIONS": [
-      "Upon pickup, choose #b%d card in your deck. Whenever you draw this card, draw #b%d more cards.",
+      "Upon pickup, choose #b%d card. Whenever you draw the card, draw #b%d more cards.",
       "",
       "",
       "",

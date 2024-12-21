@@ -141,6 +141,7 @@ strops\modcore\Strops$4.class
 strops\patch\PatchLoseRelic$PatchTool1.class
 strops\patch\PatchDelayedGratification$PatchTool1.class
 strops\patch\PatchSeaOfMoon$PatchTool4.class
+strops\patch\PatchDecanter$PatchTool18_a1.class
 strops\cards\ThreeTiny.class
 strops\patch\PatchMinoshiroModoki.class
 strops\cards\TwoTiny.class
@@ -570,6 +571,7 @@ strops\relics\Maniacal.class
 strops\patch\PatchGrabbyHands$PatchTool6.class
 strops\cards\Strike.class
 strops\patch\PatchIceGenerator$PatchTool2$1.class
+strops\patch\PatchDecanter$PatchTool19_a1.class
 strops\patch\PatchRegister.class
 strops\patch\PatchGrabbyHands$PatchTool4.class
 strops\patch\PatchZan$PatchTool1.class

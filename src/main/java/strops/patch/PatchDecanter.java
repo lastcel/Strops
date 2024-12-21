@@ -313,11 +313,11 @@ public class PatchDecanter {
             AbstractRelic r2;
             if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
                     ((Decanter)(r2 = AbstractDungeon.player.getRelic(Decanter.ID)))
-                            .relicToDisenchant.equals(FusionHammer.ID)){
+                            .relicToDisenchant.equals(FusionHammer.ID)&&Decanter.isSmithSuppressed()){
                 if (option instanceof SmithOption && option.getClass().getName().equals(SmithOption.class.getName())) {
                     ((SmithOption) option).updateUsability(true);
                     r2.flash();
-                    ((Decanter) r2).decay();
+                    //((Decanter) r2).decay();
                     return SpireReturn.Return(true);
                 }
             }
@@ -325,7 +325,24 @@ public class PatchDecanter {
         }
     }
 
-    //咖啡杯
+    //融合之锤
+    @SpirePatch(
+            clz= SmithOption.class,
+            method="useOption"
+    )
+    public static class PatchTool18_a1 {
+        @SpirePostfixPatch
+        public static void Postfix(SmithOption __inst) {
+            AbstractRelic r2;
+            if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
+                    ((Decanter)(r2 = AbstractDungeon.player.getRelic(Decanter.ID)))
+                            .relicToDisenchant.equals(FusionHammer.ID)){
+                ((Decanter) r2).decay();
+            }
+        }
+    }
+
+    //咖啡滤杯
     @SpirePatch(
             clz= CoffeeDripper.class,
             method="canUseCampfireOption"
@@ -340,11 +357,28 @@ public class PatchDecanter {
                 if (option instanceof RestOption && option.getClass().getName().equals(RestOption.class.getName())) {
                     ((RestOption) option).updateUsability(true);
                     r2.flash();
-                    ((Decanter) r2).decay();
+                    //((Decanter) r2).decay();
                     return SpireReturn.Return(true);
                 }
             }
             return SpireReturn.Continue();
+        }
+    }
+
+    //融合之锤
+    @SpirePatch(
+            clz= RestOption.class,
+            method="useOption"
+    )
+    public static class PatchTool19_a1 {
+        @SpirePostfixPatch
+        public static void Postfix(RestOption __inst) {
+            AbstractRelic r2;
+            if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
+                    ((Decanter)(r2 = AbstractDungeon.player.getRelic(Decanter.ID)))
+                            .relicToDisenchant.equals(CoffeeDripper.ID)){
+                ((Decanter) r2).decay();
+            }
         }
     }
 

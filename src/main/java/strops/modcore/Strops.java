@@ -597,6 +597,9 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         CardBorderGlowManager.addGlowInfo(new CardBorderGlowManager.GlowInfo(){
             @Override
             public boolean test(AbstractCard c) {
+                if(AbstractDungeon.player==null){
+                    return false;
+                }
                 for(AbstractRelic r:AbstractDungeon.player.relics) {
                     if(r.relicId.equals(Wedgue.ID)&&c==((Wedgue)r).drawnCard) {
                         return true;
@@ -640,6 +643,9 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         CardBorderGlowManager.addGlowInfo(new CardBorderGlowManager.GlowInfo(){
             @Override
             public boolean test(AbstractCard c) {
+                if(AbstractDungeon.player==null){
+                    return false;
+                }
                 if(!AbstractDungeon.player.hasRelic(LuckyStar.ID)){
                     return false;
                 }

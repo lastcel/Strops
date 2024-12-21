@@ -9,13 +9,22 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
+import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.CampfireUI;
+import com.megacrit.cardcrawl.rooms.RestRoom;
+import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
+import com.megacrit.cardcrawl.ui.campfire.RestOption;
+import com.megacrit.cardcrawl.ui.campfire.SmithOption;
 import strops.helpers.ModHelper;
+import strops.modcore.Strops;
+import strops.patch.PatchDecanter;
 import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSelectScreen;
 import strops.utilities.RelicSetting;
 
+import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -68,6 +77,10 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
 
         AbstractRoom currRoom= AbstractDungeon.getCurrRoom();
         if((currRoom!=null)&&(currRoom.phase == AbstractRoom.RoomPhase.COMBAT)){
+            return;
+        }
+
+        if(AbstractDungeon.screen == PatchDecanter.PatchTool30.DECANTER_SELECT){
             return;
         }
 
@@ -129,6 +142,59 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
                 } else {
                     setDescriptionAfterLoading(true);
                 }
+
+                if(AbstractDungeon.getCurrRoom() instanceof RestRoom){
+                    try {
+                        Field f = CampfireUI.class.getDeclaredField("buttons");
+                        f.setAccessible(true);
+                        ArrayList<AbstractCampfireOption> campfireOptions =  (ArrayList<AbstractCampfireOption>) f.get(((RestRoom)AbstractDungeon.getCurrRoom()).campfireUI);
+                        if(relicToDisenchant.equals(CoffeeDripper.ID)){
+                            for(AbstractCampfireOption co:campfireOptions){
+                                if(co instanceof RestOption){
+                                    ((RestOption) co).updateUsability(true);
+
+                                    try {
+                                        Field f2 = AbstractCampfireOption.class.getDeclaredField("description");
+                                        f2.setAccessible(true);
+                                        f2.set(co,getRestDesc());
+                                    } catch (IllegalAccessException|NoSuchFieldException e) {
+                                        Strops.logger.info("An exception happened related to Decanter's restoring RestOption Description!");
+                                    }
+
+                                    co.usable=true;
+                                }
+                                if(AbstractDungeon.player.hasRelic(FusionHammer.ID) && co instanceof SmithOption){
+                                    ((SmithOption) co).updateUsability(false);
+                                    co.usable=false;
+                                }
+                            }
+                        } else if(relicToDisenchant.equals(FusionHammer.ID)){
+                            for(AbstractCampfireOption co:campfireOptions){
+                                if(co instanceof SmithOption&&isSmithSuppressed()){
+                                    ((SmithOption) co).updateUsability(true);
+                                    co.usable=true;
+                                }
+                                if(AbstractDungeon.player.hasRelic(CoffeeDripper.ID) && co instanceof RestOption){
+                                    ((RestOption) co).updateUsability(false);
+                                    co.usable=false;
+                                }
+                            }
+                        } else {
+                            for(AbstractCampfireOption co:campfireOptions){
+                                if(AbstractDungeon.player.hasRelic(CoffeeDripper.ID) && co instanceof RestOption){
+                                    ((RestOption) co).updateUsability(false);
+                                    co.usable=false;
+                                } else if(AbstractDungeon.player.hasRelic(FusionHammer.ID) && co instanceof SmithOption){
+                                    ((SmithOption) co).updateUsability(false);
+                                    co.usable=false;
+                                }
+                            }
+                        }
+                    } catch (IllegalAccessException|NoSuchFieldException e) {
+                        Strops.logger.info("An exception happened related to the interaction between Decanter and Campfire Relics!");
+                    }
+                }
+
                 (AbstractDungeon.getCurrRoom()).phase = this.roomPhase;
                 //Strops.logger.info("读取，currPhase="+(AbstractDungeon.getCurrRoom()).phase);
                 //AbstractDungeon.firstRoomChosen=savedFirstRoomChosen;
@@ -262,6 +328,30 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
             usedUp();
             this.counter = -2;
         }
+    }
+
+    public static String getRestDesc(){
+        int healAmt;
+        String tempStr;
+        if (com.megacrit.cardcrawl.helpers.ModHelper.isModEnabled("Night Terrors")) {
+            healAmt = (int)(AbstractDungeon.player.maxHealth * 1.0F);
+        } else {
+            healAmt = (int)(AbstractDungeon.player.maxHealth * 0.3F);
+        }
+        if (Settings.isEndless && AbstractDungeon.player.hasBlight("FullBelly"))
+            healAmt /= 2;
+        if (com.megacrit.cardcrawl.helpers.ModHelper.isModEnabled("Night Terrors")) {
+            tempStr = RestOption.TEXT[1] + healAmt + ")" + LocalizedStrings.PERIOD;
+        } else {
+            tempStr = RestOption.TEXT[3] + healAmt + ")" + LocalizedStrings.PERIOD;
+        }
+        if (AbstractDungeon.player.hasRelic("Regal Pillow"))
+            tempStr += "\n+15" + RestOption.TEXT[2] + (AbstractDungeon.player.getRelic("Regal Pillow")).name + LocalizedStrings.PERIOD;
+        return tempStr;
+    }
+
+    public static boolean isSmithSuppressed(){
+        return !AbstractDungeon.player.masterDeck.getUpgradableCards().isEmpty() && !com.megacrit.cardcrawl.helpers.ModHelper.isModEnabled("Midas");
     }
 
     private static final Set<String> COMPENSATE_ABLE_RELICS = new HashSet<>(Arrays.asList(
