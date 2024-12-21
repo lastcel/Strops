@@ -1,3 +1,4 @@
+/*
 package strops.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,3 +32,5 @@ public class Strike extends CustomCard {
     }
 
 }
+
+ */
