@@ -144,7 +144,7 @@
     "NAME": "Key",
     "FLAVOR": "Free your mind from its bonds.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. If an event has more than one option available, lock the first option available.",
+      "Gain [E] at the start of your turn. If an event has more than one available option, lock the first available one.",
       "Note",
       "This relic will interact in a special way with the event \"Mind Bloom\".",
       "",
@@ -1027,6 +1027,18 @@
       "Feed",
       "Reduce your Gluttony's threshold by %d pp (amounted to %d HP currently).",
       "At the start of each combat, if your HP is at or above #b%d%%, gain #b%d #yDexterity. Can be fed at Rest Sites (Full already!)"
+    ]
+  },
+  "Strops:LoveChocolate": {
+    "NAME": "Love Chocolate",
+    "FLAVOR": "Looks like this lost chocolate ran into your Spire space as it likes. Would you like to follow its steps to go far, and enjoy the landscape around all the way?",
+    "DESCRIPTIONS": [
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]after [#2aecd7]an [#2aecd7]Elite [#2aecd7]combat [#2aecd7]to [#2aecd7]go NL Start a new, plain and peaceful Elite combat. If you manage to survive, also heal #b%d%% of your currently missing HP. Otherwise, you will lose #b%d%% of your current HP as the final fight comes.",
+      "Note",
+      "This relic will spawn only in response to some particular dates, usernames or action sequences.",
+      "",
+      "",
+      "Let's go, for a new world is just one step ahead."
     ]
   }
 }

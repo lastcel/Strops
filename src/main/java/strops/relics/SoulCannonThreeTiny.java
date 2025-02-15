@@ -37,7 +37,7 @@ public class SoulCannonThreeTiny extends StropsAbstractRelic implements Clickabl
     private static final RelicTier RELIC_TIER = RelicTier.SPECIAL;
     private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
-    public static final int NUM1=1,NUM2=17,NUM3=20,NUM4=24;
+    public static final int NUM1=1,NUM2=15,NUM3=18,NUM4=21;
 
     public static final IntSliderSetting COST=new IntSliderSetting("ThreeTiny_Cost", "N1", NUM1, 1,5);
     public static final IntSliderSetting ACT1=new IntSliderSetting("ThreeTiny_Act1", "N2", NUM2, 10,50);

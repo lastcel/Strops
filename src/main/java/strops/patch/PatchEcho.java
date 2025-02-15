@@ -52,6 +52,8 @@ public class PatchEcho {
         @SpireInsertPatch(rloc = 107)
         public static void Insert(CardCrawlGame __inst) {
             Strops.lastPotion="";
+            Strops.continuousRest=0;
+            Strops.continuousNonElite=0;
         }
     }
 

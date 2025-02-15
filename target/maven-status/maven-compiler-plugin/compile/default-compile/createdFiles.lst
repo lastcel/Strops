@@ -59,7 +59,9 @@ strops\patch\PatchClockWithNoHands$PatchTool7.class
 strops\relics\Evasive.class
 strops\patch\PatchDecanter$PatchTool16.class
 strops\potions\GreedyPotion.class
+strops\patch\PatchLoveChocolate$PatchTool3.class
 strops\cards\OneTiny.class
+strops\patch\PatchLoveChocolate.class
 strops\patch\PatchRestrainedHeart$PatchTool19.class
 strops\patch\PatchZan$PatchTool7.class
 strops\relics\SoulCannonThreeTiny.class
@@ -169,6 +171,7 @@ strops\patch\PatchTranscendence$PatchTool1.class
 strops\relics\SiphonGem.class
 strops\patch\PatchGenerosityCharm.class
 strops\patch\PatchSteamEpic.class
+strops\relics\LoveChocolate.class
 strops\modcore\Strops$1.class
 strops\utilities\ExtendedCardSave.class
 strops\patch\PatchDelayedGratification$PatchTool4.class
@@ -223,6 +226,7 @@ strops\patch\PatchClockWithNoHands$PatchTool6.class
 strops\relics\ProfiteeringMerchantAchieved.class
 strops\patch\PatchSunflowerInASummer$PatchTool2.class
 strops\patch\PatchLeviboard$PatchTool1.class
+strops\patch\PatchLoveChocolate$PatchTool4.class
 strops\patch\PatchRestrainedHeart.class
 strops\actions\LoseBlockAction.class
 strops\relics\Polearm.class
@@ -238,6 +242,7 @@ strops\patch\PatchGlowFeather$PatchTool12.class
 strops\patch\PatchHearthsMores$PatchTool4.class
 strops\patch\PatchGrabbyHands.class
 strops\patch\PatchZan$1.class
+strops\patch\PatchLoveChocolate$PatchTool2.class
 strops\patch\PatchDecanter$PatchTool14.class
 strops\cards\ChooseSkill.class
 strops\relics\SoulStitch.class
@@ -418,6 +423,7 @@ strops\actions\SetBlockAction.class
 strops\patch\PatchStropsSkipPlayerTurn$SkipPlayerTurn$PatchSkipPlayerTurnInternal.class
 strops\relics\Wedgue$Category.class
 strops\patch\PatchManiacal.class
+strops\utilities\StropsSaveInfo.class
 strops\cards\ToGetHer.class
 strops\patch\PatchGlowFeather$PatchTool26.class
 strops\patch\PatchClockWithNoHands$PatchTool9.class

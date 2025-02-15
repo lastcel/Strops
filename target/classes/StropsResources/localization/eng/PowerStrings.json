@@ -6,7 +6,7 @@
     ]
   },
   "Strops:FireTalentsPower": {
-    "NAME": "Fire Talents",
+    "NAME": "Gift of Fire",
     "DESCRIPTIONS": [
       "At the end of each turn, deal #b%d damage, randomly split among all enemies."
     ]

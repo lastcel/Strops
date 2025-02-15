@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.blue.GeneticAlgorithm;
 import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheBeyond;
@@ -41,12 +42,13 @@ import strops.utilities.*;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.text.Collator;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @SpireInitializer
 public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         EditStringsSubscriber, PostInitializeSubscriber, EditKeywordsSubscriber,
-        CustomSavable<String>, MaxHPChangeSubscriber {
+        CustomSavable<StropsSaveInfo>, MaxHPChangeSubscriber, PostDungeonInitializeSubscriber {
 
     public Strops() {
         BaseMod.subscribe(this);
@@ -81,15 +83,17 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
     public static final Logger logger = LogManager.getLogger(Strops.class.getName());
 
     public static String lastPotion="";
+    public static int continuousRest=0;
+    public static int continuousNonElite=0;
 
     @Override
-    public String onSave() {
-        return lastPotion;
+    public StropsSaveInfo onSave() {
+        return new StropsSaveInfo(lastPotion,continuousRest,continuousNonElite);
     }
 
     @Override
-    public void onLoad(String savedLastPotion) {
-        lastPotion=savedLastPotion;
+    public void onLoad(StropsSaveInfo savedStropsSaveInfo) {
+        lastPotion=savedStropsSaveInfo.s_lastPotion;
         if(!lastPotion.equals("")){
             for(AbstractRelic r:AbstractDungeon.player.relics){
                 if(r.relicId.equals(Echo.ID)&&r.counter>0){
@@ -97,6 +101,9 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
                 }
             }
         }
+
+        continuousRest=savedStropsSaveInfo.s_continuousRest;
+        continuousNonElite=savedStropsSaveInfo.s_continuousNonElite;
     }
 
     public static void BuildSettings(StropsAbstractRelic relic) {
@@ -262,6 +269,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addRelic(new ShammyPeach(), RelicType.SHARED);
         BaseMod.addRelic(new Catalyst(), RelicType.SHARED);
         BaseMod.addRelic(new Gluttony(), RelicType.SHARED);
+        BaseMod.addRelic(new LoveChocolate(), RelicType.SHARED);
 
         BaseMod.addRelic(new ZhelpArcaneTalents(), RelicType.SHARED);
         BaseMod.addRelic(new ZhelpFrostTalents(), RelicType.SHARED);
@@ -373,6 +381,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         UnlockTracker.markRelicAsSeen(ShammyPeach.ID);
         UnlockTracker.markRelicAsSeen(Catalyst.ID);
         UnlockTracker.markRelicAsSeen(Gluttony.ID);
+        UnlockTracker.markRelicAsSeen(LoveChocolate.ID);
 
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpArcaneTalents.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpFrostTalents.class.getSimpleName()));
@@ -530,6 +539,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BuildSettings(new ShammyPeach());
         BuildSettings(new Catalyst());
         BuildSettings(new Gluttony());
+        BuildSettings(new LoveChocolate());
 
         BuildSettings(new ZhelpArcaneTalents());
         BuildSettings(new ZhelpFrostTalents());
@@ -756,5 +766,30 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
          */
 
         return amount;
+    }
+
+    @Override
+    public void receivePostDungeonInitialize() {
+        if(AbstractDungeon.floorNum>1){
+            return;
+        }
+
+        if(LoveChocolate.getBelovedDates().contains(new SimpleDateFormat("MM/dd").format(new Date(System.currentTimeMillis())))){
+            LoveChocolate loveChocolate=new LoveChocolate();
+            if (!AbstractDungeon.player.hasRelic(LoveChocolate.ID)) {
+                loveChocolate.instantObtain();
+            }
+            return;
+        }
+
+        for(String s:LoveChocolate.getBelovedUserNames()){
+            if(CardCrawlGame.playerName.toLowerCase().contains(s)){
+                LoveChocolate loveChocolate=new LoveChocolate();
+                if (!AbstractDungeon.player.hasRelic(LoveChocolate.ID)) {
+                    loveChocolate.instantObtain();
+                }
+                return;
+            }
+        }
     }
 }

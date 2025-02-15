@@ -58,7 +58,7 @@ public class Lemonade extends StropsAbstractRelic{
     public void onVictory() {
         isUsed=false;
 
-        if(!PhoenixGift.isAct3Boss()){
+        if((!PhoenixGift.isAct3Boss())||((counter+1)%COMBAT.value!=0)){
             counter=(++counter)%COMBAT.value;
         }
         if(counter==0){

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.helpers.ModHelper;
 import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSetting;
@@ -90,16 +91,25 @@ public class ShammyPeach extends StropsAbstractRelic{
     public void renderAndCheck(SpriteBatch sb){
         if(/*AbstractDungeon.getCurrRoom()==null||
                 AbstractDungeon.getCurrRoom().phase!=AbstractRoom.RoomPhase.COMBAT||*/
-                !StaticHelpers.canClickRelic(this)||counter<=0){
+                counter<=0){
             buttonDraw.setClickable(false);
             buttonDiscard.setClickable(false);
             return;
         }
 
-        buttonDraw.setClickable(true);
-        buttonDiscard.setClickable(true);
-        buttonDraw.render(sb);
-        buttonDiscard.render(sb);
+        if(!StaticHelpers.canClickRelic(this)){
+            buttonDraw.setClickable(false);
+            buttonDiscard.setClickable(false);
+        } else {
+            buttonDraw.setClickable(true);
+            buttonDiscard.setClickable(true);
+        }
+
+        if(AbstractDungeon.getCurrRoom() != null &&
+                AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT){
+            buttonDraw.render(sb);
+            buttonDiscard.render(sb);
+        }
     }
 
     @Override
