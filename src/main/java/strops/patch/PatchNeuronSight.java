@@ -1,18 +1,14 @@
 package strops.patch;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.ui.panels.DiscardPilePanel;
 import com.megacrit.cardcrawl.ui.panels.DrawPilePanel;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
-import strops.modcore.Strops;
 
 public class PatchNeuronSight {
 
