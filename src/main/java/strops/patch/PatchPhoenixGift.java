@@ -52,7 +52,7 @@ public class PatchPhoenixGift {
                         if(r.counter<0){
                             r.counter=0;
                         }
-                        if(r.counter==0&&!PhoenixGift.isAct3Boss()){
+                        if(r.counter==0&& PhoenixGift.isNotAct3Boss()){
                             for(int i=0;i<PhoenixGift.BONUS.value;i++){
                                 AbstractDungeon.getCurrRoom().addRelicToRewards(AbstractRelic.RelicTier.RARE);
                             }

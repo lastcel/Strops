@@ -52,7 +52,7 @@ public class PhoenixGift extends StropsAbstractRelic {
 
     @Override
     public void atBattleStart(){
-        if(counter==0&&!isAct3Boss()){
+        if(counter==0&& isNotAct3Boss()){
             for(int i=0;i<BONUS.value;i++){
                 AbstractDungeon.getCurrRoom().addRelicToRewards(RelicTier.RARE);
             }
@@ -103,10 +103,10 @@ public class PhoenixGift extends StropsAbstractRelic {
         initializeTips();
     }
 
-    public static boolean isAct3Boss() {
-        return !AbstractDungeon.getCurrRoom().rewardAllowed ||
-                !Settings.isEndless &&
-                AbstractDungeon.actNum == 3 &&
-                AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss;
+    public static boolean isNotAct3Boss() {
+        return AbstractDungeon.getCurrRoom().rewardAllowed &&
+                (Settings.isEndless ||
+                        AbstractDungeon.actNum != 3 ||
+                        !(AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss));
     }
 }
