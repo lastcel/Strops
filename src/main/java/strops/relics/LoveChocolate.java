@@ -73,6 +73,8 @@ public class LoveChocolate extends StropsAbstractRelic implements ClickableRelic
 
     @Override
     public void onRightClick() {
+        //Strops.logger.info("当前房间阶段="+AbstractDungeon.getCurrRoom().phase.name());
+        //Strops.logger.info("actNum="+AbstractDungeon.actNum+"，floorNum="+AbstractDungeon.floorNum);
         //Strops.logger.info("怪物血量随机数="+AbstractDungeon.monsterHpRng+"，洗牌随机数="+AbstractDungeon.shuffleRng);
 
         if(AbstractDungeon.getCurrRoom().phase==AbstractRoom.RoomPhase.COMBAT){
@@ -87,9 +89,9 @@ public class LoveChocolate extends StropsAbstractRelic implements ClickableRelic
             return;
         }
 
-        if(AbstractDungeon.actNum == 4 && AbstractDungeon.getCurrRoom() instanceof MonsterRoomElite){
+        if(!Settings.isEndless && AbstractDungeon.actNum == 4 && AbstractDungeon.getCurrRoom() instanceof MonsterRoomElite){
             flash();
-            AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX + 500.0F*Settings.scale, AbstractDungeon.player.dialogY, 3.0F, this.DESCRIPTIONS[5], true));
+            AbstractDungeon.effectList.add(new SpeechBubble(Settings.WIDTH/2.0F+500.0F*Settings.scale, AbstractDungeon.player.dialogY, 3.0F, this.DESCRIPTIONS[5], true));
             AbstractDungeon.player.heal(MathUtils.floor(
                     (AbstractDungeon.player.maxHealth-AbstractDungeon.player.currentHealth)
                             *HOT.value/100.0f/2),true);
@@ -171,6 +173,9 @@ public class LoveChocolate extends StropsAbstractRelic implements ClickableRelic
     public void onTrigger(){
         if(isToBurn()){
             addToBot(new LoseHPAction(AbstractDungeon.player,AbstractDungeon.player,counter,AbstractGameAction.AttackEffect.FIRE));
+            if(Settings.isEndless){
+                counter=0;
+            }
         }
     }
 
@@ -180,14 +185,24 @@ public class LoveChocolate extends StropsAbstractRelic implements ClickableRelic
     }
 
     private boolean isToBurn(){
+        if(!Settings.isEndless && AbstractDungeon.actNum == 4 &&
+                AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss){
+            return true;
+        }
+        if(!Settings.isEndless && Settings.isFinalActAvailable && hasTriColor()){
+            return false;
+        }
+        /*
         if(Settings.isFinalActAvailable && hasTriColor()){
             return AbstractDungeon.actNum == 4 && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss;
         }
-        if(AbstractDungeon.actNum == 3 && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss
+
+         */
+        if(AbstractDungeon.actNum % 3 == 0 && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss
                 &&AbstractDungeon.ascensionLevel < 20){
             return true;
         }
-        return AbstractDungeon.actNum==3 && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss
+        return AbstractDungeon.actNum % 3 == 0 && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss
                 && AbstractDungeon.ascensionLevel >= 20 && AbstractDungeon.bossList.size() == 1;
     }
 

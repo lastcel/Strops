@@ -1,5 +1,6 @@
 package strops.relics;
 
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PotionHelper;
@@ -110,7 +111,7 @@ public class Lemonade extends StropsAbstractRelic{
 
     @Override
     public boolean canSpawn(){
-        return (AbstractDungeon.floorNum<=43);
+        return (Settings.isEndless || AbstractDungeon.floorNum<=43);
     }
 
     /*

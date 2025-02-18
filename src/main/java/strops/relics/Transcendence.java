@@ -4,6 +4,7 @@ import basemod.abstracts.CustomBottleRelic;
 import basemod.abstracts.CustomSavable;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnAfterUseCardRelic;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -28,6 +29,7 @@ public class Transcendence extends StropsAbstractRelic implements OnAfterUseCard
         CustomBottleRelic, CustomSavable<ArrayList<Integer>> {
     public static final String ID = ModHelper.makePath(Transcendence.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Transcendence.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(Transcendence.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
@@ -36,18 +38,22 @@ public class Transcendence extends StropsAbstractRelic implements OnAfterUseCard
     public static final IntSliderSetting THRESHOLD=new IntSliderSetting("Transcendence_Threshold", "N1", NUM1, 1,10);
     public static final IntSliderSetting MH=new IntSliderSetting("Transcendence_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Transcendence_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("Transcendence_R","R",TIER,0,5);
+    public static final IntSliderSetting R=new IntSliderSetting("Transcendence_R","R", TIER,0,5);
+    public static final IntSliderSetting B1=new IntSliderSetting("Transcendence_B1","B1",0,1);
+    public static final IntSliderSetting S1=new IntSliderSetting("Transcendence_S1","S1",0,7);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
+        settings.add(B1);
+        settings.add(S1);
         return settings;
     }
 
     public Transcendence() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         canCopy=false;
         canSpawnInBattle=false;
@@ -58,7 +64,15 @@ public class Transcendence extends StropsAbstractRelic implements OnAfterUseCard
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0], THRESHOLD.value);
+        if(B1.value==0&&S1.value==0){
+            return String.format(DESCRIPTIONS[0]+DESCRIPTIONS[8]+DESCRIPTIONS[11], THRESHOLD.value);
+        } else if(B1.value==0&&S1.value>0){
+            return String.format(DESCRIPTIONS[0]+DESCRIPTIONS[10]+DESCRIPTIONS[11], THRESHOLD.value, S1.value);
+        } else if(B1.value!=0&&S1.value==0){
+            return String.format(DESCRIPTIONS[0]+DESCRIPTIONS[11], THRESHOLD.value);
+        } else {
+            return String.format(DESCRIPTIONS[0]+DESCRIPTIONS[9]+DESCRIPTIONS[11], THRESHOLD.value, S1.value);
+        }
     }
 
     @Override
@@ -151,7 +165,12 @@ public class Transcendence extends StropsAbstractRelic implements OnAfterUseCard
             }
             flash();
             int handsize = AbstractDungeon.player.hand.size();
-            addToTop(new DrawCardAction(AbstractDungeon.player,handsize));
+            if(S1.value>0){
+                addToTop(new GainBlockAction(AbstractDungeon.player,AbstractDungeon.player,handsize*S1.value));
+            }
+            if(B1.value==0){
+                addToTop(new DrawCardAction(AbstractDungeon.player,handsize));
+            }
             for (int i = 0; i < handsize; i++) {
                 addToTop(new ExcludeAction(1, true, true, false, Settings.ACTION_DUR_XFAST));
             }
@@ -162,15 +181,33 @@ public class Transcendence extends StropsAbstractRelic implements OnAfterUseCard
 
     public void setDescriptionAfterLoading() {
         description = String.format(DESCRIPTIONS[2] + FontHelper.colorString(card.name, "y") + DESCRIPTIONS[3],THRESHOLD.value);
+        if(B1.value==0&&S1.value==0){
+            description+=DESCRIPTIONS[8]+DESCRIPTIONS[11];
+        } else if(B1.value==0&&S1.value>0){
+            description+=String.format(DESCRIPTIONS[10]+DESCRIPTIONS[11], S1.value);
+        } else if(B1.value!=0&&S1.value==0){
+            description+=DESCRIPTIONS[11];
+        } else {
+            description+=String.format(DESCRIPTIONS[9]+DESCRIPTIONS[11], S1.value);
+        }
         tips.clear();
         tips.add(new PowerTip(name, description));
         initializeTips();
         //tips.subList(1, tips.size()).clear(); // remove keyword tips from words in the card's name
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0], THRESHOLD.value));
+        if(B1.value==0&&S1.value==0){
+            str_out.add(String.format(DESCRIPTIONS[0]+DESCRIPTIONS[8]+DESCRIPTIONS[11], THRESHOLD.value));
+        } else if(B1.value==0&&S1.value>0){
+            str_out.add(String.format(DESCRIPTIONS[0]+DESCRIPTIONS[10]+DESCRIPTIONS[11], THRESHOLD.value, S1.value));
+        } else if(B1.value!=0&&S1.value==0){
+            str_out.add(String.format(DESCRIPTIONS[0]+DESCRIPTIONS[11], THRESHOLD.value));
+        } else {
+            str_out.add(String.format(DESCRIPTIONS[0]+DESCRIPTIONS[9]+DESCRIPTIONS[11], THRESHOLD.value, S1.value));
+        }
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;

@@ -270,6 +270,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BaseMod.addRelic(new Catalyst(), RelicType.SHARED);
         BaseMod.addRelic(new Gluttony(), RelicType.SHARED);
         BaseMod.addRelic(new LoveChocolate(), RelicType.SHARED);
+        BaseMod.addRelic(new NeuronSight(), RelicType.SHARED);
 
         BaseMod.addRelic(new ZhelpArcaneTalents(), RelicType.SHARED);
         BaseMod.addRelic(new ZhelpFrostTalents(), RelicType.SHARED);
@@ -382,6 +383,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         UnlockTracker.markRelicAsSeen(Catalyst.ID);
         UnlockTracker.markRelicAsSeen(Gluttony.ID);
         UnlockTracker.markRelicAsSeen(LoveChocolate.ID);
+        UnlockTracker.markRelicAsSeen(NeuronSight.ID);
 
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpArcaneTalents.class.getSimpleName()));
         UnlockTracker.markRelicAsSeen(ModHelper.makePath(ZhelpFrostTalents.class.getSimpleName()));
@@ -429,6 +431,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
     }
 
     public void receivePostInitialize(){
+        BaseMod.addCustomScreen(new NeuronSightScreen());
 
         BaseMod.addEvent(new AddEventParams.Builder("Strops:MindBloom", StropsMindBloom.class).
                 dungeonID(TheBeyond.ID).bonusCondition(()->AbstractDungeon.player.hasRelic(ModHelper.makePath(Key.class.getSimpleName()))
@@ -540,6 +543,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         BuildSettings(new Catalyst());
         BuildSettings(new Gluttony());
         BuildSettings(new LoveChocolate());
+        BuildSettings(new NeuronSight());
 
         BuildSettings(new ZhelpArcaneTalents());
         BuildSettings(new ZhelpFrostTalents());
@@ -768,6 +772,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
         return amount;
     }
 
+    //这个方法的选用受Good Game Mod启发，感谢REME！
     @Override
     public void receivePostDungeonInitialize() {
         if(AbstractDungeon.floorNum>1){

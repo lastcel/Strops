@@ -30,6 +30,7 @@ public class Fractal extends StropsAbstractRelic {
     public static final IntSliderSetting MH=new IntSliderSetting("Fractal_MH_v0.12.8","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Fractal_G_v0.12.8","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("Fractal_R","R", TIER,0,5);
+    public static final IntSliderSetting B1=new IntSliderSetting("Fractal_B1","B1", 0,1);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MULTIPLE);
@@ -37,6 +38,7 @@ public class Fractal extends StropsAbstractRelic {
         settings.add(MH);
         settings.add(G);
         settings.add(R);
+        settings.add(B1);
         return settings;
     }
 
@@ -53,6 +55,17 @@ public class Fractal extends StropsAbstractRelic {
     public void atBattleStartPreDraw(){
         counter=0;
         stepsToGrayScale=0;
+
+        if(B1.value==1){
+            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            flash();
+            grayscale=true;
+
+            BodySlamAdded=new BodySlam();
+            BodySlamAdded.upgrade();
+            addToBot(new MakeTempCardInHandAction(BodySlamAdded, 1, false));
+            return;
+        }
 
         if(MULTIPLE.value==1){
             addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
@@ -88,6 +101,21 @@ public class Fractal extends StropsAbstractRelic {
     public void atTurnStart()
     {
         counter++;
+
+        if(B1.value==1){
+            if(counter!=1&&counter<=SINGLE.value){
+                addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+                flash();
+                if(counter==SINGLE.value){
+                    grayscale=true;
+                }
+
+                BodySlamAdded=new BodySlam();
+                BodySlamAdded.upgrade();
+                addToBot(new MakeTempCardInHandAction(BodySlamAdded, 1, false));
+            }
+            return;
+        }
 
         if(counter!=1&&counter==MULTIPLE.value){
             addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
@@ -162,13 +190,20 @@ public class Fractal extends StropsAbstractRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0], MULTIPLE.value, SINGLE.value);
+        if(B1.value!=1){
+            return String.format(this.DESCRIPTIONS[0], MULTIPLE.value, SINGLE.value);
+        }
+        return String.format(this.DESCRIPTIONS[5], SINGLE.value);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0], MULTIPLE.value, SINGLE.value));
+        if(B1.value!=1){
+            str_out.add(String.format(this.DESCRIPTIONS[0], MULTIPLE.value, SINGLE.value));
+        } else {
+            str_out.add(String.format(this.DESCRIPTIONS[5], SINGLE.value));
+        }
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;

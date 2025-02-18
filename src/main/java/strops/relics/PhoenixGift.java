@@ -104,6 +104,9 @@ public class PhoenixGift extends StropsAbstractRelic {
     }
 
     public static boolean isAct3Boss() {
-        return AbstractDungeon.actNum == 3 && AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss;
+        return !AbstractDungeon.getCurrRoom().rewardAllowed ||
+                !Settings.isEndless &&
+                AbstractDungeon.actNum == 3 &&
+                AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss;
     }
 }

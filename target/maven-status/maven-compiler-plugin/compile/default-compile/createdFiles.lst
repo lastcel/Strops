@@ -111,6 +111,7 @@ strops\cards\ChooseCommon.class
 strops\patch\PatchGlowFeather$PatchTool2.class
 strops\patch\PatchGlowFeather$PatchTool24.class
 strops\patch\PatchIceGenerator$PatchTool2.class
+strops\utilities\NeuronSightPanel.class
 strops\patch\PatchCatalyst.class
 strops\vfx\ShammyPeachEffect.class
 strops\patch\PatchTranscendence.class
@@ -160,6 +161,7 @@ strops\patch\PatchClockWithNoHands.class
 strops\patch\PatchGlowFeather$PatchTool19$1.class
 strops\relics\WeatherControlDevice.class
 strops\patch\PatchDecanter$PatchTool17.class
+strops\actions\NeuronSightAction.class
 strops\patch\PatchGlowFeather$PatchTool1.class
 strops\patch\PatchSunflowerInASummer$PatchTool4.class
 strops\patch\PatchVanillaBottles$PatchTool2.class
@@ -274,6 +276,7 @@ strops\relics\TheOwl.class
 strops\patch\PatchIceGenerator.class
 strops\relics\StroopsTester.class
 strops\patch\PatchEcho$PatchTool3.class
+strops\patch\PatchNeuronSight$PatchTool3.class
 strops\patch\PatchPainsReward$PatchTool1.class
 strops\patch\PatchVanillaBottles.class
 strops\cards\BodySlamPlusPlus.class
@@ -295,6 +298,7 @@ strops\relics\Balance.class
 strops\patch\PatchKey.class
 strops\utilities\IntSliderSetting.class
 strops\patch\PatchBigBangBell$PatchTool2.class
+strops\patch\PatchNeuronSight$PatchTool1.class
 strops\potions\PhantasmalShootingStar.class
 strops\patch\PatchGlowFeather$PatchTool14$1.class
 strops\patch\PatchLightningStorm.class
@@ -302,6 +306,7 @@ strops\relics\MessyPuppy.class
 strops\patch\PatchDecanter$PatchTool12.class
 strops\relics\StropsAbstractRelic$1.class
 strops\patch\PatchBigBangBell$PatchTool3.class
+strops\patch\PatchNeuronSight$PatchTool2.class
 strops\patch\PatchGlowFeather$PatchTool5$1.class
 strops\textkeynumbers\TextKeyNumber2.class
 strops\patch\PatchAtri.class
@@ -333,6 +338,7 @@ strops\patch\PatchExtraBossRelic.class
 strops\patch\PatchSunflowerInASummer$PatchTool5.class
 strops\patch\PatchDepartmentStore.class
 strops\relics\GenerosityCharm.class
+strops\utilities\NeuronSightScreen.class
 strops\patch\PatchExitPhase.class
 strops\patch\PatchRenderAndCheck$PatchTool1.class
 strops\actions\GeneralDrawPileToHandAction.class
@@ -349,6 +355,7 @@ strops\relics\Upgrade.class
 strops\patch\PatchGlowFeather$PatchTool27.class
 strops\actions\LoseMaxHpAction.class
 strops\patch\PatchBambooDragonflyOfHanyuHorner$PatchTool2.class
+strops\patch\PatchNeuronSight.class
 strops\cards\EatMango.class
 strops\patch\PatchHearthsMores$PatchTool2.class
 strops\relics\SoulCannon.class
@@ -371,6 +378,7 @@ strops\actions\MyMoveCardsAction.class
 strops\relics\LuckyStar.class
 strops\interfaces\IKeyNumber1.class
 strops\actions\EnableCanDelayAction.class
+strops\patch\PatchNeuronSight$PatchTool3$Locator.class
 strops\patch\PatchRestrainedHeart$PatchTool7.class
 strops\patch\PatchStroopsTester.class
 strops\patch\PatchGenerosityCharm$1.class
@@ -383,6 +391,7 @@ strops\patch\PatchRainbowColoredCircle$PatchTool1.class
 strops\patch\PatchRestrainedHeart$PatchTool8.class
 strops\patch\PatchDecanter$PatchTool22.class
 strops\patch\PatchRenderAndCheck.class
+strops\patch\PatchNeuronSight$PatchTool2$Locator.class
 strops\patch\PatchDecanter$PatchTool18.class
 strops\powers\RitualOfRitualPower.class
 strops\patch\PatchGlowFeather$PatchTool22$1.class
@@ -564,6 +573,7 @@ strops\relics\ZhelpPartScrapper.class
 strops\relics\IceGenerator.class
 strops\patch\PatchGlassRod$PatchTool2.class
 strops\relics\Extractor.class
+strops\utilities\MyTypeHelper.class
 strops\patch\PatchDecanter$PatchTool4.class
 strops\relics\BlackRabbit.class
 strops\patch\PatchLoseRelic.class

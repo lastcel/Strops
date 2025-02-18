@@ -1,4 +1,5 @@
 F:\Strops\src\main\java\strops\relics\TheCrow.java
+F:\Strops\src\main\java\strops\utilities\NeuronSightPanel.java
 F:\Strops\src\main\java\strops\relics\TheOwl.java
 F:\Strops\src\main\java\strops\cards\ThreeHuge.java
 F:\Strops\src\main\java\strops\actions\UsePreBattleActionAction.java
@@ -90,11 +91,13 @@ F:\Strops\src\main\java\strops\relics\SoulCannonThreeHuge.java
 F:\Strops\src\main\java\strops\relics\CirculatingLightAndColorShifter.java
 F:\Strops\src\main\java\strops\patch\PatchAtri.java
 F:\Strops\src\main\java\strops\actions\EnableCanDelayAction.java
+F:\Strops\src\main\java\strops\actions\NeuronSightAction.java
 F:\Strops\src\main\java\strops\cards\ChooseRare.java
 F:\Strops\src\main\java\strops\cards\AbstractStropsCard.java
 F:\Strops\src\main\java\strops\relics\SwordOfFeastAndFamine.java
 F:\Strops\src\main\java\strops\relics\Bolster.java
 F:\Strops\src\main\java\strops\cards\Choose2Cost.java
+F:\Strops\src\main\java\strops\patch\PatchNeuronSight.java
 F:\Strops\src\main\java\strops\actions\LoseGoldAction.java
 F:\Strops\src\main\java\strops\patch\PatchBindings.java
 F:\Strops\src\main\java\strops\relics\Balance.java
@@ -229,6 +232,8 @@ F:\Strops\src\main\java\strops\utilities\RelicSetting.java
 F:\Strops\src\main\java\strops\patch\PatchSeaOfMoon.java
 F:\Strops\src\main\java\strops\cards\BodySlamPlusPlus.java
 F:\Strops\src\main\java\strops\relics\StringThe.java
+F:\Strops\src\main\java\strops\utilities\MyTypeHelper.java
+F:\Strops\src\main\java\strops\utilities\NeuronSightScreen.java
 F:\Strops\src\main\java\strops\utilities\StropsSaveInfo.java
 F:\Strops\src\main\java\strops\events\StropsMindBloom.java
 F:\Strops\src\main\java\strops\patch\PatchLeviboard.java

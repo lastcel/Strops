@@ -2,6 +2,7 @@ package strops.relics;
 
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
@@ -118,10 +119,12 @@ public class Upgrade extends StropsAbstractRelic implements ClickableRelic {
         }
     }
 
+    @Override
     public String getUpdatedDescription() {
         return String.format(this.DESCRIPTIONS[0],USABLE.value,THRESHOLD.value);
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0],USABLE.value,THRESHOLD.value));
@@ -136,7 +139,7 @@ public class Upgrade extends StropsAbstractRelic implements ClickableRelic {
 
     @Override
     public boolean canSpawn() {
-        return ((AbstractDungeon.actNum <= 3) &&
+        return ((Settings.isEndless || AbstractDungeon.actNum <= 3) &&
                 !(AbstractDungeon.getCurrRoom() instanceof ShopRoom));
     }
 }

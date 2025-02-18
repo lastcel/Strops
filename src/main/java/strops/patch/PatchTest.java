@@ -1,4 +1,65 @@
-//package strops.patch;
+/*
+package strops.patch;
+
+import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
+import com.megacrit.cardcrawl.ui.panels.DiscardPilePanel;
+import com.megacrit.cardcrawl.ui.panels.DrawPilePanel;
+import javassist.CannotCompileException;
+import javassist.CtBehavior;
+import strops.modcore.Strops;
+
+public class PatchTest {
+
+    @SpirePatch(
+            clz= DrawPilePanel.class,
+            method="updatePositions"
+    )
+    public static class PatchTool1 {
+        @SpireInsertPatch(locator=Locator.class)
+        public static void Insert(DrawPilePanel __inst) {
+            Strops.logger.info("准备打开抽牌堆屏幕");
+        }
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctBehavior) throws CannotCompileException, PatchingException {
+                Matcher.FieldAccessMatcher fieldAccessMatcher=new Matcher.FieldAccessMatcher(DrawPilePanel.class,"hb");
+                int[] matches= LineFinder.findAllInOrder(ctBehavior,fieldAccessMatcher);
+                return new int[]{
+                        matches[matches.length-1]
+                };
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz= DiscardPilePanel.class,
+            method="updatePositions"
+    )
+    public static class PatchTool2 {
+        @SpireInsertPatch(locator=Locator.class)
+        public static void Insert(DiscardPilePanel __inst) {
+            Strops.logger.info("准备打开弃牌堆屏幕");
+        }
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctBehavior) throws CannotCompileException, PatchingException {
+                Matcher.FieldAccessMatcher fieldAccessMatcher=new Matcher.FieldAccessMatcher(DiscardPilePanel.class,"hb");
+                int[] matches= LineFinder.findAllInOrder(ctBehavior,fieldAccessMatcher);
+                return new int[]{
+                        matches[matches.length-1]
+                };
+            }
+        }
+    }
+
+
+}
+
+ */
+
+
+
 //
 //import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 //import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;

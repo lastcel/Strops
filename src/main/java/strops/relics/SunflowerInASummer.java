@@ -1,6 +1,7 @@
 package strops.relics;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
@@ -69,7 +70,7 @@ public class SunflowerInASummer extends StropsAbstractRelic {
 
     @Override
     public boolean canSpawn() {
-        return  AbstractDungeon.actNum == 1 ;
+        return  !Settings.isEndless && AbstractDungeon.actNum == 1 ;
     }
 
     /*

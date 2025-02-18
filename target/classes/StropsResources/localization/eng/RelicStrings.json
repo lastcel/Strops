@@ -41,9 +41,14 @@
   },
   "Strops:Fractal": {
     "NAME": "Fractal",
-    "FLAVOR": "Too many Body Slams may pollute your card set? Don't worry, once you collect 3 of them in your hand, they will merge into a Body Slam++ automatically.",
+    "FLAVOR": "Too many Body Slams may pollute your card piles? Don't worry, once you collect 3 of them in your hand, they will merge into a Body Slam++ automatically.",
     "DESCRIPTIONS": [
-      "At the start of the #b%dst turn of each combat, add a #yBody #ySlam+ into your hand, draw pile and discard pile. At the start of the #b%dnd turn of each combat, add a #yBody #ySlam+ into your hand."
+      "At the start of the #b%dst turn of each combat, add a #yBody #ySlam+ into your hand, draw pile and discard pile. At the start of the #b%dnd turn of each combat, add a #yBody #ySlam+ into your hand.",
+      "",
+      "",
+      "",
+      "",
+      "At the start of the first #b%d turns of each combat, add a #yBody #ySlam+ into your hand."
     ]
   },
   "Strops:IcyTouch": {
@@ -57,10 +62,18 @@
     "NAME": "Transcendence",
     "FLAVOR": "A bright self, a clear world.",
     "DESCRIPTIONS": [
-      "Upon pickup, choose a card. After you play the card, if it's one of the first #b%d cards played that turn, #ystrops:Exclude the rest of cards in your hand, then draw that many cards.",
+      "Upon pickup, choose a card. After you play the card, if it's one of the first #b%d cards played that turn, #ystrops:Exclude the rest of cards in your hand",
       "Choose a card to combine with",
       "After you play ",
-      " , if it's one of the first #b%d cards played that turn, #ystrops:Exclude the rest of cards in your hand, then draw that many cards."
+      " , if it's one of the first #b%d cards played that turn, #ystrops:Exclude the rest of cards in your hand",
+      "",
+      "",
+      "",
+      "",
+      ", then draw that many cards",
+      ", then gain #b%dx that much #yBlock",
+      ", then draw that many cards and gain #b%dx that much #yBlock",
+      "."
     ]
   },
   "Strops:SanityMaintenanceApparatus": {
@@ -108,7 +121,7 @@
     "NAME": "The Crow",
     "FLAVOR": "For the period of dusk, I‘ll be here with you.",
     "DESCRIPTIONS": [
-      "At the start of each combat, lose #b%d #yStrength and gain #b%d #yRitual. If you have #yCultist #yHeadpiece, also gain #b%d #ystrops:Ritual_of_Ritual."
+      "At the start of each combat, gain #r%d #yStrength #yDown and #b%d #yRitual. If you have #yCultist #yHeadpiece, also gain #b%d #ystrops:Ritual_of_Ritual."
     ]
   },
   "Strops:GrassNowAndFlowersThen": {
@@ -1031,14 +1044,27 @@
   },
   "Strops:LoveChocolate": {
     "NAME": "Love Chocolate",
-    "FLAVOR": "Looks like this lost chocolate ran into your Spire space as it likes. Would you like to follow its steps to go far, and enjoy the landscape around all the way?",
+    "FLAVOR": "Looks like this lost chocolate ran into your Spire space as it likes. In such a spring, would you like to follow its steps to go far, and enjoy the landscape around all the way?",
     "DESCRIPTIONS": [
       "[#2aecd7]Right [#2aecd7]click [#2aecd7]after [#2aecd7]an [#2aecd7]Elite [#2aecd7]combat [#2aecd7]to [#2aecd7]go NL Start a new, plain and peaceful Elite combat. If you manage to survive, also heal #b%d%% of your currently missing HP. Otherwise, you will lose #b%d%% of your current HP as the final fight comes.",
       "Note",
       "This relic will spawn only in response to some particular dates, usernames or action sequences.",
       "",
       "",
-      "Let's go, for a new world is just one step ahead."
+      "Let's go, for a new world is just one step forward."
+    ]
+  },
+  "Strops:NeuronSight": {
+    "NAME": "Neuron Sight",
+    "FLAVOR": "From available information, it can be inferred that the combat in sight will be ended on Turn ∞.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, foretell the turn number when it will end. If the forecast turns out right, gain #b%d #yGold.",
+      "Note",
+      "1.Once a forecast is made for each combat, it cannot be changed after reloading. NL 2. This relic will only spawn in non-Shop rooms on Act 1 & 2.",
+      "",
+      "",
+      "Foretell When The Combat Will End",
+      "Confirm"
     ]
   }
 }

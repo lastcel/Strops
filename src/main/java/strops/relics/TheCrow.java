@@ -3,6 +3,7 @@ package strops.relics;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.RitualPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.CultistMask;
@@ -22,7 +23,7 @@ public class TheCrow extends StropsAbstractRelic {
 
     public static final int NUM1=1,NUM2=2,NUM3=2,TIER=4;
 
-    public static final IntSliderSetting PENALTY=new IntSliderSetting("TheCrow_Penalty", "N1", NUM1, -2,8);
+    public static final IntSliderSetting PENALTY=new IntSliderSetting("TheCrow_Penalty_v0.16.0", "N1", NUM1, 8);
     public static final IntSliderSetting BONUS1=new IntSliderSetting("TheCrow_Bonus1", "N2", NUM2, 1,6);
     public static final IntSliderSetting BONUS2=new IntSliderSetting("TheCrow_Bonus2", "N3", NUM3, 5);
     public static final IntSliderSetting MH=new IntSliderSetting("TheCrow_MH","MH",0,-20,20);
@@ -58,9 +59,9 @@ public class TheCrow extends StropsAbstractRelic {
         }
         addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                 new RitualPower(AbstractDungeon.player, BONUS1.value, true),BONUS1.value));
-        if(PENALTY.value!=0){
+        if(PENALTY.value>0){
             addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                    new StrengthPower(AbstractDungeon.player, -PENALTY.value),-PENALTY.value));
+                    new LoseStrengthPower(AbstractDungeon.player, PENALTY.value),PENALTY.value));
         }
     }
 
