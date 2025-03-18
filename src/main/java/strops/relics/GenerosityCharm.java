@@ -17,7 +17,7 @@ public class GenerosityCharm extends StropsAbstractRelic implements CustomSavabl
     private static final String IMG_PATH = ModHelper.makeIPath(GenerosityCharm.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(GenerosityCharm.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
-    private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
+    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
     public static Random generosityCharmRng;
 

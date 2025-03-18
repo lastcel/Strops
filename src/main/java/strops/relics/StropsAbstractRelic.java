@@ -114,19 +114,19 @@ public abstract class StropsAbstractRelic extends CustomRelic {
         String coloredMH,coloredG;
 
         if(sA.value>0){
-            coloredMH="MH [#34AF23]"+sA.value+"[]";
+            coloredMH="MH　 [#34AF23]"+sA.value+"[]";
         } else if(sA.value==0){
-            coloredMH="MH "+sA.value;
+            coloredMH="MH　 "+sA.value;
         } else {
-            coloredMH="MH #r"+sA.value;
+            coloredMH="MH　 #r"+sA.value;
         }
 
         if(sB.value>0){
-            coloredG=" G [#34AF23]"+sB.value+"[]";
+            coloredG=" 　G　 [#34AF23]"+sB.value+"[]";
         } else if(sB.value==0){
-            coloredG=" G "+sB.value;
+            coloredG=" 　G　 "+sB.value;
         } else {
-            coloredG=" G #r"+sB.value;
+            coloredG=" 　G　 #r"+sB.value;
         }
 
         this.tips.add(new PowerTip("", coloredMH+coloredG));
@@ -136,19 +136,19 @@ public abstract class StropsAbstractRelic extends CustomRelic {
         String coloredMH,coloredG;
 
         if(sA.value>0){
-            coloredMH="MH [#34AF23]"+sA.value+"[]";
+            coloredMH="MH　 [#34AF23]"+sA.value+"[]";
         } else if(sA.value==0){
-            coloredMH="MH "+sA.value;
+            coloredMH="MH　 "+sA.value;
         } else {
-            coloredMH="MH #r"+sA.value;
+            coloredMH="MH　 #r"+sA.value;
         }
 
         if(sB.value>0){
-            coloredG=" G [#34AF23]"+sB.value+"[]";
+            coloredG=" 　G　 [#34AF23]"+sB.value+"[]";
         } else if(sB.value==0){
-            coloredG=" G "+sB.value;
+            coloredG=" 　G　 "+sB.value;
         } else {
-            coloredG=" G #r"+sB.value;
+            coloredG=" 　G　 #r"+sB.value;
         }
 
         return (coloredMH+coloredG);

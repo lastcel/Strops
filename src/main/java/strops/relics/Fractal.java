@@ -17,7 +17,7 @@ public class Fractal extends StropsAbstractRelic {
     private static final String IMG_PATH = ModHelper.makeIPath(Fractal.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(Fractal.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.SHOP;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
     AbstractCard BodySlamAdded;
 

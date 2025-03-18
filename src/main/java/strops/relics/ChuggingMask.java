@@ -12,7 +12,7 @@ public class ChuggingMask extends StropsAbstractRelic {
     private static final String IMG_PATH = ModHelper.makeIPath(ChuggingMask.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(ChuggingMask.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.COMMON;
-    private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
+    private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
     public static final int MAXHP=5;
     //public static final int TIMES_LIMIT_PER_FLOOR=5;

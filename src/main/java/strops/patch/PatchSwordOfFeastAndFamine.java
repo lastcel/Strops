@@ -1,5 +1,6 @@
 package strops.patch;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
@@ -15,6 +16,7 @@ import com.megacrit.cardcrawl.screens.CombatRewardScreen;
 import strops.potions.FrugalPotion;
 import strops.potions.GreedyPotion;
 import strops.relics.SwordOfFeastAndFamine;
+import strops.relics.ZhelpFrugalPotion;
 
 public class PatchSwordOfFeastAndFamine {
 
@@ -26,10 +28,10 @@ public class PatchSwordOfFeastAndFamine {
     public static class PatchTool1 {
         @SpirePrefixPatch
         public static void Prefix(ApplyPowerAction __inst, AbstractCreature target, AbstractCreature source, AbstractPower powerToApply, int stackAmount, boolean isFast, AbstractGameAction.AttackEffect effect) {
-            if(powerToApply.ID.equals(ArtifactPower.POWER_ID)){
+            if(powerToApply.ID.equals(ArtifactPower.POWER_ID)&&ZhelpFrugalPotion.RATE.value>0){
                 for(AbstractPotion p: AbstractDungeon.player.potions){
                     if(p.ID.equals(FrugalPotion.POTION_ID)){
-                        ((FrugalPotion)p).artifactPart+=powerToApply.amount;
+                        ((FrugalPotion)p).artifactPart+=MathUtils.floor(powerToApply.amount*ZhelpFrugalPotion.RATE.value/10.0f);
                         p.initializeData();
                     }
                 }

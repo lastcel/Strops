@@ -20,7 +20,7 @@ public class ProfiteeringMerchant extends StropsAbstractRelic{
     private static final String IMG_PATH = ModHelper.makeIPath(ProfiteeringMerchant.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(ProfiteeringMerchant.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.UNCOMMON;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
     public static final int NUM1=35,NUM2=40,TIER=2;
 

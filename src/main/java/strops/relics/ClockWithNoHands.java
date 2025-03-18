@@ -24,24 +24,25 @@ import java.util.ArrayList;
 public class ClockWithNoHands extends StropsAbstractRelic implements CustomSavable<ArrayList<ArrayList<MonsterInfo>>> {
     public static final String ID = ModHelper.makePath(ClockWithNoHands.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(ClockWithNoHands.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
-    public static final int NUM1=25;
+    public static final int NUM1=25,TIER=3;
 
     public static final IntSliderSetting PENALTY=new IntSliderSetting("Clock_PENALTY", "N1", NUM1, 0,100);
     public static final IntSliderSetting MH=new IntSliderSetting("Clock_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Clock_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Clock_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(PENALTY);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public ClockWithNoHands() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

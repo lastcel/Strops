@@ -37,6 +37,7 @@ public class PatchSoulCraft {
                     AbstractDungeon.getCurrRoom().phase!=AbstractRoom.RoomPhase.COMBAT&&
                     (potionToObtain.rarity==AbstractPotion.PotionRarity.COMMON||
                             potionToObtain.rarity==AbstractPotion.PotionRarity.UNCOMMON)){
+                AbstractDungeon.player.getRelic(SoulCraft.ID).flash();
                 AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(new SoulCraftedCard(potionToObtain,SoulCraft.USABLE.value),
                         Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
                 return SpireReturn.Return(true);

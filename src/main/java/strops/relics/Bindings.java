@@ -65,7 +65,7 @@ public class Bindings extends StropsAbstractRelic implements OnAfterUseCardRelic
         }
         counter++;
         if(counter==THRESHOLD.value){
-            pulse=false;
+            stopPulse();
         }
         if(counter>THRESHOLD.value){
             return;
@@ -80,6 +80,7 @@ public class Bindings extends StropsAbstractRelic implements OnAfterUseCardRelic
     @Override
     public void onVictory(){
         counter=-1;
+        stopPulse();
     }
 
     @Override

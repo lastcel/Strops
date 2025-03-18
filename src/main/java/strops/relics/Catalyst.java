@@ -23,7 +23,7 @@ public class Catalyst extends StropsAbstractRelic implements
     public static final String ID = ModHelper.makePath(Catalyst.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Catalyst.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(Catalyst.class.getSimpleName());
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
     private boolean cardSelected = true;
     public static AbstractCard card = null;

@@ -19,7 +19,7 @@ public class WeatherControlDevice extends StropsAbstractRelic{
     private static final String IMG_PATH = ModHelper.makeIPath(WeatherControlDevice.class.getSimpleName());
     //private static final String IMG_PATH_O = ModHelper.makeOPath(WeatherControlDevice.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.SHOP;
-    private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
+    private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
     public static final int NUM1=1,TIER=5;
 

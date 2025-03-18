@@ -148,9 +148,7 @@
     "DESCRIPTIONS": [
       "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL [#ec902a]%d [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Consume all your #yGold. For every #b%d #yGold consumed by this effect, obtain one of the following relics, chosen randomly: 1 - a #yVirja; 2 - an #yOddly #ySmooth #yStone; 3 - a #yGolden #yIdol; 4 - a #yStarberry.",
       "Note",
-      "When used, any #yGold remaining last that fails to reach #b%d will be wasted.",
-      "Note",
-      "This relic won't spawn in shops or on Act 4."
+      "1. When used, any #yGold remaining last that fails to reach #b%d will be wasted. NL 2. This relic won't spawn in shops or on Act 4."
     ]
   },
   "Strops:Key": {
@@ -658,9 +656,7 @@
     "NAME": "Big Bow",
     "FLAVOR": "Big enough for me to fly with? Whether I’m in a shrine, a student union’s office, or a club room, I’m supposed to have the potential, right?",
     "DESCRIPTIONS": [
-      "Upon pickup, add #b%d #yJust #yLucky to your deck. Whenever you #yScry, draw #b%d card subsequently.",
-      "Note",
-      "This relic won't spawn at Neow."
+      "Upon pickup, add #b%d #yJust #yLucky to your deck. Whenever you #yScry, draw #b%d card subsequently (at most #b%d times per turn)."
     ]
   },
   "Strops:Calculator": {
@@ -697,9 +693,12 @@
     "NAME": "Autumn Colors",
     "FLAVOR": "If summer comes, can autumn be far behind?",
     "DESCRIPTIONS": [
-      "Gains #b%d charge for each #yCampfire you pass during Act 2. Spends #b%d charge to add a random relic to each combat's reward during Act 3.",
+      "Gains #b%d charge for each #yCampfire you pass during Act 2. Exchanges #b%d charge for a random relic at each #yCampfire during Act 3. NL #pstrops:Tricolor : Exchanges charge at a double rate.",
       "Note",
-      "This relic will only spawn on Act 1."
+      "This relic will only spawn on Act 1.",
+      "",
+      "",
+      "Tomorrow Encounter"
     ]
   },
   "Strops:GenerosityCharm": {
@@ -794,7 +793,7 @@
     "NAME": "Tool Relic: Frugal Potion",
     "FLAVOR": "This relic will NOT spawn in game at all.",
     "DESCRIPTIONS": [
-      "Your #yFrugal #yPotions effect this way: “At battle start, turn your #yGold #b%d%% as much as before and gain #b%d #yArtifact. When discarded, heal #b%d HP (increased equally by the amount of #yArtifact gained this run).”"
+      "Your #yFrugal #yPotions effect this way: “At battle start, turn your #yGold #b%d%% as much as before and gain #b%d #yArtifact. When discarded, heal #b%d HP (increased #b%d%% by the amount of #yArtifact gained this run).”"
     ]
   },
   "Strops:ZhelpGreedyPotion": {
@@ -1046,9 +1045,9 @@
     "NAME": "Love Chocolate",
     "FLAVOR": "Looks like this lost chocolate ran into your Spire space as it likes. In such a spring, would you like to follow its steps to go far, and enjoy the landscape around all the way?",
     "DESCRIPTIONS": [
-      "[#2aecd7]Right [#2aecd7]click [#2aecd7]after [#2aecd7]an [#2aecd7]Elite [#2aecd7]combat [#2aecd7]to [#2aecd7]go NL Start a new, plain and peaceful Elite combat. If you manage to survive, also heal #b%d%% of your currently missing HP. Otherwise, you will lose #b%d%% of your current HP as the final fight comes.",
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]after [#2aecd7]an [#2aecd7]Elite [#2aecd7]combat [#2aecd7]to [#2aecd7]feel NL Start a new, plain and peaceful Elite combat. If you manage to survive, cure #b%d%% of your currently missing HP. Otherwise, you will offer #b%d%% of your current HP as the final fight comes.",
       "Note",
-      "This relic will spawn only in response to some particular dates, usernames or action sequences.",
+      "This gift will spawn only in response to some particular dates, usernames or action sequences.",
       "",
       "",
       "Let's go, for a new world is just one step forward."
@@ -1060,11 +1059,20 @@
     "DESCRIPTIONS": [
       "At the start of each combat, foretell the turn number when it will end. If the forecast turns out right, gain #b%d #yGold.",
       "Note",
-      "1.Once a forecast is made for each combat, it cannot be changed after reloading. NL 2. This relic will only spawn in non-Shop rooms on Act 1 & 2.",
+      "1. Once a forecast is made for each combat, it cannot be changed after reloading. NL 2. This relic will only spawn in non-Shop rooms on Act 1 & 2.",
       "",
       "",
       "Foretell When The Combat Will End",
       "Confirm"
+    ]
+  },
+  "Strops:ThreefoldCheque": {
+    "NAME": "Threefold Cheque",
+    "FLAVOR": "Curved as it is too, it can't be cooked for eating as noodles.",
+    "DESCRIPTIONS": [
+      "Cards get their costs for the combat reduced by #b%d every second time they're played.",
+      "Note",
+      "This relic is NOT applicable to: NL #rHologram"
     ]
   }
 }

@@ -20,7 +20,7 @@ public class VolcanicCryster extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(VolcanicCryster.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(VolcanicCryster.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(VolcanicCryster.class.getSimpleName());
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
     public static final int NUM1=33,NUM2=3,NUM3=3,TIER=4;
 

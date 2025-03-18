@@ -45,7 +45,7 @@ public class Upgrade extends StropsAbstractRelic implements ClickableRelic {
         super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], String.format(this.DESCRIPTIONS[2], THRESHOLD.value)));
-        this.tips.add(new PowerTip(this.DESCRIPTIONS[3], this.DESCRIPTIONS[4]));
+        //this.tips.add(new PowerTip(this.DESCRIPTIONS[3], this.DESCRIPTIONS[4]));
     }
 
     @Override
@@ -132,8 +132,8 @@ public class Upgrade extends StropsAbstractRelic implements ClickableRelic {
         str_out.add(getMHaG(MH,G));
         str_out.add(this.DESCRIPTIONS[1]);
         str_out.add(String.format(this.DESCRIPTIONS[2], THRESHOLD.value));
-        str_out.add(this.DESCRIPTIONS[3]);
-        str_out.add(this.DESCRIPTIONS[4]);
+        //str_out.add(this.DESCRIPTIONS[3]);
+        //str_out.add(this.DESCRIPTIONS[4]);
         return str_out;
     }
 

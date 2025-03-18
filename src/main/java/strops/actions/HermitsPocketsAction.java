@@ -5,10 +5,15 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
+import com.megacrit.cardcrawl.screens.mainMenu.HorizontalScrollBar;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
 import strops.cards.FinalForm;
+import strops.modcore.Strops;
 import strops.relics.HermitsPockets;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.*;
@@ -34,7 +39,45 @@ public class HermitsPocketsAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
+
+            try {
+                Field f = CardRewardScreen.class.getDeclaredField("targetX");
+                f.setAccessible(true);
+                f.set(cardRewardScreen, Settings.WIDTH - 300.0F * Settings.xScale);
+            } catch (IllegalAccessException|NoSuchFieldException e) {
+                Strops.logger.info("An exception happened while Hermit's Pockets' resetting AbstractDungeon.cardRewardScreen.targetX!");
+            }
+            try {
+                Field f = CardRewardScreen.class.getDeclaredField("scrollX");
+                f.setAccessible(true);
+                f.set(cardRewardScreen, Settings.WIDTH - 300.0F * Settings.xScale);
+            } catch (IllegalAccessException|NoSuchFieldException e) {
+                Strops.logger.info("An exception happened while Hermit's Pockets' resetting AbstractDungeon.cardRewardScreen.scrollX!");
+            }
+            try {
+                Field f = CardRewardScreen.class.getDeclaredField("scrollBar");
+                f.setAccessible(true);
+                HorizontalScrollBar scrollBar=(HorizontalScrollBar) f.get(cardRewardScreen);
+                scrollBar.reset();
+            } catch (IllegalAccessException|NoSuchFieldException e) {
+                Strops.logger.info("An exception happened while Hermit's Pockets' resetting AbstractDungeon.cardRewardScreen.scrollBar!");
+            }
+            try {
+                Method m = CardRewardScreen.class.getDeclaredMethod("resetScrolling");
+                m.setAccessible(true);
+                m.invoke(AbstractDungeon.cardRewardScreen);
+            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                Strops.logger.info("An exception happened while Hermit's Pockets' invoking AbstractDungeon.cardRewardScreen.resetScrolling()!");
+            }
+            try {
+                Method m = CardRewardScreen.class.getDeclaredMethod("updateBarPosition");
+                m.setAccessible(true);
+                m.invoke(AbstractDungeon.cardRewardScreen);
+            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                Strops.logger.info("An exception happened while Hermit's Pockets' invoking AbstractDungeon.cardRewardScreen.updateBarPosition()!");
+            }
             AbstractDungeon.cardRewardScreen.customCombatOpen(temp, CardRewardScreen.TEXT[1], true);
+
             tickDuration();
             return;
         }

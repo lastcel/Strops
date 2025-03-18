@@ -266,6 +266,7 @@ public class LoveChocolate extends StropsAbstractRelic implements ClickableRelic
             "04/11",
             "06/21",
             "09/23",
+            "11/07",
             "12/22"
     ));
 

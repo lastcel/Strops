@@ -88,6 +88,10 @@ public class PatchGlassRod {
     public static class PatchTool6 {
         @SpireInsertPatch(rloc = 70,localvars = {"saveFile"})
         public static void Insert(CardCrawlGame __instance, AbstractPlayer p, SaveFile saveFile){
+            if(PatchTool3.extendedCards.get(saveFile)==null){
+                return;
+            }
+
             p.masterDeck.clear();
             for (ExtendedCardSave s : PatchTool3.extendedCards.get(saveFile)) {
                 //logger.info(s.id + ", " + s.upgrades);

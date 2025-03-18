@@ -1,22 +1,22 @@
 {
   "Strops:ArcaneTalents": {
     "NAME": "奥术天赋",
-    "DESCRIPTION": "造成 D 点伤害。 NL strops:回合渴求 （ M ）：伤害增加 !Strops:KN1! 点。 NL 消耗 。 NL 增加一张 *冰霜天赋 到你的抽牌堆顶。",
-    "UPGRADE_DESCRIPTION": "造成 D 点伤害。 NL strops:回合渴求 （ M ）：伤害增加 !Strops:KN1! 点。 NL 消耗 。 NL 增加一张 *冰霜天赋+ 到你的抽牌堆顶。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL strops:回合渴求 （ !M! ）：伤害增加 !Strops:KN1! 点。 NL 消耗 。 NL 增加一张 *冰霜天赋 到你的抽牌堆顶。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL strops:回合渴求 （ !M! ）：伤害增加 !Strops:KN1! 点。 NL 消耗 。 NL 增加一张 *冰霜天赋+ 到你的抽牌堆顶。"
   },
   "Strops:FrostTalents": {
     "NAME": "冰霜天赋",
-    "DESCRIPTION": "获得 B 点 格挡 。 NL strops:回合渴求 （ M ）： 格挡 增加 !Strops:KN1! 点。 NL 消耗 。 NL 增加一张 *火焰天赋 到你的抽牌堆顶。",
-    "UPGRADE_DESCRIPTION": "获得 B 点 格挡 。 NL strops:回合渴求 （ M ）： 格挡 增加 !Strops:KN1! 点。 NL 消耗 。 NL 增加一张 *火焰天赋+ 到你的抽牌堆顶。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL strops:回合渴求 （ !M! ）： 格挡 增加 !Strops:KN1! 点。 NL 消耗 。 NL 增加一张 *火焰天赋 到你的抽牌堆顶。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL strops:回合渴求 （ !M! ）： 格挡 增加 !Strops:KN1! 点。 NL 消耗 。 NL 增加一张 *火焰天赋+ 到你的抽牌堆顶。"
   },
   "Strops:FireTalents": {
     "NAME": "火焰天赋",
-    "DESCRIPTION": "在你的每个回合结束时，造成 M 点伤害，随机分配到所有敌人身上。 NL strops:回合渴求 （ !Strops:KN1! ）：数值增加 !Strops:KN2! 点。"
+    "DESCRIPTION": "在你的每个回合结束时，造成 !M! 点伤害，随机分配到所有敌人身上。 NL strops:回合渴求 （ !Strops:KN1! ）：数值增加 !Strops:KN2! 点。"
   },
   "Strops:LightningStorm": {
     "NAME": "闪电风暴",
-    "DESCRIPTION": "生成 闪电 充能球，数量等于上回合 NL 生成 闪电 充能球数量的 M 倍。",
-    "UPGRADE_DESCRIPTION": "生成 闪电 充能球，数量等于上回合 NL 生成 闪电 充能球数量的 M 倍。 NL 再 生成 !Strops:KN1! 个 闪电 充能球。",
+    "DESCRIPTION": "生成 闪电 充能球，数量等于上回合 NL 生成 闪电 充能球数量的 !M! 倍。",
+    "UPGRADE_DESCRIPTION": "生成 闪电 充能球，数量等于上回合 NL 生成 闪电 充能球数量的 !M! 倍。 NL 再 生成 !Strops:KN1! 个 闪电 充能球。",
     "EXTENDED_DESCRIPTION": [
       " NL （共 !Strops:KN2! 个。）"
     ]
@@ -31,8 +31,8 @@
   },
   "Strops:DoAddEnvenom": {
     "NAME": "恶毒即力量",
-    "DESCRIPTION": "将 M 张 *涂毒 加入你的牌组。",
-    "UPGRADE_DESCRIPTION": "将 M 张 *涂毒+ 加入你的牌组。"
+    "DESCRIPTION": "将 !M! 张 *涂毒 加入你的牌组。",
+    "UPGRADE_DESCRIPTION": "将 !M! 张 *涂毒+ 加入你的牌组。"
   },
   "Strops:DoNothing": {
     "NAME": "无视即温柔",
@@ -76,20 +76,20 @@
   },
   "Strops:GetBlizzard": {
     "NAME": "长夜",
-    "DESCRIPTION": "相继失去 M 点最大生命和 !Strops:KN1! 点生命，获得一瓶 *暴风雪 。"
+    "DESCRIPTION": "相继失去 !M! 点最大生命和 !Strops:KN1! 点生命，获得一瓶 *暴风雪 。"
   },
   "Strops:EatMango": {
     "NAME": "芒果",
-    "DESCRIPTION": "获得 M 点最大生命值。"
+    "DESCRIPTION": "获得 !M! 点最大生命值。"
   },
   "Strops:EatSuperMango": {
     "NAME": "超级芒果",
-    "DESCRIPTION": "获得 M 点最大生命值，但在接下来 !Strops:KN1! 场战斗开始时失去 !Strops:KN2! 点 力量 。"
+    "DESCRIPTION": "获得 !M! 点最大生命值，但在接下来 !Strops:KN1! 场战斗开始时失去 !Strops:KN2! 点 力量 。"
   },
   "Strops:PartScrapper": {
     "NAME": "零件破拆",
-    "DESCRIPTION": "失去 M 点 格挡 以获得 [E] [E] 。",
-    "UPGRADE_DESCRIPTION": "失去 M 点 格挡 以获得 [E] [E] [E] 。",
+    "DESCRIPTION": "失去 !M! 点 格挡 以获得 [E] [E] 。",
+    "UPGRADE_DESCRIPTION": "失去 !M! 点 格挡 以获得 [E] [E] [E] 。",
     "EXTENDED_DESCRIPTION": [
       "我的格挡不够 #r%d 点！"
     ]
@@ -109,7 +109,7 @@
   "Strops:BodySlamPlusPlus": {
     "NAME": "全身撞击++",
     "DESCRIPTION": "造成你当前 格挡 值两倍的伤害。",
-    "UPGRADE_DESCRIPTION": " NL （造成 D 点伤害。）"
+    "UPGRADE_DESCRIPTION": " NL （造成 !D! 点伤害。）"
   },
   "Strops:Aurora": {
     "NAME": "极光",
@@ -169,16 +169,16 @@
   },
   "Strops:SoulCraftedCard": {
     "NAME": "灵魂制作：",
-    "DESCRIPTION": "消耗 。 NL 抽到这张牌时，抽一张牌。 NL 再打出 M 次后从牌组中移除。 NL 触发 *%s 的效果。",
+    "DESCRIPTION": "消耗 。 NL 抽到这张牌时，抽一张牌。 NL 再打出 !M! 次后从牌组中移除。 NL 触发 *%s 的效果。",
     "UPGRADE_DESCRIPTION": "？"
   },
   "Strops:RoamingStrike": {
     "NAME": "漫游打击",
-    "DESCRIPTION": "造成当前幕数 M 倍的伤害。 NL 获得 [E] 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": " NL （造成 D 点伤害。）"
+    "DESCRIPTION": "造成当前幕数 !M! 倍的伤害。 NL 获得 [E] 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": " NL （造成 !D! 点伤害。）"
   },
   "Strops:FinalForm": {
     "NAME": "最终形态",
-    "DESCRIPTION": "获得 B 点 格挡 。 NL 造成 D 点伤害。 NL 获得 M *金币 。 NL 第 !Strops:KN1! 回合结束时，获得 !Strops:KN2! *金币 。 NL 跳过你的下个回合。 NL 消耗 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 造成 !D! 点伤害。 NL 获得 !M! *金币 。 NL 第 !Strops:KN1! 回合结束时，获得 !Strops:KN2! *金币 。 NL 跳过你的下个回合。 NL 消耗 。"
   }
 }

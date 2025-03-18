@@ -57,10 +57,17 @@ public class SwordOfFeastAndFamine extends StropsAbstractRelic{
             AbstractDungeon.player.potions.add(new PotionSlot(AbstractDungeon.player.potionSlots-i));
         }
 
+        if(BOTTLE_FRUGAL.value==0&&BOTTLE_GREEDY.value==0){
+            return;
+        }
+
         if (AbstractDungeon.screen != AbstractDungeon.CurrentScreen.COMBAT_REWARD) {
+            AbstractDungeon.getCurrRoom().rewards.clear();
             AbstractDungeon.combatRewardScreen.open(this.DESCRIPTIONS[5]);
+            AbstractDungeon.combatRewardScreen.hasTakenAll=false;
             (AbstractDungeon.getCurrRoom()).rewardPopOutTimer = 0.0F;
-            AbstractDungeon.combatRewardScreen.rewards.removeIf(r -> r.type == RewardItem.RewardType.CARD);
+            //AbstractDungeon.combatRewardScreen.rewards.removeIf(r -> r.type == RewardItem.RewardType.CARD);
+            AbstractDungeon.combatRewardScreen.rewards.clear();
             for(int i=0;i<BOTTLE_FRUGAL.value;i++){
                 AbstractDungeon.combatRewardScreen.rewards.add(new RewardItem(new FrugalPotion()));
             }

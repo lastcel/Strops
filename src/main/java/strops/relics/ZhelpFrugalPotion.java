@@ -14,17 +14,19 @@ public class ZhelpFrugalPotion extends StropsAbstractRelic {
     private static final RelicTier RELIC_TIER = RelicTier.SPECIAL;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    public static final int NUM1=90,NUM2=3,NUM3=5;
+    public static final int NUM1=90,NUM2=3,NUM3=5,NUM4=10;
 
     public static final IntSliderSetting MULTIPLIER=new IntSliderSetting("FrugalPotion_Multiplier", "N1", NUM1, 99);
     public static final IntSliderSetting ARTIFACT=new IntSliderSetting("FrugalPotion_Artifact", "N2", NUM2, 1,10);
     public static final IntSliderSetting HEAL=new IntSliderSetting("FrugalPotion_Heal", "N3", NUM3, 1,20);
+    public static final IntSliderSetting RATE=new IntSliderSetting("FrugalPotion_Rate", "N4/10", NUM4, 30);
 
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(MULTIPLIER);
         settings.add(ARTIFACT);
         settings.add(HEAL);
+        settings.add(RATE);
         return settings;
     }
 
@@ -34,13 +36,13 @@ public class ZhelpFrugalPotion extends StropsAbstractRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0], MULTIPLIER.value, ARTIFACT.value, HEAL.value);
+        return String.format(this.DESCRIPTIONS[0], MULTIPLIER.value, ARTIFACT.value, HEAL.value, RATE.value*10);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0], MULTIPLIER.value, ARTIFACT.value, HEAL.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0], MULTIPLIER.value, ARTIFACT.value, HEAL.value, RATE.value*10));
         return str_out;
     }
 

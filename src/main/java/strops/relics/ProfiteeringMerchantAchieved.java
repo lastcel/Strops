@@ -12,7 +12,7 @@ public class ProfiteeringMerchantAchieved extends CustomRelic {
     private static final String IMG_PATH = ModHelper.makeIPath(ProfiteeringMerchantAchieved.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(ProfiteeringMerchantAchieved.class.getSimpleName());
     private static final RelicTier RELIC_TIER = RelicTier.SPECIAL;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
     public ProfiteeringMerchantAchieved() {
         super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);

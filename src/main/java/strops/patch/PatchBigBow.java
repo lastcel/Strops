@@ -2,8 +2,6 @@ package strops.patch;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -20,9 +18,7 @@ public class PatchBigBow {
         public static void Insert(ScryAction __inst) {
             for(AbstractRelic r:AbstractDungeon.player.relics){
                 if(r.relicId.equals(BigBow.ID)){
-                    r.flash();
-                    AbstractDungeon.actionManager.addToTop(new DrawCardAction(BigBow.DRAW.value));
-                    AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, r));
+                    r.onTrigger();
                 }
             }
         }
@@ -39,9 +35,7 @@ public class PatchBigBow {
                 BigBow.isEnabled=false;
                 for(AbstractRelic r:AbstractDungeon.player.relics){
                     if(r.relicId.equals(BigBow.ID)){
-                        r.flash();
-                        AbstractDungeon.actionManager.addToTop(new DrawCardAction(BigBow.DRAW.value));
-                        AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, r));
+                        r.onTrigger();
                     }
                 }
             }

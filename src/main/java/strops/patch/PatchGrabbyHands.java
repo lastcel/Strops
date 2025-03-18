@@ -105,6 +105,12 @@ public class PatchGrabbyHands {
     public static class PatchTool2 {
         @SpireInsertPatch(rloc = 34)
         public static void Insert(CombatRewardScreen __inst) {
+            if(!(AbstractDungeon.getCurrRoom() instanceof MonsterRoom &&
+                    !(AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss) &&
+                    AbstractDungeon.player.hasRelic(GrabbyHands.ID))){
+                return;
+            }
+
             for(RewardItem r:__inst.rewards){
                 if(r.type==RewardItem.RewardType.CARD&&PatchTool5.isGrabby.get(r)){
                     AbstractDungeon.overlayMenu.proceedButton.hide();
@@ -123,6 +129,12 @@ public class PatchGrabbyHands {
     public static class PatchTool3 {
         @SpirePostfixPatch
         public static void Postfix(CombatRewardScreen __inst) {
+            if(!(AbstractDungeon.getCurrRoom() instanceof MonsterRoom &&
+                    !(AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss) &&
+                    AbstractDungeon.player.hasRelic(GrabbyHands.ID))){
+                return;
+            }
+
             if(__inst.rewards.isEmpty()){
                 AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
             } else {

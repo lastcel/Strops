@@ -15,7 +15,7 @@
   "Strops:FrugalPotion": {
     "NAME": "Frugal Potion",
     "DESCRIPTIONS": [
-      "At battle start, turn your #yGold #b%d%% as much as before and gain #b%d #yArtifact. NL When discarded, heal #b%d HP (increased equally by the amount of #yArtifact gained this run)."
+      "At battle start, turn your #yGold #b%d%% as much as before and gain #b%d #yArtifact. NL When discarded, heal #b%d HP (increased #b%d%% by the amount of #yArtifact gained this run)."
     ]
   },
   "Strops:GreedyPotion": {

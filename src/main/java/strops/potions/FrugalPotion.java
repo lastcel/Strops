@@ -40,7 +40,7 @@ public class FrugalPotion extends AbstractStropsPotion implements CustomSavable<
 
     public void initializeData() {
         this.potency = getPotency();
-        this.description = String.format(potionStrings.DESCRIPTIONS[0], MULTIPLIER.value, ARTIFACT.value, potency+artifactPart);
+        this.description = String.format(potionStrings.DESCRIPTIONS[0], MULTIPLIER.value, ARTIFACT.value, potency+artifactPart, RATE.value*10);
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
     }
@@ -59,6 +59,9 @@ public class FrugalPotion extends AbstractStropsPotion implements CustomSavable<
 
     @Override
     public void onDiscarded(){
+        if(potency+artifactPart<=0){
+            return;
+        }
         if ((AbstractDungeon.getCurrRoom()).phase == AbstractRoom.RoomPhase.COMBAT) {
             addToBot(new HealAction(AbstractDungeon.player, AbstractDungeon.player, potency+artifactPart));
         } else {

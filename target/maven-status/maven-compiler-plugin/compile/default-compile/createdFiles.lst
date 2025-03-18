@@ -198,6 +198,7 @@ strops\patch\PatchDecanter$PatchTool31.class
 strops\patch\PatchBigBangBell$PatchTool5.class
 strops\patch\PatchGenerosityCharm$RewardItemRenderPatch.class
 strops\relics\SanityMaintenanceApparatus.class
+strops\patch\PatchThreefoldCheque$PatchTool2.class
 strops\patch\PatchHearthsMores$PatchTool1.class
 strops\patch\PatchGlowFeather$PatchTool15.class
 strops\relics\WhiteDClips.class
@@ -266,6 +267,7 @@ strops\patch\PatchStropsSkipPlayerTurn.class
 strops\relics\ZhelpGreedyPotion.class
 strops\patch\PatchSquirrelsRelief.class
 strops\patch\PatchRainbowColoredCircle.class
+strops\patch\PatchThreefoldCheque$PatchTool1.class
 strops\patch\PatchNoNameForNow5$PatchTool3.class
 strops\relics\TowerUp.class
 strops\patch\PatchClockWithNoHands$PatchTool2.class
@@ -356,6 +358,7 @@ strops\patch\PatchGlowFeather$PatchTool27.class
 strops\actions\LoseMaxHpAction.class
 strops\patch\PatchBambooDragonflyOfHanyuHorner$PatchTool2.class
 strops\patch\PatchNeuronSight.class
+strops\patch\PatchThreefoldCheque.class
 strops\cards\EatMango.class
 strops\patch\PatchHearthsMores$PatchTool2.class
 strops\relics\SoulCannon.class

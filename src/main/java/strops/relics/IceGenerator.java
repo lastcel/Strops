@@ -22,7 +22,7 @@ public class IceGenerator extends StropsAbstractRelic implements CustomSavable<B
     private static final String IMG_PATH = ModHelper.makeIPath(IceGenerator.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(IceGenerator.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.RARE;
-    private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
+    private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
     public boolean isHealToFull=false;
     //public static AbstractRoom.RoomPhase previousPhase;
