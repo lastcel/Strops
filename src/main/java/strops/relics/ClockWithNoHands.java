@@ -4,9 +4,6 @@ import basemod.abstracts.CustomSavable;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-//import com.megacrit.cardcrawl.dungeons.TheBeyond;
-//import com.megacrit.cardcrawl.dungeons.TheCity;
-//import com.megacrit.cardcrawl.dungeons.TheEnding;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.MonsterInfo;
@@ -24,6 +21,7 @@ import java.util.ArrayList;
 public class ClockWithNoHands extends StropsAbstractRelic implements CustomSavable<ArrayList<ArrayList<MonsterInfo>>> {
     public static final String ID = ModHelper.makePath(ClockWithNoHands.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(ClockWithNoHands.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(ClockWithNoHands.class.getSimpleName());
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
     public static final int NUM1=25,TIER=3;
@@ -42,7 +40,7 @@ public class ClockWithNoHands extends StropsAbstractRelic implements CustomSavab
     }
 
     public ClockWithNoHands() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;

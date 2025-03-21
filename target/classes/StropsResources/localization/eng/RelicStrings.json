@@ -480,7 +480,7 @@
   },
   "Strops:ClockWithNoHands": {
     "NAME": "Clock with No Hands",
-    "FLAVOR": "In \"this\" tower, \"time\" flows at a speed 1.4 times as much as the outside.",
+    "FLAVOR": "In \"this\" menagerie, \"time\" flows at a speed 1.4 times as much as the outside.",
     "DESCRIPTIONS": [
       "As of the second Act, each Elite combat is replaced by a random one from the previous Act, where the enemies’ Max HP is increased by #b%d%%.",
       "Note",

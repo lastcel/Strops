@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class SteamEpic extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(SteamEpic.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(SteamEpic.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(SteamEpic.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(SteamEpic.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
@@ -33,7 +33,7 @@ public class SteamEpic extends StropsAbstractRelic{
     }
 
     public SteamEpic() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         canCopy=false;
     }
