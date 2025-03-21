@@ -25,13 +25,15 @@ public class ButchersBlade extends StropsAbstractRelic implements OnAfterUseCard
     // 点击音效
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
-    public static final int TIER=1;
+    public static final int NUM1=1,TIER=1;
 
+    public static final IntSliderSetting THRESHOLD=new IntSliderSetting("ButchersBlade_Threshold","N1", NUM1,1,5);
     public static final IntSliderSetting MH=new IntSliderSetting("ButchersBlade_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("ButchersBlade_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("ButchersBlade_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
+        settings.add(THRESHOLD);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -52,13 +54,16 @@ public class ButchersBlade extends StropsAbstractRelic implements OnAfterUseCard
 
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action){
-        if((counter==0)&&(card.type==AbstractCard.CardType.ATTACK)&&
+        if((counter<THRESHOLD.value)&&(card.type==AbstractCard.CardType.ATTACK)&&
                 AbstractDungeon.player.hand.size()<BaseMod.MAX_HAND_SIZE){
             addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             flash();
             action.returnToHand=true;
         }
         counter++;
+        if(counter>=THRESHOLD.value){
+            grayscale=true;
+        }
     }
 
     @Override
@@ -66,18 +71,22 @@ public class ButchersBlade extends StropsAbstractRelic implements OnAfterUseCard
         onEquipMods(MH,G);
     }
 
+    @Override
     public void onVictory() {
         this.counter = -1;
+        grayscale=false;
     }
 
     // 获取遗物描述，但原版游戏只在初始化和获取遗物时调用，故该方法等于初始描述
+    @Override
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
+        return String.format(DESCRIPTIONS[0],THRESHOLD.value);
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(this.DESCRIPTIONS[0]);
+        str_out.add(String.format(DESCRIPTIONS[0],THRESHOLD.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import strops.relics.Wedgue;
 
 import java.util.ArrayList;
 import java.util.function.Predicate;
@@ -15,6 +16,7 @@ public class GeneralDiscardPileToHandAction extends AbstractGameAction {
     private AbstractPlayer p;
     private Predicate<AbstractCard> filter;
     public static ArrayList<AbstractCard> drawnCards=new ArrayList<>();
+    public Wedgue wedgue=null;
 
     public GeneralDiscardPileToHandAction(int amount, Predicate<AbstractCard> filter) {
         this.p = AbstractDungeon.player;
@@ -25,9 +27,19 @@ public class GeneralDiscardPileToHandAction extends AbstractGameAction {
         //drawnCards.clear();
     }
 
+    public GeneralDiscardPileToHandAction(Wedgue wedgue, Predicate<AbstractCard> filter) {
+        this(0,filter);
+        this.wedgue=wedgue;
+        //drawnCards.clear();
+    }
+
     public void update() {
         if (this.duration == Settings.ACTION_DUR_MED) {
             drawnCards.clear();
+            if(wedgue!=null){
+                amount=wedgue.discardPart;
+                //Strops.logger.info("需要从弃牌堆中取牌数量："+amount);
+            }
 
             if (this.p.discardPile.isEmpty()) {
                 this.isDone = true;

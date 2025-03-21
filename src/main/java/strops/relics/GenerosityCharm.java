@@ -76,7 +76,7 @@ public class GenerosityCharm extends StropsAbstractRelic implements CustomSavabl
         return String.format(this.DESCRIPTIONS[0], CHOICES.value, BOSS_CHOICES.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], CHOICES.value, BOSS_CHOICES.value));

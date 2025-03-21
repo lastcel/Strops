@@ -1,5 +1,6 @@
 package strops.relics;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -21,10 +22,11 @@ public class StackedPlate extends StropsAbstractRelic{
     //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
-    public static final int NUM1=1,NUM2=2,TIER=3;
+    public static final int NUM1=1,NUM2=2,NUM3=10,TIER=3;
 
-    public static final IntSliderSetting BASE=new IntSliderSetting("StackedPlate_Base_v0.12.5", "N1", NUM1, 1,3);
-    public static final IntSliderSetting BONUS=new IntSliderSetting("StackedPlate_Bonus_v0.12.5", "N2", NUM2, 1,4);
+    public static final IntSliderSetting BASE=new IntSliderSetting("StackedPlate_Base_v0.12.5", "N1", NUM1, 3);
+    public static final IntSliderSetting BONUS=new IntSliderSetting("StackedPlate_Bonus_v0.12.5", "N2", NUM2, 4);
+    public static final IntSliderSetting MULTIPLIER=new IntSliderSetting("StackedPlate_Multiplier", "N3/10", NUM3, 30);
     //public static final IntSliderSetting THRESHOLD=new IntSliderSetting("StackedPlate_Threshold", "N2", NUM2, 1,17);
     public static final IntSliderSetting MH=new IntSliderSetting("StackedPlate_MH_v0.12.5","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("StackedPlate_G_v0.12.5","G",0,-100,100);
@@ -33,6 +35,7 @@ public class StackedPlate extends StropsAbstractRelic{
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(BASE);
         settings.add(BONUS);
+        settings.add(MULTIPLIER);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -69,19 +72,28 @@ public class StackedPlate extends StropsAbstractRelic{
         AbstractPlayer p=AbstractDungeon.player;
         if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != p && damageAmount > 0) {
             flash();
-            addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, 2), 2));
+            if(p.hasPower(PlatedArmorPower.POWER_ID)){
+                if(BONUS.value>0){
+                    addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, BONUS.value), BONUS.value));
+                }
+            } else if(BONUS.value>1){
+                addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, BONUS.value-1), BONUS.value-1));
+            }
         }
         return damageAmount;
     }
 
     @Override
     public void onVictory(){
+        if(MULTIPLIER.value==0){
+            return;
+        }
         AbstractPlayer p = AbstractDungeon.player;
         AbstractPower pow=p.getPower(PlatedArmorPower.POWER_ID);
         if (p.currentHealth > 0 && pow != null){
             flash();
             addToTop(new RelicAboveCreatureAction(p, this));
-            p.heal(pow.amount);
+            p.heal(MathUtils.floor(pow.amount*MULTIPLIER.value/10.0f));
         }
     }
 
@@ -95,13 +107,13 @@ public class StackedPlate extends StropsAbstractRelic{
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0], BASE.value, BONUS.value);
+        return String.format(this.DESCRIPTIONS[0], BASE.value, BONUS.value, MULTIPLIER.value*10);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0], BASE.value, BONUS.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0], BASE.value, BONUS.value, MULTIPLIER.value*10));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;

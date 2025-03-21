@@ -139,7 +139,7 @@ public class SeaOfMoon extends StropsAbstractRelic{
         return String.format(this.DESCRIPTIONS[0], RECEPTOR.value, DAMAGE.value, BLOCK.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], RECEPTOR.value, DAMAGE.value, BLOCK.value));

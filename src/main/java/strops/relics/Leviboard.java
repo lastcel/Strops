@@ -4,9 +4,11 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.potions.PotionSlot;
 import strops.helpers.ModHelper;
 import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSetting;
+
 import java.util.ArrayList;
 
 public class Leviboard extends StropsAbstractRelic{
@@ -16,10 +18,11 @@ public class Leviboard extends StropsAbstractRelic{
     //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
-    public static final int NUM1=20,NUM2=300,TIER=1;
+    public static final int NUM1=20,NUM2=300,NUM3=1,TIER=1;
 
-    public static final IntSliderSetting HP_THRESHOLD=new IntSliderSetting("Leviboard_Threshold_Hp_v0.16.1", "N1", NUM1, 1,30);
+    public static final IntSliderSetting HP_THRESHOLD=new IntSliderSetting("Leviboard_Threshold_Hp_v0.16.1", "N1", NUM1, 30);
     public static final IntSliderSetting GOLD_THRESHOLD=new IntSliderSetting("Leviboard_Threshold_Gold_v0.16.1", "N2", NUM2, 100,400);
+    public static final IntSliderSetting POTION_THRESHOLD=new IntSliderSetting("Leviboard_Threshold_Potion", "N3", NUM3, 1,6);
     public static final IntSliderSetting MH=new IntSliderSetting("Leviboard_MH_v0.16.1","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Leviboard_G_v0.16.1","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("Leviboard_R_v0.16.1","R", TIER,0,5);
@@ -27,6 +30,7 @@ public class Leviboard extends StropsAbstractRelic{
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(HP_THRESHOLD);
         settings.add(GOLD_THRESHOLD);
+        settings.add(POTION_THRESHOLD);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -94,13 +98,13 @@ public class Leviboard extends StropsAbstractRelic{
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0], HP_THRESHOLD.value,GOLD_THRESHOLD.value);
+        return String.format(this.DESCRIPTIONS[0], HP_THRESHOLD.value, GOLD_THRESHOLD.value, POTION_THRESHOLD.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0], HP_THRESHOLD.value,GOLD_THRESHOLD.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0], HP_THRESHOLD.value, GOLD_THRESHOLD.value, POTION_THRESHOLD.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         str_out.add(this.DESCRIPTIONS[1]);
@@ -122,7 +126,8 @@ public class Leviboard extends StropsAbstractRelic{
     }
 
     public static boolean canFlyToQuestion(){
-        return !AbstractDungeon.player.hasAnyPotions();
+        //return AbstractDungeon.player.potions.size()<POTION_THRESHOLD.value;
+        return AbstractDungeon.player.potions.stream().filter(p->!(p instanceof PotionSlot)).count()<POTION_THRESHOLD.value;
     }
 
     /*

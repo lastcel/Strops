@@ -18,17 +18,19 @@ public class PainsReward extends StropsAbstractRelic{
     private static final String IMG_PATH_O = ModHelper.makeOPath(PainsReward.class.getSimpleName());
     private static final LandingSound LANDING_SOUND = LandingSound.HEAVY;
 
-    public static final int NUM1=30,NUM2=2,TIER=1;
+    public static final int NUM1=30,NUM2=2,NUM3=20,TIER=1;
 
-    public static final IntSliderSetting THRESHOLD=new IntSliderSetting("PainsReward_Threshold","N1", NUM1,1,50);
-    public static final IntSliderSetting BONUS=new IntSliderSetting("PainsReward_Bonus","N2", NUM2,1,5);
-    public static final IntSliderSetting MH=new IntSliderSetting("PainsReward_MH","MH",0,-20,20);
-    public static final IntSliderSetting G=new IntSliderSetting("PainsReward_G","G",0,-100,100);
-    public static final IntSliderSetting R=new IntSliderSetting("PainsReward_R","R", TIER,0,5);
+    public static final IntSliderSetting THRESHOLD=new IntSliderSetting("PainsReward_Threshold_v0.16.12","N1", NUM1,1,50);
+    public static final IntSliderSetting BONUS=new IntSliderSetting("PainsReward_Bonus_v0.16.12","N2", NUM2,5);
+    public static final IntSliderSetting GOLD=new IntSliderSetting("PainsReward_Gold","N3", NUM3,50);
+    public static final IntSliderSetting MH=new IntSliderSetting("PainsReward_MH_v0.16.12","MH",0,-20,20);
+    public static final IntSliderSetting G=new IntSliderSetting("PainsReward_G_v0.16.12","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("PainsReward_R_v0.16.12","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
         settings.add(BONUS);
+        settings.add(GOLD);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -49,10 +51,13 @@ public class PainsReward extends StropsAbstractRelic{
     @Override
     public void onTrigger(){
         AbstractPlayer p = AbstractDungeon.player;
-        if (p.currentHealth <= THRESHOLD.value && p.currentHealth > 0) {
+        if (p.currentHealth <= THRESHOLD.value && p.currentHealth > 0 && BONUS.value > 0) {
             flash();
             addToTop(new RelicAboveCreatureAction(p, this));
             p.increaseMaxHp(BONUS.value, true);
+            if(hasTriColor()&&GOLD.value>0){
+                AbstractDungeon.player.gainGold(GOLD.value);
+            }
         }
     }
 
@@ -89,13 +94,13 @@ public class PainsReward extends StropsAbstractRelic{
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0],THRESHOLD.value,BONUS.value);
+        return String.format(this.DESCRIPTIONS[0],THRESHOLD.value,BONUS.value,GOLD.value);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0],THRESHOLD.value,BONUS.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0],THRESHOLD.value,BONUS.value,GOLD.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         str_out.add(this.DESCRIPTIONS[1]);

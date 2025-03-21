@@ -1,9 +1,9 @@
+//patch写在了超光速引擎的patch里面
 package strops.relics;
 
 import basemod.abstracts.CustomSavable;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.curses.AscendersBane;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -12,7 +12,10 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
-import strops.actions.*;
+import strops.actions.GeneralDiscardPileToHandAction;
+import strops.actions.GeneralDrawPileToHandAction;
+import strops.actions.WedgueRetainAction;
+import strops.actions.WedgueRetrieveDSPTHAAction;
 import strops.cards.*;
 import strops.helpers.ModHelper;
 import strops.patch.PatchStrongestPotion;
@@ -29,9 +32,10 @@ public class Wedgue extends StropsAbstractRelic implements CustomSavable<Wedgue.
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
     public Condition condition;
-    public AbstractCard drawnCard;
+    public ArrayList<AbstractCard> drawnCards=new ArrayList<>();
     public Category category=null;
     public boolean firstTurn=true;
+    public int discardPart=0;
 
     public enum Condition{
         ZERO_COST,ONE_COST,TWO_COST,THREE_PLUS_COST,ATTACK,SKILL,POWER,COMMON,UNCOMMON,RARE
@@ -41,15 +45,17 @@ public class Wedgue extends StropsAbstractRelic implements CustomSavable<Wedgue.
         COST,TYPE,RARITY
     }
 
-    public static final int NUM1=1,TIER=4;
+    public static final int NUM1=1,NUM2=1,TIER=4;
 
     public static final IntSliderSetting PENALTY=new IntSliderSetting("Wedgue_Penalty","N1", NUM1,3);
+    public static final IntSliderSetting BONUS=new IntSliderSetting("Wedgue_Bonus","N2", NUM2,1,5);
     public static final IntSliderSetting MH=new IntSliderSetting("Wedgue_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Wedgue_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("Wedgue_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(PENALTY);
+        settings.add(BONUS);
         settings.add(MH);
         settings.add(G);
         settings.add(R);
@@ -163,19 +169,48 @@ public class Wedgue extends StropsAbstractRelic implements CustomSavable<Wedgue.
         flash();
         addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 
-        drawnCard=null;
+        drawnCards.clear();
 
         if(condition==null){
             return;
         }
 
+        addToBot(new GeneralDrawPileToHandAction(BONUS.value, myNeeds(),this));
+        //addToBot(new WedgueRetrieveDRPTHAAction(this));
+        addToBot(new GeneralDiscardPileToHandAction(this, myNeeds()));
+        addToBot(new WedgueRetrieveDSPTHAAction(this));
+
+        /*
         CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        CardGroup tmp2 = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
             if (useCheck(c)){
                 tmp.addToRandomSpot(c);
             }
         }
+        for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
+            if (useCheck(c)){
+                tmp2.addToRandomSpot(c);
+            }
+        }
 
+        if(tmp.size()>=BONUS.value){
+            addToBot(new GeneralDrawPileToHandAction(BONUS.value, myNeeds()));
+            addToBot(new WedgueRetrieveDRPTHAAction(this));
+        } else {
+            if(!tmp.isEmpty()){
+                addToBot(new GeneralDrawPileToHandAction(tmp.size(), myNeeds()));
+                addToBot(new WedgueRetrieveDRPTHAAction(this));
+            }
+            if(!tmp2.isEmpty()){
+                addToBot(new GeneralDiscardPileToHandAction(Math.min(tmp2.size(), BONUS.value-tmp.size()), myNeeds()));
+                addToBot(new WedgueRetrieveDSPTHAAction(this));
+            }
+        }
+
+         */
+
+        /*
         if(!tmp.isEmpty()){
             addToBot(new GeneralDrawPileToHandAction(1, myNeeds()));
             addToBot(new WedgueRetrieveDRPTHAAction(this));
@@ -183,6 +218,8 @@ public class Wedgue extends StropsAbstractRelic implements CustomSavable<Wedgue.
             addToBot(new GeneralDiscardPileToHandAction(1, myNeeds()));
             addToBot(new WedgueRetrieveDSPTHAAction(this));
         }
+
+         */
 
         addToBot(new WedgueRetainAction(this));
     }
@@ -197,39 +234,27 @@ public class Wedgue extends StropsAbstractRelic implements CustomSavable<Wedgue.
         flash();
         addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 
-        drawnCard=null;
+        drawnCards.clear();
 
         if(condition==null){
             return;
         }
 
-        CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
-            if (useCheck(c)){
-                tmp.addToRandomSpot(c);
-            }
-        }
-
-        if(!tmp.isEmpty()){
-            addToBot(new GeneralDrawPileToHandAction(1, myNeeds()));
-            addToBot(new WedgueRetrieveDRPTHAAction(this));
-        } else {
-            addToBot(new GeneralDiscardPileToHandAction(1, myNeeds()));
-            addToBot(new WedgueRetrieveDSPTHAAction(this));
-        }
-
+        addToBot(new GeneralDrawPileToHandAction(BONUS.value, myNeeds(),this));
+        addToBot(new GeneralDiscardPileToHandAction(this, myNeeds()));
+        addToBot(new WedgueRetrieveDSPTHAAction(this));
         addToBot(new WedgueRetainAction(this));
     }
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0],PENALTY.value);
+        return String.format(this.DESCRIPTIONS[0],PENALTY.value,BONUS.value);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0],PENALTY.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0],PENALTY.value,BONUS.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         return str_out;
@@ -237,7 +262,7 @@ public class Wedgue extends StropsAbstractRelic implements CustomSavable<Wedgue.
 
     public void setDescriptionAfterLoading(){
         if(condition!=null){
-            description=String.format(DESCRIPTIONS[5],getConditionString(condition));
+            description=String.format(DESCRIPTIONS[5],BONUS.value,getConditionString(condition));
             tips.clear();
             tips.add(new PowerTip(name, description));
             showMHaG(MH,G);

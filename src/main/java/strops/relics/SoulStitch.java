@@ -24,7 +24,7 @@ public class SoulStitch extends StropsAbstractRelic {
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
     }
 
-    public static final int MAXHP=-18,NUM1=2,NUM2=10,TIER=5;
+    public static final int NUM1=2,NUM2=10,MAXHP=-18,TIER=5;
 
     //public static final IntSliderSetting PENALTY=new IntSliderSetting("SoulStitch_Penalty", "N1", NUM1, 30);
     public static final IntSliderSetting SUBTRAHEND=new IntSliderSetting("SoulStitch_Subtrahend_v0.13.4", "N1", NUM1, -3,5);
@@ -74,6 +74,7 @@ public class SoulStitch extends StropsAbstractRelic {
         setCounter(-2);
     }
 
+    @Override
     public String getUpdatedDescription() {
         if(SUBTRAHEND.value>=0){
             return String.format(this.DESCRIPTIONS[0],SUBTRAHEND.value,MULTIPLIER.value);
@@ -81,6 +82,7 @@ public class SoulStitch extends StropsAbstractRelic {
         return String.format(this.DESCRIPTIONS[5],-SUBTRAHEND.value,MULTIPLIER.value);
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         if(SUBTRAHEND.value>=0){

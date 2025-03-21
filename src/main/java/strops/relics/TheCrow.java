@@ -58,7 +58,11 @@ public class TheCrow extends StropsAbstractRelic {
         }
         addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                 new RitualPower(AbstractDungeon.player, BONUS1.value, true),BONUS1.value));
-        if(PENALTY.value>0){
+        if(AbstractDungeon.player.hasRelic(Decanter.ID)&&
+                ((Decanter)AbstractDungeon.player.getRelic(Decanter.ID))
+                        .relicToDisenchant.equals(TheCrow.ID)){
+            AbstractDungeon.player.getRelic(Decanter.ID).flash();
+        } else if(PENALTY.value>0){
             addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                     new LoseStrengthPower(AbstractDungeon.player, PENALTY.value),PENALTY.value));
         }

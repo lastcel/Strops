@@ -102,7 +102,7 @@
     "NAME": "The End of The World",
     "DESCRIPTION": "Change all the *? rooms in the second Act into *Campfire ones, and all the *Normal *Enemy rooms into *Elite ones."
   },
-  "Strops:ToFight": {
+  "Strops:ToFightFor": {
     "NAME": "Just Behind",
     "DESCRIPTION": "Obtain a *Phantasmal *Shooting *Star potion."
   },

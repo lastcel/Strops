@@ -2,14 +2,12 @@ package strops.patch;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.UnceasingTop;
-import strops.helpers.ModHelper;
 import strops.relics.BambooDragonflyOfHanyuHorner;
 import strops.relics.Decanter;
 
@@ -23,7 +21,7 @@ public class PatchBambooDragonflyOfHanyuHorner {
         @SpireInsertPatch(rloc = 5)
         public static SpireReturn<Void> Insert(DrawCardAction __inst, AbstractGameAction ___followUpAction) {
             for(AbstractRelic r:AbstractDungeon.player.relics){
-                if((r.relicId.equals(ModHelper.makePath(BambooDragonflyOfHanyuHorner.class.getSimpleName())))&&
+                if((r.relicId.equals(BambooDragonflyOfHanyuHorner.ID))&&
                         r.counter>=BambooDragonflyOfHanyuHorner.THRESHOLD.value){
                     if(AbstractDungeon.player.hasRelic(Decanter.ID)) {
                         AbstractRelic r2 = AbstractDungeon.player.getRelic(Decanter.ID);
@@ -49,10 +47,17 @@ public class PatchBambooDragonflyOfHanyuHorner {
             method="onRefreshHand"
     )
     public static class PatchTool2 {
-        @SpirePrefixPatch
-        public static SpireReturn<Void> Prefix(UnceasingTop __inst) {
+        @SpireInsertPatch(rloc = 5)
+        public static SpireReturn<Void> Insert(UnceasingTop __inst) {
             if(AbstractDungeon.player.hasRelic(BambooDragonflyOfHanyuHorner.ID)&&
             AbstractDungeon.player.getRelic(BambooDragonflyOfHanyuHorner.ID).counter>=BambooDragonflyOfHanyuHorner.THRESHOLD.value){
+                if(AbstractDungeon.player.hasRelic(Decanter.ID)) {
+                    AbstractRelic r2 = AbstractDungeon.player.getRelic(Decanter.ID);
+                    if (((Decanter) r2).relicToDisenchant.equals(BambooDragonflyOfHanyuHorner.ID)) {
+                        r2.flash();
+                        return SpireReturn.Continue();
+                    }
+                }
                 AbstractDungeon.player.getRelic(BambooDragonflyOfHanyuHorner.ID).flash();
                 return SpireReturn.Return();
             }

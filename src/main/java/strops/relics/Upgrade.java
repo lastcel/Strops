@@ -10,10 +10,10 @@ import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.ShopRoom;
 import strops.helpers.ModHelper;
+import strops.patch.PatchUpgrade;
 import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSetting;
 import strops.vfx.ObtainRelicLater;
-import strops.patch.PatchUpgrade;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ public class Upgrade extends StropsAbstractRelic implements ClickableRelic {
     //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.SOLID;
 
-    public static final int NUM1=3,NUM2=100,TIER=3,GOLD=100;
+    public static final int NUM1=3,NUM2=100,GOLD=100,TIER=3;
 
     public static final IntSliderSetting USABLE=new IntSliderSetting("Upgrade_Usable_v0.13.4", "N1", NUM1, 1,6);
     public static final IntSliderSetting THRESHOLD=new IntSliderSetting("Upgrade_Threshold_v0.13.4", "N2", NUM2, 50,150);

@@ -84,6 +84,7 @@ public class PhoenixGift extends StropsAbstractRelic {
         return String.format(this.DESCRIPTIONS[0], THRESHOLD.value, BONUS.value);
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], THRESHOLD.value, BONUS.value));

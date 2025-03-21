@@ -15,24 +15,26 @@ public class BambooDragonflyOfHanyuHorner extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(BambooDragonflyOfHanyuHorner.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(BambooDragonflyOfHanyuHorner.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(BambooDragonflyOfHanyuHorner.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.BOSS;
+    //private static final RelicTier RELIC_TIER = RelicTier.BOSS;
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
-    public static final int NUM1=10;
+    public static final int NUM1=10,TIER=4;
 
     public static final IntSliderSetting THRESHOLD=new IntSliderSetting("BDoHH_Threshold", "N1", NUM1, 5,20);
     public static final IntSliderSetting MH=new IntSliderSetting("BDoHH_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("BDoHH_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("BDoHH_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(THRESHOLD);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public BambooDragonflyOfHanyuHorner() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         canCopy=false;
     }
@@ -74,7 +76,7 @@ public class BambooDragonflyOfHanyuHorner extends StropsAbstractRelic{
         return String.format(this.DESCRIPTIONS[0], THRESHOLD.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], THRESHOLD.value));

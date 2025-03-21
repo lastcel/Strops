@@ -1,4 +1,4 @@
-//部分patch写在了灵魂缝补项链、回响形态的patch里面
+//部分patch写在了灵魂缝补项链、回响的patch里面
 package strops.relics;
 
 import com.badlogic.gdx.math.MathUtils;

@@ -1,3 +1,4 @@
+/*
 package strops.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -13,8 +14,11 @@ public class WedgueRetrieveDRPTHAAction extends AbstractGameAction {
     @Override
     public void update(){
         if(!GeneralDrawPileToHandAction.drawnCards.isEmpty()){
-            wedgue.drawnCard=GeneralDrawPileToHandAction.drawnCards.get(0);
+            wedgue.drawnCards.clear();
+            wedgue.drawnCards.addAll(GeneralDrawPileToHandAction.drawnCards);
         }
         this.isDone=true;
     }
 }
+
+ */

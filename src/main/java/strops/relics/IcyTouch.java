@@ -70,10 +70,12 @@ public class IcyTouch extends StropsAbstractRelic {
         this.counter = -1;
     }
 
+    @Override
     public String getUpdatedDescription() {
         return String.format(this.DESCRIPTIONS[0], THRESHOLD.value, BONUS.value);
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], THRESHOLD.value, BONUS.value));

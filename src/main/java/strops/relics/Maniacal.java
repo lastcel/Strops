@@ -100,7 +100,7 @@ public class Maniacal extends StropsAbstractRelic implements ClickableRelic {
         return String.format(this.DESCRIPTIONS[0],BLOCK_CO.value*10,COST.value*10,DAMAGE_CO.value*10);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0],BLOCK_CO.value*10,COST.value*10,DAMAGE_CO.value*10));

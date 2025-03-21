@@ -1,17 +1,21 @@
 package strops.modcore;
 
-import basemod.*;
+import basemod.BaseMod;
+import basemod.IUIElement;
+import basemod.ModLabel;
+import basemod.ModPanel;
 import basemod.abstracts.CustomSavable;
 import basemod.eventUtil.AddEventParams;
+import basemod.helpers.CardBorderGlowManager;
+import basemod.helpers.RelicType;
+import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-
-import basemod.interfaces.*;
-import basemod.helpers.*;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.blue.GeneticAlgorithm;
@@ -36,7 +40,8 @@ import strops.potions.FrugalPotion;
 import strops.potions.GreedyPotion;
 import strops.potions.PhantasmalShootingStar;
 import strops.relics.*;
-import strops.textkeynumbers.*;
+import strops.textkeynumbers.TextKeyNumber1;
+import strops.textkeynumbers.TextKeyNumber2;
 import strops.utilities.*;
 
 import java.io.IOException;
@@ -622,7 +627,7 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
                     return false;
                 }
                 for(AbstractRelic r:AbstractDungeon.player.relics) {
-                    if(r.relicId.equals(Wedgue.ID)&&c==((Wedgue)r).drawnCard) {
+                    if(r.relicId.equals(Wedgue.ID)&&((Wedgue)r).drawnCards.contains(c)) {
                         return true;
                     }
                 }
@@ -761,9 +766,9 @@ public class Strops implements EditCardsSubscriber, EditRelicsSubscriber,
             if(r.relicId.equals(ChuggingMask.ID)){
                 r.flash();
                 if(amount>0){
-                    AbstractDungeon.player.heal(amount);
+                    AbstractDungeon.player.heal(MathUtils.floor(amount*ChuggingMask.MULTIPLIER.value/10.0f));
                 } else if(amount<0){
-                    AbstractDungeon.player.heal(-amount);
+                    AbstractDungeon.player.heal(MathUtils.floor(-amount*ChuggingMask.MULTIPLIER.value/10.0f));
                 }
                 break;
             }

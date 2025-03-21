@@ -30,15 +30,17 @@ public class LuckyStar extends StropsAbstractRelic implements CustomBottleRelic 
 
     public UUID uuidStart = null;
 
-    public static final int NUM1 = 2, TIER = 2;
+    public static final int NUM1 = 2, NUM2 = 2, TIER = 2;
 
-    public static final IntSliderSetting LOCATION = new IntSliderSetting("LuckyStar_Location", "N1", NUM1, 1, 4);
+    public static final IntSliderSetting LOCATION_0 = new IntSliderSetting("LuckyStar_Location_0", "N1", NUM1, 1, 4);
+    public static final IntSliderSetting LOCATION = new IntSliderSetting("LuckyStar_Location", "N2", NUM2, 1, 4);
     public static final IntSliderSetting MH = new IntSliderSetting("LuckyStar_MH", "MH", 0, -20, 20);
     public static final IntSliderSetting G = new IntSliderSetting("LuckyStar_G", "G", 0, -100, 100);
     public static final IntSliderSetting R = new IntSliderSetting("LuckyStar_R", "R", TIER, 0, 5);
 
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
+        settings.add(LOCATION_0);
         settings.add(LOCATION);
         settings.add(MH);
         settings.add(G);
@@ -72,13 +74,13 @@ public class LuckyStar extends StropsAbstractRelic implements CustomBottleRelic 
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0], LOCATION.value, LOCATION.value);
+        return String.format(this.DESCRIPTIONS[0], LOCATION_0.value, LOCATION.value);
     }
 
     @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out = new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0], LOCATION.value, LOCATION.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0], LOCATION_0.value, LOCATION.value));
         str_out.add("");
         str_out.add(getMHaG(MH, G));
         str_out.add(this.DESCRIPTIONS[1]);
@@ -91,7 +93,7 @@ public class LuckyStar extends StropsAbstractRelic implements CustomBottleRelic 
         UUID_QUEUE.add(card.uuid);
         counter++;
 
-        if (uuidStart == null && UUID_QUEUE.size() == LOCATION.value) {
+        if (uuidStart == null && UUID_QUEUE.size() == LOCATION_0.value) {
             uuidStart = card.uuid;
             PatchLuckyStar.PatchTool1.inLuckyStar.set(card, true);
 

@@ -17,7 +17,7 @@ import static strops.cards.LightningStorm.LightningCountLastTurn;
 public class WeatherControlDevice extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(WeatherControlDevice.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(WeatherControlDevice.class.getSimpleName());
-    //private static final String IMG_PATH_O = ModHelper.makeOPath(WeatherControlDevice.class.getSimpleName());
+    private static final String IMG_PATH_O = ModHelper.makeOPath(WeatherControlDevice.class.getSimpleName());
     //private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
@@ -39,7 +39,7 @@ public class WeatherControlDevice extends StropsAbstractRelic{
     }
 
     public WeatherControlDevice() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), num2Tier(R.value), LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.cardToPreview=new LightningStorm();
     }

@@ -31,7 +31,7 @@ public class PlagueStopwatch extends StropsAbstractRelic implements OnAfterUseCa
 
     public static final int NUM1=1,NUM2=12,TIER=3;
 
-    public static final IntSliderSetting BONUS=new IntSliderSetting("PlagueStopwatch_Bonus", "N1", NUM1, 0,3);
+    public static final IntSliderSetting BONUS=new IntSliderSetting("PlagueStopwatch_Bonus", "N1", NUM1, 3);
     public static final IntSliderSetting THRESHOLD=new IntSliderSetting("PlagueStopwatch_Threshold_v0.14.3", "N2", NUM2, 6,24);
     public static final IntSliderSetting MH=new IntSliderSetting("PlagueStopwatch_MH_v0.14.3","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("PlagueStopwatch_G_v0.14.3","G",0,-100,100);

@@ -37,6 +37,7 @@ public class VolcanicCryster extends StropsAbstractRelic{
         settings.add(DEFECT);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 

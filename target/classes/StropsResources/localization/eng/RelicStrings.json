@@ -3,7 +3,7 @@
     "NAME": "Butcher's Blade",
     "FLAVOR": "Holding it makes you find the weights of lives up to you to handle.",
     "DESCRIPTIONS": [
-      "Each turn, if the first card you play is an #yAttack, it goes back to your hand."
+      "Each turn, if the first #b%d card you play is an #yAttack, it goes back to your hand."
     ]
   },
   "Strops:InsanityStone": {
@@ -89,7 +89,7 @@
     "NAME": "Hungry Sun",
     "FLAVOR": "Hi Hungry, I’m Dad.",
     "DESCRIPTIONS": [
-      "The first #b%d HP loss in each non-combat room heals you instead.",
+      "The first #b%d HP loss in each non-combat room heals you instead at a #b%d%% ratio.",
       "Note",
       "This relic won't spawn on Floor 44 or higher."
     ]
@@ -121,7 +121,7 @@
     "NAME": "The Crow",
     "FLAVOR": "For the period of dusk, I‘ll be here with you.",
     "DESCRIPTIONS": [
-      "At the start of each combat, gain #r%d #yStrength #yDown and #b%d #yRitual. If you have #yCultist #yHeadpiece, also gain #b%d #ystrops:Ritual_of_Ritual."
+      "At the start of each combat, gain #b%d #rStrength #rDown and #b%d #yRitual. If you have #yCultist #yHeadpiece, also gain #b%d #ystrops:Ritual_of_Ritual."
     ]
   },
   "Strops:GrassNowAndFlowersThen": {
@@ -137,7 +137,7 @@
     "NAME": "Siphon Gem",
     "FLAVOR": "Certainly, we can present you with the whole ticket. The remaining matters are no more than how to get to that door, and how to follow the performance behind it.",
     "DESCRIPTIONS": [
-      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL [#ec902a]%d [#2aecd7]usable [#2aecd7]time [#2aecd7]per [#2aecd7]Run NL Obtain a random key that's still missing. NL #pstrops:Tricolor : gain #b%d #ygold instead.",
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]to [#2aecd7]activate NL [#ec902a]%d [#2aecd7]usable [#2aecd7]time [#2aecd7]per [#2aecd7]Run NL Obtain a random key that's still missing. NL #pstrops:Tricolor : gain #b%d #ygold instead.",
       "Note",
       "This relic won't spawn on Act 4."
     ]
@@ -421,12 +421,14 @@
     "NAME": "White D-Clips",
     "FLAVOR": "Nep! Anyway the cutest is me no doubt \n(/>v<)/!?",
     "DESCRIPTIONS": [
-      "Deal #b%.1fx #yAttack damage to enemies with #yBlock.",
+      "Deal #b%.1fx #yAttack damage to enemies with #yBlock. NL strops:tricolor : Deal #b%.1fx instead.",
       "Note",
       "This relic won't spawn at Spear & Shield.",
       "",
       "",
-      "Deal #b%.0fx #yAttack damage to enemies with #yBlock."
+      "Deal #b%.0fx #yAttack damage to enemies with #yBlock. NL strops:tricolor : Deal #b%.0fx instead.",
+      "Deal #b%.1fx #yAttack damage to enemies with #yBlock. NL strops:tricolor : Deal #b%.0fx instead.",
+      "Deal #b%.0fx #yAttack damage to enemies with #yBlock. NL strops:tricolor : Deal #b%.1fx instead."
     ]
   },
   "Strops:RestrainedHeart": {
@@ -461,7 +463,7 @@
     "NAME": "Decanter",
     "FLAVOR": "How did you find it?",
     "DESCRIPTIONS": [
-      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL [#ec902a]3 [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Select one of your Boss relics, negating its next one time of penalty effect.",
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]out [#2aecd7]of [#2aecd7]combat [#2aecd7]to [#2aecd7]activate NL [#ec902a]%d [#2aecd7]usable [#2aecd7]times [#2aecd7]per [#2aecd7]Run NL Select one of your Boss relics, negating its next one time of penalty effect.",
       "Note",
       "1. This relic takes an each-specified logic, so it works only for Boss relics in base game and this mod. NL 2. This relic won't spawn at Neow.",
       "",
@@ -489,7 +491,7 @@
     "NAME": "Raining Ruins",
     "FLAVOR": "This is the last, and also a tour. This is nostalgia, and also a pursuit. This is wandering, and also a pilgrimage. This is tragedy, and also a quest.",
     "DESCRIPTIONS": [
-      "[#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL #bstrops:Cooldown [#2aecd7]: [#ec902a]%d [#2aecd7]Combats NL Draw a random card that can draw, and gain #b%d [E] .",
+      "[#2aecd7]Right [#2aecd7]click [#2aecd7]during [#2aecd7]your [#2aecd7]turn [#2aecd7]to [#2aecd7]activate NL #bstrops:Cooldown [#2aecd7]: [#ec902a]%d [#2aecd7]Combats NL Draw #b%d random card that can draw, and gain #b%d [E] .",
       "Note",
       "This relic actually works in a way of trying to put the card from draw pile into hand. If there's no qualified cards in draw pile, that triggers piles reshuffling and doesn't start Cooldown."
     ]
@@ -531,7 +533,7 @@
     "NAME": "Chugging Mask",
     "FLAVOR": "I swung in the center of the dance floor.",
     "DESCRIPTIONS": [
-      "Whenever you gain or lose Max HP, heal HP equally."
+      "Whenever you gain or lose Max HP, heal HP #b%d%% of the amount changed."
     ]
   },
   "Strops:ExitPhase": {
@@ -670,7 +672,7 @@
     "NAME": "Stacked Plate",
     "FLAVOR": "You can't figure out how it works except for noticing diminishing returns from defense. How come that happens?",
     "DESCRIPTIONS": [
-      "Start each combat with #b%d #yPlated #yArmor. Whenever you receive unblocked attack damage, gain #b%d #yPlated #yArmor. At the end of combat, heal equal to the stack of your #yPlated #yArmor."
+      "Start each combat with #b%d #yPlated #yArmor. Whenever you receive unblocked attack damage, gain #b%d #yPlated #yArmor. At the end of combat, heal #b%d%% of the stack of your #yPlated #yArmor."
     ]
   },
   "Strops:HearthsMores": {
@@ -714,7 +716,7 @@
     "NAME": "Leviboard",
     "FLAVOR": "A vehicle from the future, swift and handy.",
     "DESCRIPTIONS": [
-      "If you're with: HP at or below #b%d / #yGold at or above #b%d / no potions, you may ignore paths when choosing the next #yCampfire / #yShop / #y? room to travel to respectively.",
+      "If you're with: HP at or below #b%d / #yGold at or above #b%d / potions no more than #b%d , you may ignore paths when choosing the next #yCampfire / #yShop / #y? room to travel to respectively.",
       "Note",
       "This relic won't spawn on Floor 41 or higher."
     ]
@@ -868,12 +870,12 @@
     "NAME": "Wedgue",
     "FLAVOR": "What’s past is... wedgue?",
     "DESCRIPTIONS": [
-      "Upon pickup, choose a particular Cost, Type or Rarity and #rBecome #rCursed #r- #r%d #rAscender's #rBane. At the start of each turn, add a random card in the draw pile or discard pile into your hand that corresponds to your choice (the draw pile has priority), and #yRetain it for that turn.",
+      "Upon pickup, choose a particular Cost, Type or Rarity and #rBecome #rCursed #r- #r%d #rAscender's #rBane. At the start of each turn, add #b%d random card in the draw pile or discard pile into your hand that corresponds to your choice (the draw pile has priority), and #yRetain it for that turn.",
       "",
       "",
       "",
       "",
-      "At the start of each turn, add a random %s in the draw pile or discard pile into your hand (the draw pile has priority), and #yRetain it for that turn.",
+      "At the start of each turn, add #b%d random %s in the draw pile or discard pile into your hand (the draw pile has priority), and #yRetain it for that turn.",
       "#b0 -Cost card",
       "#b1 -Cost card",
       "#b2 -Cost card",
@@ -946,7 +948,7 @@
     "NAME": "“Pain’s Reward”",
     "FLAVOR": "This is indeed a pain’s reward, but the reward is not actually a pain.",
     "DESCRIPTIONS": [
-      "If your HP is at or below #b%d at the end of combat, gain #b%d Max HP.",
+      "If your HP is at or below #b%d at the end of combat, gain #b%d Max HP. NL strops:tricolor : And #b%d #yGold.",
       "Note",
       "1. This relic won't spawn on Floor 44 or higher. NL 2. This relic will effect before all other onEndBattle effects."
     ]
@@ -1068,11 +1070,11 @@
   },
   "Strops:ThreefoldCheque": {
     "NAME": "Threefold Cheque",
-    "FLAVOR": "Curved as it is too, it can't be cooked for eating as noodles.",
+    "FLAVOR": "Curved as it is too, it can't be cooked for eating as noodles anyway.",
     "DESCRIPTIONS": [
       "Cards get their costs for the combat reduced by #b%d every second time they're played.",
       "Note",
-      "This relic is NOT applicable to: NL #rHologram"
+      "This relic is #rNOT applicable to: NL #bHologram"
     ]
   }
 }

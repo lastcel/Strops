@@ -21,10 +21,10 @@ public class StrongestPotion extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(StrongestPotion.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(StrongestPotion.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(StrongestPotion.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.RARE;
+    //private static final RelicTier RELIC_TIER = RelicTier.RARE;
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
-    public static final int NUM1=13,NUM2=19,NUM3=2,NUM4=1;
+    public static final int NUM1=13,NUM2=19,NUM3=2,NUM4=1,TIER=3;
 
     public static final IntSliderSetting BONUS=new IntSliderSetting("StrongestPotion_Bonus", "N1", NUM1, 11,13);
     public static final IntSliderSetting SUPER_BONUS=new IntSliderSetting("StrongestPotion_Super_Bonus", "N2", NUM2, 15,30);
@@ -32,6 +32,7 @@ public class StrongestPotion extends StropsAbstractRelic{
     public static final IntSliderSetting INTENSE=new IntSliderSetting("StrongestPotion_Intense", "N4", NUM4, 1,3);
     public static final IntSliderSetting MH=new IntSliderSetting("StrongestPotion_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("StrongestPotion_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("StrongestPotion_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(BONUS);
@@ -40,11 +41,12 @@ public class StrongestPotion extends StropsAbstractRelic{
         settings.add(INTENSE);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public StrongestPotion() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         canSpawnInBattle=false;
     }
@@ -98,7 +100,7 @@ public class StrongestPotion extends StropsAbstractRelic{
                 DURATION.value,INTENSE.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         if(DESCRIPTIONS[5].equals("1")){

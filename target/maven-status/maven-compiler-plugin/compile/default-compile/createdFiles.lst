@@ -85,7 +85,6 @@ strops\patch\PatchSoulCraft.class
 strops\patch\PatchClockWithNoHands$PatchTool8.class
 strops\relics\HermitsPockets.class
 strops\actions\ExtractorAction.class
-strops\actions\WedgueRetrieveDRPTHAAction.class
 strops\cards\ArcaneTalents.class
 strops\patch\PatchSunflowerInASummer$PatchTool7.class
 strops\patch\PatchGlassRod$PatchTool8.class
@@ -403,7 +402,6 @@ strops\relics\BigBow.class
 strops\relics\MosquitoCoil.class
 strops\patch\PatchClockWithNoHands$PatchTool5.class
 strops\patch\PatchSoulCraft$PatchTool2.class
-strops\cards\ToFight.class
 strops\actions\LoseGoldAction.class
 strops\patch\PatchLoseRelic$PatchTool3.class
 strops\patch\PatchDecanter$PatchTool34.class
@@ -532,6 +530,7 @@ strops\patch\PatchSoulCannon$PatchTool4.class
 strops\patch\PatchFTLEngines$PatchTool3.class
 strops\patch\PatchDecanter$PatchTool20.class
 strops\patch\PatchGrabbyHands$PatchTool7.class
+strops\cards\ToFightFor.class
 strops\cards\Four.class
 strops\relics\Atri.class
 strops\patch\PatchGlowFeather$PatchTool4$1.class

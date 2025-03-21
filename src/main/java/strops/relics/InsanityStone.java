@@ -56,10 +56,12 @@ public class InsanityStone extends StropsAbstractRelic {
         addToBot(new MakeTempCardInHandAction(new Madness(), BONUS.value, false));
     }
 
+    @Override
     public String getUpdatedDescription() {
         return String.format(this.DESCRIPTIONS[0], BONUS.value);
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], BONUS.value));

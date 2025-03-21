@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.ObtainKeyEffect;
 import strops.helpers.ModHelper;
 import strops.utilities.IntSliderSetting;
@@ -55,10 +54,13 @@ public class SiphonGem extends StropsAbstractRelic implements ClickableRelic {
         if(counter<=0) {
             return;
         }
+        /*
         AbstractRoom currRoom=AbstractDungeon.getCurrRoom();
         if((currRoom!=null)&&(currRoom.phase == AbstractRoom.RoomPhase.COMBAT)){
             return;
         }
+
+         */
 
         if(hasTriColor()){
             if(BONUS.value>0){
@@ -115,10 +117,12 @@ public class SiphonGem extends StropsAbstractRelic implements ClickableRelic {
         return ( !Settings.isEndless && (AbstractDungeon.actNum <= 3) );
     }
 
+    @Override
     public String getUpdatedDescription() {
         return String.format(this.DESCRIPTIONS[0],USABLE.value,BONUS.value);
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0],USABLE.value,BONUS.value));

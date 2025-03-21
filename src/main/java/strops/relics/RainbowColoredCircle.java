@@ -82,7 +82,7 @@ public class RainbowColoredCircle extends StropsAbstractRelic{
         return String.format(this.DESCRIPTIONS[0], MATCH.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], MATCH.value));

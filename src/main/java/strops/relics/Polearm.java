@@ -81,10 +81,12 @@ public class Polearm extends StropsAbstractRelic {
         }
     }
 
+    @Override
     public String getUpdatedDescription() {
         return String.format(this.DESCRIPTIONS[0], BONUS.value,PENALTY.value);
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], BONUS.value, PENALTY.value));

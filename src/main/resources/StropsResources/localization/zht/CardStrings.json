@@ -102,7 +102,7 @@
     "NAME": "世界盡頭",
     "DESCRIPTION": "將第二幕的所有 *? 房間變為 *篝火 ， *普通敵人 房間變為 *精英 房間"
   },
-  "Strops:ToFight": {
+  "Strops:ToFightFor": {
     "NAME": "身後",
     "DESCRIPTION": "獲得一瓶 *幻影流星"
   },

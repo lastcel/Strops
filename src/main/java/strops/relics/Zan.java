@@ -110,7 +110,7 @@ public class Zan extends StropsAbstractRelic implements ClickableRelic, CustomSa
                 UNCOMMON_BONUS.value, RARE_BONUS.value, STORAGE.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], COMMON_BONUS.value,

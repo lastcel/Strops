@@ -15,7 +15,10 @@ import strops.patch.PatchGlassRod;
 import strops.utilities.IntSliderSetting;
 import strops.utilities.RelicSetting;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class GlassRod extends StropsAbstractRelic {
     public static final String ID = ModHelper.makePath(GlassRod.class.getSimpleName());
@@ -141,7 +144,7 @@ public class GlassRod extends StropsAbstractRelic {
         return String.format(this.DESCRIPTIONS[0], THRESHOLD.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], THRESHOLD.value));

@@ -18,27 +18,28 @@ public class GlowFeather extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(GlowFeather.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(GlowFeather.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(GlowFeather.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.SHOP;
+    //private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
-    public static final int NUM1=12;
-    public static final int NUM2=7;
+    public static final int NUM1=12,NUM2=7,TIER=5;
 
     public static final IntSliderSetting RATIO=new IntSliderSetting("GlowFeather_Ratio", "N1", NUM1, 5,20);
     public static final IntSliderSetting SCOPE=new IntSliderSetting("GlowFeather_Scope", "N2", NUM2, 3,14);
     public static final IntSliderSetting MH=new IntSliderSetting("GlowFeather_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("GlowFeather_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("GlowFeather_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(RATIO);
         settings.add(SCOPE);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public GlowFeather() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;
@@ -75,7 +76,7 @@ public class GlowFeather extends StropsAbstractRelic{
         return String.format(this.DESCRIPTIONS[0], RATIO.value, SCOPE.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], RATIO.value, SCOPE.value));

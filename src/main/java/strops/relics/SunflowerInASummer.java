@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.cards.ToEscape;
-import strops.cards.ToFight;
+import strops.cards.ToFightFor;
 import strops.cards.ToGetHer;
 import strops.helpers.ModHelper;
 import strops.utilities.IntSliderSetting;
@@ -58,7 +58,7 @@ public class SunflowerInASummer extends StropsAbstractRelic {
         ArrayList<AbstractCard> iriyaChoices = new ArrayList<>();
         iriyaChoices.add(new ToEscape());
         iriyaChoices.add(new ToGetHer());
-        iriyaChoices.add(new ToFight());
+        iriyaChoices.add(new ToFightFor());
         if(AbstractDungeon.isScreenUp){
             AbstractDungeon.dynamicBanner.hide();
             AbstractDungeon.overlayMenu.cancelButton.hide();

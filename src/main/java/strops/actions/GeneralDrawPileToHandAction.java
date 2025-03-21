@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import strops.relics.Wedgue;
 
 import java.util.ArrayList;
 import java.util.function.Predicate;
@@ -16,6 +17,7 @@ public class GeneralDrawPileToHandAction extends AbstractGameAction {
     private AbstractPlayer p;
     private Predicate<AbstractCard> filter;
     public static ArrayList<AbstractCard> drawnCards=new ArrayList<>();
+    public Wedgue wedgue=null;
 
     public GeneralDrawPileToHandAction(int amount, Predicate<AbstractCard> filter) {
         this.p = AbstractDungeon.player;
@@ -26,11 +28,19 @@ public class GeneralDrawPileToHandAction extends AbstractGameAction {
         //drawnCards.clear();
     }
 
+    public GeneralDrawPileToHandAction(int amount, Predicate<AbstractCard> filter, Wedgue wedgue) {
+        this(amount,filter);
+        this.wedgue=wedgue;
+    }
+
     public void update() {
         if (this.duration == Settings.ACTION_DUR_MED) {
             drawnCards.clear();
 
             if (this.p.drawPile.isEmpty()) {
+                if(wedgue!=null){
+                    wedgue.discardPart=Wedgue.BONUS.value;
+                }
                 this.isDone = true;
                 return;
             }
@@ -40,6 +50,9 @@ public class GeneralDrawPileToHandAction extends AbstractGameAction {
                     tmp.addToRandomSpot(c);
             }
             if (tmp.isEmpty()) {
+                if(wedgue!=null){
+                    wedgue.discardPart=Wedgue.BONUS.value;
+                }
                 this.isDone = true;
                 return;
             }
@@ -67,6 +80,10 @@ public class GeneralDrawPileToHandAction extends AbstractGameAction {
                     }
                 }
             }
+            if(wedgue!=null){
+                wedgue.discardPart=Wedgue.BONUS.value-drawnCards.size();
+            }
+            //Strops.logger.info("抽牌堆取牌不足数量："+wedgue.discardPart);
             this.isDone = true;
         }
         tickDuration();

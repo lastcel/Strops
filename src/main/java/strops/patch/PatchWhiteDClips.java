@@ -8,11 +8,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import strops.helpers.ModHelper;
+import strops.relics.StropsAbstractRelic;
 import strops.relics.WhiteDClips;
 
 import java.util.ArrayList;
-
-import static strops.relics.WhiteDClips.BONUS;
 
 public class PatchWhiteDClips {
 
@@ -24,7 +23,7 @@ public class PatchWhiteDClips {
         @SpireInsertPatch(rloc = 29,localvars = {"tmp"})
         public static void Insert(AbstractCard __inst, AbstractMonster mo, @ByRef float[] tmp) {
             if(mo.currentBlock>0){
-                float multiplier=(float) BONUS.value/10;
+                float multiplier=(StropsAbstractRelic.hasTriColor())?((float)WhiteDClips.BONUS_TRI.value/10):((float)WhiteDClips.BONUS.value/10);
                 for(AbstractRelic r: AbstractDungeon.player.relics){
                     if(r.relicId.equals(ModHelper.makePath(WhiteDClips.class.getSimpleName()))){
                         tmp[0]*=multiplier;
@@ -45,7 +44,7 @@ public class PatchWhiteDClips {
         @SpireInsertPatch(rloc = 88,localvars = {"tmp","m"})
         public static void Insert(AbstractCard __inst, AbstractMonster mo,
                                   @ByRef float[][] tmp, ArrayList<AbstractMonster> m) {
-            float multiplier=(float) BONUS.value/10;
+            float multiplier=(StropsAbstractRelic.hasTriColor())?((float)WhiteDClips.BONUS_TRI.value/10):((float)WhiteDClips.BONUS.value/10);
             for(int i=0;i<tmp[0].length;i++){
                 if(m.get(i).currentBlock>0){
                     for(AbstractRelic r: AbstractDungeon.player.relics) {

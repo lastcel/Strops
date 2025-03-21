@@ -33,7 +33,7 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
     public static final String ID = ModHelper.makePath(Decanter.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(Decanter.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(Decanter.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.COMMON;
+    //private static final RelicTier RELIC_TIER = RelicTier.COMMON;
     private static final LandingSound LANDING_SOUND = LandingSound.CLINK;
 
     public String relicToDisenchant="";
@@ -43,21 +43,23 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
     protected RelicSelectScreen relicSelectScreen = new RelicSelectScreen();
     protected boolean fakeHover = false;
 
-    public static final int NUM1=3;
+    public static final int NUM1=3,TIER=1;
 
     public static final IntSliderSetting USABLE=new IntSliderSetting("Decanter_Usable", "N1", NUM1, 1,10);
     public static final IntSliderSetting MH=new IntSliderSetting("Decanter_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("Decanter_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("Decanter_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(USABLE);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public Decanter() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;
@@ -383,7 +385,8 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
             Polearm.ID,
             StroopsTester.ID,
             Wedgue.ID,
-            BanishingMace.ID
+            BanishingMace.ID,
+            TheCrow.ID
     ));
 
     private static final Set<String> IN_BATTLE_RELICS = new HashSet<>(Arrays.asList(
@@ -408,6 +411,7 @@ public class Decanter extends StropsAbstractRelic implements ClickableRelic,
             Polearm.ID,
             StroopsTester.ID,
             Wedgue.ID,
-            BanishingMace.ID
+            BanishingMace.ID,
+            TheCrow.ID
     ));
 }

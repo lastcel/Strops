@@ -73,6 +73,7 @@ public class ProfiteeringMerchant extends StropsAbstractRelic{
         return String.format(this.DESCRIPTIONS[0], DISCOUNT_ATTEMPTED.value, DISCOUNT_ACHIEVED.value);
     }
 
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         str_out.add(String.format(this.DESCRIPTIONS[0], DISCOUNT_ATTEMPTED.value, DISCOUNT_ACHIEVED.value));

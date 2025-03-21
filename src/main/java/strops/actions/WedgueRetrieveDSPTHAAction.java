@@ -12,9 +12,17 @@ public class WedgueRetrieveDSPTHAAction extends AbstractGameAction {
 
     @Override
     public void update(){
+        /*
         if(!GeneralDiscardPileToHandAction.drawnCards.isEmpty()){
-            wedgue.drawnCard=GeneralDiscardPileToHandAction.drawnCards.get(0);
+            //wedgue.drawnCard=GeneralDiscardPileToHandAction.drawnCards.get(0);
+            wedgue.drawnCards.clear();
+            wedgue.drawnCards.addAll(GeneralDiscardPileToHandAction.drawnCards);
         }
+
+         */
+        wedgue.drawnCards.clear();
+        wedgue.drawnCards.addAll(GeneralDrawPileToHandAction.drawnCards);
+        wedgue.drawnCards.addAll(GeneralDiscardPileToHandAction.drawnCards);
         this.isDone=true;
     }
 }

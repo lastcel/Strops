@@ -25,29 +25,31 @@ public class MessyPuppy extends StropsAbstractRelic{
     public static final String ID = ModHelper.makePath(MessyPuppy.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(MessyPuppy.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(MessyPuppy.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.BOSS;
+    //private static final RelicTier RELIC_TIER = RelicTier.BOSS;
     private static final LandingSound LANDING_SOUND = LandingSound.MAGICAL;
 
     public final ArrayList<AbstractMonster> records=new ArrayList<>();
     public static boolean isSmallerMonster=false;
 
-    public static final int NUM1=6,NUM2=4;
+    public static final int NUM1=6,NUM2=4,TIER=4;
 
     public static final IntSliderSetting PENALTY=new IntSliderSetting("MessyPuppy_Penalty_v0.12.0", "N1", NUM1, 1,15);
     public static final IntSliderSetting CAPACITY=new IntSliderSetting("MessyPuppy_Capacity_v0.12.0", "N2", NUM2, 1,10);
     public static final IntSliderSetting MH=new IntSliderSetting("MessyPuppy_MH_v0.12.0","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("MessyPuppy_G_v0.12.0","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("MessyPuppy_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(PENALTY);
         settings.add(CAPACITY);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public MessyPuppy() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         canCopy=false;
     }

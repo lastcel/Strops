@@ -55,16 +55,18 @@ public class RainingRuins extends StropsAbstractRelic implements ClickableRelic 
 
     public static boolean bruh = false;
 
-    public static final int NUM1=2,NUM2=1,TIER=1;
+    public static final int NUM1=2,NUM2=1,NUM3=1,TIER=1;
 
-    public static final IntSliderSetting COOLDOWN=new IntSliderSetting("RainyRuins_Cooldown", "N1", NUM1, 1,3);
-    public static final IntSliderSetting ENERGY=new IntSliderSetting("RainyRuins_Energy", "N2", NUM2, 1,3);
+    public static final IntSliderSetting COOLDOWN=new IntSliderSetting("RainyRuins_Cooldown", "N1", NUM1, 1,5);
+    public static final IntSliderSetting DRAW=new IntSliderSetting("RainyRuins_Draw", "N2", NUM2, 1,3);
+    public static final IntSliderSetting ENERGY=new IntSliderSetting("RainyRuins_Energy", "N3", NUM3, 1,3);
     public static final IntSliderSetting MH=new IntSliderSetting("RainyRuins_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("RainyRuins_G","G",0,-100,100);
     public static final IntSliderSetting R=new IntSliderSetting("RainyRuins_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(COOLDOWN);
+        settings.add(DRAW);
         settings.add(ENERGY);
         settings.add(MH);
         settings.add(G);
@@ -143,12 +145,12 @@ public class RainingRuins extends StropsAbstractRelic implements ClickableRelic 
             if (!AbstractDungeon.player.discardPile.isEmpty()) {
                 addToBot(new EmptyDeckShuffleAction());
                 addToBot(new ShuffleAction(AbstractDungeon.player.drawPile, false));
-                addToBot(new GainEnergyAction(1));
+                addToBot(new GainEnergyAction(ENERGY.value));
             }
             return;
         }
 
-        addToBot(new GeneralDrawPileToHandAction(1, myNeeds()));
+        addToBot(new GeneralDrawPileToHandAction(DRAW.value, myNeeds()));
         addToBot(new GainEnergyAction(ENERGY.value));
         counter=COOLDOWN.value;
         stopPulse();
@@ -216,13 +218,13 @@ public class RainingRuins extends StropsAbstractRelic implements ClickableRelic 
 
     @Override
     public String getUpdatedDescription() {
-        return String.format(this.DESCRIPTIONS[0], COOLDOWN.value, ENERGY.value);
+        return String.format(this.DESCRIPTIONS[0], COOLDOWN.value, DRAW.value, ENERGY.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
-        str_out.add(String.format(this.DESCRIPTIONS[0], COOLDOWN.value, ENERGY.value));
+        str_out.add(String.format(this.DESCRIPTIONS[0], COOLDOWN.value, DRAW.value, ENERGY.value));
         str_out.add("");
         str_out.add(getMHaG(MH,G));
         str_out.add(this.DESCRIPTIONS[1]);

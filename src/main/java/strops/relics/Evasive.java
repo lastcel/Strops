@@ -77,7 +77,7 @@ public class Evasive extends StropsAbstractRelic{
         return String.format(this.DESCRIPTIONS[5], MATCH_1.value, MATCH_2.value, MATCH_3.value);
     }
 
-
+    @Override
     public ArrayList<String> getUpdatedDescription2() {
         ArrayList<String> str_out=new ArrayList<>();
         if(MATCH_3.value==0){

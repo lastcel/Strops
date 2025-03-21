@@ -27,7 +27,7 @@ public class GrabbyHands extends StropsAbstractRelic implements ClickableRelic, 
     public static final String ID = ModHelper.makePath(GrabbyHands.class.getSimpleName());
     private static final String IMG_PATH = ModHelper.makeIPath(GrabbyHands.class.getSimpleName());
     private static final String IMG_PATH_O = ModHelper.makeOPath(GrabbyHands.class.getSimpleName());
-    private static final RelicTier RELIC_TIER = RelicTier.SHOP;
+    //private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
     //public static ArrayList<AbstractCard> cards = new ArrayList<>();
@@ -35,23 +35,25 @@ public class GrabbyHands extends StropsAbstractRelic implements ClickableRelic, 
     private AbstractDungeon.CurrentScreen prevScreen;
     private AbstractRoom.RoomPhase prevPhase;
 
-    public static final int NUM1=1,NUM2=4;
+    public static final int NUM1=1,NUM2=4,TIER=5;
 
     public static final IntSliderSetting SIZE=new IntSliderSetting("GrabbyHands_Size", "N1", NUM1, 1,3);
     public static final IntSliderSetting LATENCY=new IntSliderSetting("GrabbyHands_Latency", "N2", NUM2, 1,9);
     public static final IntSliderSetting MH=new IntSliderSetting("GrabbyHands_MH","MH",0,-20,20);
     public static final IntSliderSetting G=new IntSliderSetting("GrabbyHands_G","G",0,-100,100);
+    public static final IntSliderSetting R=new IntSliderSetting("GrabbyHands_R","R", TIER,0,5);
     public ArrayList<RelicSetting> BuildRelicSettings() {
         ArrayList<RelicSetting> settings = new ArrayList<>();
         settings.add(SIZE);
         settings.add(LATENCY);
         settings.add(MH);
         settings.add(G);
+        settings.add(R);
         return settings;
     }
 
     public GrabbyHands() {
-        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), RELIC_TIER, LANDING_SOUND);
+        super(ID, ImageMaster.loadImage(IMG_PATH), ImageMaster.loadImage(IMG_PATH_O), num2Tier(R.value), LANDING_SOUND);
         showMHaG(MH,G);
         this.tips.add(new PowerTip(this.DESCRIPTIONS[1], this.DESCRIPTIONS[2]));
         canCopy=false;
