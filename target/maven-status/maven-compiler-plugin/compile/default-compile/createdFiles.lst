@@ -204,6 +204,7 @@ strops\relics\WhiteDClips.class
 strops\patch\PatchRestrainedHeart$PatchTool4.class
 strops\cards\OneHuge.class
 strops\patch\PatchRestrainedHeart$PatchTool9.class
+strops\patch\PatchLoveChocolate$PatchTool6.class
 strops\patch\PatchGrassNowAndFlowersThen$PatchTool1.class
 strops\relics\SoulCannonOneTiny.class
 strops\patch\PatchExtraBossRelic$Open.class
@@ -393,6 +394,7 @@ strops\patch\PatchRainbowColoredCircle$PatchTool1.class
 strops\patch\PatchRestrainedHeart$PatchTool8.class
 strops\patch\PatchDecanter$PatchTool22.class
 strops\patch\PatchRenderAndCheck.class
+strops\patch\PatchLoveChocolate$PatchTool5.class
 strops\patch\PatchNeuronSight$PatchTool2$Locator.class
 strops\patch\PatchDecanter$PatchTool18.class
 strops\powers\RitualOfRitualPower.class

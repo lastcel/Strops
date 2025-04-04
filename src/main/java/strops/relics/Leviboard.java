@@ -20,7 +20,7 @@ public class Leviboard extends StropsAbstractRelic{
 
     public static final int NUM1=20,NUM2=300,NUM3=1,TIER=1;
 
-    public static final IntSliderSetting HP_THRESHOLD=new IntSliderSetting("Leviboard_Threshold_Hp_v0.16.1", "N1", NUM1, 30);
+    public static final IntSliderSetting HP_THRESHOLD=new IntSliderSetting("Leviboard_Threshold_Hp_v0.16.1", "N1", NUM1, 1,50);
     public static final IntSliderSetting GOLD_THRESHOLD=new IntSliderSetting("Leviboard_Threshold_Gold_v0.16.1", "N2", NUM2, 100,400);
     public static final IntSliderSetting POTION_THRESHOLD=new IntSliderSetting("Leviboard_Threshold_Potion", "N3", NUM3, 1,6);
     public static final IntSliderSetting MH=new IntSliderSetting("Leviboard_MH_v0.16.1","MH",0,-20,20);

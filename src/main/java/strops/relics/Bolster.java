@@ -58,7 +58,7 @@ public class Bolster extends StropsAbstractRelic {
     public void update() {
         super.update();
         if(isObtained){
-            counter=AbstractDungeon.player.relics.size();
+            counter=(int)AbstractDungeon.player.relics.stream().filter(r->!(r.relicId.equals(LoveChocolate.ID))).count();
             this.pulse=(counter >= THRESHOLD.value);
         }
     }

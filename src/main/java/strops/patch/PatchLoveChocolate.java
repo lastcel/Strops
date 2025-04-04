@@ -3,7 +3,10 @@ package strops.patch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.shrines.Nloth;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
+import com.megacrit.cardcrawl.random.Random;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.CampfireUI;
 import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
@@ -11,6 +14,8 @@ import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 import com.megacrit.cardcrawl.ui.campfire.RestOption;
 import strops.modcore.Strops;
 import strops.relics.LoveChocolate;
+
+import java.util.ArrayList;
 
 public class PatchLoveChocolate {
 
@@ -103,6 +108,30 @@ public class PatchLoveChocolate {
             } else {
                 Strops.continuousRest=0;
             }
+        }
+    }
+
+    @SpirePatch(
+            clz= AbstractDungeon.class,
+            method="getShrine"
+    )
+    public static class PatchTool5 {
+        @SpireInsertPatch(rloc = 57,localvars = {"tmp"})
+        public static void Insert(Random rng, ArrayList<String> tmp) {
+            if(AbstractDungeon.player.relics.size()==2&&AbstractDungeon.player.hasRelic(LoveChocolate.ID)){
+                tmp.remove(Nloth.ID);
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz= Nloth.class,
+            method=SpirePatch.CONSTRUCTOR
+    )
+    public static class PatchTool6 {
+        @SpireInsertPatch(rloc = 5,localvars = {"relics"})
+        public static void Insert(Nloth __inst, ArrayList<AbstractRelic> relics) {
+            relics.removeIf(r->r.relicId.equals(LoveChocolate.ID));
         }
     }
 }

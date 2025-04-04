@@ -870,7 +870,7 @@
     "NAME": "Wedgue",
     "FLAVOR": "What’s past is... wedgue?",
     "DESCRIPTIONS": [
-      "Upon pickup, choose a particular Cost, Type or Rarity and #rBecome #rCursed #r- #r%d #rAscender's #rBane. At the start of each turn, add #b%d random card in the draw pile or discard pile into your hand that corresponds to your choice (the draw pile has priority), and #yRetain it for that turn.",
+      "Upon pickup, choose a particular Cost, Type or Rarity and #rBecome #rCursed #r- #b%d #rAscender's #rBane. At the start of each turn, add #b%d random card in the draw pile or discard pile into your hand that corresponds to your choice (the draw pile has priority), and #yRetain it for that turn.",
       "",
       "",
       "",
