@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.helpers.ModHelper;
 import strops.relics.ProfiteeringMerchant;
 import strops.relics.ProfiteeringMerchantAttempted;
+import strops.relics.StropsAbstractRelic;
 
 public class ChooseAttemptedVersion extends CustomCard {
     public static final String ID = ModHelper.makePath(ChooseAttemptedVersion.class.getSimpleName());
@@ -39,9 +39,7 @@ public class ChooseAttemptedVersion extends CustomCard {
                 break;
             }
         }
-        if(AbstractDungeon.getCurrRoom().phase== AbstractRoom.RoomPhase.INCOMPLETE){
-            AbstractDungeon.getCurrRoom().phase=AbstractRoom.RoomPhase.COMPLETE;
-        }
+        AbstractDungeon.getCurrRoom().phase= StropsAbstractRelic.savedRoomPhase;
     }
 
     public void upgrade() {}

@@ -77,6 +77,7 @@ public class PlagueStopwatch extends StropsAbstractRelic implements OnAfterUseCa
             AbstractDungeon.overlayMenu.cancelButton.hide();
             AbstractDungeon.previousScreen = AbstractDungeon.screen;
         }
+        savedRoomPhase=AbstractDungeon.getCurrRoom().phase;
         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
         AbstractDungeon.cardRewardScreen.chooseOneOpen(envenomChoices);
     }

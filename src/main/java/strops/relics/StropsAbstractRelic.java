@@ -57,6 +57,8 @@ public abstract class StropsAbstractRelic extends CustomRelic {
 
     public static final String TOOL_PATH="StropsResources/img/misc/ToolIcon.png";
 
+    public static AbstractRoom.RoomPhase savedRoomPhase;
+
     public StropsAbstractRelic(String id, Texture texture, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx) {
         super(id, texture, tier, sfx);
     }

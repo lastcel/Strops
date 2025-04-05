@@ -63,6 +63,7 @@ public class StrongestPotion extends StropsAbstractRelic{
             AbstractDungeon.overlayMenu.cancelButton.hide();
             AbstractDungeon.previousScreen = AbstractDungeon.screen;
         }
+        savedRoomPhase=AbstractDungeon.getCurrRoom().phase;
         AbstractDungeon.getCurrRoom().phase=AbstractRoom.RoomPhase.INCOMPLETE;
         PatchStrongestPotion.PatchTool1.whichCallThis.set(AbstractDungeon.cardRewardScreen,this);
         AbstractDungeon.cardRewardScreen.chooseOneOpen(strongestPotionChoices);

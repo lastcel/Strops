@@ -10,11 +10,11 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.Sozu;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.helpers.ModHelper;
 import strops.potions.Blizzard;
 import strops.relics.Decanter;
 import strops.relics.IceGenerator;
+import strops.relics.StropsAbstractRelic;
 
 public class GetBlizzard extends AbstractStropsCard {
     public static final String ID = ModHelper.makePath(GetBlizzard.class.getSimpleName());
@@ -63,9 +63,13 @@ public class GetBlizzard extends AbstractStropsCard {
             }
         }
 
+        AbstractDungeon.getCurrRoom().phase=StropsAbstractRelic.savedRoomPhase;
+        /*
         if(AbstractDungeon.getCurrRoom().phase==AbstractRoom.RoomPhase.INCOMPLETE){
             AbstractDungeon.getCurrRoom().phase=AbstractRoom.RoomPhase.COMPLETE;
         }
+
+         */
     }
 
     public void upgrade() {}

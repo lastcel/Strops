@@ -67,6 +67,7 @@ public class IceGenerator extends StropsAbstractRelic implements CustomSavable<B
             AbstractDungeon.previousScreen = AbstractDungeon.screen;
         }
         //previousPhase=AbstractDungeon.getCurrRoom().phase;
+        savedRoomPhase=AbstractDungeon.getCurrRoom().phase;
         AbstractDungeon.getCurrRoom().phase=AbstractRoom.RoomPhase.INCOMPLETE;
         PatchStrongestPotion.PatchTool1.whichCallThis.set(AbstractDungeon.cardRewardScreen,this);
         AbstractDungeon.cardRewardScreen.chooseOneOpen(iceGenChoices);

@@ -9,10 +9,10 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import strops.helpers.ModHelper;
 import strops.relics.PlagueStopwatch;
+import strops.relics.StropsAbstractRelic;
 
 public class DoAddEnvenom extends CustomCard {
     public static final String ID = ModHelper.makePath(DoAddEnvenom.class.getSimpleName());
@@ -46,9 +46,7 @@ public class DoAddEnvenom extends CustomCard {
             AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c,
                     Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
         }
-        if(AbstractDungeon.getCurrRoom().phase==AbstractRoom.RoomPhase.INCOMPLETE){
-            AbstractDungeon.getCurrRoom().phase=AbstractRoom.RoomPhase.COMPLETE;
-        }
+        AbstractDungeon.getCurrRoom().phase= StropsAbstractRelic.savedRoomPhase;
     }
 
     public void upgrade() {}

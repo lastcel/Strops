@@ -64,6 +64,7 @@ public class SunflowerInASummer extends StropsAbstractRelic {
             AbstractDungeon.overlayMenu.cancelButton.hide();
             AbstractDungeon.previousScreen = AbstractDungeon.screen;
         }
+        savedRoomPhase=AbstractDungeon.getCurrRoom().phase;
         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
         AbstractDungeon.cardRewardScreen.chooseOneOpen(iriyaChoices);
     }

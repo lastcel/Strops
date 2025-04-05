@@ -7,9 +7,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.helpers.ModHelper;
 import strops.patch.PatchSunflowerInASummer;
+import strops.relics.StropsAbstractRelic;
 import strops.relics.SunflowerInASummer;
 
 public class ToEscape extends CustomCard {
@@ -33,9 +33,7 @@ public class ToEscape extends CustomCard {
         PatchSunflowerInASummer.PatchTool2.everMetSunflower.set(true);
         AbstractDungeon.player.getRelic(SunflowerInASummer.ID).beginLongPulse();
 
-        if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.INCOMPLETE){
-            AbstractDungeon.getCurrRoom().phase=AbstractRoom.RoomPhase.COMPLETE;
-        }
+        AbstractDungeon.getCurrRoom().phase= StropsAbstractRelic.savedRoomPhase;
     }
 
     public void upgrade() {}

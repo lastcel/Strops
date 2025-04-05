@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.helpers.ModHelper;
 import strops.patch.PatchStrongestPotion;
 import strops.relics.IceGenerator;
+import strops.relics.StropsAbstractRelic;
 
 public class HealToFull extends CustomCard {
     public static final String ID = ModHelper.makePath(HealToFull.class.getSimpleName());
@@ -33,9 +33,13 @@ public class HealToFull extends CustomCard {
         AbstractDungeon.player.heal(AbstractDungeon.player.maxHealth);
         ((IceGenerator)PatchStrongestPotion.PatchTool1.whichCallThis.get(AbstractDungeon.cardRewardScreen)).isHealToFull=true;
         PatchStrongestPotion.PatchTool1.whichCallThis.get(AbstractDungeon.cardRewardScreen).beginLongPulse();
+        AbstractDungeon.getCurrRoom().phase=StropsAbstractRelic.savedRoomPhase;
+        /*
         if(AbstractDungeon.getCurrRoom().phase==AbstractRoom.RoomPhase.INCOMPLETE){
             AbstractDungeon.getCurrRoom().phase=AbstractRoom.RoomPhase.COMPLETE;
         }
+
+         */
     }
 
     public void upgrade() {}

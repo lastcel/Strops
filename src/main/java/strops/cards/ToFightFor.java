@@ -10,10 +10,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.Sozu;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.helpers.ModHelper;
 import strops.potions.PhantasmalShootingStar;
 import strops.relics.Decanter;
+import strops.relics.StropsAbstractRelic;
 import strops.relics.SunflowerInASummer;
 
 public class ToFightFor extends CustomCard {
@@ -53,9 +53,7 @@ public class ToFightFor extends CustomCard {
             }
         }
 
-        if(AbstractDungeon.getCurrRoom().phase== AbstractRoom.RoomPhase.INCOMPLETE){
-            AbstractDungeon.getCurrRoom().phase=AbstractRoom.RoomPhase.COMPLETE;
-        }
+        AbstractDungeon.getCurrRoom().phase= StropsAbstractRelic.savedRoomPhase;
     }
 
     public void upgrade() {}

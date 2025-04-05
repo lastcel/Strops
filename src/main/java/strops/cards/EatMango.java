@@ -7,9 +7,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.helpers.ModHelper;
 import strops.relics.StrongestPotion;
+import strops.relics.StropsAbstractRelic;
 
 public class EatMango extends CustomCard {
     public static final String ID = ModHelper.makePath(EatMango.class.getSimpleName());
@@ -31,9 +31,13 @@ public class EatMango extends CustomCard {
 
     public void onChoseThisOption() {
         AbstractDungeon.player.increaseMaxHp(StrongestPotion.BONUS.value,true);
+        AbstractDungeon.getCurrRoom().phase=StropsAbstractRelic.savedRoomPhase;
+        /*
         if(AbstractDungeon.getCurrRoom().phase==AbstractRoom.RoomPhase.INCOMPLETE){
             AbstractDungeon.getCurrRoom().phase=AbstractRoom.RoomPhase.COMPLETE;
         }
+
+         */
     }
 
     public void upgrade() {}

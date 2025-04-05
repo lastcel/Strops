@@ -85,6 +85,10 @@ public class LoveChocolate extends StropsAbstractRelic implements ClickableRelic
             return;
         }
 
+        if(AbstractDungeon.screen!=AbstractDungeon.CurrentScreen.COMBAT_REWARD){
+            return;
+        }
+
         if(grayscale){
             return;
         }
@@ -105,6 +109,9 @@ public class LoveChocolate extends StropsAbstractRelic implements ClickableRelic
         AbstractDungeon.cardRandomRng = new Random(Settings.seed + AbstractDungeon.floorNum + 60);
         AbstractDungeon.miscRng = new Random(Settings.seed + AbstractDungeon.floorNum + 60);
 
+        AbstractDungeon.getCurrRoom().rewardTime=false;
+        AbstractDungeon.combatRewardScreen.rewards.clear();
+        //AbstractDungeon.previousScreen=AbstractDungeon.CurrentScreen.NONE;
         AbstractDungeon.closeCurrentScreen();
         flash();
         beginLongPulse();

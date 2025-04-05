@@ -6,9 +6,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.helpers.ModHelper;
 import strops.patch.PatchStrongestPotion;
+import strops.relics.StropsAbstractRelic;
 import strops.relics.Wedgue;
 
 public class Choose3PlusCost extends CustomCard {
@@ -32,9 +32,7 @@ public class Choose3PlusCost extends CustomCard {
         ((Wedgue) PatchStrongestPotion.PatchTool1.whichCallThis.get(AbstractDungeon.cardRewardScreen)).condition = Wedgue.Condition.THREE_PLUS_COST;
         ((Wedgue) PatchStrongestPotion.PatchTool1.whichCallThis.get(AbstractDungeon.cardRewardScreen)).setDescriptionAfterLoading();
 
-        if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.INCOMPLETE){
-            AbstractDungeon.getCurrRoom().phase=AbstractRoom.RoomPhase.COMPLETE;
-        }
+        AbstractDungeon.getCurrRoom().phase= StropsAbstractRelic.savedRoomPhase;
     }
 
     public void upgrade() {}

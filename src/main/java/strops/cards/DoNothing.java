@@ -7,8 +7,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import strops.helpers.ModHelper;
+import strops.relics.StropsAbstractRelic;
 
 public class DoNothing extends CustomCard {
     public static final String ID = ModHelper.makePath(DoNothing.class.getSimpleName());
@@ -28,9 +28,7 @@ public class DoNothing extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {}
 
     public void onChoseThisOption() {
-        if(AbstractDungeon.getCurrRoom().phase==AbstractRoom.RoomPhase.INCOMPLETE){
-            AbstractDungeon.getCurrRoom().phase=AbstractRoom.RoomPhase.COMPLETE;
-        }
+        AbstractDungeon.getCurrRoom().phase= StropsAbstractRelic.savedRoomPhase;
     }
 
     public void upgrade() {}
