@@ -121,6 +121,7 @@ public class LoveChocolate extends StropsAbstractRelic implements ClickableRelic
         AbstractDungeon.getCurrRoom().isBattleOver = false;
         AbstractDungeon.getCurrRoom().monsters.init();
         AbstractRoom.waitTimer = 0.1F;
+        AbstractDungeon.resetPlayer();
         AbstractDungeon.player.preBattlePrep();
         AbstractDungeon.getCurrRoom().rewardAllowed=false;
         initialHP=AbstractDungeon.player.currentHealth;
